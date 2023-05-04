@@ -1,0 +1,92 @@
+<!-- should be bound to pageModel:
+     hasPreviousPage()
+     hasNextPage()
+     currentPage()
+     numberOfPages()
+     hasMultiplePages()s
+
+     nextPage()
+     previousPage()
+     create()
+
+     toggleFinder()
+  -->
+<span>
+  <button 
+     type="button" 
+     class="btn create-button"
+     data-bind="click: manipulation.createItem, visible: accessRights.canCreate">
+    <span class="icon-plus"></span>
+  </button> 
+
+
+  <!-- ko if: $data.searching -->
+  <button 
+     type="button" 
+     class="btn finder-button"
+     data-bind="click: searching.toggleFinder, css: {'btn-info': searching.isFinderActive }, visible: searching.hasFinderSelection">
+    <span class="icon-search"></span>
+  </button> 
+  <!-- /ko -->
+
+  <span data-bind="visible: paging.hasMultiplePages" style="display:none">
+    <button 
+       type="button" 
+       class="btn previous-page-button"
+       data-bind="click: paging.previousPage, enable: paging.hasPreviousPage">
+      <span class="icon-chevron-up"></span>
+    </button>
+
+    <button 
+       type="button"
+       class="btn next-page-button"
+       data-bind="click: paging.nextPage, enable: paging.hasNextPage">
+      <span class="icon-chevron-down"></span>
+    </button>
+  </span>
+
+  <button
+     type="button"
+     class="btn reload-button"
+     data-bind="click: paging.reloadPage">
+    <span class="icon-refresh"></span>
+  </button>
+
+  <span data-bind="visible: paging.hasMultiplePages" style="display:none">
+    <span>&nbsp;
+      <span data-bind="translate: 'ns.page'"></span>
+      <input type="text" class="nsx-page" data-bind="value: paging.userPage" ></input>
+      <span data-bind="translate: 'ns.of'"></span>
+      <span data-bind="text: paging.numberOfPages"></span>
+    </span>
+  </span>
+
+  <span data-bind="visible: paging.totalNumberOfItems">
+    <span>&nbsp;(<span data-bind="text: paging.totalNumberOfItems"></span> items)</span>
+  </span>
+
+  <span data-bind="visible: hasSelection">
+    <span >&nbsp;&nbsp;</span>
+    
+    <button 
+       type="button" 
+       class="btn view-button"
+       data-bind="click: manipulation.viewItem, visible: accessRights.canView">
+      <span class="icon-eye-open"></span>
+    </button> 
+
+    <button 
+       type="button" 
+       class="btn edit-button"
+       data-bind="click: manipulation.modifyItem, visible: accessRights.canModify">
+      <span class="icon-pencil"></span>
+    </button> 
+
+    <button 
+       type="button" 
+       class="btn delete-button"
+       data-bind="click: manipulation.deleteItem, visible: accessRights.canDelete">
+    <span class="icon-trash"></span>
+  </button> 
+  </span>
+</span>

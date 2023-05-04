@@ -1,0 +1,3 @@
+validation/agents/ValidationProxyAgents.class
+net/democritus/validation/ValidationProxy.class
+net/democritus/validation/ValidationAgent.class

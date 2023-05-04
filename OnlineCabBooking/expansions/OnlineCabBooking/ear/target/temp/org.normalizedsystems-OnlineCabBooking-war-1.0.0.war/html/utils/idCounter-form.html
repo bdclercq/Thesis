@@ -1,0 +1,44 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="idCounter.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="idCounter.name"
+             data-bind="translate: 'utils.idCounter.name'">
+      </label>
+      <div class="controls" id="idCounter.name" data-bind="focus: 1">
+        <input type='text' name='idCounter.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('idCounter.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: counter.visible -->
+    <div class="control-group"
+       data-bind="css: { error: counter.hasErrors}">
+      <label class="control-label"
+             for="idCounter.counter"
+             data-bind="translate: 'utils.idCounter.counter'">
+      </label>
+      <div class="controls" id="idCounter.counter" data-bind="focus: 2">
+        <span data-bind='integerInput: detailModel.counter, enable: isFieldEnabled("idCounter.counter", editMode)'></span>
+        <div data-bind="formError: counter"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

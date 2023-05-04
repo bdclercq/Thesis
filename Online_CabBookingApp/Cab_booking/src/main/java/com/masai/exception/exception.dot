@@ -1,0 +1,21 @@
+digraph "package" {
+
+splines  = ortho;
+fontname = "Inconsolata";
+
+node [colorscheme = ylgnbu4];
+edge [colorscheme = dark28, dir = both];
+
+AdminExceptions            [shape = record, pos = "1.889,2.903!"     , label = "{ AdminExceptions | + AdminExceptions(String) : \l + AdminExceptions() : \l }"];
+DriverNotFoundException    [shape = record, pos = "6.764,4.569!"     , label = "{ DriverNotFoundException | + DriverNotFoundException(String) : \l + DriverNotFoundException() : \l }"];
+GlobalExceptionHandler     [shape = record, pos = "-1.778,7.778!"    , label = "{ GlobalExceptionHandler | + GlobalExceptionHandler() : \l|+ myExpHandler4(AdminExceptions, WebRequest) : ResponseEntity\<MyErrorDetails\>\l + myExpHandler3(MethodArgumentNotValidException) : ResponseEntity\<MyErrorDetails\>\l + myExpHandler(Exception, WebRequest) : ResponseEntity\<MyErrorDetails\>\l + myExpHandler4(DriverNotFoundException, WebRequest) : ResponseEntity\<MyErrorDetails\>\l + myExpHandler2(NoHandlerFoundException, WebRequest) : ResponseEntity\<MyErrorDetails\>\l + myExpHandler1(InvalidId, WebRequest) : ResponseEntity\<MyErrorDetails\>\l }"];
+InvalidId                  [shape = record, pos = "-1.778,1.236!"    , label = "{ InvalidId | + InvalidId() : \l + InvalidId(String) : \l }"];
+InvalidPasswordException   [shape = record, pos = "2.569,4.569!"     , label = "{ InvalidPasswordException | + InvalidPasswordException() : \l + InvalidPasswordException(String) : \l }"];
+MyErrorDetails             [shape = record, pos = "0.014,12.611!"    , label = "{ MyErrorDetails | + MyErrorDetails(LocalDateTime, String, String) : \l + MyErrorDetails() : \l|- details : String\l - timestamp : LocalDateTime\l - message : String\l|+ toString() : String\l + equals(Object) : boolean\l # canEqual(Object) : boolean\l + hashCode() : int\l| details : String\l  message : String\l  timestamp : LocalDateTime\l }"];
+NotFoundException          [shape = record, pos = "-1.778,2.903!"    , label = "{ NotFoundException | + NotFoundException() : \l + NotFoundException(String) : \l }"];
+Nullexception              [shape = record, pos = "5.347,2.903!"     , label = "{ Nullexception | + Nullexception() : \l + Nullexception(String) : \l }"];
+UserAlreadyExistWithuserId [shape = record, pos = "-1.778,4.569!"    , label = "{ UserAlreadyExistWithuserId | + UserAlreadyExistWithuserId() : \l + UserAlreadyExistWithuserId(String) : \l }"];
+
+GlobalExceptionHandler     -> MyErrorDetails             [color = "#595959", style = dashed, arrowtail = none    , arrowhead = vee     , taillabel = "", label = "«create»", headlabel = ""];
+
+}

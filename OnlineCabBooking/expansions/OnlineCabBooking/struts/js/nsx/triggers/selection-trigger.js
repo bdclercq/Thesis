@@ -1,0 +1,1 @@
+define(["require","exports","knockout"],(function(e,r,n){"use strict";Object.defineProperty(r,"__esModule",{value:!0}),r.defineSelectionTrigger=void 0,r.defineSelectionTrigger=function(e){var r=e.source,i=[];return{subscribe:function(e){i.push(e)},trigger:function(){var e=n.unwrap(r);return i.forEach((function(r){r.call(this,e)})),!0}}}}));

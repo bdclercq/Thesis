@@ -1,0 +1,1 @@
+"use strict";define(["require","jquery","nsx/view/tableCell"],(function(e,r,t){function n(e,n){return r.map(e,(function(e){return function(e,n){var a=r("<tr>");return a.append(t.createHeaderCell(e,!1),t.createBodyCell(e,n)),a}(e,n)}))}return{createTable:function(e,t){var a=r("<table class='table table-striped table-bordered table-condensed'>");return a.append(n(e,t)),a}}}));

@@ -1,0 +1,5 @@
+-- anchor:custom-methods:start
+  String getParamTargetValue(ParameterContext<ParamTargetValueFindByParamEq_TargetEqDetails> parameter);
+  boolean isParamTargetValueActive(ParameterContext<ParamTargetValueFindByParamEq_TargetEqDetails> parameter, boolean defaultValue);
+  CrudsResult<DataRef> setParamTargetValue(ParameterContext<ParamTargetValueDetails> parameter);
+-- anchor:custom-methods:end

@@ -1,0 +1,10 @@
+-- anchor:custom-asString:start
+    if (kBO == null) {
+      result = success("");
+    } else {
+      result = success(kBO.getValue());
+    }
+-- anchor:custom-asString:end
+-- anchor:custom-fromString:start
+    result = success(new KBO(value));
+-- anchor:custom-fromString:end

@@ -1,0 +1,54 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>
+      <span data-bind="translate: 'account.profile.id'"></span>
+    </th>
+    <td>
+      <span data-bind="text: id"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:start -->
+  <tr>
+    <th>
+      <span data-bind="translate: 'account.profile.name'"></span>
+    </th>
+    <td>
+      <span data-bind="text: name"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'account.profile.screens'"></span>
+    </th>
+    <td>
+      <span data-bind="collection: { field: screens, name: 'account.profile.screens'}">
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'account.profile.userGroup'"></span>
+    </th>
+    <td>
+      <span data-bind="with: userGroup">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'account.profile.weight'"></span>
+    </th>
+    <td>
+      <span data-bind="text: weight"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:end -->
+  <!-- @anchor:field-rows:start -->
+  <!-- @anchor:field-rows:end -->
+  <!-- anchor:custom-field-rows:start -->
+  <!-- anchor:custom-field-rows:end -->
+</table>

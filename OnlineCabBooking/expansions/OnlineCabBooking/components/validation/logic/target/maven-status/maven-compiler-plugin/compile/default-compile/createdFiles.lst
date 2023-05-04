@@ -1,0 +1,13 @@
+net/democritus/validation/ValidationInfoProjector.class
+validation/agents/ValidationLocalAgents.class
+net/democritus/validation/ValidationFinderBean.class
+net/democritus/validation/ValidationCruds.class
+net/democritus/validation/ValidationCrudsInternal.class
+net/democritus/validation/ValidationBean.class
+net/democritus/validation/ValidationLocal.class
+net/democritus/validation/ValidationData.class
+net/democritus/validation/ValidationDetailsProjector.class
+net/democritus/validation/ValidationFinderLocal.class
+net/democritus/validation/ValidationDataRefProjector.class
+net/democritus/validation/ValidationLocalAgent.class
+net/democritus/validation/ValidationCrudsLocal.class

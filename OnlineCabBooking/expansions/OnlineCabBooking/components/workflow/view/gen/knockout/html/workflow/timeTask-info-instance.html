@@ -1,0 +1,69 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.timeTask.id'"></span>
+    </th>
+    <td>
+      <span data-bind="text: id"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:start -->
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.timeTask.name'"></span>
+    </th>
+    <td>
+      <span data-bind="text: name"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.timeTask.processor'"></span>
+    </th>
+    <td>
+      <span data-bind="text: processor"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.timeTask.triggerState'"></span>
+    </th>
+    <td>
+      <span data-bind="text: triggerState"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.timeTask.intervalPeriod'"></span>
+    </th>
+    <td>
+      <span data-bind="text: intervalPeriod"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.timeTask.requiredAction'"></span>
+    </th>
+    <td>
+      <span data-bind="text: requiredAction"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.timeTask.workflow'"></span>
+    </th>
+    <td>
+      <span data-bind="with: workflow">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:end -->
+  <!-- @anchor:field-rows:start -->
+  <!-- @anchor:field-rows:end -->
+  <!-- anchor:custom-field-rows:start -->
+  <!-- anchor:custom-field-rows:end -->
+</table>

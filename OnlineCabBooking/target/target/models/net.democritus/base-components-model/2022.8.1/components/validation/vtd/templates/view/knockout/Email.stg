@@ -1,0 +1,8 @@
+
+editField(componentName, elementName, fieldName) ::= <<
+<input type='text' data-bind='value: detailModel.$fieldName$.value, enable: isFieldEnabled("$elementName$.$fieldName$", editMode)'></input>
+>>
+
+displayField(componentName, elementName, fieldName) ::= <<
+<span data-bind='text: $fieldName$.value'></span>
+>>

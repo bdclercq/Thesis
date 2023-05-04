@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <display-name>OnlineCabBooking</display-name>
+
+  <!-- @anchor:web-before:start -->
+  <!-- @anchor:web-before:end -->
+  <!-- anchor:custom-web-before:start -->
+  <!-- anchor:custom-web-before:end -->
+
+  <!-- @anchor:filters:start -->
+  <filter>
+    <filter-name>struts2</filter-name>
+    <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter>
+  <!-- @anchor:filters:end -->
+  <!-- anchor:custom-filters:start -->
+  <!-- anchor:custom-filters:end -->
+
+  <!-- @anchor:filter-mappings:start -->
+  <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <!-- @anchor:filter-mappings:end -->
+  <!-- anchor:custom-filter-mappings:start -->
+  <!-- anchor:custom-filter-mappings:end -->
+
+  <!-- @anchor:listeners:start -->
+  <listener>
+    <listener-class>net.democritus.web.listener.UniqueSessionListener</listener-class>
+  </listener>
+  <!-- @anchor:listeners:end -->
+  <!-- anchor:custom-listeners:start -->
+  <!-- anchor:custom-listeners:end -->
+
+  <!-- @anchor:servlets:start -->
+  <!-- @anchor:servlets:end -->
+  <!-- anchor:custom-servlets:start -->
+  <!-- anchor:custom-servlets:end -->
+
+  <!-- @anchor:servlet-mappings:start -->
+  <!-- @anchor:servlet-mappings:end -->
+  <!-- anchor:custom-servlet-mappings:start -->
+  <!-- anchor:custom-servlet-mappings:end -->
+
+  <!-- @anchor:web:start -->
+  <!-- @anchor:web:end -->
+
+  <welcome-file-list>
+    <!-- @anchor:welcome:start -->
+    <!-- @anchor:welcome:end -->
+    <!-- anchor:custom-welcome:start -->
+    <!-- anchor:custom-welcome:end -->
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+
+  <!-- @anchor:error-pages:start -->
+  <!-- @anchor:error-pages:end -->
+  <!-- anchor:custom-error-pages:start -->
+  <!-- anchor:custom-error-pages:end -->
+
+  <!-- @anchor:security:start -->
+  <!-- @anchor:security:end -->
+  <!-- anchor:custom-security:start -->
+  <!-- anchor:custom-security:end -->
+
+  <!-- @anchor:web-after:start -->
+  <!-- @anchor:web-after:end -->
+  <!-- anchor:custom-web:start -->
+  <!-- anchor:custom-web:end -->
+
+</web-app>

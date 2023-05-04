@@ -1,0 +1,4 @@
+
+<link rel="stylesheet" href="<%=contextPath%>/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css">
+<script type="text/javascript" src="<%=contextPath%>/js/require/require.min.js"></script>
+<script type="text/javascript" src="<%=contextPath%>/js/require/requireConfig.js"></script>

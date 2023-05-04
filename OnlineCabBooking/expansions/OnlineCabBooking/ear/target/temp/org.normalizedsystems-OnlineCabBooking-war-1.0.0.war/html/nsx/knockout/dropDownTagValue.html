@@ -1,0 +1,9 @@
+<div>
+  <ul  class="dropdown-menu nsx-dropdown" data-bind="foreach: items">
+    <li data-bind="style: {'background-color': $parent.isSelectedItem($data) ? '#d9edf7' : 'white'}">
+        <a data-bind="instanceId: { prefix: 'dropdown-option', fields: [value] }, click: $parent.selectRow">
+          <span data-bind="text: value"></span>
+        </a>
+    </li>
+  </ul>
+</div>

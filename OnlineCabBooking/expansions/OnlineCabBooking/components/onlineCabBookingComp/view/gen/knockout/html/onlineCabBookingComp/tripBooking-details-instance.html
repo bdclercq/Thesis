@@ -1,0 +1,117 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.id'"></span>
+    </th>
+    <td>
+      <span data-bind="text: id"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.name'"></span>
+    </th>
+    <td>
+      <span data-bind="text: name"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:start -->
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.customer'"></span>
+    </th>
+    <td>
+      <span data-bind="with: customer">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.driver'"></span>
+    </th>
+    <td>
+      <span data-bind="with: driver">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.fromLocation'"></span>
+    </th>
+    <td>
+      <span data-bind="with: fromLocation">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.toLocation'"></span>
+    </th>
+    <td>
+      <span data-bind="with: toLocation">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.fromDateTime'"></span>
+    </th>
+    <td>
+      <span data-bind="dateString: fromDateTime"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.toDateTime'"></span>
+    </th>
+    <td>
+      <span data-bind="dateString: toDateTime"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.km'"></span>
+    </th>
+    <td>
+      <span data-bind="text: km"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.totalAmount'"></span>
+    </th>
+    <td>
+      <span data-bind="text: totalAmount"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.payment'"></span>
+    </th>
+    <td>
+      <span data-bind="with: payment">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:end -->
+  <!-- @anchor:field-rows:start -->
+  <!-- @anchor:field-rows:end -->
+  <!-- anchor:custom-field-rows:start -->
+  <!-- anchor:custom-field-rows:end -->
+</table>

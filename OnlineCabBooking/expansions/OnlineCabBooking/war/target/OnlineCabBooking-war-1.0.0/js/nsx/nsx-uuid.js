@@ -1,0 +1,1 @@
+define(["require","exports"],(function(x,e){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.generateUUID=void 0,e.generateUUID=function(){var x=(new Date).getTime();return"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,(function(e){var r=(x+16*Math.random())%16|0;return x=Math.floor(x/16),("x"==e?r:7&r|8).toString(16)}))}}));

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.normalizedsystems</groupId>
+  <artifactId>extra-libraries</artifactId>
+  <!-- Version is not relevant as this pom file is only used to download libraries -->
+  <version>1.0.0-SNAPSHOT</version>
+
+  <properties>
+    <lib.directory>${project.basedir}/base/lib</lib.directory>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.3.0</version>
+        <configuration>
+          <outputDirectory>${lib.directory}</outputDirectory>
+          <artifactItems>
+            <!-- Add additional libraries here to add to the application server -->
+          </artifactItems>
+        </configuration>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

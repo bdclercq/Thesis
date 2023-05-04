@@ -1,0 +1,84 @@
+<dataElement name="Address">
+  <packageName>cabBookingCore</packageName>
+  <description>Address element</description>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="state">
+      <fieldType>VALUE_FIELD</fieldType>
+      <description>State or province</description>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+    </field>
+    <field name="city">
+      <fieldType>VALUE_FIELD</fieldType>
+      <description>City</description>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+    </field>
+    <field name="pincode">
+      <fieldType>VALUE_FIELD</fieldType>
+      <description>Pincode or zipcode</description>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+    </field>
+    <field name="street">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+    </field>
+    <field name="houseNumber">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Integer"/>
+      </valueField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findByPincodeEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="pincode"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByCityEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="city"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByStateEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="state"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByStreetEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="street"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+  </finders>
+</dataElement>

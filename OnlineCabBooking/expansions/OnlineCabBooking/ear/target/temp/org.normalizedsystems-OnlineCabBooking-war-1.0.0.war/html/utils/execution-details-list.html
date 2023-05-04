@@ -1,0 +1,49 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="utils-execution-name-header">
+      <span data-bind="translate: 'utils.execution.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: component.sort.trigger" class="utils-execution-component-header">
+      <span data-bind="translate: 'utils.execution.component'"></span>
+      <i class="sortable" data-bind="css: component.icon"></i>
+    </th>
+    <th data-bind="click: element.sort.trigger" class="utils-execution-element-header">
+      <span data-bind="translate: 'utils.execution.element'"></span>
+      <i class="sortable" data-bind="css: element.icon"></i>
+    </th>
+    <th data-bind="click: packageName.sort.trigger" class="utils-execution-packageName-header">
+      <span data-bind="translate: 'utils.execution.packageName'"></span>
+      <i class="sortable" data-bind="css: packageName.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="utils-execution-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="utils-execution-component-cell">
+      <span data-bind="text: component"></span>
+    </td>
+    <td class="utils-execution-element-cell">
+      <span data-bind="text: element"></span>
+    </td>
+    <td class="utils-execution-packageName-cell">
+      <span data-bind="text: packageName"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

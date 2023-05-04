@@ -1,0 +1,101 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="workflow.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="workflow.name"
+             data-bind="translate: 'workflow.workflow.name'">
+      </label>
+      <div class="controls" id="workflow.name" data-bind="focus: 1">
+        <input type='text' name='workflow.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('workflow.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: target.visible -->
+    <div class="control-group"
+       data-bind="css: { error: target.hasErrors}">
+      <label class="control-label"
+             for="workflow.target"
+             data-bind="translate: 'workflow.workflow.target'">
+      </label>
+      <div class="controls" id="workflow.target" data-bind="focus: 2">
+        <input type='text' name='workflow.target' data-bind="textInput: detailModel.target, enable: isFieldEnabled('workflow.target', editMode)" />
+        <div data-bind="formError: target"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: componentName.visible -->
+    <div class="control-group"
+       data-bind="css: { error: componentName.hasErrors}">
+      <label class="control-label"
+             for="workflow.componentName"
+             data-bind="translate: 'workflow.workflow.componentName'">
+      </label>
+      <div class="controls" id="workflow.componentName" data-bind="focus: 3">
+        <input type='text' name='workflow.componentName' data-bind="textInput: detailModel.componentName, enable: isFieldEnabled('workflow.componentName', editMode)" />
+        <div data-bind="formError: componentName"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: className.visible -->
+    <div class="control-group"
+       data-bind="css: { error: className.hasErrors}">
+      <label class="control-label"
+             for="workflow.className"
+             data-bind="translate: 'workflow.workflow.className'">
+      </label>
+      <div class="controls" id="workflow.className" data-bind="focus: 4">
+        <input type='text' name='workflow.className' data-bind="textInput: detailModel.className, enable: isFieldEnabled('workflow.className', editMode)" />
+        <div data-bind="formError: className"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: responsible.visible -->
+    <div class="control-group"
+       data-bind="css: { error: responsible.hasErrors}">
+      <label class="control-label"
+             for="workflow.responsible"
+             data-bind="translate: 'workflow.workflow.responsible'">
+      </label>
+      <div class="controls" id="workflow.responsible" data-bind="focus: 5">
+        <span data-bind="selectDataRef: {
+            field: detailModel.responsible,
+            element: 'account.user',
+            hideDropdown: false
+        }, enable: isFieldEnabled('workflow.responsible', editMode)">
+        </span>
+        <div data-bind="formError: responsible"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: sequencingStrategy.visible -->
+    <div class="control-group"
+       data-bind="css: { error: sequencingStrategy.hasErrors}">
+      <label class="control-label"
+             for="workflow.sequencingStrategy"
+             data-bind="translate: 'workflow.workflow.sequencingStrategy'">
+      </label>
+      <div class="controls" id="workflow.sequencingStrategy" data-bind="focus: 6">
+        <input type='text' name='workflow.sequencingStrategy' data-bind="textInput: detailModel.sequencingStrategy, enable: isFieldEnabled('workflow.sequencingStrategy', editMode)" />
+        <div data-bind="formError: sequencingStrategy"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

@@ -1,0 +1,7 @@
+<valueFieldType name="DateTime">
+  <fullType>dateTime</fullType>
+  <valueClass>net.democritus.valuetype.basic.DateTime</valueClass>
+  <displayType>date</displayType>
+  <storageType>date</storageType>
+  <customTransportClass>false</customTransportClass>
+</valueFieldType>

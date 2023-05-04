@@ -1,0 +1,160 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="tripBooking.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: customer.visible -->
+    <div class="control-group"
+       data-bind="css: { error: customer.hasErrors}">
+      <label class="control-label"
+             for="tripBooking.customer"
+             data-bind="translate: 'onlineCabBookingComp.tripBooking.customer'">
+      </label>
+      <div class="controls" id="tripBooking.customer" data-bind="focus: 1">
+        <span data-bind="selectDataRef: {
+            field: detailModel.customer,
+            element: 'onlineCabBookingComp.customer',
+            hideDropdown: false
+        }, enable: isFieldEnabled('tripBooking.customer', editMode)">
+        </span>
+        <div data-bind="formError: customer"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: driver.visible -->
+    <div class="control-group"
+       data-bind="css: { error: driver.hasErrors}">
+      <label class="control-label"
+             for="tripBooking.driver"
+             data-bind="translate: 'onlineCabBookingComp.tripBooking.driver'">
+      </label>
+      <div class="controls" id="tripBooking.driver" data-bind="focus: 2">
+        <span data-bind="selectDataRef: {
+            field: detailModel.driver,
+            element: 'onlineCabBookingComp.driver',
+            hideDropdown: false
+        }, enable: isFieldEnabled('tripBooking.driver', editMode)">
+        </span>
+        <div data-bind="formError: driver"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: fromLocation.visible -->
+    <div class="control-group"
+       data-bind="css: { error: fromLocation.hasErrors}">
+      <label class="control-label"
+             for="tripBooking.fromLocation"
+             data-bind="translate: 'onlineCabBookingComp.tripBooking.fromLocation'">
+      </label>
+      <div class="controls" id="tripBooking.fromLocation" data-bind="focus: 3">
+        <span data-bind="selectDataRef: {
+            field: detailModel.fromLocation,
+            element: 'onlineCabBookingComp.address',
+            hideDropdown: false
+        }, enable: isFieldEnabled('tripBooking.fromLocation', editMode)">
+        </span>
+        <div data-bind="formError: fromLocation"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: toLocation.visible -->
+    <div class="control-group"
+       data-bind="css: { error: toLocation.hasErrors}">
+      <label class="control-label"
+             for="tripBooking.toLocation"
+             data-bind="translate: 'onlineCabBookingComp.tripBooking.toLocation'">
+      </label>
+      <div class="controls" id="tripBooking.toLocation" data-bind="focus: 4">
+        <span data-bind="selectDataRef: {
+            field: detailModel.toLocation,
+            element: 'onlineCabBookingComp.address',
+            hideDropdown: false
+        }, enable: isFieldEnabled('tripBooking.toLocation', editMode)">
+        </span>
+        <div data-bind="formError: toLocation"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: fromDateTime.visible -->
+    <div class="control-group"
+       data-bind="css: { error: fromDateTime.hasErrors}">
+      <label class="control-label"
+             for="tripBooking.fromDateTime"
+             data-bind="translate: 'onlineCabBookingComp.tripBooking.fromDateTime'">
+      </label>
+      <div class="controls" id="tripBooking.fromDateTime" data-bind="focus: 5">
+        <span data-bind='dateInput: detailModel.fromDateTime, enable: isFieldEnabled("tripBooking.fromDateTime", editMode)'></span>
+        <div data-bind="formError: fromDateTime"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: toDateTime.visible -->
+    <div class="control-group"
+       data-bind="css: { error: toDateTime.hasErrors}">
+      <label class="control-label"
+             for="tripBooking.toDateTime"
+             data-bind="translate: 'onlineCabBookingComp.tripBooking.toDateTime'">
+      </label>
+      <div class="controls" id="tripBooking.toDateTime" data-bind="focus: 6">
+        <span data-bind='dateInput: detailModel.toDateTime, enable: isFieldEnabled("tripBooking.toDateTime", editMode)'></span>
+        <div data-bind="formError: toDateTime"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: km.visible -->
+    <div class="control-group"
+       data-bind="css: { error: km.hasErrors}">
+      <label class="control-label"
+             for="tripBooking.km"
+             data-bind="translate: 'onlineCabBookingComp.tripBooking.km'">
+      </label>
+      <div class="controls" id="tripBooking.km" data-bind="focus: 7">
+        <span data-bind='doubleInput: detailModel.km, enable: isFieldEnabled("tripBooking.km", editMode)'></span>
+        <div data-bind="formError: km"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: totalAmount.visible -->
+    <div class="control-group"
+       data-bind="css: { error: totalAmount.hasErrors}">
+      <label class="control-label"
+             for="tripBooking.totalAmount"
+             data-bind="translate: 'onlineCabBookingComp.tripBooking.totalAmount'">
+      </label>
+      <div class="controls" id="tripBooking.totalAmount" data-bind="focus: 8">
+        <span data-bind='doubleInput: detailModel.totalAmount, enable: isFieldEnabled("tripBooking.totalAmount", editMode)'></span>
+        <div data-bind="formError: totalAmount"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: payment.visible -->
+    <div class="control-group"
+       data-bind="css: { error: payment.hasErrors}">
+      <label class="control-label"
+             for="tripBooking.payment"
+             data-bind="translate: 'onlineCabBookingComp.tripBooking.payment'">
+      </label>
+      <div class="controls" id="tripBooking.payment" data-bind="focus: 9">
+        <span data-bind="selectDataRef: {
+            field: detailModel.payment,
+            element: 'onlineCabBookingComp.payment',
+            hideDropdown: false
+        }, enable: isFieldEnabled('tripBooking.payment', editMode)">
+        </span>
+        <div data-bind="formError: payment"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

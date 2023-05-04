@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<struts>
+
+  <package name='assets-asset' namespace='/assets' extends='nsx-default'>
+
+    <global-results>
+      <result name='noaccess'>/jsp/noaccess.jsp</result>
+    </global-results>
+
+    <!-- @anchor:actions:start -->
+    <!-- @anchor:actions:end -->
+
+    <!-- Add actions here -->
+
+    <!-- anchor:custom-actions:start -->
+    <!-- anchor:custom-actions:end -->
+  </package>
+
+  <package name='assets-asset-json' namespace='/assets' extends='nsx-json-default'>
+
+    <action name='asset-detail-json' class='net.democritus.assets.action.AssetDetailer' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='asset-delete-json' class='net.democritus.assets.action.AssetDeleter' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='asset-confirm-json' class='net.democritus.assets.action.AssetEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='asset-saveDetails-json' class='net.democritus.assets.action.AssetEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='asset-search-json' class='net.democritus.assets.action.AssetFindAction' method='execute'>
+      <interceptor-ref name="jsonFinderStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='asset-perform-json' class='net.democritus.assets.action.AssetPerformer' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='asset-getProjection-json' class='net.democritus.assets.action.AssetProjector' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- anchor:io-actions:start -->
+    <!-- anchor:io-actions:end -->
+
+    <!-- @anchor:json-actions:start -->
+    <action name='asset-perform-command-json' class='net.democritus.assets.action.AssetCommandPerformer' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>commandResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>commandResult</param>
+      </result>
+    </action>
+    <!-- @anchor:json-actions:end -->
+
+    <!-- Add JSON actions here -->
+
+    <!-- anchor:custom-json-actions:start -->
+    <action name='asset-upload-json' class='net.democritus.assets.action.AssetUploader' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='error' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>strutsError</param>
+      </result>
+    </action>
+    <!-- anchor:custom-json-actions:end -->
+  </package>
+
+  <package name='assets-asset-knockout-html' namespace='/assets/asset' extends='nsx-default'>
+    <action name='data'>
+      <result>/jsp/ps2/page.jsp?pageModel=assets/asset/asset-io-page-model</result>
+    </action>
+    <action name='all'>
+      <result>/jsp/ps2/page.jsp?pageModel=assets/asset/asset-page-model</result>
+    </action>
+
+    <!-- @anchor:ko-html-pages:start -->
+    <!-- @anchor:ko-html-pages:end -->
+  </package>
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+  <package name="assets-asset-download" namespace="/assets/asset" extends="nsx-default">
+    <action name='download' class='net.democritus.assets.action.AssetDownloader' method='execute'>
+      <result name="success" type="stream">
+        <param name="contentType">${contentType}</param>
+        <param name="contentLength">${contentLength}</param>
+        <param name="inputName">downloadStream</param>
+        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+        <param name="bufferSize">1024</param>
+      </result>
+      <result name='error' type='redirectAction'>
+        <param name="namespace">/</param>
+        <param name="actionName">noDownload</param>
+      </result>
+    </action>
+  </package>
+  <!-- anchor:custom-packages:end -->
+
+</struts>

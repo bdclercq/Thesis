@@ -1,0 +1,1 @@
+define(["require","exports"],(function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.createNullDataRef=t.createDataRef=void 0;var n=function(e,t){this.name=e,this.id=t,this.isDefined=null!=t&&0!==t};t.createDataRef=function(e,t){return new n(e,t)},t.createNullDataRef=function(){return new n("",0)}}));

@@ -1,0 +1,77 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.stateTimer.id'"></span>
+    </th>
+    <td>
+      <span data-bind="text: id"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:start -->
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.stateTimer.name'"></span>
+    </th>
+    <td>
+      <span data-bind="text: name"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.stateTimer.processor'"></span>
+    </th>
+    <td>
+      <span data-bind="text: processor"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.stateTimer.beginState'"></span>
+    </th>
+    <td>
+      <span data-bind="text: beginState"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.stateTimer.targetState'"></span>
+    </th>
+    <td>
+      <span data-bind="text: targetState"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.stateTimer.allowedPeriod'"></span>
+    </th>
+    <td>
+      <span data-bind="text: allowedPeriod"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.stateTimer.requiredAction'"></span>
+    </th>
+    <td>
+      <span data-bind="text: requiredAction"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.stateTimer.workflow'"></span>
+    </th>
+    <td>
+      <span data-bind="with: workflow">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:end -->
+  <!-- @anchor:field-rows:start -->
+  <!-- @anchor:field-rows:end -->
+  <!-- anchor:custom-field-rows:start -->
+  <!-- anchor:custom-field-rows:end -->
+</table>

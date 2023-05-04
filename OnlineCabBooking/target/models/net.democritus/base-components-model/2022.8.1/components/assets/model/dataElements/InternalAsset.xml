@@ -1,0 +1,32 @@
+<dataElement name="InternalAsset">
+  <packageName>net.democritus.assets</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="name">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findAllInternalAssets"/>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+          <field name="name"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+  </finders>
+  <dataChildren>
+    <dataChild>
+      <childComponent>assets</childComponent>
+      <childElement>InternalAssetChunk</childElement>
+      <childField>internalAsset</childField>
+    </dataChild>
+  </dataChildren>
+</dataElement>

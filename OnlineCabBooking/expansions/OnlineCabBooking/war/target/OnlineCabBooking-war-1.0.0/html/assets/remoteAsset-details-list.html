@@ -1,0 +1,38 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="assets-remoteAsset-name-header">
+      <span data-bind="translate: 'assets.remoteAsset.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: url.sort.trigger" class="assets-remoteAsset-url-header">
+      <span data-bind="translate: 'assets.remoteAsset.url'"></span>
+      <i class="sortable" data-bind="css: url.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="assets-remoteAsset-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="assets-remoteAsset-url-cell">
+      <a target="_blank" data-bind="attr: {href: url},
+        click: function() { return true;}, clickBubble: false">
+        <span data-bind="text: url"></span>
+      </a>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

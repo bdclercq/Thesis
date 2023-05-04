@@ -1,0 +1,45 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('user.account', editMode), css: { error: detailModel.account.hasErrors}">
+    <label class="control-label"
+           for="user.account"
+           data-bind="translate: 'account.user.account'">
+    </label>
+    <div class="controls" id="user.account" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.account,
+          element: 'account.account',
+          hideDropdown: false
+      }, enable: isFieldEnabled('user.account', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.account.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.account.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="control-group" data-bind="visible: isFieldVisible('user.profile', editMode), css: { error: detailModel.profile.hasErrors}">
+    <label class="control-label"
+           for="user.profile"
+           data-bind="translate: 'account.user.profile'">
+    </label>
+    <div class="controls" id="user.profile" data-bind="focus: 2">
+      <span data-bind="selectDataRef: {
+          field: detailModel.profile,
+          element: 'account.profile',
+          hideDropdown: false
+      }, enable: isFieldEnabled('user.profile', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.profile.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.profile.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

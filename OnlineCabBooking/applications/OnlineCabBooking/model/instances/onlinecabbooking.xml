@@ -1,0 +1,12 @@
+<applicationInstance name="OnlineCabBooking">
+  <shortName>OnlineCabBooking</shortName>
+  <version>1.0.0</version>
+  <globalOptionSettings name="3.0 Modern"/>
+  <presentationSettings name="3.1 Future"/>
+  <businessLogicSettings name="TomEE Postgres Hibernate"/>
+  <technicalInfrastructure name="Java 17"/>
+  <options>
+    <finders.enableTypedFinders/>
+    <hibernate.version>5</hibernate.version>
+  </options>
+</applicationInstance>

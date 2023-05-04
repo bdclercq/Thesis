@@ -1,0 +1,291 @@
+<dataElement name="EngineService">
+  <packageName>net.democritus.wfe</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="name">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isNameField/>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="status">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>true</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+        <isStatusField/>
+      </options>
+    </field>
+    <field name="changed">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>true</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+    </field>
+    <field name="busy">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>true</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isExposedField/>
+      </options>
+    </field>
+    <field name="waitTime">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Integer"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="collector">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Long"/>
+      </valueField>
+    </field>
+    <field name="workflow">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="workflow" name="Workflow"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="timeWindowGroup">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="workflow" name="TimeWindowGroup"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="lastRunAt">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="validation" name="DateTime"/>
+      </valueField>
+      <options>
+        <isExposedField/>
+      </options>
+    </field>
+    <field name="batchSize">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Integer"/>
+      </valueField>
+    </field>
+    <field name="maximumNumberOfNodes">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Integer"/>
+      </valueField>
+    </field>
+    <field name="engineNodeServices">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="workflow" name="EngineNodeService"/>
+        <linkFieldType name="Ln04"/>
+      </linkField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findAllEngineServices"/>
+    <finder name="findByBusyEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:busy">
+          <operator>Eq</operator>
+          <field name="busy"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByChangedEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:changed">
+          <operator>Eq</operator>
+          <field name="changed"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByCollectorEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:collector">
+          <operator>Eq</operator>
+          <field name="collector"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByLastRunAtGt">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Gt:lastRunAt">
+          <operator>Gt</operator>
+          <field name="lastRunAt"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByLastRunAtLt">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Lt:lastRunAt">
+          <operator>Lt</operator>
+          <field name="lastRunAt"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+          <field name="name"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByNameEq_CollectorEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:collector">
+          <operator>Eq</operator>
+          <field name="collector"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+          <field name="name"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByStatusEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:status">
+          <operator>Eq</operator>
+          <field name="status"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByWorkflowEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:workflow">
+          <operator>Eq</operator>
+          <field name="workflow"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByTimeWindowGroupEq">
+      <description>Auto-generated by Prime Radiant</description>
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:timeWindowGroup">
+          <operator>Eq</operator>
+          <field name="timeWindowGroup"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+  </finders>
+  <dataCommands>
+    <dataCommand name="startEngine">
+      <hasTargetInstance>true</hasTargetInstance>
+      <hasLog>false</hasLog>
+    </dataCommand>
+    <dataCommand name="stopEngine">
+      <hasTargetInstance>true</hasTargetInstance>
+      <hasLog>false</hasLog>
+    </dataCommand>
+    <dataCommand name="disableAllEngines">
+      <hasTargetInstance>false</hasTargetInstance>
+      <hasLog>false</hasLog>
+    </dataCommand>
+    <dataCommand name="enableAllEngines">
+      <hasTargetInstance>false</hasTargetInstance>
+      <hasLog>false</hasLog>
+    </dataCommand>
+    <dataCommand name="refreshEngine">
+      <hasTargetInstance>true</hasTargetInstance>
+      <hasLog>false</hasLog>
+    </dataCommand>
+  </dataCommands>
+  <dataProjections>
+    <dataProjection name="runningState">
+      <referenceFields>
+        <referenceField>
+          <field name="name"/>
+        </referenceField>
+        <referenceField>
+          <field name="status"/>
+        </referenceField>
+        <referenceField>
+          <field name="busy"/>
+        </referenceField>
+        <referenceField>
+          <field name="waitTime"/>
+        </referenceField>
+        <referenceField>
+          <field name="timeWindowGroup"/>
+        </referenceField>
+        <referenceField>
+          <field name="lastRunAt"/>
+        </referenceField>
+        <referenceField>
+          <field name="batchSize"/>
+        </referenceField>
+        <referenceField>
+          <field name="maximumNumberOfNodes"/>
+        </referenceField>
+      </referenceFields>
+      <calculatedFields>
+        <calculatedField name="running">
+          <valueField>
+            <valueFieldType component="" name="String"/>
+          </valueField>
+        </calculatedField>
+        <calculatedField name="nextRun">
+          <valueField>
+            <valueFieldType component="" name="DateLong"/>
+          </valueField>
+        </calculatedField>
+      </calculatedFields>
+    </dataProjection>
+  </dataProjections>
+  <dataChildren>
+    <dataChild>
+      <childComponent>workflow</childComponent>
+      <childElement>EngineNodeService</childElement>
+      <childField>engineService</childField>
+    </dataChild>
+  </dataChildren>
+  <options>
+    <includeCsvImport/>
+    <projection.detailsWithoutRefs/>
+  </options>
+</dataElement>

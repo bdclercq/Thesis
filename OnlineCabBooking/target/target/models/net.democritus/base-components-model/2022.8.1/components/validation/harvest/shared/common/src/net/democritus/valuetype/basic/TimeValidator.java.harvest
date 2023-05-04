@@ -1,0 +1,13 @@
+-- anchor:custom-validation:start
+    if (value == null) {
+      return error("Time Object is null");
+    }
+
+    if (time.getMinutes() < 0 || time.getMinutes() > 59) {
+      return error("minutes must be 0-59");
+    }
+
+    if (time.getHours() < 0) {
+      return error("hours must be positive");
+    }
+-- anchor:custom-validation:end

@@ -1,0 +1,149 @@
+package net.democritus.sys;
+
+// expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1
+
+import java.io.Serializable;
+import net.democritus.sys.DataRef;
+import net.democritus.sys.IndirectRef;
+import java.util.ArrayList;
+import java.util.List;
+
+// anchor:valuetype-imports:start
+// anchor:valuetype-imports:end
+
+// @anchor:imports:start
+// @anchor:imports:end
+// anchor:custom-imports:start
+// anchor:custom-imports:end
+
+/**
+ * Transport detailed class for the entity bean Execution,
+ */
+
+public class ExecutionInfo
+    implements Serializable {
+
+  private static final long serialVersionUID = 1L;
+
+  /*========== Bean member fields ==========*/
+
+  private Long mId;
+  // anchor:instance-variables:start
+  private String mName;
+  private String mComponent;
+  private String mElement;
+  private String mPackageName;
+  // anchor:instance-variables:end
+  // @anchor:instance-variables:start
+  // @anchor:instance-variables:end
+
+  // anchor:custom-variables:start
+  // anchor:custom-variables:end
+
+  /*========== Default constructor ==========*/
+
+  public ExecutionInfo() {
+    this.mId = 0L;
+    // anchor:default-constructor-initialization:start
+    this.mName = "";
+    this.mComponent = "";
+    this.mElement = "";
+    this.mPackageName = "";
+    // anchor:default-constructor-initialization:end
+    // @anchor:default-constructor-initialization:start
+    // @anchor:default-constructor-initialization:end
+
+    // anchor:custom-default-constructor:start
+    // anchor:custom-default-constructor:end
+  }
+
+  /*========== Detailed constructor ==========*/
+
+  public ExecutionInfo(Long id
+      // anchor:detailed-constructor-parameters:start
+      , String name
+      , String component
+      , String element
+      , String packageName
+      // anchor:detailed-constructor-parameters:end
+      // @anchor:detailed-constructor-parameters:start
+      // @anchor:detailed-constructor-parameters:end
+      ) {
+    this.mId = id;
+    // anchor:detailed-constructor-initialization:start
+    this.mName = name;
+    this.mComponent = component;
+    this.mElement = element;
+    this.mPackageName = packageName;
+    // anchor:detailed-constructor-initialization:end
+    // @anchor:detailed-constructor-initialization:start
+    // @anchor:detailed-constructor-initialization:end
+
+    // anchor:custom-detail-constructor:start
+    // anchor:custom-detail-constructor:end
+  }
+
+  /*========== Getters and Setters ==========*/
+
+  public Long getId() {
+    return this.mId;
+  }
+
+  public void setId(Long id) {
+    this.mId = id;
+  }
+
+  // anchor:getters-setters:start
+  public String getName() {
+    return this.mName;
+  }
+
+  public void setName(String name) {
+    this.mName = name;
+  }
+
+  public String getComponent() {
+    return this.mComponent;
+  }
+
+  public void setComponent(String component) {
+    this.mComponent = component;
+  }
+
+  public String getElement() {
+    return this.mElement;
+  }
+
+  public void setElement(String element) {
+    this.mElement = element;
+  }
+
+  public String getPackageName() {
+    return this.mPackageName;
+  }
+
+  public void setPackageName(String packageName) {
+    this.mPackageName = packageName;
+  }
+  // anchor:getters-setters:end
+
+  // @anchor:methods:start
+  // @anchor:methods:end
+  // anchor:custom-methods:start
+  // anchor:custom-methods:end
+
+  public List<String> getFieldOrder() {
+    List<String> fieldOrder = new ArrayList<String>();
+    // anchor:field-order:start
+    fieldOrder.add("Name");
+    fieldOrder.add("Component");
+    fieldOrder.add("Element");
+    fieldOrder.add("PackageName");
+    // anchor:field-order:end
+    return fieldOrder;
+  }
+
+  public DataRef getDataRef() {
+    return new DataRef(mId, mName, "utils", "net.democritus.sys", "Execution");
+  }
+}

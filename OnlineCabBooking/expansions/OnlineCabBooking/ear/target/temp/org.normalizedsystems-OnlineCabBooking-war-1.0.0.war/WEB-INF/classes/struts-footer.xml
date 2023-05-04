@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+
+<struts>
+
+  <!-- anchor:custom-includes:start -->
+  <!-- anchor:custom-includes:end -->
+
+  <!-- @anchor:includes:start -->
+  <!-- @anchor:includes:end -->
+
+</struts>

@@ -1,0 +1,45 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('engineNodeService.engineNode', editMode), css: { error: detailModel.engineNode.hasErrors}">
+    <label class="control-label"
+           for="engineNodeService.engineNode"
+           data-bind="translate: 'workflow.engineNodeService.engineNode'">
+    </label>
+    <div class="controls" id="engineNodeService.engineNode" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.engineNode,
+          element: 'workflow.engineNode',
+          hideDropdown: false
+      }, enable: isFieldEnabled('engineNodeService.engineNode', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.engineNode.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.engineNode.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="control-group" data-bind="visible: isFieldVisible('engineNodeService.engineService', editMode), css: { error: detailModel.engineService.hasErrors}">
+    <label class="control-label"
+           for="engineNodeService.engineService"
+           data-bind="translate: 'workflow.engineNodeService.engineService'">
+    </label>
+    <div class="controls" id="engineNodeService.engineService" data-bind="focus: 2">
+      <span data-bind="selectDataRef: {
+          field: detailModel.engineService,
+          element: 'workflow.engineService',
+          hideDropdown: false
+      }, enable: isFieldEnabled('engineNodeService.engineService', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.engineService.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.engineService.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

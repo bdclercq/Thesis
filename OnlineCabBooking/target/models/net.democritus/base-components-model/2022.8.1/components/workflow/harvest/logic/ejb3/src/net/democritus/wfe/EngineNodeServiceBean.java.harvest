@@ -1,0 +1,66 @@
+-- anchor:custom-methods:start
+  @Override
+  public CrudsResult<Void> setNotResponding(ParameterContext<DataRef> parameter) {
+      EngineNodeServiceDetails details = getDetails(parameter.getValue());
+      details.setStatus(EngineNodeServiceState.NOT_RESPONDING.getStatus());
+      details.setNextRun(null);
+
+      CrudsResult<DataRef> modifyResult = modify(parameter.construct(details));
+      if (modifyResult.isError()) {
+          return modifyResult.convertError();
+      }
+
+      return CrudsResult.success();
+  }
+
+  @Override
+  public CrudsResult<Void> setReadyForShutdown(ParameterContext<DataRef> parameter) {
+    EngineNodeServiceDetails details = getDetails(parameter.getValue());
+    details.setStatus(EngineNodeServiceState.READY_FOR_SHUTDOWN.getStatus());
+    details.setNextRun(null);
+
+    CrudsResult<DataRef> modifyResult = modify(parameter.construct(details));
+    if (modifyResult.isError()) {
+      return modifyResult.convertError();
+    }
+
+    return CrudsResult.success();
+  }
+
+  @Override
+  public CrudsResult<EngineNodeServiceDetails> getEngineNodeServiceForEngineService(ParameterContext<DataRef> parameter) {
+    EngineNodeContext engineNodeContext = parameter.getContext()
+        .getContext(EngineNodeContext.class)
+        .orElse(fetchEngineNodeContext(parameter.getContext()));
+
+    EngineNodeServiceFindByEngineNodeEq_EngineServiceEqDetails finder = new EngineNodeServiceFindByEngineNodeEq_EngineServiceEqDetails();
+    finder.setEngineService(parameter.getValue());
+    finder.setEngineNode(engineNodeContext.getEngineNode());
+
+    SearchDetails<EngineNodeServiceFindByEngineNodeEq_EngineServiceEqDetails> searchDetails = SearchDetails.fetchNDetails(finder, 1);
+    searchDetails.setSkipCount(true);
+
+    SearchResult<EngineNodeServiceDetails> searchResult = find(parameter.construct(searchDetails));
+    if (searchResult.isError()) {
+      return CrudsResult.error();
+    } else if (searchResult.getFirst().isDefined()) {
+      return CrudsResult.success(searchResult.getFirst().getValue());
+    } else {
+      EngineNodeServiceDetails engineNodeService = new EngineNodeServiceDetails();
+      engineNodeService.setName(parameter.getValue().getName());
+      engineNodeService.setEngineNode(engineNodeContext.getEngineNode());
+      engineNodeService.setEngineService(parameter.getValue());
+      engineNodeService.setStatusEnum(EngineNodeServiceState.WAITING);
+
+      CrudsResult<DataRef> result = create(parameter.construct(engineNodeService));
+      if (result.isError()) {
+        return result.convertError();
+      }
+      return getDetailsFromDataRef(parameter.construct(result.getValue()));
+    }
+  }
+
+  private EngineNodeContext fetchEngineNodeContext(net.democritus.sys.Context context) {
+    return new EngineNodeContextRetriever(context).retrieveEngineNodeContext();
+  }
+-- anchor:custom-methods:end

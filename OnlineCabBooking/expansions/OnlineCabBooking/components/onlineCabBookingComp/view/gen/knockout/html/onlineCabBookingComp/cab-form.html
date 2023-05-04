@@ -1,0 +1,67 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="cab.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: ratePerKm.visible -->
+    <div class="control-group"
+       data-bind="css: { error: ratePerKm.hasErrors}">
+      <label class="control-label"
+             for="cab.ratePerKm"
+             data-bind="translate: 'onlineCabBookingComp.cab.ratePerKm'">
+      </label>
+      <div class="controls" id="cab.ratePerKm" data-bind="focus: 1">
+        <span data-bind='integerInput: detailModel.ratePerKm, enable: isFieldEnabled("cab.ratePerKm", editMode)'></span>
+        <div data-bind="formError: ratePerKm"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: carType.visible -->
+    <div class="control-group"
+       data-bind="css: { error: carType.hasErrors}">
+      <label class="control-label"
+             for="cab.carType"
+             data-bind="translate: 'onlineCabBookingComp.cab.carType'">
+      </label>
+      <div class="controls" id="cab.carType" data-bind="focus: 2">
+        <span data-bind="selectDataRef: {
+            field: detailModel.carType,
+            element: 'onlineCabBookingComp.carType',
+            hideDropdown: false
+        }, enable: isFieldEnabled('cab.carType', editMode)">
+        </span>
+        <div data-bind="formError: carType"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: driver.visible -->
+    <div class="control-group"
+       data-bind="css: { error: driver.hasErrors}">
+      <label class="control-label"
+             for="cab.driver"
+             data-bind="translate: 'onlineCabBookingComp.cab.driver'">
+      </label>
+      <div class="controls" id="cab.driver" data-bind="focus: 3">
+        <span data-bind="selectDataRef: {
+            field: detailModel.driver,
+            element: 'onlineCabBookingComp.driver',
+            hideDropdown: false
+        }, enable: isFieldEnabled('cab.driver', editMode)">
+        </span>
+        <div data-bind="formError: driver"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

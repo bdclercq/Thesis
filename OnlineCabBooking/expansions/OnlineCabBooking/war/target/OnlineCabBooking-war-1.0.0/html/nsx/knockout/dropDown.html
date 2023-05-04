@@ -1,0 +1,18 @@
+<div>
+    <ul class="dropdown-menu nsx-dropdown">
+        <!--ko foreach: items-->
+        <li data-bind="style: {'background-color': $parent.isSelectedItem($data) ? '#d9edf7' : 'white'}">
+        <a data-bind="instanceId: { prefix: 'dropdown-option', fields: [name] }, click: $parent.selectRow">
+                <span data-bind="text: name"></span>
+            </a>
+        </li>
+        <!--/ko-->
+        <!--ko if: showMore-->
+        <li class="dropdown-more">
+            <a data-bind="click: showMore">
+                <span data-bind="translate: 'ns.dropdown.more'"></span>...
+            </a>
+        </li>
+        <!--/ko-->
+    </ul>
+</div>

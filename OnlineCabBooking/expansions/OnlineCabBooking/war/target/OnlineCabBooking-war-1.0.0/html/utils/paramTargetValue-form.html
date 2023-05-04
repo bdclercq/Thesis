@@ -1,0 +1,57 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="paramTargetValue.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: param.visible -->
+    <div class="control-group"
+       data-bind="css: { error: param.hasErrors}">
+      <label class="control-label"
+             for="paramTargetValue.param"
+             data-bind="translate: 'utils.paramTargetValue.param'">
+      </label>
+      <div class="controls" id="paramTargetValue.param" data-bind="focus: 1">
+        <input type='text' name='paramTargetValue.param' data-bind="textInput: detailModel.param, enable: isFieldEnabled('paramTargetValue.param', editMode)" />
+        <div data-bind="formError: param"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: target.visible -->
+    <div class="control-group"
+       data-bind="css: { error: target.hasErrors}">
+      <label class="control-label"
+             for="paramTargetValue.target"
+             data-bind="translate: 'utils.paramTargetValue.target'">
+      </label>
+      <div class="controls" id="paramTargetValue.target" data-bind="focus: 2">
+        <input type='text' name='paramTargetValue.target' data-bind="textInput: detailModel.target, enable: isFieldEnabled('paramTargetValue.target', editMode)" />
+        <div data-bind="formError: target"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: value.visible -->
+    <div class="control-group"
+       data-bind="css: { error: value.hasErrors}">
+      <label class="control-label"
+             for="paramTargetValue.value"
+             data-bind="translate: 'utils.paramTargetValue.value'">
+      </label>
+      <div class="controls" id="paramTargetValue.value" data-bind="focus: 3">
+        <input type='text' name='paramTargetValue.value' data-bind="textInput: detailModel.value, enable: isFieldEnabled('paramTargetValue.value', editMode)" />
+        <div data-bind="formError: value"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

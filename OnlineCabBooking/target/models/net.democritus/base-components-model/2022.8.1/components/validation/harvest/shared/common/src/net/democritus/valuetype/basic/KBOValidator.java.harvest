@@ -1,0 +1,17 @@
+-- anchor:custom-validation:start
+    if (value == null) {
+      return ValidationResult.error("KBO Object is null");
+    }
+
+    String strKBO = kBO.getValue();
+
+    if (strKBO.isEmpty()) {
+      return ValidationResult.success();
+    }
+
+    if (strKBO.matches("[0-1]?[0-9]{3}\\.[0-9]{3}\\.[0-9]{3}")) {
+      result = ValidationResult.success();
+    } else {
+      result = ValidationResult.error("should be of the form ZNNN.NNN.NNN, with Z a 1 or optional 0, and N any digit");
+    }
+-- anchor:custom-validation:end

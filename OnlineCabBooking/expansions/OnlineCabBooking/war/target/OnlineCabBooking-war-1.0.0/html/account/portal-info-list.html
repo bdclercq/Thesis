@@ -1,0 +1,35 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="account-portal-name-header">
+      <span data-bind="translate: 'account.portal.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: version.sort.trigger" class="account-portal-version-header">
+      <span data-bind="translate: 'account.portal.version'"></span>
+      <i class="sortable" data-bind="css: version.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-portal-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="account-portal-version-cell">
+      <span data-bind="text: version"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

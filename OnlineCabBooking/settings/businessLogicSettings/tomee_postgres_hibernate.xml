@@ -1,0 +1,7 @@
+<businessLogicSettings name="TomEE Postgres Hibernate">
+  <targetDatabase name="POSTGRESQL"/>
+  <persistenceProvider name="HIBERNATE"/>
+  <transactionProvider name="EJB3"/>
+  <remotingProvider name="RMI"/>
+  <applicationServer name="JAVAEE6"/>
+</businessLogicSettings>

@@ -1,0 +1,52 @@
+<dataElement name="Cab">
+  <packageName>cabBookingCore</packageName>
+  <description>Cab data element</description>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="ratePerKm">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Integer"/>
+      </valueField>
+    </field>
+    <field name="carType">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="CarType"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+    <field name="driver">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Driver"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findByDriverEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="driver"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByCarTypeEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="carType"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findAllCab"/>
+  </finders>
+</dataElement>

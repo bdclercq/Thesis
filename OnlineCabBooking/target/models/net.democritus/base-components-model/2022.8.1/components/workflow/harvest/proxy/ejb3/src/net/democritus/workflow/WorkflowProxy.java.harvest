@@ -1,0 +1,45 @@
+-- anchor:custom-imports:start
+import java.util.List;
+import net.democritus.sys.FlowResult;
+import net.democritus.sys.TaskResult;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  public FlowResult<Void> runWorkflowWithEngineService(ParameterContext<DataRef> engineServiceParameter) {
+    try {
+      return workflowRemote.runWorkflowWithEngineService(engineServiceParameter);
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Failed to run workflow with engineService", e
+        );
+      }
+      return FlowResult.error();
+    }
+  }
+
+  public FlowResult<Void> runWorkflowWithTargets(ParameterContext<DataRef> workflowParameter, List<DataRef> targetInstances) {
+    try {
+      return workflowRemote.runWorkflowWithTargets(workflowParameter, targetInstances);
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Failed to run workflow with engineService", e
+        );
+      }
+      return FlowResult.error();
+    }
+  }
+
+  public TaskResult<Void> recoverWorkflow(ParameterContext<DataRef> workflowParameter) {
+    try {
+      return workflowRemote.recoverWorkflow(workflowParameter);
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Failed to recover workflow", e
+        );
+      }
+      return TaskResult.error();
+    }
+  }
+-- anchor:custom-methods:end

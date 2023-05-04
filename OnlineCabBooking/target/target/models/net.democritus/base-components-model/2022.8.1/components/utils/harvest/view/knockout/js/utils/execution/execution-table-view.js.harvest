@@ -1,0 +1,65 @@
+-- anchor:custom-variables:start
+  var PerformTask = require("nsx/action/perform-task-action");
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  function defineScriptFilter(toolbar, input) {
+    var value = ko.observable();
+
+    var view = "utils/select-filter-dropdown";
+    var viewModel = {
+      value: value,
+      placeholder: translate("elements.component.findByNameEq")
+    };
+
+    toolbar.defineToolbarSegment({
+      view: view,
+      viewModel: viewModel
+    }, {
+      position: 1
+    });
+
+    var finder = ExecutionFinders.findByNameEq();
+
+    function getFinderDetails() {
+      return {
+        name: value()
+      }
+    }
+
+    Trigger
+      .when(value)
+      .thenDo(function () {
+        if (value()) {
+          input.finders.setFinder(
+            finder,
+            getFinderDetails()
+          )
+        } else {
+          input.finders.resetFinder();
+        }
+      })
+  }
+
+  function defineExecuteButton(toolbar, input) {
+    var button = toolbar.defineButton({
+      label: "Execute",
+      icon: "icon-play",
+      visible: isDataRefDefined(input.selection)
+    });
+
+    PerformTask.definePerformTaskAction({
+      trigger: button.trigger,
+      selection: input.selection,
+      taskName: "Executor",
+      element: ExecutionElement
+    })
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-page-after:start
+    defineExecuteButton(toolbar, tableContext);
+-- anchor:custom-page-after:end
+-- anchor:custom-page-model:start
+    defineScriptFilter(toolbar, {
+      finders: finders
+    });
+-- anchor:custom-page-model:end

@@ -1,0 +1,24 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="<%=contextPath%>/images/pageIcon.ico">
+<link rel="stylesheet" href="<%=contextPath%>/styles/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="<%=contextPath%>/styles/bootstrap/css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="<%=contextPath%>/styles/knockout/nsx-knockout.css">
+<link rel="stylesheet" href="<%=contextPath%>/styles/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="<%=contextPath%>/styles/knockout/ko-style.css">
+<link rel="stylesheet" href="<%=contextPath%>/styles/knockout/nsx-navbar-static.css">
+
+<!--[if lt IE 9]>
+<style type="text/css">
+    .row-fluid [class*="span"] {
+        min-height: 20px;
+    }
+</style>
+<![endif]-->
+
+<!--[if lt IE 10]>
+<style>
+body {
+     padding-top: 60px;
+}
+</style>
+<![endif]-->

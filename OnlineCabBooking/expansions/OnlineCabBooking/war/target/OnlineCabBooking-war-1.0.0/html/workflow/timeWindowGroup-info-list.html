@@ -1,0 +1,42 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="workflow-timeWindowGroup-name-header">
+      <span data-bind="translate: 'workflow.timeWindowGroup.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: visible.sort.trigger" class="workflow-timeWindowGroup-visible-header">
+      <span data-bind="translate: 'workflow.timeWindowGroup.visible'"></span>
+      <i class="sortable" data-bind="css: visible.icon"></i>
+    </th>
+    <th class="workflow-timeWindowGroup-timeWindows-header">
+      <span data-bind="translate: 'workflow.timeWindowGroup.timeWindows'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="workflow-timeWindowGroup-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="workflow-timeWindowGroup-visible-cell">
+      <span data-bind="text: visible"></span>
+    </td>
+    <td class="workflow-timeWindowGroup-timeWindows-cell">
+      <span data-bind="collection: { field: timeWindows, name: 'workflow.timeWindowGroup.timeWindows'}">
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

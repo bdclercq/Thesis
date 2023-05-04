@@ -1,0 +1,49 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="customer.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: journeyStatus.visible -->
+    <div class="control-group"
+       data-bind="css: { error: journeyStatus.hasErrors}">
+      <label class="control-label"
+             for="customer.journeyStatus"
+             data-bind="translate: 'onlineCabBookingComp.customer.journeyStatus'">
+      </label>
+      <div class="controls" id="customer.journeyStatus" data-bind="focus: 1">
+        <input type='checkbox' name='customer.journeyStatus' data-bind='checked: detailModel.journeyStatus, enable: isFieldEnabled("customer.journeyStatus", editMode)'/>
+        <div data-bind="formError: journeyStatus"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: person.visible -->
+    <div class="control-group"
+       data-bind="css: { error: person.hasErrors}">
+      <label class="control-label"
+             for="customer.person"
+             data-bind="translate: 'onlineCabBookingComp.customer.person'">
+      </label>
+      <div class="controls" id="customer.person" data-bind="focus: 2">
+        <span data-bind="selectDataRef: {
+            field: detailModel.person,
+            element: 'onlineCabBookingComp.person',
+            hideDropdown: false
+        }, enable: isFieldEnabled('customer.person', editMode)">
+        </span>
+        <div data-bind="formError: person"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

@@ -1,0 +1,3 @@
+-- anchor:custom-methods:start
+  SearchResult<StateTaskDetails> getStateTasksByWorkflowId(ParameterContext<Long> workflowIdParameter);
+-- anchor:custom-methods:end

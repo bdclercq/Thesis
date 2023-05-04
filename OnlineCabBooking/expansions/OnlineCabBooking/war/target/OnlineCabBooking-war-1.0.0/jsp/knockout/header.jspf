@@ -1,0 +1,7 @@
+<meta http-equiv="x-ua-compatible" content="IE=100">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<% /* variabels used when building the page. */
+  String contextPath = session.getServletContext().getContextPath();
+  request.setAttribute("debugPage", false);
+%>

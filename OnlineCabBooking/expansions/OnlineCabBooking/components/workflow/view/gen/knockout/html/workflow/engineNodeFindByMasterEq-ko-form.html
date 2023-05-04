@@ -1,0 +1,21 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('engineNode.master', editMode), css: { error: detailModel.master.hasErrors}">
+    <label class="control-label"
+           for="engineNode.master"
+           data-bind="translate: 'workflow.engineNode.master'">
+    </label>
+    <div class="controls" id="engineNode.master" data-bind="focus: 1">
+      <input type='checkbox' name='engineNode.master' data-bind='checked: detailModel.master, enable: isFieldEnabled("engineNode.master", editMode)'/>
+      <div data-bind="visible: detailModel.master.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.master.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

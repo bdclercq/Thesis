@@ -1,0 +1,1 @@
+"use strict";define(["nsx/view/instanceTableBuilder","nsx/view/fieldMarkupBuilder","nsx/nsx-data"],(function(e,n,i){function r(e){return"id"!==e.name}return{createFromProjection:function(i,t){return e.createTable(i.getFields(r),n.createDisplayBuilder())[0]}}}));

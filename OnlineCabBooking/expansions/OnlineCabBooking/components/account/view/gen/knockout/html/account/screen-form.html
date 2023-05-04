@@ -1,0 +1,75 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="screen.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="screen.name"
+             data-bind="translate: 'account.screen.name'">
+      </label>
+      <div class="controls" id="screen.name" data-bind="focus: 1">
+        <input type='text' name='screen.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('screen.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: link.visible -->
+    <div class="control-group"
+       data-bind="css: { error: link.hasErrors}">
+      <label class="control-label"
+             for="screen.link"
+             data-bind="translate: 'account.screen.link'">
+      </label>
+      <div class="controls" id="screen.link" data-bind="focus: 2">
+        <input type='text' name='screen.link' data-bind="textInput: detailModel.link, enable: isFieldEnabled('screen.link', editMode)" />
+        <div data-bind="formError: link"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: sortOrder.visible -->
+    <div class="control-group"
+       data-bind="css: { error: sortOrder.hasErrors}">
+      <label class="control-label"
+             for="screen.sortOrder"
+             data-bind="translate: 'account.screen.sortOrder'">
+      </label>
+      <div class="controls" id="screen.sortOrder" data-bind="focus: 3">
+        <span data-bind='integerInput: detailModel.sortOrder, enable: isFieldEnabled("screen.sortOrder", editMode)'></span>
+        <div data-bind="formError: sortOrder"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: component.visible -->
+    <div class="control-group"
+       data-bind="css: { error: component.hasErrors}">
+      <label class="control-label"
+             for="screen.component"
+             data-bind="translate: 'account.screen.component'">
+      </label>
+      <div class="controls" id="screen.component" data-bind="focus: 4">
+        <span data-bind="selectDataRef: {
+            field: detailModel.component,
+            element: 'account.component',
+            hideDropdown: false
+        }, enable: isFieldEnabled('screen.component', editMode)">
+        </span>
+        <div data-bind="formError: component"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

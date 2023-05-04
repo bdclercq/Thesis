@@ -1,0 +1,40 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('internalAssetChunk.internalAsset', editMode), css: { error: detailModel.internalAsset.hasErrors}">
+    <label class="control-label"
+           for="internalAssetChunk.internalAsset"
+           data-bind="translate: 'assets.internalAssetChunk.internalAsset'">
+    </label>
+    <div class="controls" id="internalAssetChunk.internalAsset" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.internalAsset,
+          element: 'assets.internalAsset',
+          hideDropdown: false
+      }, enable: isFieldEnabled('internalAssetChunk.internalAsset', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.internalAsset.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.internalAsset.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="control-group" data-bind="visible: isFieldVisible('internalAssetChunk.position', editMode), css: { error: detailModel.position.hasErrors}">
+    <label class="control-label"
+           for="internalAssetChunk.position"
+           data-bind="translate: 'assets.internalAssetChunk.position'">
+    </label>
+    <div class="controls" id="internalAssetChunk.position" data-bind="focus: 2">
+      <span data-bind='integerInput: detailModel.position, enable: isFieldEnabled("internalAssetChunk.position", editMode)'></span>
+      <div data-bind="visible: detailModel.position.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.position.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

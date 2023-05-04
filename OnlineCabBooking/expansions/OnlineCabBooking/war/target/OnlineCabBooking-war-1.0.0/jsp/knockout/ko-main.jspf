@@ -1,0 +1,22 @@
+<span id="nsx-base-model" data-bind="with: baseModel">
+
+  <div id="nsx-paging" class="row-fluid" data-bind="if: templates.paging">
+    <div class="span12" data-bind="template: templates.paging">
+    </div>
+  </div>
+  
+  <div class="nsx-filler-row"></div>
+
+  <span data-bind="if: templates.searching">
+    <div id="nsx-searching" class="row-fluid" data-bind="visible: searching.hasFinderSelection && searching.isFinderVisible" style="display:none">
+      <div class="span12 nsx-searching" data-bind="template: {name: templates.searching, data: searching}">
+      </div>
+    </div>
+  </span>
+
+  <div id="nsx-list" class="row-fluid" data-bind="if: templates.list">
+    <div class="span12 nsx-list" data-bind="template: {name: templates.list, data: listModel}">
+    </div>
+  </div>
+
+</span>

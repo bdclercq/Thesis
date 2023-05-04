@@ -1,0 +1,141 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="dataAccess.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: forProfile.visible -->
+    <div class="control-group"
+       data-bind="css: { error: forProfile.hasErrors}">
+      <label class="control-label"
+             for="dataAccess.forProfile"
+             data-bind="translate: 'account.dataAccess.forProfile'">
+      </label>
+      <div class="controls" id="dataAccess.forProfile" data-bind="focus: 1">
+        <span data-bind="selectDataRef: {
+            field: detailModel.forProfile,
+            element: 'account.profile',
+            hideDropdown: false
+        }, enable: isFieldEnabled('dataAccess.forProfile', editMode)">
+        </span>
+        <div data-bind="formError: forProfile"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: forUser.visible -->
+    <div class="control-group"
+       data-bind="css: { error: forUser.hasErrors}">
+      <label class="control-label"
+             for="dataAccess.forUser"
+             data-bind="translate: 'account.dataAccess.forUser'">
+      </label>
+      <div class="controls" id="dataAccess.forUser" data-bind="focus: 2">
+        <span data-bind="selectDataRef: {
+            field: detailModel.forUser,
+            element: 'account.user',
+            hideDropdown: false
+        }, enable: isFieldEnabled('dataAccess.forUser', editMode)">
+        </span>
+        <div data-bind="formError: forUser"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: userGroups.visible -->
+    <div class="control-group"
+       data-bind="css: { error: userGroups.hasErrors}">
+      <label class="control-label"
+             for="dataAccess.userGroups"
+             data-bind="translate: 'account.dataAccess.userGroups'">
+      </label>
+      <div class="controls" id="dataAccess.userGroups" data-bind="focus: 3">
+        <span data-bind="selectManyToMany: {
+            field: detailModel.userGroups,
+            element: 'account.userGroup'
+        }, enable: isFieldEnabled('dataAccess.userGroups', editMode)">
+        </span>
+        <div data-bind="formError: userGroups"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: element.visible -->
+    <div class="control-group"
+       data-bind="css: { error: element.hasErrors}">
+      <label class="control-label"
+             for="dataAccess.element"
+             data-bind="translate: 'account.dataAccess.element'">
+      </label>
+      <div class="controls" id="dataAccess.element" data-bind="focus: 4">
+        <input type='text' name='dataAccess.element' data-bind="textInput: detailModel.element, enable: isFieldEnabled('dataAccess.element', editMode)" />
+        <div data-bind="formError: element"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: target.visible -->
+    <div class="control-group"
+       data-bind="css: { error: target.hasErrors}">
+      <label class="control-label"
+             for="dataAccess.target"
+             data-bind="translate: 'account.dataAccess.target'">
+      </label>
+      <div class="controls" id="dataAccess.target" data-bind="focus: 5">
+        <input type='text' name='dataAccess.target' data-bind="textInput: detailModel.target, enable: isFieldEnabled('dataAccess.target', editMode)" />
+        <div data-bind="formError: target"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: functionality.visible -->
+    <div class="control-group"
+       data-bind="css: { error: functionality.hasErrors}">
+      <label class="control-label"
+             for="dataAccess.functionality"
+             data-bind="translate: 'account.dataAccess.functionality'">
+      </label>
+      <div class="controls" id="dataAccess.functionality" data-bind="focus: 6">
+        <input type='text' name='dataAccess.functionality' data-bind="textInput: detailModel.functionality, enable: isFieldEnabled('dataAccess.functionality', editMode)" />
+        <div data-bind="formError: functionality"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: authorized.visible -->
+    <div class="control-group"
+       data-bind="css: { error: authorized.hasErrors}">
+      <label class="control-label"
+             for="dataAccess.authorized"
+             data-bind="translate: 'account.dataAccess.authorized'">
+      </label>
+      <div class="controls" id="dataAccess.authorized" data-bind="focus: 7">
+        <input type='text' name='dataAccess.authorized' data-bind="textInput: detailModel.authorized, enable: isFieldEnabled('dataAccess.authorized', editMode)" />
+        <div data-bind="formError: authorized"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: forUserGroup.visible -->
+    <div class="control-group"
+       data-bind="css: { error: forUserGroup.hasErrors}">
+      <label class="control-label"
+             for="dataAccess.forUserGroup"
+             data-bind="translate: 'account.dataAccess.forUserGroup'">
+      </label>
+      <div class="controls" id="dataAccess.forUserGroup" data-bind="focus: 8">
+        <span data-bind="selectDataRef: {
+            field: detailModel.forUserGroup,
+            element: 'account.userGroup',
+            hideDropdown: false
+        }, enable: isFieldEnabled('dataAccess.forUserGroup', editMode)">
+        </span>
+        <div data-bind="formError: forUserGroup"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

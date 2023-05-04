@@ -1,0 +1,1 @@
+define(["require","exports","knockout"],(function(e,i,t){"use strict";function n(e){e=e||{};var i=t.observable(e.defaultValue);return{select:function(e){i(e)},value:t.pureComputed((function(){return i()}))}}Object.defineProperty(i,"__esModule",{value:!0}),i.defineSwitch=i.defineSimpleSwitch=void 0,i.defineSimpleSwitch=n,i.defineSwitch=n}));

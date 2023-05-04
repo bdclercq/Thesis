@@ -1,0 +1,104 @@
+-- anchor:custom-imports:start
+import java.util.stream.Collectors;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  // @feature:deprecated:start
+  private static final String[] YES_NO = {"yes", "no"};
+
+  @Deprecated
+  public String[] getTagValueList(String tag) {
+    try {
+      if (tag.equals("yesNo")) {
+        return YES_NO;
+      } else {
+        TagValuePairFindByTagEqDetails finder = new TagValuePairFindByTagEqDetails();
+        finder.setTag(tag);
+        SearchResult<DataRef> result = find(SearchDetails.fetchAllDataRef(finder));
+
+        List<String> valueList = new ArrayList<String>();
+
+        for (DataRef dataRef : result.getResults()) {
+          TagValuePairDetails tvpDetails = getDetails_old(dataRef.getId());
+          valueList.add(tvpDetails.getValue());
+        }
+        return valueList.toArray(new String[valueList.size()]);
+      }
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Could not retrieve tag-value pair parameters", e
+        );
+      }
+      return new String[0];
+    }
+  }
+  // @feature:deprecated:end
+  // @feature:tag-value:start
+  /**
+   * Returns all values for the target Tag.
+   *
+   * @param tag Tag to search by, usually structured as `dataElementName_fieldName`, with the DataElement name starting
+   *            with lowercase. Mind that the tag is case-sensitive.
+   * @return SearchResult.success with a list of Strings if successful, SearchResult.error if an unexpected error occurred
+   */
+  public SearchResult<String> getValuesForTag(String tag) {
+    if (tag == null || tag.isEmpty()) {
+      return SearchResult.error(Diagnostic.error("utils", "TagValuePair", "utils.tagValuePair.tag.empty"));
+    }
+    try {
+      TagValuePairFindByTagEqDetails finder = new TagValuePairFindByTagEqDetails();
+      finder.setTag(tag);
+      SearchDetails<TagValuePairFindByTagEqDetails> searchDetails = SearchDetails.fetchAllDetails(finder);
+      searchDetails.setSkipCount(true);
+      SearchResult<TagValuePairDetails> searchResult = find(searchDetails);
+      if (searchResult.isError()) {
+        return SearchResult.error(searchResult.getDiagnostics());
+      }
+      return SearchResult.success(
+          searchResult.getResults().stream()
+              .map(TagValuePairDetails::getValue)
+              .collect(Collectors.toList()));
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Could not retrieve tag-value pairs", e
+        );
+      }
+      return SearchResult.error(Diagnostic.error("utils", "TagValuePair", "utils.tagValuePair.findFailed"));
+    }
+  }
+  // @feature:tag-value:end
+  // @feature:listField-validation:start
+  /**
+   * Checks if the tag-value combination exists
+   *
+   * @param tag   Tag to search by, usually structured as `dataElementName_fieldName`, with the DataElement name starting
+   *              with lowercase. Mind that the tag is case-sensitive.
+   * @param value Provided value
+   * @return CrudsResult.success if the TagValuePair exists, CrudsResult.error otherwise
+   */
+  public CrudsResult<Void> isValidTagValuePair(String tag, String value) {
+    try {
+      if (tag == null || tag.isEmpty()) {
+        return CrudsResult.error(Diagnostic.error("utils", "TagValuePair", "utils.tagValuePair.tag.empty"));
+      }
+      TagValuePairFindByTagEq_ValueEqDetails finder = new TagValuePairFindByTagEq_ValueEqDetails();
+      finder.setTag(tag);
+      finder.setValue(value);
+
+      SearchResult<Object> searchResult = find(SearchDetails.doCountOnly(finder));
+      if (searchResult.isError()) {
+        return CrudsResult.error(searchResult.getDiagnostics());
+      }
+      return searchResult.getTotalNumberOfItems() > 0 ? CrudsResult.success() : CrudsResult.error();
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Could not retrieve tag-value pairs", e
+        );
+      }
+      return CrudsResult.error(Diagnostic.error("utils", "TagValuePair", "utils.tagValuePair.findFailed"));
+    }
+  }
+  // @feature:listField-validation:end
+-- anchor:custom-methods:end

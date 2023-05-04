@@ -1,0 +1,59 @@
+<div>
+  <div class="row-fluid"
+       data-bind="visible: showFinders,
+        finderSelector: {
+          element: element,
+          finderModel: finderModel
+        }"
+       style="display: none">
+  </div>
+</div>
+<div class="row-fluid" data-bind="with: pagination">
+  <div class="span12">
+    <button
+        type="button"
+        class="button"
+        data-bind="click: toggleFinder.trigger">
+      <span class="icon-search"></span>
+    </button>
+    <button
+        type="button"
+        class="button"
+        data-bind="click: previousPage.trigger, disable: isFirstPage">
+      <span class="icon-chevron-up"></span>
+    </button>
+    <button
+        type="button"
+        class="button"
+        data-bind="click: nextPage.trigger, disable: isLastPage">
+      <span class="icon-chevron-down"></span>
+    </button>
+    <span>&nbsp;
+          <span data-bind="translate: 'ns.page'"></span>
+          <input type="text" class="nsx-page" data-bind="value: pageNb">
+          <span data-bind="translate: 'ns.of'"></span>
+          <span data-bind="text: numberOfPages"></span>
+        </span>
+    <span data-bind="visible: totalNumberOfItems">
+          <span>&nbsp;(<span data-bind="text: totalNumberOfItems"></span> items)</span>
+        </span>
+  </div>
+</div>
+
+<div class="row-fluid" data-bind="with: list">
+  <div class="span12">
+    <table class="table table-condensed">
+      <thead>
+      <tr data-bind="foreach: displayFields">
+        <th data-bind="text: $data"></th>
+      </tr>
+      </thead>
+      <tbody data-bind="foreach: items">
+      <tr data-bind="click: select.trigger, css: {'info': isSelected}, foreach: $parent.displayFields">
+        <td data-bind="text: $parent.value[$data]"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>

@@ -1,0 +1,26 @@
+<component name="onlineCabBookingComp">
+  <version>1.0.0</version>
+  <fullName>onlineCabBookingComp</fullName>
+  <componentDependencies>
+    <componentDependency name="onlineCabBookingComp:account">
+      <dependsOn name="account"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+    <componentDependency name="onlineCabBookingComp:utils">
+      <dependsOn name="utils"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+    <componentDependency name="onlineCabBookingComp:validation">
+      <dependsOn name="validation"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+    <componentDependency name="onlineCabBookingComp:workflow">
+      <dependsOn name="workflow"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+    <componentDependency name="">
+      <dependsOn name="assets"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+  </componentDependencies>
+</component>

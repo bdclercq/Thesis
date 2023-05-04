@@ -1,0 +1,160 @@
+.nsx-filler-row {
+  height: 18px;
+}
+
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 18px;
+}
+
+.panel-border {
+  border-top: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 18px;
+
+}
+
+.nav-tabs {
+  margin-bottom: 0;
+}
+
+.dropdown-backdrop {
+  position: static;
+}
+
+i.traffic-icon {
+  padding-left: 1px;
+  padding-right: 1px;
+  background-color: black;
+}
+
+.traffic-red {
+  color: red;
+}
+
+.traffic-yellow {
+  color: orange;
+}
+
+.traffic-green {
+  color: green;
+}
+
+.traffic-off {
+  color: white;
+}
+
+input.error {
+  border-color: #b94a48
+}
+
+input[type=search]::-webkit-search-cancel-button {
+  -webkit-appearance: searchfield-cancel-button;
+}
+
+.rotating-icon {
+  animation: rotation infinite 3s linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+tr.primary-selection > td,
+.table tbody tr.primary-selection > td {
+  background-color: #bbdeef
+}
+
+tr.secondary-selection > td,
+.table tbody tr.secondary-selection > td {
+  background-color: #d9edf7
+}
+
+.page-size-picker > * {
+  margin-bottom: 0;
+  display: inline;
+}
+
+.nsx-toolbar {
+  display: block;
+}
+
+.nsx-toolbar .nsx-toolbar-segment {
+  display: inline-block;
+}
+
+.nsx-toolbar .nsx-toolbar-segment .nsx-search-field {
+  margin-bottom: 0;
+}
+
+.nsx-required-field::after {
+  content: " *";
+  color: red;
+}
+
+.nsx-button-selected {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-color: #006dcc;
+  *background-color: #0044cc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+
+.nsx-button-selected:hover,
+.nsx-button-selected:focus,
+.nsx-button-selected:active,
+.nsx-button-selected.active,
+.nsx-button-selected.disabled,
+.nsx-button-selected[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+  *background-color: #003bb3;
+}
+
+.dropdown-more {
+  color: #888;
+  font-style: italic;
+}
+
+/* Remove chevron on autocomplete input fields in chrome */
+input[list]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.tooltip-shortcut {
+  position: absolute;
+  min-width: 10px;
+  display: none;
+  background: black;
+  border: 1px solid white;
+  color: white;
+}
+
+.modal-large {
+  width: 1000px;
+  margin-left: -500px;
+}

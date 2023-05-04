@@ -1,0 +1,69 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="workflow-engineNodeService-name-header">
+      <span data-bind="translate: 'workflow.engineNodeService.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: status.sort.trigger" class="workflow-engineNodeService-status-header">
+      <span data-bind="translate: 'workflow.engineNodeService.status'"></span>
+      <i class="sortable" data-bind="css: status.icon"></i>
+    </th>
+    <th class="workflow-engineNodeService-engineNode-header">
+      <span data-bind="translate: 'workflow.engineNodeService.engineNode'"></span>
+    </th>
+    <th class="workflow-engineNodeService-engineService-header">
+      <span data-bind="translate: 'workflow.engineNodeService.engineService'"></span>
+    </th>
+    <th data-bind="click: lastRunAt.sort.trigger" class="workflow-engineNodeService-lastRunAt-header">
+      <span data-bind="translate: 'workflow.engineNodeService.lastRunAt'"></span>
+      <i class="sortable" data-bind="css: lastRunAt.icon"></i>
+    </th>
+    <th data-bind="click: nextRun.sort.trigger" class="workflow-engineNodeService-nextRun-header">
+      <span data-bind="translate: 'workflow.engineNodeService.nextRun'"></span>
+      <i class="sortable" data-bind="css: nextRun.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="workflow-engineNodeService-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="workflow-engineNodeService-status-cell">
+      <span data-bind="text: status"></span>
+    </td>
+    <td class="workflow-engineNodeService-engineNode-cell">
+      <span data-bind="with: engineNode">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="workflow-engineNodeService-engineService-cell">
+      <span data-bind="with: engineService">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="workflow-engineNodeService-lastRunAt-cell">
+      <span data-bind="dateTimeString: lastRunAt"></span>
+    </td>
+    <td class="workflow-engineNodeService-nextRun-cell">
+      <span data-bind="dateTimeString: nextRun"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

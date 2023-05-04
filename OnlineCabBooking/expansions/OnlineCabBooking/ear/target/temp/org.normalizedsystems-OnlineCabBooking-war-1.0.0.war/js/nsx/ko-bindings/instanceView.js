@@ -1,0 +1,1 @@
+"use strict";define(["jquery","knockout","nsx/view/dynamicInstanceTable"],(function(n,e,i){e.bindingHandlers.instanceView={init:function(t,r,o,c,a){var d=e.unwrap(r()),s=d.model,l=d.projection||s.getFieldProvider(),u=i.createFromProjection(l);return n(t).html(u),e.applyBindings(s,u),{controlsDescendantBindings:!0}}}}));

@@ -1,0 +1,19 @@
+-- anchor:custom-variables:start
+  EngineServiceInfoModel = require('workflow/engineService/engineService-runningState-instance-model');
+-- anchor:custom-variables:end
+-- anchor:custom-list:start
+    infoListView = "workflow/engineService-runningState-list";
+-- anchor:custom-list:end
+-- anchor:custom-options:start
+    options.projection = "runningState";
+-- anchor:custom-options:end
+-- anchor:custom-table-model:start
+    listView.items.subscribe(function (items) {
+      if (items.length === 1) {
+        var item = items[0];
+        if (!item.isSelected()) {
+          item.select.trigger();
+        }
+      }
+    });
+-- anchor:custom-table-model:end

@@ -1,0 +1,48 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th class="account-screenProfile-screen-header">
+      <span data-bind="translate: 'account.screenProfile.screen'"></span>
+    </th>
+    <th class="account-screenProfile-profile-header">
+      <span data-bind="translate: 'account.screenProfile.profile'"></span>
+    </th>
+    <th class="account-screenProfile-screens-header">
+      <span data-bind="translate: 'account.screenProfile.screens'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-screenProfile-screen-cell">
+      <span data-bind="with: screen">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="account-screenProfile-profile-cell">
+      <span data-bind="with: profile">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="account-screenProfile-screens-cell">
+      <span data-bind="collection: { field: screens, name: 'account.screenProfile.screens'}">
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

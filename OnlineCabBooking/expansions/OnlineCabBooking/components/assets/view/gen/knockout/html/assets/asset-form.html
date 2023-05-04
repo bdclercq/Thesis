@@ -1,0 +1,154 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="asset.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="asset.name"
+             data-bind="translate: 'assets.asset.name'">
+      </label>
+      <div class="controls" id="asset.name" data-bind="focus: 1">
+        <input type='text' name='asset.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('asset.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: type.visible -->
+    <div class="control-group"
+       data-bind="css: { error: type.hasErrors}">
+      <label class="control-label"
+             for="asset.type"
+             data-bind="translate: 'assets.asset.type'">
+      </label>
+      <div class="controls" id="asset.type" data-bind="focus: 2">
+        <span data-bind="tagValue: {
+            field: detailModel.type,
+            tag: 'asset_type'
+        }, enable: isFieldEnabled('asset.type', editMode)">
+        </span>
+        <div data-bind="formError: type"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: fileAsset.visible -->
+    <div class="control-group"
+       data-bind="css: { error: fileAsset.hasErrors}">
+      <label class="control-label"
+             for="asset.fileAsset"
+             data-bind="translate: 'assets.asset.fileAsset'">
+      </label>
+      <div class="controls" id="asset.fileAsset" data-bind="focus: 3">
+        <span data-bind="selectDataRef: {
+            field: detailModel.fileAsset,
+            element: 'assets.fileAsset',
+            hideDropdown: false
+        }, enable: isFieldEnabled('asset.fileAsset', editMode)">
+        </span>
+        <div data-bind="formError: fileAsset"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: internalAsset.visible -->
+    <div class="control-group"
+       data-bind="css: { error: internalAsset.hasErrors}">
+      <label class="control-label"
+             for="asset.internalAsset"
+             data-bind="translate: 'assets.asset.internalAsset'">
+      </label>
+      <div class="controls" id="asset.internalAsset" data-bind="focus: 4">
+        <span data-bind="selectDataRef: {
+            field: detailModel.internalAsset,
+            element: 'assets.internalAsset',
+            hideDropdown: false
+        }, enable: isFieldEnabled('asset.internalAsset', editMode)">
+        </span>
+        <div data-bind="formError: internalAsset"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: contentType.visible -->
+    <div class="control-group"
+       data-bind="css: { error: contentType.hasErrors}">
+      <label class="control-label"
+             for="asset.contentType"
+             data-bind="translate: 'assets.asset.contentType'">
+      </label>
+      <div class="controls" id="asset.contentType" data-bind="focus: 5">
+        <input type='text' name='asset.contentType' data-bind="textInput: detailModel.contentType, enable: isFieldEnabled('asset.contentType', editMode)" />
+        <div data-bind="formError: contentType"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: byteSize.visible -->
+    <div class="control-group"
+       data-bind="css: { error: byteSize.hasErrors}">
+      <label class="control-label"
+             for="asset.byteSize"
+             data-bind="translate: 'assets.asset.byteSize'">
+      </label>
+      <div class="controls" id="asset.byteSize" data-bind="focus: 6">
+        <span data-bind='integerInput: detailModel.byteSize, enable: isFieldEnabled("asset.byteSize", editMode)'></span>
+        <div data-bind="formError: byteSize"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: fileId.visible -->
+    <div class="control-group"
+       data-bind="css: { error: fileId.hasErrors}">
+      <label class="control-label"
+             for="asset.fileId"
+             data-bind="translate: 'assets.asset.fileId'">
+      </label>
+      <div class="controls" id="asset.fileId" data-bind="focus: 7">
+        <input type='text' name='asset.fileId' data-bind="textInput: detailModel.fileId, enable: isFieldEnabled('asset.fileId', editMode)" />
+        <div data-bind="formError: fileId"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: complete.visible -->
+    <div class="control-group"
+       data-bind="css: { error: complete.hasErrors}">
+      <label class="control-label"
+             for="asset.complete"
+             data-bind="translate: 'assets.asset.complete'">
+      </label>
+      <div class="controls" id="asset.complete" data-bind="focus: 8">
+        <input type='checkbox' name='asset.complete' data-bind='checked: detailModel.complete, enable: isFieldEnabled("asset.complete", editMode)'/>
+        <div data-bind="formError: complete"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: externalAsset.visible -->
+    <div class="control-group"
+       data-bind="css: { error: externalAsset.hasErrors}">
+      <label class="control-label"
+             for="asset.externalAsset"
+             data-bind="translate: 'assets.asset.externalAsset'">
+      </label>
+      <div class="controls" id="asset.externalAsset" data-bind="focus: 9">
+        <span data-bind="selectDataRef: {
+            field: detailModel.externalAsset,
+            element: 'assets.externalAsset',
+            hideDropdown: false
+        }, enable: isFieldEnabled('asset.externalAsset', editMode)">
+        </span>
+        <div data-bind="formError: externalAsset"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

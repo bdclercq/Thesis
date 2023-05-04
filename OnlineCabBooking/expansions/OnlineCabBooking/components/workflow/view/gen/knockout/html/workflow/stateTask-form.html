@@ -1,0 +1,166 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="stateTask.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="stateTask.name"
+             data-bind="translate: 'workflow.stateTask.name'">
+      </label>
+      <div class="controls" id="stateTask.name" data-bind="focus: 1">
+        <input type='text' name='stateTask.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('stateTask.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: processor.visible -->
+    <div class="control-group"
+       data-bind="css: { error: processor.hasErrors}">
+      <label class="control-label"
+             for="stateTask.processor"
+             data-bind="translate: 'workflow.stateTask.processor'">
+      </label>
+      <div class="controls" id="stateTask.processor" data-bind="focus: 2">
+        <input type='text' name='stateTask.processor' data-bind="textInput: detailModel.processor, enable: isFieldEnabled('stateTask.processor', editMode)" />
+        <div data-bind="formError: processor"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: implementation.visible -->
+    <div class="control-group"
+       data-bind="css: { error: implementation.hasErrors}">
+      <label class="control-label"
+             for="stateTask.implementation"
+             data-bind="translate: 'workflow.stateTask.implementation'">
+      </label>
+      <div class="controls" id="stateTask.implementation" data-bind="focus: 3">
+        <input type='text' name='stateTask.implementation' data-bind="textInput: detailModel.implementation, enable: isFieldEnabled('stateTask.implementation', editMode)" />
+        <div data-bind="formError: implementation"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: params.visible -->
+    <div class="control-group"
+       data-bind="css: { error: params.hasErrors}">
+      <label class="control-label"
+             for="stateTask.params"
+             data-bind="translate: 'workflow.stateTask.params'">
+      </label>
+      <div class="controls" id="stateTask.params" data-bind="focus: 4">
+        <input type='text' name='stateTask.params' data-bind="textInput: detailModel.params, enable: isFieldEnabled('stateTask.params', editMode)" />
+        <div data-bind="formError: params"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: beginState.visible -->
+    <div class="control-group"
+       data-bind="css: { error: beginState.hasErrors}">
+      <label class="control-label"
+             for="stateTask.beginState"
+             data-bind="translate: 'workflow.stateTask.beginState'">
+      </label>
+      <div class="controls" id="stateTask.beginState" data-bind="focus: 5">
+        <input type='text' name='stateTask.beginState' data-bind="textInput: detailModel.beginState, enable: isFieldEnabled('stateTask.beginState', editMode)" />
+        <div data-bind="formError: beginState"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: interimState.visible -->
+    <div class="control-group"
+       data-bind="css: { error: interimState.hasErrors}">
+      <label class="control-label"
+             for="stateTask.interimState"
+             data-bind="translate: 'workflow.stateTask.interimState'">
+      </label>
+      <div class="controls" id="stateTask.interimState" data-bind="focus: 6">
+        <input type='text' name='stateTask.interimState' data-bind="textInput: detailModel.interimState, enable: isFieldEnabled('stateTask.interimState', editMode)" />
+        <div data-bind="formError: interimState"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: failedState.visible -->
+    <div class="control-group"
+       data-bind="css: { error: failedState.hasErrors}">
+      <label class="control-label"
+             for="stateTask.failedState"
+             data-bind="translate: 'workflow.stateTask.failedState'">
+      </label>
+      <div class="controls" id="stateTask.failedState" data-bind="focus: 7">
+        <input type='text' name='stateTask.failedState' data-bind="textInput: detailModel.failedState, enable: isFieldEnabled('stateTask.failedState', editMode)" />
+        <div data-bind="formError: failedState"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: endState.visible -->
+    <div class="control-group"
+       data-bind="css: { error: endState.hasErrors}">
+      <label class="control-label"
+             for="stateTask.endState"
+             data-bind="translate: 'workflow.stateTask.endState'">
+      </label>
+      <div class="controls" id="stateTask.endState" data-bind="focus: 8">
+        <input type='text' name='stateTask.endState' data-bind="textInput: detailModel.endState, enable: isFieldEnabled('stateTask.endState', editMode)" />
+        <div data-bind="formError: endState"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: workflow.visible -->
+    <div class="control-group"
+       data-bind="css: { error: workflow.hasErrors}">
+      <label class="control-label"
+             for="stateTask.workflow"
+             data-bind="translate: 'workflow.stateTask.workflow'">
+      </label>
+      <div class="controls" id="stateTask.workflow" data-bind="focus: 9">
+        <span data-bind="selectDataRef: {
+            field: detailModel.workflow,
+            element: 'workflow.workflow',
+            hideDropdown: false
+        }, enable: isFieldEnabled('stateTask.workflow', editMode)">
+        </span>
+        <div data-bind="formError: workflow"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: maxConcurrentTasks.visible -->
+    <div class="control-group"
+       data-bind="css: { error: maxConcurrentTasks.hasErrors}">
+      <label class="control-label"
+             for="stateTask.maxConcurrentTasks"
+             data-bind="translate: 'workflow.stateTask.maxConcurrentTasks'">
+      </label>
+      <div class="controls" id="stateTask.maxConcurrentTasks" data-bind="focus: 10">
+        <span data-bind='integerInput: detailModel.maxConcurrentTasks, enable: isFieldEnabled("stateTask.maxConcurrentTasks", editMode)'></span>
+        <div data-bind="formError: maxConcurrentTasks"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: timeout.visible -->
+    <div class="control-group"
+       data-bind="css: { error: timeout.hasErrors}">
+      <label class="control-label"
+             for="stateTask.timeout"
+             data-bind="translate: 'workflow.stateTask.timeout'">
+      </label>
+      <div class="controls" id="stateTask.timeout" data-bind="focus: 11">
+        <span data-bind='integerInput: detailModel.timeout, enable: isFieldEnabled("stateTask.timeout", editMode)'></span>
+        <div data-bind="formError: timeout"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

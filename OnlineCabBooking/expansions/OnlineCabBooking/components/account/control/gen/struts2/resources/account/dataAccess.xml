@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<struts>
+
+  <package name='account-dataAccess' namespace='/account' extends='nsx-default'>
+
+    <global-results>
+      <result name='noaccess'>/jsp/noaccess.jsp</result>
+    </global-results>
+
+    <!-- @anchor:actions:start -->
+    <!-- @anchor:actions:end -->
+
+    <!-- Add actions here -->
+
+    <!-- anchor:custom-actions:start -->
+    <!-- anchor:custom-actions:end -->
+  </package>
+
+  <package name='account-dataAccess-json' namespace='/account' extends='nsx-json-default'>
+
+    <action name='dataAccess-detail-json' class='net.democritus.acl.action.DataAccessDetailer' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='dataAccess-delete-json' class='net.democritus.acl.action.DataAccessDeleter' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='dataAccess-confirm-json' class='net.democritus.acl.action.DataAccessEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='dataAccess-saveDetails-json' class='net.democritus.acl.action.DataAccessEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='dataAccess-search-json' class='net.democritus.acl.action.DataAccessFindAction' method='execute'>
+      <interceptor-ref name="jsonFinderStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='dataAccess-perform-json' class='net.democritus.acl.action.DataAccessPerformer' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='dataAccess-getProjection-json' class='net.democritus.acl.action.DataAccessProjector' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- anchor:io-actions:start -->
+    <action name='dataAccess-upload-json' class='net.democritus.acl.action.DataAccessImporterAction' method='execute'>
+        <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+    <!-- anchor:io-actions:end -->
+
+    <!-- @anchor:json-actions:start -->
+    <!-- @anchor:json-actions:end -->
+
+    <!-- Add JSON actions here -->
+
+    <!-- anchor:custom-json-actions:start -->
+    <!-- anchor:custom-json-actions:end -->
+  </package>
+
+  <package name='account-dataAccess-knockout-html' namespace='/account/dataAccess' extends='nsx-default'>
+    <action name='data'>
+      <result>/jsp/ps2/page.jsp?pageModel=account/dataAccess/dataAccess-io-page-model</result>
+    </action>
+    <action name='all'>
+      <result>/jsp/ps2/page.jsp?pageModel=account/dataAccess/dataAccess-page-model</result>
+    </action>
+
+    <!-- @anchor:ko-html-pages:start -->
+    <!-- @anchor:ko-html-pages:end -->
+  </package>
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+   <package name='account-dataAccess-custom' namespace='/account' extends='nsx-json-default'>
+
+    <action name='getProfileAccessRights-json' class='net.democritus.acl.action.GetAccessRightsAction' method='execute'>
+      <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+     <action name='getTaskAccessRights-json' class='net.democritus.acl.action.GetTaskAccessRightsAction' method='execute'>
+       <result name='success' type='json'>
+         <param name='noCache'>true</param>
+         <param name='root'>jsonResult</param>
+       </result>
+     </action>
+    <action name='getHelpInfo-json' class='net.democritus.acl.action.GetHelpInfoAction' method='execute'>
+      <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+   </package>
+  <!-- anchor:custom-packages:end -->
+
+</struts>

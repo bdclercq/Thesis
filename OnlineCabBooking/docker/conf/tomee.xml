@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+  <Deployments dir="deploy" autoDeploy="true"/>
+
+  <TransactionManager id="transactionManager" type="TransactionManager">
+    defaultTransactionTimeout = 60 seconds
+  </TransactionManager>
+
+  <!-- DataSource for base components -->
+  <Resource id="jdbc_database-test_base" type="DataSource">
+    JdbcDriver     org.postgresql.Driver
+    JdbcUrl        jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    UserName       ${DATABASE_USER}
+    Password       ${DATABASE_PASS}
+    JtaManaged     true
+    TestWhileIdle  true
+    InitialSize    5
+    MaxActive      100
+  </Resource>
+
+  <!-- DataSource for onlineCabBookingComp component -->
+  <Resource id="jdbc_database-test_onlineCabBookingComp" type="DataSource">
+    JdbcDriver     org.postgresql.Driver
+    JdbcUrl        jdbc:postgresql://${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_NAME}
+    UserName       ${DATABASE_USER}
+    Password       ${DATABASE_PASS}
+    JtaManaged     true
+    TestWhileIdle  true
+    InitialSize    5
+    MaxActive      100
+  </Resource>
+</tomee>

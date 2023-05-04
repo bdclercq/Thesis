@@ -1,0 +1,101 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.id'"></span>
+    </th>
+    <td>
+      <span data-bind="text: id"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:start -->
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.name'"></span>
+    </th>
+    <td>
+      <span data-bind="text: name"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.status'"></span>
+    </th>
+    <td>
+      <span data-bind="text: status"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.busy'"></span>
+    </th>
+    <td>
+      <span data-bind="text: busy"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.waitTime'"></span>
+    </th>
+    <td>
+      <span data-bind="text: waitTime"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.timeWindowGroup'"></span>
+    </th>
+    <td>
+      <span data-bind="with: timeWindowGroup">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.lastRunAt'"></span>
+    </th>
+    <td>
+      <span data-bind='dateTimeString: lastRunAt'></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.batchSize'"></span>
+    </th>
+    <td>
+      <span data-bind="text: batchSize"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.maximumNumberOfNodes'"></span>
+    </th>
+    <td>
+      <span data-bind="text: maximumNumberOfNodes"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.running'"></span>
+    </th>
+    <td>
+      <span data-bind="text: running"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'workflow.engineService.nextRun'"></span>
+    </th>
+    <td>
+      <span data-bind="dateTimeString: nextRun"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:end -->
+  <!-- @anchor:field-rows:start -->
+  <!-- @anchor:field-rows:end -->
+  <!-- anchor:custom-field-rows:start -->
+  <!-- anchor:custom-field-rows:end -->
+</table>

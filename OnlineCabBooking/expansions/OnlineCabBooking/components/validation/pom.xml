@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.normalizedsystems</groupId>
+    <artifactId>OnlineCabBooking</artifactId>
+    <version>1.0.0</version>
+    <relativePath>../../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>validation</artifactId>
+  <version>1.0</version>
+
+  <packaging>pom</packaging>
+
+  <name>validation</name>
+
+  <modules>
+    <module>shared</module>
+    <module>data</module>
+    <module>logic</module>
+    <module>proxy</module>
+    <module>control</module>
+    <module>view</module>
+
+    <!-- @anchor:modules:start -->
+    <!-- @anchor:modules:end -->
+    <!-- anchor:custom-modules:start -->
+    <!-- anchor:custom-modules:end -->
+  </modules>
+
+  <profiles>
+    <!-- @anchor:profiles:start -->
+    <!-- @anchor:profiles:end -->
+    <!-- anchor:custom-profiles:start -->
+    <!-- anchor:custom-profiles:end -->
+  </profiles>
+
+  <!-- @anchor:project:start -->
+  <!-- @anchor:project:end -->
+  <!-- anchor:custom-project:start -->
+  <!-- anchor:custom-project:end -->
+</project>

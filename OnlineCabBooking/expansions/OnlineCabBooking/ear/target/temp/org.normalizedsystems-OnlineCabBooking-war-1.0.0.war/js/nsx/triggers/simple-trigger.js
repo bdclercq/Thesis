@@ -1,0 +1,1 @@
+define(["require","exports"],(function(e,r){"use strict";Object.defineProperty(r,"__esModule",{value:!0}),r.defineTrigger=void 0,r.defineTrigger=function(){var e=[];return{subscribe:function(r){e.push(r)},trigger:function(){return e.forEach((function(e){e.call(this)})),!0}}}}));

@@ -1,0 +1,12 @@
+<globalOptionSettings name="3.0 Modern">
+  <baseCompsMode>GENERATE</baseCompsMode>
+  <counterDefault>IDENTITY</counterDefault>
+  <useAppAnchors>FALSE</useAppAnchors>
+  <useLegacyFinders>FALSE</useLegacyFinders>
+  <useJavaEESecurity>FALSE</useJavaEESecurity>
+  <buildEngine>MAVEN</buildEngine>
+  <beanInterfacePolicy>BOTH</beanInterfacePolicy>
+  <enforceHttpMethod>false</enforceHttpMethod>
+  <useCsrfProtection>false</useCsrfProtection>
+  <generateArtifactLabel>false</generateArtifactLabel>
+</globalOptionSettings>

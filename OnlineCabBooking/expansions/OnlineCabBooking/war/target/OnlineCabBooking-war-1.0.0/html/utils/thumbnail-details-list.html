@@ -1,0 +1,133 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="utils-thumbnail-name-header">
+      <span data-bind="translate: 'utils.thumbnail.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: fullName.sort.trigger" class="utils-thumbnail-fullName-header">
+      <span data-bind="translate: 'utils.thumbnail.fullName'"></span>
+      <i class="sortable" data-bind="css: fullName.icon"></i>
+    </th>
+    <th data-bind="click: uri.sort.trigger" class="utils-thumbnail-uri-header">
+      <span data-bind="translate: 'utils.thumbnail.uri'"></span>
+      <i class="sortable" data-bind="css: uri.icon"></i>
+    </th>
+    <th data-bind="click: depth.sort.trigger" class="utils-thumbnail-depth-header">
+      <span data-bind="translate: 'utils.thumbnail.depth'"></span>
+      <i class="sortable" data-bind="css: depth.icon"></i>
+    </th>
+    <th data-bind="click: border.sort.trigger" class="utils-thumbnail-border-header">
+      <span data-bind="translate: 'utils.thumbnail.border'"></span>
+      <i class="sortable" data-bind="css: border.icon"></i>
+    </th>
+    <th data-bind="click: thumbType.sort.trigger" class="utils-thumbnail-thumbType-header">
+      <span data-bind="translate: 'utils.thumbnail.thumbType'"></span>
+      <i class="sortable" data-bind="css: thumbType.icon"></i>
+    </th>
+    <th data-bind="click: thumbName.sort.trigger" class="utils-thumbnail-thumbName-header">
+      <span data-bind="translate: 'utils.thumbnail.thumbName'"></span>
+      <i class="sortable" data-bind="css: thumbName.icon"></i>
+    </th>
+    <th data-bind="click: targetType.sort.trigger" class="utils-thumbnail-targetType-header">
+      <span data-bind="translate: 'utils.thumbnail.targetType'"></span>
+      <i class="sortable" data-bind="css: targetType.icon"></i>
+    </th>
+    <th data-bind="click: targetName.sort.trigger" class="utils-thumbnail-targetName-header">
+      <span data-bind="translate: 'utils.thumbnail.targetName'"></span>
+      <i class="sortable" data-bind="css: targetName.icon"></i>
+    </th>
+    <th data-bind="click: targetId.sort.trigger" class="utils-thumbnail-targetId-header">
+      <span data-bind="translate: 'utils.thumbnail.targetId'"></span>
+      <i class="sortable" data-bind="css: targetId.icon"></i>
+    </th>
+    <th data-bind="click: leftX.sort.trigger" class="utils-thumbnail-leftX-header">
+      <span data-bind="translate: 'utils.thumbnail.leftX'"></span>
+      <i class="sortable" data-bind="css: leftX.icon"></i>
+    </th>
+    <th data-bind="click: topY.sort.trigger" class="utils-thumbnail-topY-header">
+      <span data-bind="translate: 'utils.thumbnail.topY'"></span>
+      <i class="sortable" data-bind="css: topY.icon"></i>
+    </th>
+    <th data-bind="click: width.sort.trigger" class="utils-thumbnail-width-header">
+      <span data-bind="translate: 'utils.thumbnail.width'"></span>
+      <i class="sortable" data-bind="css: width.icon"></i>
+    </th>
+    <th data-bind="click: height.sort.trigger" class="utils-thumbnail-height-header">
+      <span data-bind="translate: 'utils.thumbnail.height'"></span>
+      <i class="sortable" data-bind="css: height.icon"></i>
+    </th>
+    <th data-bind="click: clickAction.sort.trigger" class="utils-thumbnail-clickAction-header">
+      <span data-bind="translate: 'utils.thumbnail.clickAction'"></span>
+      <i class="sortable" data-bind="css: clickAction.icon"></i>
+    </th>
+    <th data-bind="click: hooverAction.sort.trigger" class="utils-thumbnail-hooverAction-header">
+      <span data-bind="translate: 'utils.thumbnail.hooverAction'"></span>
+      <i class="sortable" data-bind="css: hooverAction.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="utils-thumbnail-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="utils-thumbnail-fullName-cell">
+      <span data-bind="text: fullName"></span>
+    </td>
+    <td class="utils-thumbnail-uri-cell">
+      <span data-bind="text: uri"></span>
+    </td>
+    <td class="utils-thumbnail-depth-cell">
+      <span data-bind="text: depth"></span>
+    </td>
+    <td class="utils-thumbnail-border-cell">
+      <span data-bind="text: border"></span>
+    </td>
+    <td class="utils-thumbnail-thumbType-cell">
+      <span data-bind="text: thumbType"></span>
+    </td>
+    <td class="utils-thumbnail-thumbName-cell">
+      <span data-bind="text: thumbName"></span>
+    </td>
+    <td class="utils-thumbnail-targetType-cell">
+      <span data-bind="text: targetType"></span>
+    </td>
+    <td class="utils-thumbnail-targetName-cell">
+      <span data-bind="text: targetName"></span>
+    </td>
+    <td class="utils-thumbnail-targetId-cell">
+      <span data-bind="text: targetId"></span>
+    </td>
+    <td class="utils-thumbnail-leftX-cell">
+      <span data-bind="text: leftX"></span>
+    </td>
+    <td class="utils-thumbnail-topY-cell">
+      <span data-bind="text: topY"></span>
+    </td>
+    <td class="utils-thumbnail-width-cell">
+      <span data-bind="text: width"></span>
+    </td>
+    <td class="utils-thumbnail-height-cell">
+      <span data-bind="text: height"></span>
+    </td>
+    <td class="utils-thumbnail-clickAction-cell">
+      <span data-bind="text: clickAction"></span>
+    </td>
+    <td class="utils-thumbnail-hooverAction-cell">
+      <span data-bind="text: hooverAction"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

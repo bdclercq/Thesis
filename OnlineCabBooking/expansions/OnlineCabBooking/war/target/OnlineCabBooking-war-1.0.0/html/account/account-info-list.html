@@ -1,0 +1,56 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="account-account-name-header">
+      <span data-bind="translate: 'account.account.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: refId.sort.trigger" class="account-account-refId-header">
+      <span data-bind="translate: 'account.account.refId'"></span>
+      <i class="sortable" data-bind="css: refId.icon"></i>
+    </th>
+    <th data-bind="click: fullName.sort.trigger" class="account-account-fullName-header">
+      <span data-bind="translate: 'account.account.fullName'"></span>
+      <i class="sortable" data-bind="css: fullName.icon"></i>
+    </th>
+    <th data-bind="click: city.sort.trigger" class="account-account-city-header">
+      <span data-bind="translate: 'account.account.city'"></span>
+      <i class="sortable" data-bind="css: city.icon"></i>
+    </th>
+    <th data-bind="click: status.sort.trigger" class="account-account-status-header">
+      <span data-bind="translate: 'account.account.status'"></span>
+      <i class="sortable" data-bind="css: status.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-account-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="account-account-refId-cell">
+      <span data-bind="text: refId"></span>
+    </td>
+    <td class="account-account-fullName-cell">
+      <span data-bind="text: fullName"></span>
+    </td>
+    <td class="account-account-city-cell">
+      <span data-bind="text: city"></span>
+    </td>
+    <td class="account-account-status-cell">
+      <span data-bind="text: status"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

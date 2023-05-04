@@ -1,0 +1,21 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('timeTask.triggerState', editMode), css: { error: detailModel.triggerState.hasErrors}">
+    <label class="control-label"
+           for="timeTask.triggerState"
+           data-bind="translate: 'workflow.timeTask.triggerState'">
+    </label>
+    <div class="controls" id="timeTask.triggerState" data-bind="focus: 1">
+      <input type='text' name='timeTask.triggerState' data-bind="textInput: detailModel.triggerState, enable: isFieldEnabled('timeTask.triggerState', editMode)" />
+      <div data-bind="visible: detailModel.triggerState.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.triggerState.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

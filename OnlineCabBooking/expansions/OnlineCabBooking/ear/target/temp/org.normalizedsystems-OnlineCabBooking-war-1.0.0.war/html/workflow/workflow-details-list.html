@@ -1,0 +1,66 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="workflow-workflow-name-header">
+      <span data-bind="translate: 'workflow.workflow.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: target.sort.trigger" class="workflow-workflow-target-header">
+      <span data-bind="translate: 'workflow.workflow.target'"></span>
+      <i class="sortable" data-bind="css: target.icon"></i>
+    </th>
+    <th data-bind="click: componentName.sort.trigger" class="workflow-workflow-componentName-header">
+      <span data-bind="translate: 'workflow.workflow.componentName'"></span>
+      <i class="sortable" data-bind="css: componentName.icon"></i>
+    </th>
+    <th data-bind="click: className.sort.trigger" class="workflow-workflow-className-header">
+      <span data-bind="translate: 'workflow.workflow.className'"></span>
+      <i class="sortable" data-bind="css: className.icon"></i>
+    </th>
+    <th class="workflow-workflow-responsible-header">
+      <span data-bind="translate: 'workflow.workflow.responsible'"></span>
+    </th>
+    <th data-bind="click: sequencingStrategy.sort.trigger" class="workflow-workflow-sequencingStrategy-header">
+      <span data-bind="translate: 'workflow.workflow.sequencingStrategy'"></span>
+      <i class="sortable" data-bind="css: sequencingStrategy.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="workflow-workflow-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="workflow-workflow-target-cell">
+      <span data-bind="text: target"></span>
+    </td>
+    <td class="workflow-workflow-componentName-cell">
+      <span data-bind="text: componentName"></span>
+    </td>
+    <td class="workflow-workflow-className-cell">
+      <span data-bind="text: className"></span>
+    </td>
+    <td class="workflow-workflow-responsible-cell">
+      <span data-bind="with: responsible">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="workflow-workflow-sequencingStrategy-cell">
+      <span data-bind="text: sequencingStrategy"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

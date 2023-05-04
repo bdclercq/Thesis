@@ -1,0 +1,9 @@
+-- anchor:custom-command-changePassword:start
+      if (!changePasswordCommand.getNewPassword().equals(changePasswordCommand.getRepeatNewPassword())) {
+        validationResults.add(ValidationResult.error("The new password did not match with the repeated value"));
+        fieldErrors.add(new FieldError(
+            "repeatNewPassword",
+            "account.user.changePassword.repeatNewPassword",
+            "Please repeat the same password"));
+      }
+-- anchor:custom-command-changePassword:end

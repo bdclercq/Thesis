@@ -1,0 +1,110 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="engineNodeService.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="engineNodeService.name"
+             data-bind="translate: 'workflow.engineNodeService.name'">
+      </label>
+      <div class="controls" id="engineNodeService.name" data-bind="focus: 1">
+        <input type='text' name='engineNodeService.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('engineNodeService.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: status.visible -->
+    <div class="control-group"
+       data-bind="css: { error: status.hasErrors}">
+      <label class="control-label"
+             for="engineNodeService.status"
+             data-bind="translate: 'workflow.engineNodeService.status'">
+      </label>
+      <div class="controls" id="engineNodeService.status" data-bind="focus: 2">
+        <span data-bind="tagValue: {
+            field: detailModel.status,
+            tag: 'engineNodeService_status'
+        }, enable: isFieldEnabled('engineNodeService.status', editMode)">
+        </span>
+        <div data-bind="formError: status"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: engineNode.visible -->
+    <div class="control-group"
+       data-bind="css: { error: engineNode.hasErrors}">
+      <label class="control-label"
+             for="engineNodeService.engineNode"
+             data-bind="translate: 'workflow.engineNodeService.engineNode'">
+      </label>
+      <div class="controls" id="engineNodeService.engineNode" data-bind="focus: 3">
+        <span data-bind="selectDataRef: {
+            field: detailModel.engineNode,
+            element: 'workflow.engineNode',
+            hideDropdown: false
+        }, enable: isFieldEnabled('engineNodeService.engineNode', editMode)">
+        </span>
+        <div data-bind="formError: engineNode"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: engineService.visible -->
+    <div class="control-group"
+       data-bind="css: { error: engineService.hasErrors}">
+      <label class="control-label"
+             for="engineNodeService.engineService"
+             data-bind="translate: 'workflow.engineNodeService.engineService'">
+      </label>
+      <div class="controls" id="engineNodeService.engineService" data-bind="focus: 4">
+        <span data-bind="selectDataRef: {
+            field: detailModel.engineService,
+            element: 'workflow.engineService',
+            hideDropdown: false
+        }, enable: isFieldEnabled('engineNodeService.engineService', editMode)">
+        </span>
+        <div data-bind="formError: engineService"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: lastRunAt.visible -->
+    <div class="control-group"
+       data-bind="css: { error: lastRunAt.hasErrors}">
+      <label class="control-label"
+             for="engineNodeService.lastRunAt"
+             data-bind="translate: 'workflow.engineNodeService.lastRunAt'">
+      </label>
+      <div class="controls" id="engineNodeService.lastRunAt" data-bind="focus: 5">
+        <span data-bind="dateTimeInput: detailModel.lastRunAt, enable: isFieldEnabled('engineNodeService.lastRunAt', editMode)"></span>
+        <div data-bind="formError: lastRunAt"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: nextRun.visible -->
+    <div class="control-group"
+       data-bind="css: { error: nextRun.hasErrors}">
+      <label class="control-label"
+             for="engineNodeService.nextRun"
+             data-bind="translate: 'workflow.engineNodeService.nextRun'">
+      </label>
+      <div class="controls" id="engineNodeService.nextRun" data-bind="focus: 6">
+        <span data-bind="dateTimeInput: detailModel.nextRun, enable: isFieldEnabled('engineNodeService.nextRun', editMode)"></span>
+        <div data-bind="formError: nextRun"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

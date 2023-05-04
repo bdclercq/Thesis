@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<struts>
+
+  <package name='utils-idCounter' namespace='/utils' extends='nsx-default'>
+
+    <global-results>
+      <result name='noaccess'>/jsp/noaccess.jsp</result>
+    </global-results>
+
+    <!-- @anchor:actions:start -->
+    <!-- @anchor:actions:end -->
+
+    <!-- Add actions here -->
+
+    <!-- anchor:custom-actions:start -->
+    <!-- anchor:custom-actions:end -->
+  </package>
+
+  <package name='utils-idCounter-json' namespace='/utils' extends='nsx-json-default'>
+
+    <action name='idCounter-detail-json' class='net.democritus.sys.action.IdCounterDetailer' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='idCounter-delete-json' class='net.democritus.sys.action.IdCounterDeleter' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='idCounter-confirm-json' class='net.democritus.sys.action.IdCounterEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='idCounter-saveDetails-json' class='net.democritus.sys.action.IdCounterEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='idCounter-search-json' class='net.democritus.sys.action.IdCounterFindAction' method='execute'>
+      <interceptor-ref name="jsonFinderStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='idCounter-perform-json' class='net.democritus.sys.action.IdCounterPerformer' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='idCounter-getProjection-json' class='net.democritus.sys.action.IdCounterProjector' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- anchor:io-actions:start -->
+    <!-- anchor:io-actions:end -->
+
+    <!-- @anchor:json-actions:start -->
+    <!-- @anchor:json-actions:end -->
+
+    <!-- Add JSON actions here -->
+
+    <!-- anchor:custom-json-actions:start -->
+    <!-- anchor:custom-json-actions:end -->
+  </package>
+
+  <package name='utils-idCounter-knockout-html' namespace='/utils/idCounter' extends='nsx-default'>
+    <action name='data'>
+      <result>/jsp/ps2/page.jsp?pageModel=utils/idCounter/idCounter-io-page-model</result>
+    </action>
+    <action name='all'>
+      <result>/jsp/ps2/page.jsp?pageModel=utils/idCounter/idCounter-page-model</result>
+    </action>
+
+    <!-- @anchor:ko-html-pages:start -->
+    <!-- @anchor:ko-html-pages:end -->
+  </package>
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+  <!-- anchor:custom-packages:end -->
+
+</struts>

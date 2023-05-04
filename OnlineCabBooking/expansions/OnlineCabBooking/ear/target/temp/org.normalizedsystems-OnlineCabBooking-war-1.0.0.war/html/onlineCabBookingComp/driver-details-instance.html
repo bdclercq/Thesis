@@ -1,0 +1,73 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.driver.id'"></span>
+    </th>
+    <td>
+      <span data-bind="text: id"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.driver.name'"></span>
+    </th>
+    <td>
+      <span data-bind="text: name"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:start -->
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.driver.licenseNo'"></span>
+    </th>
+    <td>
+      <span data-bind="text: licenseNo"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.driver.rating'"></span>
+    </th>
+    <td>
+      <span data-bind="text: rating"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.driver.isAvailable'"></span>
+    </th>
+    <td>
+      <input type="checkbox" data-bind="checked: isAvailable" disabled/>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.driver.cab'"></span>
+    </th>
+    <td>
+      <span data-bind="with: cab">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.driver.tripBooking'"></span>
+    </th>
+    <td>
+      <span data-bind="with: tripBooking">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:end -->
+  <!-- @anchor:field-rows:start -->
+  <!-- @anchor:field-rows:end -->
+  <!-- anchor:custom-field-rows:start -->
+  <!-- anchor:custom-field-rows:end -->
+</table>

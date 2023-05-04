@@ -1,0 +1,88 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="internalAssetChunk.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: content.visible -->
+    <div class="control-group"
+       data-bind="css: { error: content.hasErrors}">
+      <label class="control-label"
+             for="internalAssetChunk.content"
+             data-bind="translate: 'assets.internalAssetChunk.content'">
+      </label>
+      <div class="controls" id="internalAssetChunk.content" data-bind="focus: 1">
+        <input type='text' name='internalAssetChunk.content' data-bind="textInput: detailModel.content, enable: isFieldEnabled('internalAssetChunk.content', editMode)" />
+        <div data-bind="formError: content"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: internalAsset.visible -->
+    <div class="control-group"
+       data-bind="css: { error: internalAsset.hasErrors}">
+      <label class="control-label"
+             for="internalAssetChunk.internalAsset"
+             data-bind="translate: 'assets.internalAssetChunk.internalAsset'">
+      </label>
+      <div class="controls" id="internalAssetChunk.internalAsset" data-bind="focus: 2">
+        <span data-bind="selectDataRef: {
+            field: detailModel.internalAsset,
+            element: 'assets.internalAsset',
+            hideDropdown: false
+        }, enable: isFieldEnabled('internalAssetChunk.internalAsset', editMode)">
+        </span>
+        <div data-bind="formError: internalAsset"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: byteSize.visible -->
+    <div class="control-group"
+       data-bind="css: { error: byteSize.hasErrors}">
+      <label class="control-label"
+             for="internalAssetChunk.byteSize"
+             data-bind="translate: 'assets.internalAssetChunk.byteSize'">
+      </label>
+      <div class="controls" id="internalAssetChunk.byteSize" data-bind="focus: 3">
+        <span data-bind='integerInput: detailModel.byteSize, enable: isFieldEnabled("internalAssetChunk.byteSize", editMode)'></span>
+        <div data-bind="formError: byteSize"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: position.visible -->
+    <div class="control-group"
+       data-bind="css: { error: position.hasErrors}">
+      <label class="control-label"
+             for="internalAssetChunk.position"
+             data-bind="translate: 'assets.internalAssetChunk.position'">
+      </label>
+      <div class="controls" id="internalAssetChunk.position" data-bind="focus: 4">
+        <span data-bind='integerInput: detailModel.position, enable: isFieldEnabled("internalAssetChunk.position", editMode)'></span>
+        <div data-bind="formError: position"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: isLast.visible -->
+    <div class="control-group"
+       data-bind="css: { error: isLast.hasErrors}">
+      <label class="control-label"
+             for="internalAssetChunk.isLast"
+             data-bind="translate: 'assets.internalAssetChunk.isLast'">
+      </label>
+      <div class="controls" id="internalAssetChunk.isLast" data-bind="focus: 5">
+        <input type='checkbox' name='internalAssetChunk.isLast' data-bind='checked: detailModel.isLast, enable: isFieldEnabled("internalAssetChunk.isLast", editMode)'/>
+        <div data-bind="formError: isLast"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

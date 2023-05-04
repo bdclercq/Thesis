@@ -1,0 +1,35 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="onlineCabBookingComp-payment-name-header">
+      <span data-bind="translate: 'onlineCabBookingComp.payment.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: statusPayed.sort.trigger" class="onlineCabBookingComp-payment-statusPayed-header">
+      <span data-bind="translate: 'onlineCabBookingComp.payment.statusPayed'"></span>
+      <i class="sortable" data-bind="css: statusPayed.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="onlineCabBookingComp-payment-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="onlineCabBookingComp-payment-statusPayed-cell">
+      <input type="checkbox" data-bind="checked: statusPayed" disabled/>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

@@ -1,0 +1,1 @@
+"use strict";define(["knockout"],(function(n){n.bindingHandlers.stopBindings={init:function(){return{controlsDescendantBindings:!0}}},n.virtualElements.allowedBindings.stopBindings=!0}));

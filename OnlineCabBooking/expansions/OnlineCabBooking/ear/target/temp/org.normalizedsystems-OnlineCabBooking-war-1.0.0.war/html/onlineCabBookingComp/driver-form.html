@@ -1,0 +1,93 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="driver.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: licenseNo.visible -->
+    <div class="control-group"
+       data-bind="css: { error: licenseNo.hasErrors}">
+      <label class="control-label"
+             for="driver.licenseNo"
+             data-bind="translate: 'onlineCabBookingComp.driver.licenseNo'">
+      </label>
+      <div class="controls" id="driver.licenseNo" data-bind="focus: 1">
+        <span data-bind='integerInput: detailModel.licenseNo, enable: isFieldEnabled("driver.licenseNo", editMode)'></span>
+        <div data-bind="formError: licenseNo"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: rating.visible -->
+    <div class="control-group"
+       data-bind="css: { error: rating.hasErrors}">
+      <label class="control-label"
+             for="driver.rating"
+             data-bind="translate: 'onlineCabBookingComp.driver.rating'">
+      </label>
+      <div class="controls" id="driver.rating" data-bind="focus: 2">
+        <span data-bind='doubleInput: detailModel.rating, enable: isFieldEnabled("driver.rating", editMode)'></span>
+        <div data-bind="formError: rating"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: isAvailable.visible -->
+    <div class="control-group"
+       data-bind="css: { error: isAvailable.hasErrors}">
+      <label class="control-label"
+             for="driver.isAvailable"
+             data-bind="translate: 'onlineCabBookingComp.driver.isAvailable'">
+      </label>
+      <div class="controls" id="driver.isAvailable" data-bind="focus: 3">
+        <input type='checkbox' name='driver.isAvailable' data-bind='checked: detailModel.isAvailable, enable: isFieldEnabled("driver.isAvailable", editMode)'/>
+        <div data-bind="formError: isAvailable"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: cab.visible -->
+    <div class="control-group"
+       data-bind="css: { error: cab.hasErrors}">
+      <label class="control-label"
+             for="driver.cab"
+             data-bind="translate: 'onlineCabBookingComp.driver.cab'">
+      </label>
+      <div class="controls" id="driver.cab" data-bind="focus: 4">
+        <span data-bind="selectDataRef: {
+            field: detailModel.cab,
+            element: 'onlineCabBookingComp.cab',
+            hideDropdown: false
+        }, enable: isFieldEnabled('driver.cab', editMode)">
+        </span>
+        <div data-bind="formError: cab"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: tripBooking.visible -->
+    <div class="control-group"
+       data-bind="css: { error: tripBooking.hasErrors}">
+      <label class="control-label"
+             for="driver.tripBooking"
+             data-bind="translate: 'onlineCabBookingComp.driver.tripBooking'">
+      </label>
+      <div class="controls" id="driver.tripBooking" data-bind="focus: 5">
+        <span data-bind="selectDataRef: {
+            field: detailModel.tripBooking,
+            element: 'onlineCabBookingComp.tripBooking',
+            hideDropdown: false
+        }, enable: isFieldEnabled('driver.tripBooking', editMode)">
+        </span>
+        <div data-bind="formError: tripBooking"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

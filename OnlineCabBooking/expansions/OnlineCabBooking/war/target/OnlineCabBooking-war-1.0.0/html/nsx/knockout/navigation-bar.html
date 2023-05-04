@@ -1,0 +1,48 @@
+<div class="navbar navbar-default nsx-navbar">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <span class="brand" data-bind="text: title"></span>
+            <div id="menu" class="nav-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <!--ko foreach: items-->
+                    <!--ko if: isItem-->
+                    <li data-bind="css: { 'active': isSelected }">
+                        <a href="#" data-bind="text: title, attr: { 'href': link }"></a>
+                    </li>
+                    <!--/ko-->
+                    <!--ko if: isMenu-->
+                    <li class='dropdown'>
+                        <a class='dropdown-toggle' data-toggle='dropdown'>
+                            <span data-bind="text: title"></span>
+                            <span class='caret'></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!--ko foreach: items-->
+                            <li data-bind="css: { 'active': isSelected }">
+                                <a data-bind="text: title, attr: { 'href': link }"></a>
+                            </li>
+                            <!--/ko-->
+                        </ul>
+                    </li>
+                    <!--/ko-->
+                    <!--ko if: isSeparator-->
+                    <li class='divider'></li>
+                    <!--/ko-->
+                    <!--/ko-->
+                </ul>
+                <ul class="nav pull-right">
+                    <li><a data-bind="attr: { href: userPage }"><span class="icon-user"></span>&nbsp;<span data-bind="text: username"></span></a></li>
+                    <!--ko if: showAccountLink-->
+                    <li><a data-bind="attr: { href: accountPage }"><span class="icon-th-list"></span>&nbsp;<span data-bind="text: accountName"></span></a></li>
+                    <!--/ko-->
+                    <li><a data-bind="attr: { href: logout }"><span class="icon-off"></span> logout</a></li>
+                </ul>
+            </div>
+        </div><!-- /.container -->
+    </div><!-- /.navbar-inner -->
+</div><!-- /.navbar -->

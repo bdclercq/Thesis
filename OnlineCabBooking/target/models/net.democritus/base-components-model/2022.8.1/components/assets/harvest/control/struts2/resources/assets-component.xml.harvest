@@ -1,0 +1,3 @@
+-- anchor:custom-packages:start
+  <constant name="struts.multipart.maxSize" value="134217728" />
+-- anchor:custom-packages:end

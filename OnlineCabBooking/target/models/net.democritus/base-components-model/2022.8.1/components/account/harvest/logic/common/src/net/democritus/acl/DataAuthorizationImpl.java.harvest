@@ -1,0 +1,53 @@
+-- anchor:custom-imports:start
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  private DataAccessRights processDataAccess(DataAccessRights functionalityAccess, List<DataAccessDetails> dataAccessList) {
+    HashMap<String, Boolean> rights = getRights(dataAccessList);
+    addToAccessRights(functionalityAccess, rights);
+    return functionalityAccess;
+  }
+
+  private void addToAccessRights(DataAccessRights functionalityAccess, HashMap<String, Boolean> rights) {
+    for (Map.Entry<String, Boolean> entry : rights.entrySet()) {
+      functionalityAccess.addAction(entry.getKey(), entry.getValue());
+    }
+  }
+
+  private HashMap<String, Boolean> getRights(List<DataAccessDetails> dataAccessList) {
+    HashMap<String, Boolean> rights = new HashMap<>();
+    for (DataAccessDetails dataAccessDetails : dataAccessList) {
+      String functionality = dataAccessDetails.getFunctionality();
+      if (rights.containsKey(functionality)) {
+        rights.put(functionality, (rights.get(functionality) || isAuthorized(dataAccessDetails.getAuthorized())));
+      } else {
+        rights.put(functionality, isAuthorized(dataAccessDetails.getAuthorized()));
+      }
+    }
+    return rights;
+  }
+
+  private Boolean isAuthorized(String authorized) {
+    return authorized == null || !authorized.toLowerCase().startsWith("n");
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-perform:start
+      ElementAccessManager elementAccessManager = new ElementAccessManager(context);
+      DataAccessQuery dataAccessQuery = targetParameter.getValue();
+      String element = dataAccessQuery.getElement();
+      DataAccessRights functionalityAccess = new DataAccessRights();
+      FunctionalityDescriptor functionalityDescriptor = new FunctionalityDescriptor()
+          .setComponent(dataAccessQuery.getComponent())
+          .setElement(element)
+          .setFunctionality(dataAccessQuery.getFunctionality());
+      List<DataAccessDetails> userDataAccessList = elementAccessManager.getUserDataAccess(functionalityDescriptor);
+      List<DataAccessDetails> userGroupDataAccessList = elementAccessManager.getUserGroupDataAccess(functionalityDescriptor);
+      List<DataAccessDetails> profileDataAccessList = elementAccessManager.getProfileDataAccess(functionalityDescriptor);
+      //Handle accessRights from less specific to more specific.
+      functionalityAccess = processDataAccess(functionalityAccess, userGroupDataAccessList);
+      functionalityAccess = processDataAccess(functionalityAccess, profileDataAccessList);
+      functionalityAccess = processDataAccess(functionalityAccess, userDataAccessList);
+      taskResult = TaskResult.success(functionalityAccess);
+-- anchor:custom-perform:end

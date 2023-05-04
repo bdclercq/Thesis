@@ -1,0 +1,21 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('screen.link', editMode), css: { error: detailModel.link.hasErrors}">
+    <label class="control-label"
+           for="screen.link"
+           data-bind="translate: 'account.screen.link'">
+    </label>
+    <div class="controls" id="screen.link" data-bind="focus: 1">
+      <input type='text' name='screen.link' data-bind="textInput: detailModel.link, enable: isFieldEnabled('screen.link', editMode)" />
+      <div data-bind="visible: detailModel.link.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.link.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

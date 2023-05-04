@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "docker:start": "nss scripts/start_docker.nss 2>&1",
+    "docker:stop": "nss scripts/stop_docker.nss 2>&1"
+  }
+}

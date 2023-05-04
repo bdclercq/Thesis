@@ -1,0 +1,5 @@
+-- anchor:custom-methods:start
+  public CrudsResult<TimeWindowGroupDetails> getTimeWindowGroupById(Long timeWindowGroupId) {
+    return timeWindowGroupLocal.getTimeWindowGroupById(createParameter(timeWindowGroupId));
+  }
+-- anchor:custom-methods:end

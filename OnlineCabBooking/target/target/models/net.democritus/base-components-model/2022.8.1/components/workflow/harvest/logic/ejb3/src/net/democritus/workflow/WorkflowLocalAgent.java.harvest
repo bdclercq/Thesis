@@ -1,0 +1,8 @@
+-- anchor:custom-methods:start
+  public CrudsResult<WorkflowDetails> getWorkflowById(Long workflowId) {
+    return workflowLocal.getWorkflowById(createParameter(workflowId));
+  }
+  public UserContext getResponsibleUserContext(WorkflowDetails workflowDetails) {
+    return workflowLocal.getResponsibleUserContext(createParameter(workflowDetails));
+  }
+-- anchor:custom-methods:end

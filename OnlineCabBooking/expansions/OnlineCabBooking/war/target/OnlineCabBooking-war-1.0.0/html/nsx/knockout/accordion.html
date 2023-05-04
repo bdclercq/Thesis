@@ -1,0 +1,13 @@
+<div class="accordion" data-bind="foreach: panes">
+    <div class="accordion-group" data-bind="visible: visible">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-bind="text: label, css: { 'collapsed': !isSelected() }, click: showPane.trigger"></a>
+        </div>
+        <div class="accordion-body collapse" data-bind="css: { 'in': isSelected }">
+            <div class="accordion-inner" data-bind="
+                template: {name: view, data: viewModel, afterRender: registerPane},
+                attr: { 'id': id }">
+            </div>
+        </div>
+    </div>
+</div>

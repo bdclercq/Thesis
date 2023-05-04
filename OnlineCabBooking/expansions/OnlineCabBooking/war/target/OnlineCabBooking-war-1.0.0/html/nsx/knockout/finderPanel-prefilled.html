@@ -1,0 +1,51 @@
+<span>
+  <div class="row-fluid" data-bind="visible: enableSelector">
+    <div class="span12">
+      <span class="form-horizontal">
+        <div class="control-group">
+          <label class="control-label">
+            <span data-bind="translate: 'ns.searches'"></span>
+          </label>
+          <div class="controls">
+            <span data-bind="selectFinder: {
+                finder: selectedFinder,
+                element: element,
+                finders: finders
+            } ">
+            </span>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+
+  <div class="row-fluid" data-bind="visible: hasFinder" border="1">
+    <div class="span12">
+      <form class="form-horizontal" 
+            data-bind="finderForm: {
+               finder: selectedFinder,
+               details: finderDetails,
+               hiddenFields: $data.hiddenFields
+             },
+             submit: submit">
+      </form>
+    </div>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span12" data-bind="visible: hasFinder">
+      <span class="form-horizontal">
+        <div class="control-group">
+          <div class="controls">
+            <button type="button" class="btn" data-bind="click: resetFinder">
+              <span class="icon-remove"></span> <span data-bind="translate: 'ns.showAll'"></span>
+            </button> 
+            <button type="button" class="btn" data-bind="click: submit">
+              <span class="icon-ok"></span> <span data-bind="translate: 'ns.search'"></span>
+            </button> 
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</span>

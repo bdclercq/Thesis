@@ -1,0 +1,13 @@
+-- anchor:custom-translations:start
+workflow.workflow.className=Flow element naam
+
+workflow.engineService.nextRun=Next run
+workflow.engineService.running=Run status
+workflow.engineService.startEngine=Enable engine
+workflow.engineService.stopEngine=Disable engine
+
+workflow.engineService.startAllEnginesTask = start alle engines
+workflow.engineService.stopAllEnginesTask = stop alle engines
+workflow.engineService.startEngineTask = start engine
+workflow.engineService.stopEngineTask = stop engine
+-- anchor:custom-translations:end

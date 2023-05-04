@@ -1,0 +1,26 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('screen.component', editMode), css: { error: detailModel.component.hasErrors}">
+    <label class="control-label"
+           for="screen.component"
+           data-bind="translate: 'account.screen.component'">
+    </label>
+    <div class="controls" id="screen.component" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.component,
+          element: 'account.component',
+          hideDropdown: false
+      }, enable: isFieldEnabled('screen.component', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.component.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.component.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

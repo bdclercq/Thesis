@@ -1,0 +1,28 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <!-- @anchor:fields-before:start -->
+    <!-- @anchor:fields-before:end -->
+    <!-- anchor:custom-fields-before:start -->
+    <!-- anchor:custom-fields-before:end -->
+    <!-- anchor:fields:start -->
+    <!-- ko if: uri.visible -->
+    <div class="control-group"
+       data-bind="css: { error: uri.hasErrors }">
+      <label class="control-label"
+             for="asset.registerExternalAsset.uri"
+             data-bind="translate: 'assets.asset.registerExternalAsset.uri'">
+      </label>
+      <div class="controls" id="asset.registerExternalAsset.uri" data-bind="focus: 1">
+        <input type='text' name='asset.registerExternalAsset.uri' data-bind='value: detailModel.uri, enable: isFieldEnabled("asset.registerExternalAsset.uri", editMode)' />
+        <div data-bind="formError: uri"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:fields:end -->
+    <!-- @anchor:fields-after:start -->
+    <!-- @anchor:fields-after:end -->
+    <!-- anchor:custom-fields-after:start -->
+    <!-- anchor:custom-fields-after:end -->
+  </fieldset>
+</form>

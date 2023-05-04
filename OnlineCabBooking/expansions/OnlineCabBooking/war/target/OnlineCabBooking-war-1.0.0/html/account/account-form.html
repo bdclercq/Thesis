@@ -1,0 +1,165 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="account.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="account.name"
+             data-bind="translate: 'account.account.name'">
+      </label>
+      <div class="controls" id="account.name" data-bind="focus: 1">
+        <input type='text' name='account.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('account.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: refId.visible -->
+    <div class="control-group"
+       data-bind="css: { error: refId.hasErrors}">
+      <label class="control-label"
+             for="account.refId"
+             data-bind="translate: 'account.account.refId'">
+      </label>
+      <div class="controls" id="account.refId" data-bind="focus: 2">
+        <input type='text' name='account.refId' data-bind="textInput: detailModel.refId, enable: isFieldEnabled('account.refId', editMode)" />
+        <div data-bind="formError: refId"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: fullName.visible -->
+    <div class="control-group"
+       data-bind="css: { error: fullName.hasErrors}">
+      <label class="control-label"
+             for="account.fullName"
+             data-bind="translate: 'account.account.fullName'">
+      </label>
+      <div class="controls" id="account.fullName" data-bind="focus: 3">
+        <input type='text' name='account.fullName' data-bind="textInput: detailModel.fullName, enable: isFieldEnabled('account.fullName', editMode)" />
+        <div data-bind="formError: fullName"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: address.visible -->
+    <div class="control-group"
+       data-bind="css: { error: address.hasErrors}">
+      <label class="control-label"
+             for="account.address"
+             data-bind="translate: 'account.account.address'">
+      </label>
+      <div class="controls" id="account.address" data-bind="focus: 4">
+        <input type='text' name='account.address' data-bind="textInput: detailModel.address, enable: isFieldEnabled('account.address', editMode)" />
+        <div data-bind="formError: address"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: zipCode.visible -->
+    <div class="control-group"
+       data-bind="css: { error: zipCode.hasErrors}">
+      <label class="control-label"
+             for="account.zipCode"
+             data-bind="translate: 'account.account.zipCode'">
+      </label>
+      <div class="controls" id="account.zipCode" data-bind="focus: 5">
+        <input type='text' name='account.zipCode' data-bind="textInput: detailModel.zipCode, enable: isFieldEnabled('account.zipCode', editMode)" />
+        <div data-bind="formError: zipCode"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: city.visible -->
+    <div class="control-group"
+       data-bind="css: { error: city.hasErrors}">
+      <label class="control-label"
+             for="account.city"
+             data-bind="translate: 'account.account.city'">
+      </label>
+      <div class="controls" id="account.city" data-bind="focus: 6">
+        <input type='text' name='account.city' data-bind="textInput: detailModel.city, enable: isFieldEnabled('account.city', editMode)" />
+        <div data-bind="formError: city"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: country.visible -->
+    <div class="control-group"
+       data-bind="css: { error: country.hasErrors}">
+      <label class="control-label"
+             for="account.country"
+             data-bind="translate: 'account.account.country'">
+      </label>
+      <div class="controls" id="account.country" data-bind="focus: 7">
+        <input type='text' name='account.country' data-bind="textInput: detailModel.country, enable: isFieldEnabled('account.country', editMode)" />
+        <div data-bind="formError: country"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: email.visible -->
+    <div class="control-group"
+       data-bind="css: { error: email.hasErrors}">
+      <label class="control-label"
+             for="account.email"
+             data-bind="translate: 'account.account.email'">
+      </label>
+      <div class="controls" id="account.email" data-bind="focus: 8">
+        <input type='text' name='account.email' data-bind="textInput: detailModel.email, enable: isFieldEnabled('account.email', editMode)" />
+        <div data-bind="formError: email"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: phone.visible -->
+    <div class="control-group"
+       data-bind="css: { error: phone.hasErrors}">
+      <label class="control-label"
+             for="account.phone"
+             data-bind="translate: 'account.account.phone'">
+      </label>
+      <div class="controls" id="account.phone" data-bind="focus: 9">
+        <input type='text' name='account.phone' data-bind="textInput: detailModel.phone, enable: isFieldEnabled('account.phone', editMode)" />
+        <div data-bind="formError: phone"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: style.visible -->
+    <div class="control-group"
+       data-bind="css: { error: style.hasErrors}">
+      <label class="control-label"
+             for="account.style"
+             data-bind="translate: 'account.account.style'">
+      </label>
+      <div class="controls" id="account.style" data-bind="focus: 10">
+        <span data-bind="tagValue: {
+            field: detailModel.style,
+            tag: 'account_style'
+        }, enable: isFieldEnabled('account.style', editMode)">
+        </span>
+        <div data-bind="formError: style"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: status.visible -->
+    <div class="control-group"
+       data-bind="css: { error: status.hasErrors}">
+      <label class="control-label"
+             for="account.status"
+             data-bind="translate: 'account.account.status'">
+      </label>
+      <div class="controls" id="account.status" data-bind="focus: 11">
+        <input type='text' name='account.status' data-bind="textInput: detailModel.status, enable: isFieldEnabled('account.status', editMode)" />
+        <div data-bind="formError: status"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

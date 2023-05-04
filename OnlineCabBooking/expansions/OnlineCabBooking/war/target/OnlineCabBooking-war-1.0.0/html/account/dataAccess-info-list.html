@@ -1,0 +1,59 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th class="account-dataAccess-forProfile-header">
+      <span data-bind="translate: 'account.dataAccess.forProfile'"></span>
+    </th>
+    <th data-bind="click: element.sort.trigger" class="account-dataAccess-element-header">
+      <span data-bind="translate: 'account.dataAccess.element'"></span>
+      <i class="sortable" data-bind="css: element.icon"></i>
+    </th>
+    <th data-bind="click: target.sort.trigger" class="account-dataAccess-target-header">
+      <span data-bind="translate: 'account.dataAccess.target'"></span>
+      <i class="sortable" data-bind="css: target.icon"></i>
+    </th>
+    <th data-bind="click: functionality.sort.trigger" class="account-dataAccess-functionality-header">
+      <span data-bind="translate: 'account.dataAccess.functionality'"></span>
+      <i class="sortable" data-bind="css: functionality.icon"></i>
+    </th>
+    <th data-bind="click: authorized.sort.trigger" class="account-dataAccess-authorized-header">
+      <span data-bind="translate: 'account.dataAccess.authorized'"></span>
+      <i class="sortable" data-bind="css: authorized.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-dataAccess-forProfile-cell">
+      <span data-bind="with: forProfile">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="account-dataAccess-element-cell">
+      <span data-bind="text: element"></span>
+    </td>
+    <td class="account-dataAccess-target-cell">
+      <span data-bind="text: target"></span>
+    </td>
+    <td class="account-dataAccess-functionality-cell">
+      <span data-bind="text: functionality"></span>
+    </td>
+    <td class="account-dataAccess-authorized-cell">
+      <span data-bind="text: authorized"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

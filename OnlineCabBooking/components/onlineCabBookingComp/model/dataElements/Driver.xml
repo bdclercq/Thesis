@@ -1,0 +1,90 @@
+<dataElement name="Driver">
+  <packageName>cabBookingCore</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="licenseNo">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Integer"/>
+      </valueField>
+    </field>
+    <field name="rating">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Double"/>
+      </valueField>
+    </field>
+    <field name="isAvailable">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Boolean"/>
+      </valueField>
+    </field>
+    <field name="cab">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Cab"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+    <field name="tripBooking">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="TripBooking"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findByLicenseNoEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="licenseNo"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByRatingEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="rating"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByIsAvailableEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="isAvailable"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByTripBookingEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="tripBooking"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByCabEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="cab"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+  </finders>
+</dataElement>

@@ -1,0 +1,17 @@
+<ul data-bind="foreach: tabs" class="nav nav-tabs">
+    <li data-bind="css: { 'active': isVisible }">
+        <a data-bind="text: title, click: select"></a>
+    </li>
+</ul>
+<div data-bind="foreach: tabs" class="tab-content" style="padding: 1em; overflow: hidden">
+    <table class="table table-bordered table-condensed" data-bind="visible: isVisible, foreach: properties">
+        <tr>
+            <th>
+                <span data-bind="text: key"></span>
+            </th>
+            <td>
+                <span data-bind='text: value'></span>
+            </td>
+        </tr>
+    </table>
+</div>

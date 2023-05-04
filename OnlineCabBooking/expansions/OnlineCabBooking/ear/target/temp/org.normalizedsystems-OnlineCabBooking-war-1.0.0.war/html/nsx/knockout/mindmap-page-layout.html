@@ -1,0 +1,13 @@
+<div style="margin-top: 20px">
+    <div class="row-fluid">
+        <div class="span12">
+            <img style="display:block; margin: 0 auto;"
+                 data-bind="attr:{src: imagePath, width: imageWidth}"
+                 alt="Datamodel" title="Datamodel" usemap="#modelmap" />
+
+            <map name="modelmap" data-bind="foreach: items">
+                <area shape="rect" data-bind="attr: {coords: coords, href: url, title: title}, click: click">
+            </map>
+        </div>
+    </div>
+</div>

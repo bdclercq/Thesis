@@ -1,0 +1,16 @@
+<component name="account">
+  <version>1.0</version>
+  <fullName>BASE:account</fullName>
+  <componentDependencies>
+    <componentDependency name="account:utils">
+      <dependsOn name="utils"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+  </componentDependencies>
+  <options>
+    <hasDataBaseSchema>ACCOUNT</hasDataBaseSchema>
+    <isBaseComponent/>
+    <baseComponents.isAccount/>
+    <configuration.properties/>
+  </options>
+</component>

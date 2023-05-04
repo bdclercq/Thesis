@@ -1,0 +1,11 @@
+<taskElement name="RestoreEngines">
+  <packageName>net.democritus.wfe</packageName>
+  <targetClass>net.democritus.wfe.EngineNodeDetails</targetClass>
+  <targetElement component="workflow" name="EngineNode"/>
+  <taskElementType name="Standard"/>
+  <transactionType name="aggregateTask"/>
+  <options>
+    <includePerform/>
+    <includeRemoteAccess/>
+  </options>
+</taskElement>

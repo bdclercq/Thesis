@@ -1,0 +1,1 @@
+"use strict";define(["knockout"],(function(t){t.bindingHandlers.fadeOutAfter={init:function(e,n,o,i,u){var f=t.unwrap(n());!function(t){var e=t.element,n=t.timeout,o=t.onComplete;function i(){$(e).fadeOut(2e3,u)}function u(){o.call(this,e)}n>-1&&setTimeout(i,n)}({element:e,timeout:f.timeout,onComplete:f.onComplete})},update:function(){}}}));

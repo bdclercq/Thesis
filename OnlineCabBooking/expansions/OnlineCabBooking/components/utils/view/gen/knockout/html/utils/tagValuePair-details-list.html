@@ -1,0 +1,35 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: tag.sort.trigger" class="utils-tagValuePair-tag-header">
+      <span data-bind="translate: 'utils.tagValuePair.tag'"></span>
+      <i class="sortable" data-bind="css: tag.icon"></i>
+    </th>
+    <th data-bind="click: value.sort.trigger" class="utils-tagValuePair-value-header">
+      <span data-bind="translate: 'utils.tagValuePair.value'"></span>
+      <i class="sortable" data-bind="css: value.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="utils-tagValuePair-tag-cell">
+      <span data-bind="text: tag"></span>
+    </td>
+    <td class="utils-tagValuePair-value-cell">
+      <span data-bind="text: value"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

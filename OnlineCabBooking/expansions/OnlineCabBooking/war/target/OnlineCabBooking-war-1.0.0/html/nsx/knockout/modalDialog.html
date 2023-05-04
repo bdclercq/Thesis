@@ -1,0 +1,21 @@
+<div class='modal' data-bind="attr: { 'id': dialogId }, css: { 'modal-large': isLarge }">
+  <div class='modal-header'>
+    <button type='button' class='close' data-bind='click: close' aria-hidden='true'>&times;</button>
+    <h3><span data-bind='text: title'></span></h3>
+  </div>
+  <div class='modal-body'>
+    <div class="text-error" data-bind="visible: $data.hasErrorMessages" style="display:none">
+      <ul data-bind="foreach: errorMessages">
+        <li data-bind="text: $data"></li>
+      </ul>
+    </div>
+    <span class="nsx-dialog-body" data-bind='with: contentModel'></span>
+  </div>
+
+  <div class='modal-footer' data-bind="if: interactive">
+    <button class="btn" data-bind="click: close, translate: 'ns.close'"></button>
+    <button type="button" 
+            class="btn btn-primary" 
+            data-bind="click: confirm, translate: 'ns.confirm', visible: hasConfirm">Selecteer</button>
+  </div>
+</div>

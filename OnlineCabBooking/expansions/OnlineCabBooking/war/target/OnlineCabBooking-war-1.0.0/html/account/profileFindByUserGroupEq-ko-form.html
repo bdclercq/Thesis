@@ -1,0 +1,26 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('profile.userGroup', editMode), css: { error: detailModel.userGroup.hasErrors}">
+    <label class="control-label"
+           for="profile.userGroup"
+           data-bind="translate: 'account.profile.userGroup'">
+    </label>
+    <div class="controls" id="profile.userGroup" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.userGroup,
+          element: 'account.userGroup',
+          hideDropdown: false
+      }, enable: isFieldEnabled('profile.userGroup', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.userGroup.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.userGroup.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

@@ -1,0 +1,21 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('tagValuePair.value', editMode), css: { error: detailModel.value.hasErrors}">
+    <label class="control-label"
+           for="tagValuePair.value"
+           data-bind="translate: 'utils.tagValuePair.value'">
+    </label>
+    <div class="controls" id="tagValuePair.value" data-bind="focus: 1">
+      <input type='text' name='tagValuePair.value' data-bind="textInput: detailModel.value, enable: isFieldEnabled('tagValuePair.value', editMode)" />
+      <div data-bind="visible: detailModel.value.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.value.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

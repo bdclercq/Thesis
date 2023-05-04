@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<struts>
+
+  <package name='account-portal' namespace='/account' extends='nsx-default'>
+
+    <global-results>
+      <result name='noaccess'>/jsp/noaccess.jsp</result>
+    </global-results>
+
+    <!-- @anchor:actions:start -->
+    <!-- @anchor:actions:end -->
+
+    <!-- Add actions here -->
+
+    <!-- anchor:custom-actions:start -->
+    <!-- anchor:custom-actions:end -->
+  </package>
+
+  <package name='account-portal-json' namespace='/account' extends='nsx-json-default'>
+
+    <action name='portal-detail-json' class='net.democritus.usr.action.PortalDetailer' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='portal-delete-json' class='net.democritus.usr.action.PortalDeleter' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='portal-confirm-json' class='net.democritus.usr.action.PortalEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='portal-saveDetails-json' class='net.democritus.usr.action.PortalEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='portal-search-json' class='net.democritus.usr.action.PortalFindAction' method='execute'>
+      <interceptor-ref name="jsonFinderStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='portal-perform-json' class='net.democritus.usr.action.PortalPerformer' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='portal-getProjection-json' class='net.democritus.usr.action.PortalProjector' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- anchor:io-actions:start -->
+    <!-- anchor:io-actions:end -->
+
+    <!-- @anchor:json-actions:start -->
+    <!-- @anchor:json-actions:end -->
+
+    <!-- Add JSON actions here -->
+
+    <!-- anchor:custom-json-actions:start -->
+    <!-- anchor:custom-json-actions:end -->
+  </package>
+
+  <package name='account-portal-knockout-html' namespace='/account/portal' extends='nsx-default'>
+    <action name='data'>
+      <result>/jsp/ps2/page.jsp?pageModel=account/portal/portal-io-page-model</result>
+    </action>
+    <action name='all'>
+      <result>/jsp/ps2/page.jsp?pageModel=account/portal/portal-page-model</result>
+    </action>
+
+    <!-- @anchor:ko-html-pages:start -->
+    <!-- @anchor:ko-html-pages:end -->
+  </package>
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+  <!-- anchor:custom-packages:end -->
+
+</struts>

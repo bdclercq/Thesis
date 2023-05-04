@@ -1,0 +1,6 @@
+-- anchor:custom-constants:start
+  public static final String QUERY_UPDATE_LASTRUNAT = "net.democritus.wfe.EngineService.updateLastRunAt";
+-- anchor:custom-constants:end
+-- anchor:custom-queries:start
+  , @NamedQuery(name = EngineServiceData.QUERY_UPDATE_LASTRUNAT, query = "UPDATE " + EngineServiceData.ENTITY_NAME + " o SET o.lastRunAt = CURRENT_TIMESTAMP WHERE o.id = :id")
+-- anchor:custom-queries:end

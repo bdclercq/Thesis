@@ -1,0 +1,25 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('engineService.changed', editMode), css: { error: detailModel.changed.hasErrors}">
+    <label class="control-label"
+           for="engineService.changed"
+           data-bind="translate: 'workflow.engineService.changed'">
+    </label>
+    <div class="controls" id="engineService.changed" data-bind="focus: 1">
+      <span data-bind="tagValue: {
+          field: detailModel.changed,
+          tag: 'engineService_changed'
+      }, enable: isFieldEnabled('engineService.changed', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.changed.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.changed.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

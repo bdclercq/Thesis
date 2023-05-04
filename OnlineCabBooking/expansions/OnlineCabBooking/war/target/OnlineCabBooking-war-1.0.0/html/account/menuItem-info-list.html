@@ -1,0 +1,65 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th class="account-menuItem-menu-header">
+      <span data-bind="translate: 'account.menuItem.menu'"></span>
+    </th>
+    <th class="account-menuItem-screen-header">
+      <span data-bind="translate: 'account.menuItem.screen'"></span>
+    </th>
+    <th class="account-menuItem-menuItem-header">
+      <span data-bind="translate: 'account.menuItem.menuItem'"></span>
+    </th>
+    <th class="account-menuItem-submenuItems-header">
+      <span data-bind="translate: 'account.menuItem.submenuItems'"></span>
+    </th>
+    <th data-bind="click: sortOrder.sort.trigger" class="account-menuItem-sortOrder-header">
+      <span data-bind="translate: 'account.menuItem.sortOrder'"></span>
+      <i class="sortable" data-bind="css: sortOrder.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-menuItem-menu-cell">
+      <span data-bind="with: menu">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="account-menuItem-screen-cell">
+      <span data-bind="with: screen">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="account-menuItem-menuItem-cell">
+      <span data-bind="with: menuItem">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="account-menuItem-submenuItems-cell">
+      <span data-bind="collection: { field: submenuItems, name: 'account.menuItem.submenuItems'}">
+      </span>
+    </td>
+    <td class="account-menuItem-sortOrder-cell">
+      <span data-bind="text: sortOrder"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

@@ -1,0 +1,126 @@
+<dataElement name="ParamTargetValue">
+  <packageName>net.democritus.sys</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="param">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Parameter</hasTranslation>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="target">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="value">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Waarde</hasTranslation>
+        <isShowInfo/>
+      </options>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findAllParamTargetValues"/>
+    <finder name="findByParamEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:param">
+          <operator>Eq</operator>
+          <field name="param"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op parameter</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByParamEq_TargetEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:param">
+          <operator>Eq</operator>
+          <field name="param"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Eq:target">
+          <operator>Eq</operator>
+          <field name="target"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op parameter en target</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByParamEq_ValueEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:param">
+          <operator>Eq</operator>
+          <field name="param"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Eq:value">
+          <operator>Eq</operator>
+          <field name="value"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op parameter en waarde</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByTargetEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:target">
+          <operator>Eq</operator>
+          <field name="target"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op target</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByTargetEq_ValueEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:target">
+          <operator>Eq</operator>
+          <field name="target"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Eq:value">
+          <operator>Eq</operator>
+          <field name="value"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op target en waarde</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByValueEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:value">
+          <operator>Eq</operator>
+          <field name="value"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op waarde</hasTranslation>
+      </options>
+    </finder>
+  </finders>
+  <options>
+    <nameNotWanted/>
+    <includeCsvImport/>
+  </options>
+</dataElement>

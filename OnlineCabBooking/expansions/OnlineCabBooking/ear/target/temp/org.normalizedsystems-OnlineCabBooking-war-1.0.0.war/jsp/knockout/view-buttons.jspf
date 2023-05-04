@@ -1,0 +1,48 @@
+<!-- should be bound to pageModel:
+  hasPreviousPage()
+  hasNextPage()
+  currentPage()
+  numberOfPages()
+  hasMultiplePages()s
+
+  nextPage()
+  previousPage()
+  create()
+
+  toggleFinder()
+-->
+<div class="row-fluid">
+  <div class="span12">
+    <button type="button" class="btn" data-bind="click: create">
+      <span class="icon-plus"></span>
+    </button> 
+
+    <!-- ko if: $data.hasFinderSelectionModel -->
+    <button type="button" class="btn" data-bind="click: toggleFinder, css: {'btn-info': showFinder()}">
+      <span class="icon-search"></span>
+    </button> 
+    <!-- /ko -->
+
+    <span data-bind="visible: hasMultiplePages" style="display:none">
+      <button type="button" class="btn" data-bind="click: previousPage, enable: hasPreviousPage">
+        <span class="icon-chevron-up"></span>
+      </button>
+
+      <button type="button" class="btn" data-bind="click: nextPage, enable: hasNextPage">
+        <span class="icon-chevron-down"></span>
+      </button>
+    </span>
+
+    <button type="button" class="btn" data-bind="click: reloadPage">
+      <span class="icon-refresh"></span>
+    </button>
+
+    <span data-bind="visible: hasMultiplePages" style="display:none">
+      <span>&nbsp;Page: 
+        <span data-bind="text: currentPage() + 1"></span> 
+        of
+        <span data-bind="text: numberOfPages"></span>
+      </span>
+    </span>
+  </div>
+</div>

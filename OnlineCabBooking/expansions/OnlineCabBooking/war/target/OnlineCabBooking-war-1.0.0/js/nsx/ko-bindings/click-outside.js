@@ -1,0 +1,1 @@
+"use strict";define(["jquery","knockout"],(function(n,t){t.bindingHandlers.clickOutside={init:function(t,i){var c=i();if("function"!=typeof c)throw new Error("Expected function, but got "+c);n(document).on("click",(function(i){(function(i){return!n(t).is(i.target)&&!n.contains(t,i.target)})(i)&&c.call(c,i)}))},update:function(n,t){}}}));

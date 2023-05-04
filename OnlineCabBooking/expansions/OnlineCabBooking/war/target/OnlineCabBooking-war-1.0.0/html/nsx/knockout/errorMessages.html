@@ -1,0 +1,6 @@
+<div data-bind="foreach: messages">
+    <div class="alert" role="alert" data-bind="css: cssClass, fadeOutAfter: { timeout: ttl, onComplete: close }">
+        <button type="button" class="close" data-bind="click: close">&times;</button>
+        <span data-bind="text: content"></span>
+    </div>
+</div>

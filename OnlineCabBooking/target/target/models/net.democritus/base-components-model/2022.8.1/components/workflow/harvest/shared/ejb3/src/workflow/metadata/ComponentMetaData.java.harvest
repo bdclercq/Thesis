@@ -1,0 +1,3 @@
+-- anchor:custom-task-elements:start
+    taskElementDefs.add(new TaskElementDef(COMPONENT_NAME, "net.democritus.wfe", "AsyncTaskExecution"));
+-- anchor:custom-task-elements:end

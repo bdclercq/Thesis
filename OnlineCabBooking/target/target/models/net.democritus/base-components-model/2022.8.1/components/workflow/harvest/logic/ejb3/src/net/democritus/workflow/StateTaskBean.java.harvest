@@ -1,0 +1,27 @@
+-- anchor:custom-variables:start
+  private static final SearchResultCacheProvider<StateTaskBean, StateTaskDetails> CACHE_PROVIDER = new SearchResultCacheProvider<>(
+      (bean, ctx) -> {
+        SearchDetails<StateTaskFindAllStateTasksDetails> searchDetails = SearchDetails.fetchAllDetails(new StateTaskFindAllStateTasksDetails());
+        searchDetails.setSkipCount(true);
+        return bean.find(ctx.withParameter(searchDetails));
+      });
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  public SearchResult<StateTaskDetails> getStateTasksByWorkflowId(ParameterContext<Long> workflowIdParameter) {
+    return CACHE_PROVIDER.getCache(this, workflowIdParameter.getContext())
+        .filter(s -> DataRefValidation.isDataRefDefined(s.getWorkflow())
+            && workflowIdParameter.getValue().equals(s.getWorkflow().getId()));
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-postCreate:start
+    CACHE_PROVIDER.expireCaches();
+-- anchor:custom-postCreate:end
+-- anchor:custom-postCreateOrModify:start
+    CACHE_PROVIDER.expireCaches();
+-- anchor:custom-postCreateOrModify:end
+-- anchor:custom-postDelete:start
+      CACHE_PROVIDER.expireCaches();
+-- anchor:custom-postDelete:end
+-- anchor:custom-postModify:start
+    CACHE_PROVIDER.expireCaches();
+-- anchor:custom-postModify:end

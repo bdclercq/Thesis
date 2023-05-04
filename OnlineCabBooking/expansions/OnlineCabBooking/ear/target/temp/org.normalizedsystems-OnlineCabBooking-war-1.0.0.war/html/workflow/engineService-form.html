@@ -1,0 +1,183 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="engineService.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="engineService.name"
+             data-bind="translate: 'workflow.engineService.name'">
+      </label>
+      <div class="controls" id="engineService.name" data-bind="focus: 1">
+        <input type='text' name='engineService.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('engineService.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: status.visible -->
+    <div class="control-group"
+       data-bind="css: { error: status.hasErrors}">
+      <label class="control-label"
+             for="engineService.status"
+             data-bind="translate: 'workflow.engineService.status'">
+      </label>
+      <div class="controls" id="engineService.status" data-bind="focus: 2">
+        <span data-bind="tagValue: {
+            field: detailModel.status,
+            tag: 'engineService_status'
+        }, enable: isFieldEnabled('engineService.status', editMode)">
+        </span>
+        <div data-bind="formError: status"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: changed.visible -->
+    <div class="control-group"
+       data-bind="css: { error: changed.hasErrors}">
+      <label class="control-label"
+             for="engineService.changed"
+             data-bind="translate: 'workflow.engineService.changed'">
+      </label>
+      <div class="controls" id="engineService.changed" data-bind="focus: 3">
+        <span data-bind="tagValue: {
+            field: detailModel.changed,
+            tag: 'engineService_changed'
+        }, enable: isFieldEnabled('engineService.changed', editMode)">
+        </span>
+        <div data-bind="formError: changed"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: busy.visible -->
+    <div class="control-group"
+       data-bind="css: { error: busy.hasErrors}">
+      <label class="control-label"
+             for="engineService.busy"
+             data-bind="translate: 'workflow.engineService.busy'">
+      </label>
+      <div class="controls" id="engineService.busy" data-bind="focus: 4">
+        <span data-bind="tagValue: {
+            field: detailModel.busy,
+            tag: 'engineService_busy'
+        }, enable: isFieldEnabled('engineService.busy', editMode)">
+        </span>
+        <div data-bind="formError: busy"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: waitTime.visible -->
+    <div class="control-group"
+       data-bind="css: { error: waitTime.hasErrors}">
+      <label class="control-label"
+             for="engineService.waitTime"
+             data-bind="translate: 'workflow.engineService.waitTime'">
+      </label>
+      <div class="controls" id="engineService.waitTime" data-bind="focus: 5">
+        <span data-bind='integerInput: detailModel.waitTime, enable: isFieldEnabled("engineService.waitTime", editMode)'></span>
+        <div data-bind="formError: waitTime"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: collector.visible -->
+    <div class="control-group"
+       data-bind="css: { error: collector.hasErrors}">
+      <label class="control-label"
+             for="engineService.collector"
+             data-bind="translate: 'workflow.engineService.collector'">
+      </label>
+      <div class="controls" id="engineService.collector" data-bind="focus: 6">
+        <span data-bind='integerInput: detailModel.collector, enable: isFieldEnabled("engineService.collector", editMode)'></span>
+        <div data-bind="formError: collector"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: workflow.visible -->
+    <div class="control-group"
+       data-bind="css: { error: workflow.hasErrors}">
+      <label class="control-label"
+             for="engineService.workflow"
+             data-bind="translate: 'workflow.engineService.workflow'">
+      </label>
+      <div class="controls" id="engineService.workflow" data-bind="focus: 7">
+        <span data-bind="selectDataRef: {
+            field: detailModel.workflow,
+            element: 'workflow.workflow',
+            hideDropdown: false
+        }, enable: isFieldEnabled('engineService.workflow', editMode)">
+        </span>
+        <div data-bind="formError: workflow"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: timeWindowGroup.visible -->
+    <div class="control-group"
+       data-bind="css: { error: timeWindowGroup.hasErrors}">
+      <label class="control-label"
+             for="engineService.timeWindowGroup"
+             data-bind="translate: 'workflow.engineService.timeWindowGroup'">
+      </label>
+      <div class="controls" id="engineService.timeWindowGroup" data-bind="focus: 8">
+        <span data-bind="selectDataRef: {
+            field: detailModel.timeWindowGroup,
+            element: 'workflow.timeWindowGroup',
+            hideDropdown: false
+        }, enable: isFieldEnabled('engineService.timeWindowGroup', editMode)">
+        </span>
+        <div data-bind="formError: timeWindowGroup"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: lastRunAt.visible -->
+    <div class="control-group"
+       data-bind="css: { error: lastRunAt.hasErrors}">
+      <label class="control-label"
+             for="engineService.lastRunAt"
+             data-bind="translate: 'workflow.engineService.lastRunAt'">
+      </label>
+      <div class="controls" id="engineService.lastRunAt" data-bind="focus: 9">
+        <span data-bind="dateTimeInput: detailModel.lastRunAt.value, enable: isFieldEnabled('engineService.lastRunAt', editMode)"></span>
+        <div data-bind="formError: lastRunAt"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: batchSize.visible -->
+    <div class="control-group"
+       data-bind="css: { error: batchSize.hasErrors}">
+      <label class="control-label"
+             for="engineService.batchSize"
+             data-bind="translate: 'workflow.engineService.batchSize'">
+      </label>
+      <div class="controls" id="engineService.batchSize" data-bind="focus: 10">
+        <span data-bind='integerInput: detailModel.batchSize, enable: isFieldEnabled("engineService.batchSize", editMode)'></span>
+        <div data-bind="formError: batchSize"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: maximumNumberOfNodes.visible -->
+    <div class="control-group"
+       data-bind="css: { error: maximumNumberOfNodes.hasErrors}">
+      <label class="control-label"
+             for="engineService.maximumNumberOfNodes"
+             data-bind="translate: 'workflow.engineService.maximumNumberOfNodes'">
+      </label>
+      <div class="controls" id="engineService.maximumNumberOfNodes" data-bind="focus: 11">
+        <span data-bind='integerInput: detailModel.maximumNumberOfNodes, enable: isFieldEnabled("engineService.maximumNumberOfNodes", editMode)'></span>
+        <div data-bind="formError: maximumNumberOfNodes"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

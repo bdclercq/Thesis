@@ -1,0 +1,19 @@
+-- anchor:custom-imports:start
+import java.util.Date;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  public CrudsResult<Void> setBusy(DataRef engineRef, String busyValue) {
+    ParameterContext<String> parameterContext = new ParameterContext<>(userContext, engineRef, busyValue);
+    return engineServiceLocal.setBusy(parameterContext);
+  }
+
+  public CrudsResult<Void> setLastRunAt(DataRef engineRef, Date timestamp) {
+    ParameterContext<Date> parameterContext = new ParameterContext<>(userContext, engineRef, timestamp);
+    return engineServiceLocal.setLastRunAt(parameterContext);
+  }
+
+  public CrudsResult<Void> updateLastRunAt(DataRef engineRef) {
+    ParameterContext<DataRef> parameterContext = context.withParameter(engineRef);
+    return engineServiceLocal.updateLastRunAt(parameterContext);
+  }
+-- anchor:custom-methods:end

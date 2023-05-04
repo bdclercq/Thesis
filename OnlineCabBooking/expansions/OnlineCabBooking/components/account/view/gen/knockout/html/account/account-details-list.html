@@ -1,0 +1,98 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="account-account-name-header">
+      <span data-bind="translate: 'account.account.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: refId.sort.trigger" class="account-account-refId-header">
+      <span data-bind="translate: 'account.account.refId'"></span>
+      <i class="sortable" data-bind="css: refId.icon"></i>
+    </th>
+    <th data-bind="click: fullName.sort.trigger" class="account-account-fullName-header">
+      <span data-bind="translate: 'account.account.fullName'"></span>
+      <i class="sortable" data-bind="css: fullName.icon"></i>
+    </th>
+    <th data-bind="click: address.sort.trigger" class="account-account-address-header">
+      <span data-bind="translate: 'account.account.address'"></span>
+      <i class="sortable" data-bind="css: address.icon"></i>
+    </th>
+    <th data-bind="click: zipCode.sort.trigger" class="account-account-zipCode-header">
+      <span data-bind="translate: 'account.account.zipCode'"></span>
+      <i class="sortable" data-bind="css: zipCode.icon"></i>
+    </th>
+    <th data-bind="click: city.sort.trigger" class="account-account-city-header">
+      <span data-bind="translate: 'account.account.city'"></span>
+      <i class="sortable" data-bind="css: city.icon"></i>
+    </th>
+    <th data-bind="click: country.sort.trigger" class="account-account-country-header">
+      <span data-bind="translate: 'account.account.country'"></span>
+      <i class="sortable" data-bind="css: country.icon"></i>
+    </th>
+    <th data-bind="click: email.sort.trigger" class="account-account-email-header">
+      <span data-bind="translate: 'account.account.email'"></span>
+      <i class="sortable" data-bind="css: email.icon"></i>
+    </th>
+    <th data-bind="click: phone.sort.trigger" class="account-account-phone-header">
+      <span data-bind="translate: 'account.account.phone'"></span>
+      <i class="sortable" data-bind="css: phone.icon"></i>
+    </th>
+    <th data-bind="click: style.sort.trigger" class="account-account-style-header">
+      <span data-bind="translate: 'account.account.style'"></span>
+      <i class="sortable" data-bind="css: style.icon"></i>
+    </th>
+    <th data-bind="click: status.sort.trigger" class="account-account-status-header">
+      <span data-bind="translate: 'account.account.status'"></span>
+      <i class="sortable" data-bind="css: status.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-account-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="account-account-refId-cell">
+      <span data-bind="text: refId"></span>
+    </td>
+    <td class="account-account-fullName-cell">
+      <span data-bind="text: fullName"></span>
+    </td>
+    <td class="account-account-address-cell">
+      <span data-bind="text: address"></span>
+    </td>
+    <td class="account-account-zipCode-cell">
+      <span data-bind="text: zipCode"></span>
+    </td>
+    <td class="account-account-city-cell">
+      <span data-bind="text: city"></span>
+    </td>
+    <td class="account-account-country-cell">
+      <span data-bind="text: country"></span>
+    </td>
+    <td class="account-account-email-cell">
+      <span data-bind="text: email"></span>
+    </td>
+    <td class="account-account-phone-cell">
+      <span data-bind="text: phone"></span>
+    </td>
+    <td class="account-account-style-cell">
+      <span data-bind="text: style"></span>
+    </td>
+    <td class="account-account-status-cell">
+      <span data-bind="text: status"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

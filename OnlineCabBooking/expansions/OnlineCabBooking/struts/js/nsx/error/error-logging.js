@@ -1,0 +1,1 @@
+define(["require","exports","nsx/error/error-trigger"],(function(e,r,n){"use strict";Object.defineProperty(r,"__esModule",{value:!0}),r.defineLogging=void 0,r.defineLogging=function(e,r){return r=r||{},n.defineListener({level:e.level}).subscribe((function(e,r){console.log("["+r.name.toUpperCase()+"] "+e)})),{}}}));

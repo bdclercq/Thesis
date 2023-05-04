@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>OnlineCabBooking</artifactId>
+    <groupId>org.normalizedsystems</groupId>
+    <version>1.0.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <groupId>org.normalizedsystems</groupId>
+  <artifactId>OnlineCabBooking-shared</artifactId>
+  <packaging>jar</packaging>
+
+  <name>OnlineCabBooking-shared</name>
+  <url>http://www.normalizedsystems.org</url>
+
+  <dependencies>
+    <!-- anchor:custom-dependencies:start -->
+    <!-- anchor:custom-dependencies:end -->
+    <!-- @anchor:dependencies:start -->
+    <!-- @anchor:dependencies:end -->
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>gen/common/src</source>
+                <source>ext/common/src</source>
+                <source>gen/ejb3/src</source>
+                <source>ext/ejb3/src</source>
+                <source>gen/jpa/src</source>
+                <source>ext/jpa/src</source>
+
+                <!-- anchor:custom-sources:start -->
+                <!-- anchor:custom-sources:end -->
+                <!-- @anchor:sources:start -->
+                <!-- @anchor:sources:end -->
+              </sources>
+            </configuration>
+          </execution>
+          <execution>
+            <id>add-resource</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>add-resource</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <!-- anchor:resources:start -->
+                <resource>
+                  <directory>gen/common/resources</directory>
+                  <filtering>true</filtering>
+                </resource>
+                <resource>
+                  <directory>ext/common/resources</directory>
+                  <filtering>true</filtering>
+                </resource>
+                <resource>
+                  <directory>gen/ejb3/resources</directory>
+                  <filtering>true</filtering>
+                </resource>
+                <resource>
+                  <directory>ext/ejb3/resources</directory>
+                  <filtering>true</filtering>
+                </resource>
+                <resource>
+                  <directory>gen/jpa/resources</directory>
+                  <filtering>true</filtering>
+                </resource>
+                <resource>
+                  <directory>ext/jpa/resources</directory>
+                  <filtering>true</filtering>
+                </resource>
+                <!-- anchor:resources:end -->
+                <!-- anchor:custom-resources:start -->
+                <!-- anchor:custom-resources:end -->
+                <!-- @anchor:resources:start -->
+                <!-- @anchor:resources:end -->
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- @anchor:build-plugins:start -->
+      <!-- @anchor:build-plugins:end -->
+      <!-- anchor:custom-build-plugins:start -->
+      <!-- anchor:custom-build-plugins:end -->
+    </plugins>
+
+    <!-- @anchor:build:start -->
+    <!-- @anchor:build:end -->
+    <!-- anchor:custom-build:start -->
+    <!-- anchor:custom-build:end -->
+  </build>
+
+  <!-- @anchor:project:start -->
+  <!-- @anchor:project:end -->
+  <!-- anchor:custom-project:start -->
+  <!-- anchor:custom-project:end -->
+</project>

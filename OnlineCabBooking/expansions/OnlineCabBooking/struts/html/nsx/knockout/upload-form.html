@@ -1,0 +1,22 @@
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+    <fieldset data-bind="with: instance">
+        <div class="control-group">
+            <label class="control-label"
+                   for="upload.type">
+                type
+            </label>
+            <div class="controls" id="upload.type">
+                <input data-bind="value: detailModel.type, disable: true">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"
+                   for="upload.file">
+                file
+            </label>
+            <div class="controls" id="upload.file" data-bind="focus: 1">
+                <span data-bind="fileUpload: detailModel.file"></span>
+            </div>
+        </div>
+    </fieldset>
+</form>

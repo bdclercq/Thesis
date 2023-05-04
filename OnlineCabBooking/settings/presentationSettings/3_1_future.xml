@@ -1,0 +1,7 @@
+<presentationSettings name="3.1 Future">
+  <version>2.1</version>
+  <description>Expands with the next gen UI only.</description>
+  <viewStyler name="BOOTSTRAP"/>
+  <viewController name="KNOCKOUT"/>
+  <remotingTarget name="RMI"/>
+</presentationSettings>

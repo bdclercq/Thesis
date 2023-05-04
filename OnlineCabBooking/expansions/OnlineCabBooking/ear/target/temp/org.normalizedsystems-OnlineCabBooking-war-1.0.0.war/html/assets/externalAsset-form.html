@@ -1,0 +1,70 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="externalAsset.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="externalAsset.name"
+             data-bind="translate: 'assets.externalAsset.name'">
+      </label>
+      <div class="controls" id="externalAsset.name" data-bind="focus: 1">
+        <input type='text' name='externalAsset.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('externalAsset.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: uri.visible -->
+    <div class="control-group"
+       data-bind="css: { error: uri.hasErrors}">
+      <label class="control-label"
+             for="externalAsset.uri"
+             data-bind="translate: 'assets.externalAsset.uri'">
+      </label>
+      <div class="controls" id="externalAsset.uri" data-bind="focus: 2">
+        <input type='text' name='externalAsset.uri' data-bind='value: detailModel.uri, enable: isFieldEnabled("externalAsset.uri", editMode)' />
+        <div data-bind="formError: uri"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: byteSize.visible -->
+    <div class="control-group"
+       data-bind="css: { error: byteSize.hasErrors}">
+      <label class="control-label"
+             for="externalAsset.byteSize"
+             data-bind="translate: 'assets.externalAsset.byteSize'">
+      </label>
+      <div class="controls" id="externalAsset.byteSize" data-bind="focus: 3">
+        <span data-bind='integerInput: detailModel.byteSize, enable: isFieldEnabled("externalAsset.byteSize", editMode)'></span>
+        <div data-bind="formError: byteSize"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: contentType.visible -->
+    <div class="control-group"
+       data-bind="css: { error: contentType.hasErrors}">
+      <label class="control-label"
+             for="externalAsset.contentType"
+             data-bind="translate: 'assets.externalAsset.contentType'">
+      </label>
+      <div class="controls" id="externalAsset.contentType" data-bind="focus: 4">
+        <input type='text' name='externalAsset.contentType' data-bind="textInput: detailModel.contentType, enable: isFieldEnabled('externalAsset.contentType', editMode)" />
+        <div data-bind="formError: contentType"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

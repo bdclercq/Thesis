@@ -1,0 +1,99 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th class="onlineCabBookingComp-tripBooking-customer-header">
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.customer'"></span>
+    </th>
+    <th class="onlineCabBookingComp-tripBooking-driver-header">
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.driver'"></span>
+    </th>
+    <th class="onlineCabBookingComp-tripBooking-fromLocation-header">
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.fromLocation'"></span>
+    </th>
+    <th class="onlineCabBookingComp-tripBooking-toLocation-header">
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.toLocation'"></span>
+    </th>
+    <th data-bind="click: fromDateTime.sort.trigger" class="onlineCabBookingComp-tripBooking-fromDateTime-header">
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.fromDateTime'"></span>
+      <i class="sortable" data-bind="css: fromDateTime.icon"></i>
+    </th>
+    <th data-bind="click: toDateTime.sort.trigger" class="onlineCabBookingComp-tripBooking-toDateTime-header">
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.toDateTime'"></span>
+      <i class="sortable" data-bind="css: toDateTime.icon"></i>
+    </th>
+    <th data-bind="click: km.sort.trigger" class="onlineCabBookingComp-tripBooking-km-header">
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.km'"></span>
+      <i class="sortable" data-bind="css: km.icon"></i>
+    </th>
+    <th data-bind="click: totalAmount.sort.trigger" class="onlineCabBookingComp-tripBooking-totalAmount-header">
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.totalAmount'"></span>
+      <i class="sortable" data-bind="css: totalAmount.icon"></i>
+    </th>
+    <th class="onlineCabBookingComp-tripBooking-payment-header">
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.payment'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="onlineCabBookingComp-tripBooking-customer-cell">
+      <span data-bind="with: customer">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="onlineCabBookingComp-tripBooking-driver-cell">
+      <span data-bind="with: driver">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="onlineCabBookingComp-tripBooking-fromLocation-cell">
+      <span data-bind="with: fromLocation">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="onlineCabBookingComp-tripBooking-toLocation-cell">
+      <span data-bind="with: toLocation">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="onlineCabBookingComp-tripBooking-fromDateTime-cell">
+      <span data-bind="dateString: fromDateTime"></span>
+    </td>
+    <td class="onlineCabBookingComp-tripBooking-toDateTime-cell">
+      <span data-bind="dateString: toDateTime"></span>
+    </td>
+    <td class="onlineCabBookingComp-tripBooking-km-cell">
+      <span data-bind="text: km"></span>
+    </td>
+    <td class="onlineCabBookingComp-tripBooking-totalAmount-cell">
+      <span data-bind="text: totalAmount"></span>
+    </td>
+    <td class="onlineCabBookingComp-tripBooking-payment-cell">
+      <span data-bind="with: payment">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

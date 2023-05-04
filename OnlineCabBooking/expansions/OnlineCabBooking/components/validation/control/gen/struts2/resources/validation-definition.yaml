@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: validation component interface
+  expanderComment: 'expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1'
+  #anchor:custom-info:start
+  #anchor:custom-info:end
+#anchor:custom-root:start
+#anchor:custom-root:end
+paths:
+  /validation-search-json:
+    get:
+      summary: 'get validation instances by {searchMethod}'
+      description: validation instances are searchable by different search methods, which require different details
+      operationId: 'get validation instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllValidations
+              - findByNameEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name  ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ValidationGeneratedResponse'
+
+components:
+    schemas:
+        DataRef:
+            type: object
+            properties:
+                className:
+                    type: string
+                classPrefix:
+                    type: string
+                componentName:
+                    type: string
+                dataRefLink:
+                    type: string
+                id:
+                    type: number
+                name:
+                    type: string
+                packName:
+                    type: string
+        DateLong:
+            type: object
+            properties:
+                value:
+                    type: string
+
+        ValidationGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ValidationDetails'
+        ValidationDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+

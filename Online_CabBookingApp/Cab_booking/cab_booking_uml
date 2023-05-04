@@ -1,0 +1,162 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Abstractuser {
+  - userId: Integer
+  - address: Address
+  - Password: String
+  - Username: String
+  - Mobile: String
+  - Email: String
+}
+class Address {
+  - pincode: String
+  - id: Integer
+  - city: String
+  - state: String
+}
+interface AddressDao << interface >>
+class Admin
+class AdminController {
+  - adminService: AdminService
+}
+interface AdminDao << interface >>
+class AdminExceptions
+interface AdminService << interface >>
+class AdminServiceImp {
+  - adminDao: AdminDao
+  - customerDao: CustomerDao
+  - cabDao: CabDao
+  - tripDao: TripDao
+  - driverDao: DriverDao
+}
+class Cab {
+  - ratePerKm: Integer
+  - carType: String
+  - cabId: Integer
+  - driver: Driver
+}
+class CabBookingApplication
+class CabController {
+  - cService: CabService
+}
+interface CabDao << interface >>
+interface CabService << interface >>
+class CabServiceImpl {
+  - cDao: CabDao
+  - dDao: DriverDao
+}
+class CurrentUserSession {
+  - localDateTime: LocalDateTime
+  - uuid: String
+  - id: Integer
+  - userId: Integer
+}
+class Customer {
+  - journey_status: boolean
+}
+class CustomerController {
+  - service: CustomerService
+}
+class CustomerDTO {
+  - userId: Integer
+  - password: String
+}
+interface CustomerDao << interface >>
+interface CustomerService << interface >>
+class CustomerServiceImp {
+  - Adao: AddressDao
+  - cdao: CustomerDao
+}
+class Driver {
+  - licenseNo: Integer
+  - available: Boolean
+  - tripBooking: TripBooking
+  - cab: Cab
+  - rating: Double
+}
+class DriverController {
+  - dService: DriverService
+}
+interface DriverDao << interface >>
+class DriverNotFoundException
+interface DriverService << interface >>
+class DriverServiceImpl {
+  - dDao: DriverDao
+  - cDao: CabDao
+  - Adao: AddressDao
+}
+class GlobalExceptionHandler
+class InvalidId
+class InvalidPasswordException
+class LoginController {
+  - userLogIn: UserLogInImpl
+}
+class MyErrorDetails {
+  - timestamp: LocalDateTime
+  - message: String
+  - details: String
+}
+class NotFoundException
+class Nullexception
+enum Payment << enumeration >> {
+  + ONLINE: 
+  + OFFLINE: 
+}
+interface SessionDao << interface >>
+class TripBooking {
+  - Fromdate_time: LocalDate
+  - TripBookingId: Integer
+  - driver: Driver
+  - From_location: String
+  - Todate_time: LocalDate
+  - Payment: Boolean
+  - CustomerId: Integer
+  - km: Integer
+  - To_location: String
+  - Totalamount: Integer
+}
+interface TripDao << interface >>
+interface TripService << interface >>
+class TripServiceImp {
+  ~ trip: TripDao
+  ~ cdao: CustomerDao
+  ~ ddao: DriverDao
+}
+class TripbookingController {
+  ~ service: TripService
+}
+class UserAlreadyExistWithuserId
+interface UserLogIn << interface >>
+class UserLogInImpl {
+  - driverDao: DriverDao
+  - adminDao: AdminDao
+  - customerDao: CustomerDao
+  - sessionDao: SessionDao
+}
+class driverDTO {
+  - Username: String
+  - licenseNo: Integer
+  - address: Address
+  - userId: Integer
+  - rating: Double
+  - cab: Cab
+  - available: Boolean
+  - Email: String
+  - Mobile: String
+  - tripBooking: TripBooking
+}
+
+Admin                       -[#000082,plain]-^  Abstractuser               
+AdminServiceImp             -[#008200,dashed]-^  AdminService               
+CabServiceImpl              -[#008200,dashed]-^  CabService                 
+Customer                    -[#000082,plain]-^  Abstractuser               
+CustomerServiceImp          -[#008200,dashed]-^  CustomerService            
+Driver                      -[#000082,plain]-^  Abstractuser               
+DriverServiceImpl           -[#008200,dashed]-^  DriverService              
+TripServiceImp              -[#008200,dashed]-^  TripService                
+UserLogInImpl               -[#008200,dashed]-^  UserLogIn                  
+@enduml

@@ -1,0 +1,59 @@
+-- anchor:custom-variables:start
+    private static final String NO_USER_ID = "account.dataAccess.noUserId";
+    private static final String NO_PROFILE_FOR_USER = "account.dataAccess.noProfileForUser";
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  private CrudsResult<ProfileAccessRights> createProfileAccessRights(UserContext userContext, DataRef profileRef, ProfileAccessQuery accessQuery) {
+    DataAccessFindByForProfileEq_ElementEqDetails details = new DataAccessFindByForProfileEq_ElementEqDetails();
+    details.setElement(accessQuery.getElement());
+    details.setForProfile(profileRef);
+
+    SearchDetails<DataAccessFindByForProfileEq_ElementEqDetails> searchParameter = new SearchDetails<DataAccessFindByForProfileEq_ElementEqDetails>(details);
+    ParameterContext<SearchDetails<DataAccessFindByForProfileEq_ElementEqDetails>> parameterContext = new ParameterContext<SearchDetails<DataAccessFindByForProfileEq_ElementEqDetails>>(userContext, searchParameter);
+    SearchResult<DataAccessInfo> searchResult = find(parameterContext);
+
+    if (searchResult.isError()) {
+      return getDiagnosticHelper().createCrudsError(searchResult.getDiagnostics().get(0));
+    }
+
+    ProfileAccessRights profileAccessRights = new ProfileAccessRights();
+
+    for (DataAccessInfo info : searchResult.getResults()) {
+      String functionality = info.getFunctionality();
+      String authorized = info.getAuthorized();
+
+      if ("delete".equals(functionality)) {
+        profileAccessRights.setCanDelete(isAllowed(authorized));
+      } else if ("entry".equals(functionality)) {
+        profileAccessRights.setCanEdit(isAllowed(authorized));
+      } else if ("status".equals(functionality)) {
+        profileAccessRights.setCanView(isAllowed(authorized));
+      }
+    }
+
+    return CrudsResult.success(profileAccessRights);
+  }
+
+  private boolean isAllowed(String authorized) {
+    return !"no".equals(authorized);
+  }
+
+  public CrudsResult<ProfileAccessRights> getProfileAccessRights(ParameterContext<ProfileAccessQuery> queryParameter) {
+    UserContext userContext = queryParameter.getUserContext();
+
+    Long userId = userContext.getId();
+    if (userId == null) {
+      return getDiagnosticHelper().createCrudsError(NO_USER_ID);
+    }
+
+    CrudsResult<UserDetails> userDetails = userLocal.getDetails(queryParameter.construct(userId));
+    DataRef profileRef = userDetails.getValue().getProfile();
+    if (profileRef.getId() == 0) {
+      return getDiagnosticHelper().createCrudsError(NO_PROFILE_FOR_USER);
+    }
+
+    CrudsResult<ProfileAccessRights> result = createProfileAccessRights(userContext, profileRef, queryParameter.getValue());
+
+    return result;
+  }
+-- anchor:custom-methods:end

@@ -1,0 +1,346 @@
+/* expanded with nsx-expanders:5.12.1, expansionResource net.democritus:web-styles:2022.4.1 */
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;700&display=swap');
+
+/* @anchor:imports:start */
+/* @anchor:imports:end */
+/* anchor:custom-imports:start */
+/* anchor:custom-imports:end */
+
+:root {
+  --primary-color: #1488CC;
+  --secondary-color: #2B32B2;
+
+  --text-color: #000000;
+  --border-color: #e0e0e0;
+  --background-color: #fff;
+
+  --font-family: 'Maven Pro', sans-serif;
+
+  /* @anchor:variables:start */
+  /* @anchor:variables:end */
+  /* anchor:custom-variables:start */
+  /* anchor:custom-variables:end */
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 0.9em;
+  overflow: hidden;
+
+  background: var(--primary-color);
+  background: -webkit-linear-gradient(to right, var(--secondary-color), var(--primary-color));
+  background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+
+  /* @anchor:body-attributes:start */
+  /* @anchor:body-attributes:end */
+  /* anchor:custom-body-attributes:start */
+  /* anchor:custom-body-attributes:end */
+}
+
+.nsx-login {
+  display: flex;
+}
+
+.nsx-login-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background-color);
+  padding: 50px 40px;
+  position: relative;
+  z-index: 1;
+  width: 35%;
+}
+
+.nsx-login-logo {
+  height: 55px;
+  width: calc(100% - 80px);
+  display: block;
+
+  left: 40px;
+  top: 50px;
+  position: absolute;
+
+  background: transparent url('../../images/nsx-logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  /* @anchor:logo-attributes:start */
+  /* @anchor:logo-attributes:end */
+  /* anchor:custom-logo-attributes:start */
+  /* anchor:custom-logo-attributes:end */
+}
+
+.nsx-box {
+  flex: 1;
+  margin-top: 30px;
+}
+
+.nsx-input-field {
+  position: relative;
+	z-index: 1;
+	width: 100%;
+	vertical-align: top;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.nsx-input-field input {
+  position: relative;
+	display: block;
+  outline: none;
+  width: 100%;
+  height: 45px;
+
+	padding: 0.7em;
+  color: var(--text-color);
+	border: 2px var(--border-color) solid;
+  font-family: var(--font-family);
+	border-radius: 9px;
+  box-sizing: border-box;
+	padding-left: 3em;
+  font-size: 1em;
+
+  -webkit-appearance: none;
+
+  /* @anchor:button-input-attributes:start */
+  /* @anchor:button-input-attributes:end */
+  /* anchor:custom-input-attributes:start */
+  /* anchor:custom-input-attributes:end */
+}
+
+.nsx-input-field input::placeholder {
+  color: #fff;
+}
+
+.nsx-input-field input:focus {
+  border-color: var(--primary-color);
+  -webkit-transition: border-color 0.25s;
+  transition: border-color 0.25s;
+
+  /* @anchor:button-input-focus-attributes:start */
+  /* @anchor:button-input-focus-attributes:end */
+  /* anchor:custom-input-focus-attributes:start */
+  /* anchor:custom-input-focus-attributes:end */
+}
+
+.submit-button {
+	display: inline-block;
+  outline: none;
+	padding: 0.5em 1em;
+  margin: 0.5em;
+  background: var(--background-color);
+  border: 2px var(--border-color) solid;
+  cursor: pointer;
+	border-radius: 9px;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+  color: var(--text-color);
+  font-size: 1em;
+  text-align: center;
+  text-decoration: none;
+}
+
+.submit-button img {
+  vertical-align: middle;
+  display: inline;
+  margin-right: 5px;
+  margin-top: -3px;
+  height: 18px;
+}
+
+.nsx-submit-button {
+  background: var(--primary-color);
+	padding: 0.9em 2em;
+  margin: 0;
+  color: #fff;
+  border: none;
+  float: right;
+
+  /* @anchor:button-attributes:start */
+  /* @anchor:button-attributes:end */
+  /* anchor:custom-button-attributes:start */
+  /* anchor:custom-button-attributes:end */
+}
+
+.submit-button:hover,
+.submit-button:focus {
+  opacity: 0.85;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+
+  /* @anchor:button-focus-attributes:start */
+  /* @anchor:button-focus-attributes:end */
+  /* anchor:custom-button-focus-attributes:start */
+  /* anchor:custom-button-focus-attributes:end */
+}
+
+.clear {
+  clear: both;
+}
+
+.login-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /* @anchor:login-options-attributes:start */
+  /* @anchor:login-options-attributes:end */
+  /* anchor:custom-login-options-attributes:start */
+  /* anchor:custom-login-options-attributes:end */
+}
+
+.separator {
+  position: relative;
+  display: block;
+  text-align: center;
+  z-index: 1;
+}
+
+.separator span {
+  position:relative;
+  padding:20px;
+  background: var(--background-color);
+  display: inline-block;
+  z-index: 1;
+}
+
+.separator::after {
+   content:'';
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 50%;
+   height: 1px;
+   background: var(--border-color);
+   z-index:0;
+}
+
+.nsx-input-field label {
+  display: flex;
+  width: 100%;
+  height: 45px;
+
+  align-items: center;
+  justify-content: flex-start;
+
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+  pointer-events: none;
+	user-select: none;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.nsx-input-field label span {
+	width: auto;
+  font-size: 1em;
+  -webkit-transform: translate3d(-1.5em, 0, 0);
+  transform: translate3d(-1.5em, 0, 0);
+}
+
+.nsx-input-field label img {
+  margin: 0 5px 0 15px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translate3d(-3em, 0, 0);
+  transform: translate3d(-3em, 0, 0);
+}
+
+.nsx-input-field input:focus + label span,
+.nsx-input-field input:not(:placeholder-shown) + label span {
+	opacity: 0;
+	-webkit-transform: translate3d(100px, 0, 0);
+	transform: translate3d(100px, 0, 0);
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+.nsx-input-field input:focus + label img,
+.nsx-input-field input:not(:placeholder-shown) + label img {
+	-webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+}
+
+.nsx-applications-brand {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1;
+  -webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+  pointer-events: none;
+	user-select: none;
+}
+
+.nsx-applications-brand img {
+  height: 30px;
+  margin: 30px;
+}
+
+@media (max-width: 1024px) {
+
+  .nsx-login {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stars {
+    display: none;
+  }
+
+  .nsx-login-panel {
+    padding: 20px;
+    min-width: 60%;
+    flex-wrap: wrap;
+    border-radius: 10px;
+  }
+
+  .nsx-login-logo {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 767px) {
+
+  .nsx-login {
+    background: var(--background-color);
+  }
+
+  .nsx-box {
+    padding: 0;
+    min-width: 80%;
+  }
+
+}
+
+/* @anchor:styles:start */
+/* @anchor:styles:end */
+/* anchor:custom-styles:start */
+/* anchor:custom-styles:end */

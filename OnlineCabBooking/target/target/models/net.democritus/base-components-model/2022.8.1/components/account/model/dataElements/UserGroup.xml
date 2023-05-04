@@ -1,0 +1,84 @@
+<dataElement name="UserGroup">
+  <packageName>net.democritus.usr</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="name">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isNameField/>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="type">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="lastModifiedAt">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Date"/>
+      </valueField>
+      <options>
+        <isImplicitField>lastModifiedAt</isImplicitField>
+      </options>
+    </field>
+    <field name="enteredAt">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Date"/>
+      </valueField>
+      <options>
+        <isImplicitField>enteredAt</isImplicitField>
+      </options>
+    </field>
+    <field name="disabled">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isDisabledField/>
+      </options>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+          <field name="name"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByTypeEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:type">
+          <operator>Eq</operator>
+          <field name="type"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findAllUserGroups"/>
+  </finders>
+  <options>
+    <includeCsvImport/>
+  </options>
+</dataElement>

@@ -1,0 +1,47 @@
+-- anchor:custom-imports:start
+import net.democritus.encrypt.EncryptPassword;
+import net.democritus.sys.ParamTargetValueAgent;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  private boolean useEncryption(net.democritus.sys.Context context) {
+    ParamTargetValueAgent paramTargetValueAgent = ParamTargetValueAgent.getParamTargetValueAgent(context);
+    return paramTargetValueAgent.isParamTargetValueActive("useEncryptedPassword", "default", false);
+  }
+
+  public CrudsResult<Boolean> checkPassword(ParameterContext<UserInput> parameter) {
+    return userCrudsLocal.checkPassword(parameter);
+  }
+
+  public CrudsResult<Boolean> checkEncryptedPassword(ParameterContext<UserInput> parameter) {
+    return userCrudsLocal.checkEncryptedPassword(parameter);
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-command-changePassword:start
+    userDetails.setPassword(changePasswordCommand.getNewPassword());
+    CrudsResult<DataRef> crudsResult = modify(parameterFactory.construct(userDetails));
+    if (crudsResult.isError()) {
+      commandResult = CommandResult.error(changePasswordCommand, "failed to modify user");
+    }
+-- anchor:custom-command-changePassword:end
+-- anchor:custom-preCreate:start
+    String plainPassword = details.getPassword();
+
+    if (useEncryption(detailsParameter.getContext())) {
+      details.setPassword("");
+      details.setEncryptedPassword(plainPassword);
+    } else {
+      details.setPassword(plainPassword);
+      details.setEncryptedPassword("");
+    }
+-- anchor:custom-preCreate:end
+-- anchor:custom-preModify:start
+    String plainPassword = details.getPassword();
+
+    if (useEncryption(detailsParameter.getContext())) {
+      details.setPassword("");
+      details.setEncryptedPassword(plainPassword);
+    } else {
+      details.setPassword(plainPassword);
+      details.setEncryptedPassword("");
+    }
+-- anchor:custom-preModify:end

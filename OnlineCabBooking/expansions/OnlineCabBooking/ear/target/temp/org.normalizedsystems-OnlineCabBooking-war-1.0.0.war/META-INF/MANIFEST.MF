@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Created-By: Maven Archiver 3.4.0
+Build-Jdk-Spec: 19
+Class-Path: lib/org.normalizedsystems-OnlineCabBooking-shared-1.0.0.jar 
+ lib/org.normalizedsystems-utils-shared-1.0.jar lib/net.democritus-nsx-c
+ ommon-2022.1.0.jar lib/net.democritus-nsx-shared-common-2022.1.0.jar li
+ b/net.democritus-nsx-contract-annotations-2022.1.0.jar lib/net.democrit
+ us-nsx-shared-ref-2022.1.0.jar lib/net.democritus-nsx-shared-owasp-2022
+ .1.0.jar lib/net.democritus-nsx-logging-2022.1.0.jar lib/org.slf4j-slf4
+ j-api-1.7.36.jar lib/net.democritus-nsx-shared-ejb3-2022.1.0.jar lib/ne
+ t.democritus-nsx-shared-jpa-2022.1.0.jar lib/net.democritus-nsx-shared-
+ opencsv-2022.1.0.jar lib/com.opencsv-opencsv-5.6.jar lib/org.apache.com
+ mons-commons-lang3-3.12.0.jar lib/org.apache.commons-commons-text-1.9.j
+ ar lib/commons-beanutils-commons-beanutils-1.9.4.jar lib/commons-loggin
+ g-commons-logging-1.2.jar lib/commons-collections-commons-collections-3
+ .2.2.jar lib/org.apache.commons-commons-collections4-4.4.jar lib/org.no
+ rmalizedsystems-utils-proxy-1.0.jar lib/org.normalizedsystems-account-s
+ hared-1.0.jar lib/org.normalizedsystems-account-proxy-1.0.jar lib/org.n
+ ormalizedsystems-validation-shared-1.0.jar lib/org.normalizedsystems-va
+ lidation-proxy-1.0.jar lib/org.normalizedsystems-assets-shared-1.0.jar 
+ lib/org.normalizedsystems-assets-proxy-1.0.jar lib/org.normalizedsystem
+ s-workflow-shared-1.0.jar lib/org.normalizedsystems-workflow-proxy-1.0.
+ jar lib/org.normalizedsystems-onlineCabBookingComp-shared-1.0.0.jar lib
+ /org.normalizedsystems-onlineCabBookingComp-proxy-1.0.0.jar
+

@@ -1,0 +1,91 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="workflow-stateTask-name-header">
+      <span data-bind="translate: 'workflow.stateTask.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: processor.sort.trigger" class="workflow-stateTask-processor-header">
+      <span data-bind="translate: 'workflow.stateTask.processor'"></span>
+      <i class="sortable" data-bind="css: processor.icon"></i>
+    </th>
+    <th data-bind="click: implementation.sort.trigger" class="workflow-stateTask-implementation-header">
+      <span data-bind="translate: 'workflow.stateTask.implementation'"></span>
+      <i class="sortable" data-bind="css: implementation.icon"></i>
+    </th>
+    <th data-bind="click: params.sort.trigger" class="workflow-stateTask-params-header">
+      <span data-bind="translate: 'workflow.stateTask.params'"></span>
+      <i class="sortable" data-bind="css: params.icon"></i>
+    </th>
+    <th data-bind="click: beginState.sort.trigger" class="workflow-stateTask-beginState-header">
+      <span data-bind="translate: 'workflow.stateTask.beginState'"></span>
+      <i class="sortable" data-bind="css: beginState.icon"></i>
+    </th>
+    <th data-bind="click: interimState.sort.trigger" class="workflow-stateTask-interimState-header">
+      <span data-bind="translate: 'workflow.stateTask.interimState'"></span>
+      <i class="sortable" data-bind="css: interimState.icon"></i>
+    </th>
+    <th data-bind="click: failedState.sort.trigger" class="workflow-stateTask-failedState-header">
+      <span data-bind="translate: 'workflow.stateTask.failedState'"></span>
+      <i class="sortable" data-bind="css: failedState.icon"></i>
+    </th>
+    <th data-bind="click: endState.sort.trigger" class="workflow-stateTask-endState-header">
+      <span data-bind="translate: 'workflow.stateTask.endState'"></span>
+      <i class="sortable" data-bind="css: endState.icon"></i>
+    </th>
+    <th data-bind="click: maxConcurrentTasks.sort.trigger" class="workflow-stateTask-maxConcurrentTasks-header">
+      <span data-bind="translate: 'workflow.stateTask.maxConcurrentTasks'"></span>
+      <i class="sortable" data-bind="css: maxConcurrentTasks.icon"></i>
+    </th>
+    <th data-bind="click: timeout.sort.trigger" class="workflow-stateTask-timeout-header">
+      <span data-bind="translate: 'workflow.stateTask.timeout'"></span>
+      <i class="sortable" data-bind="css: timeout.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="workflow-stateTask-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="workflow-stateTask-processor-cell">
+      <span data-bind="text: processor"></span>
+    </td>
+    <td class="workflow-stateTask-implementation-cell">
+      <span data-bind="text: implementation"></span>
+    </td>
+    <td class="workflow-stateTask-params-cell">
+      <span data-bind="text: params"></span>
+    </td>
+    <td class="workflow-stateTask-beginState-cell">
+      <span data-bind="text: beginState"></span>
+    </td>
+    <td class="workflow-stateTask-interimState-cell">
+      <span data-bind="text: interimState"></span>
+    </td>
+    <td class="workflow-stateTask-failedState-cell">
+      <span data-bind="text: failedState"></span>
+    </td>
+    <td class="workflow-stateTask-endState-cell">
+      <span data-bind="text: endState"></span>
+    </td>
+    <td class="workflow-stateTask-maxConcurrentTasks-cell">
+      <span data-bind="text: maxConcurrentTasks"></span>
+    </td>
+    <td class="workflow-stateTask-timeout-cell">
+      <span data-bind="text: timeout"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

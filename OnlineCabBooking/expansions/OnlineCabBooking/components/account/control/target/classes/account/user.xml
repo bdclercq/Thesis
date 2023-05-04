@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<struts>
+
+  <package name='account-user' namespace='/account' extends='nsx-default'>
+
+    <global-results>
+      <result name='noaccess'>/jsp/noaccess.jsp</result>
+    </global-results>
+
+    <!-- @anchor:actions:start -->
+    <!-- @anchor:actions:end -->
+
+    <!-- Add actions here -->
+
+    <!-- anchor:custom-actions:start -->
+    <!-- anchor:custom-actions:end -->
+  </package>
+
+  <package name='account-user-json' namespace='/account' extends='nsx-json-default'>
+
+    <action name='user-detail-json' class='net.democritus.usr.action.UserDetailer' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='user-delete-json' class='net.democritus.usr.action.UserDeleter' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='user-confirm-json' class='net.democritus.usr.action.UserEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='user-saveDetails-json' class='net.democritus.usr.action.UserEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='user-search-json' class='net.democritus.usr.action.UserFindAction' method='execute'>
+      <interceptor-ref name="jsonFinderStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='user-perform-json' class='net.democritus.usr.action.UserPerformer' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='user-getProjection-json' class='net.democritus.usr.action.UserProjector' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- anchor:io-actions:start -->
+    <action name='user-upload-json' class='net.democritus.usr.action.UserImporterAction' method='execute'>
+        <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+    <!-- anchor:io-actions:end -->
+
+    <!-- @anchor:json-actions:start -->
+    <action name='user-perform-command-json' class='net.democritus.usr.action.UserCommandPerformer' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>commandResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>commandResult</param>
+      </result>
+    </action>
+    <!-- @anchor:json-actions:end -->
+
+    <!-- Add JSON actions here -->
+
+    <!-- anchor:custom-json-actions:start -->
+    <action name='user-getLoginInfo-json' class='net.democritus.url.action.GetLoginInfoAction' method='execute'>
+      <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+    <!-- anchor:custom-json-actions:end -->
+  </package>
+
+  <package name='account-user-knockout-html' namespace='/account/user' extends='nsx-default'>
+    <action name='data'>
+      <result>/jsp/ps2/page.jsp?pageModel=account/user/user-io-page-model</result>
+    </action>
+    <action name='all'>
+      <result>/jsp/ps2/page.jsp?pageModel=account/user/user-page-model</result>
+    </action>
+
+    <!-- @anchor:ko-html-pages:start -->
+    <!-- @anchor:ko-html-pages:end -->
+  </package>
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+  <package name='account-user-knockout-html-custom' namespace='/account/user' extends='nsx-default'>
+    <action name='*'>
+      <result>/html/account/user-instance-page.html</result>
+    </action>
+  </package>
+  <!-- anchor:custom-packages:end -->
+
+</struts>

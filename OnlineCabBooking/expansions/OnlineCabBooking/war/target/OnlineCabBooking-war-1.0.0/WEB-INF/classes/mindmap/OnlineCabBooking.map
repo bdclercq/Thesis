@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<dashboard>
+  <components>
+    <!-- anchor:components:start -->
+    <component name='utils'/>
+    <component name='account'/>
+    <component name='validation'/>
+    <component name='assets'/>
+    <component name='workflow'/>
+    <component name='onlineCabBookingComp'/>
+    <!-- anchor:components:end -->
+  </components>
+
+  <mindmaps>
+    <!-- example mindmap:
+    <mindmap profile='admin' id='adminRoot' imageName='admin.png' imageWidth='1022'>
+      <linkitem coords='55,70,245,315' ref='component_element_action1'/>
+      <linkitem coords='365,70,600,315' ref='component_element_action2'/>
+      <submap coords='55,70,245,315' mapId='subAdmin'/>
+    </mindmap>
+    -->
+
+    <!-- @anchor:mindmaps:start -->
+    <!-- @anchor:mindmaps:end -->
+    <!-- anchor:custom-mindmaps:start -->
+    <!-- anchor:custom-mindmaps:end -->
+
+  </mindmaps>
+</dashboard>

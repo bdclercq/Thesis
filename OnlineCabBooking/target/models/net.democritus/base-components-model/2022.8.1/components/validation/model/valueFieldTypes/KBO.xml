@@ -1,0 +1,7 @@
+<valueFieldType name="KBO">
+  <fullType>kbo</fullType>
+  <valueClass>net.democritus.valuetype.basic.KBO</valueClass>
+  <displayType>string</displayType>
+  <storageType>string</storageType>
+  <customTransportClass>false</customTransportClass>
+</valueFieldType>

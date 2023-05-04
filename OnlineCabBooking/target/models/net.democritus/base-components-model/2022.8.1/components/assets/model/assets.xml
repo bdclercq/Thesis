@@ -1,0 +1,18 @@
+<component name="assets">
+  <version>1.0</version>
+  <fullName>BASE:assets</fullName>
+  <componentDependencies>
+    <componentDependency name="assets:account">
+      <dependsOn name="account"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+    <componentDependency name="assets:utils">
+      <dependsOn name="utils"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+  </componentDependencies>
+  <options>
+    <hasDataBaseSchema>ASSETS</hasDataBaseSchema>
+    <isBaseComponent/>
+  </options>
+</component>

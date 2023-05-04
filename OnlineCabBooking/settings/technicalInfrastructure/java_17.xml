@@ -1,0 +1,4 @@
+<technicalInfrastructure name="Java 17">
+  <javaVersion>jdk17</javaVersion>
+  <jeeVersion>7</jeeVersion>
+</technicalInfrastructure>

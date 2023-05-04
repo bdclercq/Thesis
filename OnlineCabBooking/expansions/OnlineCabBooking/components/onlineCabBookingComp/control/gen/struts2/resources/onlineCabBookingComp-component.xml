@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<struts>
+
+  <include file='onlineCabBookingComp-header.xml'/>
+
+  <!-- anchor:struts-data-element:start -->
+  <include file='onlineCabBookingComp/address.xml'/>
+  <include file='onlineCabBookingComp/cab.xml'/>
+  <include file='onlineCabBookingComp/carType.xml'/>
+  <include file='onlineCabBookingComp/customer.xml'/>
+  <include file='onlineCabBookingComp/driver.xml'/>
+  <include file='onlineCabBookingComp/payment.xml'/>
+  <include file='onlineCabBookingComp/person.xml'/>
+  <include file='onlineCabBookingComp/tripBooking.xml'/>
+  <!-- anchor:struts-data-element:end -->
+
+  <!-- @anchor:includes:start -->
+  <!-- @anchor:includes:end -->
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+  <!-- anchor:custom-packages:end -->
+
+  <include file='onlineCabBookingComp-footer.xml'/>
+
+</struts>

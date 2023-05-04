@@ -1,0 +1,44 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="tagValuePair.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: tag.visible -->
+    <div class="control-group"
+       data-bind="css: { error: tag.hasErrors}">
+      <label class="control-label"
+             for="tagValuePair.tag"
+             data-bind="translate: 'utils.tagValuePair.tag'">
+      </label>
+      <div class="controls" id="tagValuePair.tag" data-bind="focus: 1">
+        <input type='text' name='tagValuePair.tag' data-bind="textInput: detailModel.tag, enable: isFieldEnabled('tagValuePair.tag', editMode)" />
+        <div data-bind="formError: tag"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: value.visible -->
+    <div class="control-group"
+       data-bind="css: { error: value.hasErrors}">
+      <label class="control-label"
+             for="tagValuePair.value"
+             data-bind="translate: 'utils.tagValuePair.value'">
+      </label>
+      <div class="controls" id="tagValuePair.value" data-bind="focus: 2">
+        <input type='text' name='tagValuePair.value' data-bind="textInput: detailModel.value, enable: isFieldEnabled('tagValuePair.value', editMode)" />
+        <div data-bind="formError: value"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

@@ -1,0 +1,52 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="account-profile-name-header">
+      <span data-bind="translate: 'account.profile.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th class="account-profile-screens-header">
+      <span data-bind="translate: 'account.profile.screens'"></span>
+    </th>
+    <th class="account-profile-userGroup-header">
+      <span data-bind="translate: 'account.profile.userGroup'"></span>
+    </th>
+    <th data-bind="click: weight.sort.trigger" class="account-profile-weight-header">
+      <span data-bind="translate: 'account.profile.weight'"></span>
+      <i class="sortable" data-bind="css: weight.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-profile-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="account-profile-screens-cell">
+      <span data-bind="collection: { field: screens, name: 'account.profile.screens'}">
+      </span>
+    </td>
+    <td class="account-profile-userGroup-cell">
+      <span data-bind="with: userGroup">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="account-profile-weight-cell">
+      <span data-bind="text: weight"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

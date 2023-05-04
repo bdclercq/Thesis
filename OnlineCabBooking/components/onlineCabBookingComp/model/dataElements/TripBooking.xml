@@ -1,0 +1,130 @@
+<dataElement name="TripBooking">
+  <packageName>cabBookingCore</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="customer">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Customer"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+    <field name="driver">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Driver"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+    <field name="fromLocation">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Address"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+    <field name="toLocation">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Address"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+    <field name="fromDateTime">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Date"/>
+      </valueField>
+    </field>
+    <field name="toDateTime">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Date"/>
+      </valueField>
+    </field>
+    <field name="km">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Double"/>
+      </valueField>
+    </field>
+    <field name="totalAmount">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Double"/>
+      </valueField>
+    </field>
+    <field name="payment">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Payment"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findByCustomerEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="customer"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByDriverEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="driver"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findAllTripBooking"/>
+    <finder name="findByFromDateTimeEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="fromDateTime"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByToDateTimeEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="toDateTime"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByCustomerEq_FromDateTimeEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="customer"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="fromDateTime"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+  </finders>
+</dataElement>

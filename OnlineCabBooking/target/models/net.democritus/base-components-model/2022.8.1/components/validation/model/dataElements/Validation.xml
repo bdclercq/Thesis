@@ -1,0 +1,28 @@
+<dataElement name="Validation">
+  <packageName>net.democritus.validation</packageName>
+  <fields>
+    <field name="name">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isNameField/>
+        <isShowInfo/>
+      </options>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findAllValidations"/>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+          <field name="name"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+  </finders>
+</dataElement>

@@ -1,0 +1,25 @@
+<div style="margin-right: 10px">
+    <button
+            type="button"
+            class="btn previous-page-button"
+            data-bind="click: previousPage.trigger, disable: isFirstPage">
+        <span class="icon-chevron-up"></span>
+    </button>
+
+    <button
+            type="button"
+            class="btn next-page-button"
+            data-bind="click: nextPage.trigger, disable: isLastPage">
+        <span class="icon-chevron-down"></span>
+    </button>
+    <span>
+      <span data-bind="translate: 'ns.page'"></span>
+      <input type="text" class="nsx-page" data-bind="value: pageNb"/>
+      <span data-bind="translate: 'ns.of'"></span>
+      <span data-bind="text: numberOfPages"></span>
+    </span>
+    <span data-bind="visible: totalNumberOfItems">
+      <span>&nbsp;(<span data-bind="text: totalNumberOfItems"></span> items)</span>
+    </span>
+
+</div>

@@ -1,0 +1,1 @@
+"use strict";define((function(n){var e=n("jquery"),t=n("nsx/nsx-application").getApplicationUrl()+"/getSessionInfo-json";return{getSessionInfo:function(n,i){return e.get(t,i)}}}));

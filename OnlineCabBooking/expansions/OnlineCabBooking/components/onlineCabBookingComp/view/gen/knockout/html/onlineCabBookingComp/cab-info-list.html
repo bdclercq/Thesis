@@ -1,0 +1,48 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: ratePerKm.sort.trigger" class="onlineCabBookingComp-cab-ratePerKm-header">
+      <span data-bind="translate: 'onlineCabBookingComp.cab.ratePerKm'"></span>
+      <i class="sortable" data-bind="css: ratePerKm.icon"></i>
+    </th>
+    <th class="onlineCabBookingComp-cab-carType-header">
+      <span data-bind="translate: 'onlineCabBookingComp.cab.carType'"></span>
+    </th>
+    <th class="onlineCabBookingComp-cab-driver-header">
+      <span data-bind="translate: 'onlineCabBookingComp.cab.driver'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="onlineCabBookingComp-cab-ratePerKm-cell">
+      <span data-bind="text: ratePerKm"></span>
+    </td>
+    <td class="onlineCabBookingComp-cab-carType-cell">
+      <span data-bind="with: carType">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="onlineCabBookingComp-cab-driver-cell">
+      <span data-bind="with: driver">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

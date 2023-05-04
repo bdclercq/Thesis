@@ -1,0 +1,89 @@
+<dataElement name="ScreenProfile">
+  <packageName>net.democritus.usr.menu</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="screen">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="account" name="Screen"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+      <options>
+        <hasTranslation>Scherm</hasTranslation>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="profile">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="account" name="Profile"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+      <options>
+        <hasTranslation>Profiel</hasTranslation>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="screens">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="account" name="Screen"/>
+        <linkFieldType name="Ln03"/>
+      </linkField>
+      <options>
+        <hasTranslation>Schermen</hasTranslation>
+        <isShowInfo/>
+        <showLinkDetails/>
+      </options>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findByProfileEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:profile">
+          <operator>Eq</operator>
+          <field name="profile"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op profiel</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByScreenEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:screen">
+          <operator>Eq</operator>
+          <field name="screen"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op scherm</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByScreenEq_ProfileEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:profile">
+          <operator>Eq</operator>
+          <field name="profile"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Eq:screen">
+          <operator>Eq</operator>
+          <field name="screen"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op scherm en profiel</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findAllScreenProfiles"/>
+  </finders>
+  <options>
+    <nameNotWanted/>
+  </options>
+</dataElement>

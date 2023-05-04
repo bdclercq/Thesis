@@ -1,0 +1,42 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: state.sort.trigger" class="onlineCabBookingComp-address-state-header">
+      <span data-bind="translate: 'onlineCabBookingComp.address.state'"></span>
+      <i class="sortable" data-bind="css: state.icon"></i>
+    </th>
+    <th data-bind="click: street.sort.trigger" class="onlineCabBookingComp-address-street-header">
+      <span data-bind="translate: 'onlineCabBookingComp.address.street'"></span>
+      <i class="sortable" data-bind="css: street.icon"></i>
+    </th>
+    <th data-bind="click: houseNumber.sort.trigger" class="onlineCabBookingComp-address-houseNumber-header">
+      <span data-bind="translate: 'onlineCabBookingComp.address.houseNumber'"></span>
+      <i class="sortable" data-bind="css: houseNumber.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="onlineCabBookingComp-address-state-cell">
+      <span data-bind="text: state"></span>
+    </td>
+    <td class="onlineCabBookingComp-address-street-cell">
+      <span data-bind="text: street"></span>
+    </td>
+    <td class="onlineCabBookingComp-address-houseNumber-cell">
+      <span data-bind="text: houseNumber"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

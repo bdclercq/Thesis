@@ -1,0 +1,59 @@
+-- anchor:custom-methods:start
+  public boolean isValid(String cardNumber) {
+    String digitsOnly = this.getDigitsOnly(cardNumber);
+    int sum = 0;
+    boolean timesTwo = false;
+
+    int modulus;
+    for(modulus = digitsOnly.length() - 1; modulus >= 0; --modulus) {
+      int digit = Integer.parseInt(digitsOnly.substring(modulus, modulus + 1));
+      int addend;
+      if (timesTwo) {
+        addend = digit * 2;
+        if (addend > 9) {
+          addend -= 9;
+        }
+      } else {
+        addend = digit;
+      }
+
+      sum += addend;
+      timesTwo = !timesTwo;
+    }
+
+    modulus = sum % 10;
+    return modulus == 0;
+  }
+
+  private String getDigitsOnly(String s) {
+    StringBuffer digitsOnly = new StringBuffer();
+
+    for(int i = 0; i < s.length(); ++i) {
+      char c = s.charAt(i);
+      if (Character.isDigit(c)) {
+        digitsOnly.append(c);
+      }
+    }
+
+    return digitsOnly.toString();
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-validation:start
+    if (value == null) {
+      return ValidationResult.error("CreditcardNumber is null");
+    }
+
+    String strCreditcardNumber = creditcardNumber.getValue();
+    if (strCreditcardNumber == null || strCreditcardNumber.isEmpty()) {
+      return ValidationResult.success();
+    }
+
+    System.out.println("validating CreditcardNumber " + strCreditcardNumber);
+    if (this.isValid(strCreditcardNumber)) {
+      System.out.println("CreditcardNumber validation OK");
+      result = ValidationResult.success();
+    } else {
+      System.out.println("problem with this CreditcardNumber");
+      result = ValidationResult.error("should be a valid CreditcardNumber");
+    }
+-- anchor:custom-validation:end

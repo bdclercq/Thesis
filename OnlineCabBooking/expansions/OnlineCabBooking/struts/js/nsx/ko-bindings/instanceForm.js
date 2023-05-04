@@ -1,0 +1,1 @@
+"use strict";define(["jquery","knockout","nsx/view/formBuilder"],(function(n,i,e){i.bindingHandlers.instanceForm={init:function(r,t,o,d,s){var u=i.unwrap(t()),c=u.model,m=u.command||u.projection||c.getFieldProvider(),a=u.submit||c.submit,l=e.createFromFieldProvider(m,{submit:!!a});return n(r).html(l),i.applyBindings(c,l),{controlsDescendantBindings:!0}}}}));

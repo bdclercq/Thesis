@@ -1,0 +1,24 @@
+-- anchor:custom-methods:start
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((rijksRegisterNummer == null) ? 0 : rijksRegisterNummer.hashCode());
+    return result;
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-default-constructor:start
+    this("");
+-- anchor:custom-default-constructor:end
+-- anchor:custom-equality:start
+    if (rijksRegisterNummer == null) {
+      isEqual = other.rijksRegisterNummer == null;
+    } else {
+      isEqual = rijksRegisterNummer.equals(other.rijksRegisterNummer);
+    }
+-- anchor:custom-equality:end
+-- anchor:custom-value-constructor:start
+    if (rijksRegisterNummer == null) {
+      this.rijksRegisterNummer = "";
+    }
+-- anchor:custom-value-constructor:end

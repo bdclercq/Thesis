@@ -1,0 +1,93 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="assets-asset-name-header">
+      <span data-bind="translate: 'assets.asset.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: type.sort.trigger" class="assets-asset-type-header">
+      <span data-bind="translate: 'assets.asset.type'"></span>
+      <i class="sortable" data-bind="css: type.icon"></i>
+    </th>
+    <th class="assets-asset-fileAsset-header">
+      <span data-bind="translate: 'assets.asset.fileAsset'"></span>
+    </th>
+    <th class="assets-asset-internalAsset-header">
+      <span data-bind="translate: 'assets.asset.internalAsset'"></span>
+    </th>
+    <th data-bind="click: contentType.sort.trigger" class="assets-asset-contentType-header">
+      <span data-bind="translate: 'assets.asset.contentType'"></span>
+      <i class="sortable" data-bind="css: contentType.icon"></i>
+    </th>
+    <th data-bind="click: byteSize.sort.trigger" class="assets-asset-byteSize-header">
+      <span data-bind="translate: 'assets.asset.byteSize'"></span>
+      <i class="sortable" data-bind="css: byteSize.icon"></i>
+    </th>
+    <th data-bind="click: fileId.sort.trigger" class="assets-asset-fileId-header">
+      <span data-bind="translate: 'assets.asset.fileId'"></span>
+      <i class="sortable" data-bind="css: fileId.icon"></i>
+    </th>
+    <th data-bind="click: complete.sort.trigger" class="assets-asset-complete-header">
+      <span data-bind="translate: 'assets.asset.complete'"></span>
+      <i class="sortable" data-bind="css: complete.icon"></i>
+    </th>
+    <th class="assets-asset-externalAsset-header">
+      <span data-bind="translate: 'assets.asset.externalAsset'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="assets-asset-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="assets-asset-type-cell">
+      <span data-bind="text: type"></span>
+    </td>
+    <td class="assets-asset-fileAsset-cell">
+      <span data-bind="with: fileAsset">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="assets-asset-internalAsset-cell">
+      <span data-bind="with: internalAsset">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="assets-asset-contentType-cell">
+      <span data-bind="text: contentType"></span>
+    </td>
+    <td class="assets-asset-byteSize-cell">
+      <span data-bind="text: byteSize"></span>
+    </td>
+    <td class="assets-asset-fileId-cell">
+      <span data-bind="text: fileId"></span>
+    </td>
+    <td class="assets-asset-complete-cell">
+      <input type="checkbox" data-bind="checked: complete" disabled/>
+    </td>
+    <td class="assets-asset-externalAsset-cell">
+      <span data-bind="with: externalAsset">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

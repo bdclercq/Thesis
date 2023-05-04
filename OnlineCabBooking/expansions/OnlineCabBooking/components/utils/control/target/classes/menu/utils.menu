@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<navigation xmlns="https://schemas.normalizedsystems.org/xsd/default-stack/2021/0/1/componentMenu">
+  <targets>
+    <!-- anchor:targets:start -->
+    <target id="utils-execution-list-page" url="/OnlineCabBooking/utils/execution/all" name="utils.Execution"/>
+    <target id="utils-execution-io-page" url="/OnlineCabBooking/utils/execution/data" name="utils.Execution.data"/>
+    <target id="utils-idCounter-list-page" url="/OnlineCabBooking/utils/idCounter/all" name="utils.IdCounter"/>
+    <target id="utils-paramTargetValue-list-page" url="/OnlineCabBooking/utils/paramTargetValue/all" name="utils.ParamTargetValue"/>
+    <target id="utils-paramTargetValue-io-page" url="/OnlineCabBooking/utils/paramTargetValue/data" name="utils.ParamTargetValue.data"/>
+    <target id="utils-tagValuePair-list-page" url="/OnlineCabBooking/utils/tagValuePair/all" name="utils.TagValuePair"/>
+    <target id="utils-thumbnail-list-page" url="/OnlineCabBooking/utils/thumbnail/all" name="utils.Thumbnail"/>
+    <!-- anchor:targets:end -->
+    <!-- @anchor:targets:start -->
+    <!-- @anchor:targets:end -->
+
+    <!-- example:
+    <target id="item1" url="/OnlineCabBooking/utils/item1" name="property.name"/>
+    -->
+    <!-- anchor:custom-targets:start -->
+    <!-- anchor:custom-targets:end -->
+
+  </targets>
+</navigation>

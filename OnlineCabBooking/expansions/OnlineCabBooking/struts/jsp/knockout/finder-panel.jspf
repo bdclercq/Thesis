@@ -1,0 +1,10 @@
+<%-- finderSelectionModel should be specified in the surrounding model --%>
+<!-- ko if: $data.hasFinderSelectionModel -->
+<span data-bind="visible: showFinder" style="display: none">
+  <div class="well">
+    <span data-bind="with: finderSelectionModel">
+      <span data-bind="finderPanel: selectedFinder"></span>
+    </span>
+  </div>
+</span>
+<!-- /ko -->

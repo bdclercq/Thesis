@@ -1,0 +1,38 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: journeyStatus.sort.trigger" class="onlineCabBookingComp-customer-journeyStatus-header">
+      <span data-bind="translate: 'onlineCabBookingComp.customer.journeyStatus'"></span>
+      <i class="sortable" data-bind="css: journeyStatus.icon"></i>
+    </th>
+    <th class="onlineCabBookingComp-customer-person-header">
+      <span data-bind="translate: 'onlineCabBookingComp.customer.person'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="onlineCabBookingComp-customer-journeyStatus-cell">
+      <input type="checkbox" data-bind="checked: journeyStatus" disabled/>
+    </td>
+    <td class="onlineCabBookingComp-customer-person-cell">
+      <span data-bind="with: person">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

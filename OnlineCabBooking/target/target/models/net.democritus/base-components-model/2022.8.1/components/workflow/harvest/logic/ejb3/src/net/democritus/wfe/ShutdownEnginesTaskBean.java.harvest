@@ -1,0 +1,78 @@
+-- anchor:custom-imports:start
+import net.democritus.sys.Context;
+import net.democritus.sys.SearchResult;
+import net.democritus.sys.search.SearchDetails;
+import net.democritus.workflow.EngineNodeServiceUpdater;
+import net.democritus.workflow.EngineServiceUpdate;
+
+import java.util.List;
+-- anchor:custom-imports:end
+-- anchor:custom-variables:start
+  @EJB
+  private TimerHandlerLocal timerHandlerLocal;
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  private boolean isBusy(Context context) {
+    List<EngineNodeServiceDetails> engineNodeServices = getEngineNodeServices(context);
+    for (EngineNodeServiceDetails service : engineNodeServices) {
+      if (service.getStatusAsEnum() == EngineNodeServiceState.SHUTTING_DOWN) {
+        logger.info("Waiting for engineService '" + service.getName() + "'");
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private void shutdownEngineServices(Context context) {
+    List<EngineNodeServiceDetails> services = getEngineNodeServices(context);
+    for (EngineNodeServiceDetails service : services) {
+      shutdownEngineService(context, service);
+    }
+  }
+
+  private void shutdownEngineService(Context context, EngineNodeServiceDetails service) {
+    if (service.getStatusAsEnum() == EngineNodeServiceState.WAITING) {
+      try {
+        timerHandlerLocal.stopTimer(service.getName());
+      } catch (Exception ignored) {
+      }
+    } else if (service.getStatusAsEnum() == EngineNodeServiceState.WORKING) {
+      logger.debug("EngineService '" + service.getName() + "' is still running, settings state to 'Shutting down'");
+      EngineServiceUpdate update = new EngineServiceUpdate();
+      update.setExpectedStatus(EngineNodeServiceState.WORKING);
+      update.setStatus(EngineNodeServiceState.SHUTTING_DOWN);
+      update.setNextRun(null);
+      update.setEngineService(service.getEngineService());
+      new EngineNodeServiceUpdater(context).updateEngineNodeService(update);
+    }
+  }
+
+  private List<EngineNodeServiceDetails> getEngineNodeServices(Context context) {
+    EngineNodeContext engineNodeContext = context.getContext(EngineNodeContext.class)
+        .orElse(new EngineNodeContextRetriever(context).retrieveEngineNodeContext());
+
+    EngineNodeServiceLocalAgent engineNodeServiceAgent = EngineNodeServiceLocalAgent.getEngineNodeServiceAgent(context);
+    EngineNodeServiceFindByEngineNodeEqDetails finder = new EngineNodeServiceFindByEngineNodeEqDetails();
+    finder.setEngineNode(engineNodeContext.getEngineNode());
+
+    SearchDetails<EngineNodeServiceFindByEngineNodeEqDetails> searchDetails = SearchDetails.fetchAll(finder);
+    searchDetails.setProjection("details");
+    SearchResult<EngineNodeServiceDetails> searchResult = engineNodeServiceAgent.find(searchDetails);
+
+    return searchResult.getResults();
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-postPerform:start
+    shutdownEngineServices(context);
+    do {
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+      }
+    } while (isBusy(context));
+    logger.info("All engineServices are done, ready to shut down");
+-- anchor:custom-postPerform:end
+-- anchor:custom-prePerform:start
+    Context context = targetParameter.getContext();
+-- anchor:custom-prePerform:end

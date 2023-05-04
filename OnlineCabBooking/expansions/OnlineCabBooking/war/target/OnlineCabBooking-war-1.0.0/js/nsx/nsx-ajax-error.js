@@ -1,0 +1,1 @@
+"use strict";define(["jquery","nsx/nsx-actions"],(function(t,n){t(document).ajaxError((function(t,i){switch(i.statusCode().status){case 404:window.location=n.getApplicationAction("relogin")}}))}));

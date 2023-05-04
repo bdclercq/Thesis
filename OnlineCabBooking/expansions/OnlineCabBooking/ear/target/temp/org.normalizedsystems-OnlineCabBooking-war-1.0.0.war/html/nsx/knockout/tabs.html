@@ -1,0 +1,11 @@
+<ul data-bind="foreach: tabHeaders" class="nav nav-tabs">
+    <li data-bind="css: { 'active': isSelected }, visible: visible">
+        <a data-bind="text: label, click: showTab.trigger"></a>
+    </li>
+</ul>
+<div data-bind="foreach: tabContents" class="tab-content" style="overflow: visible">
+    <div class="nsx-tab" data-bind="
+                attr: {'id': id},
+                visible: isSelected,
+                template: {name: view, data: viewModel, afterRender: registerTab}"></div>
+</div>

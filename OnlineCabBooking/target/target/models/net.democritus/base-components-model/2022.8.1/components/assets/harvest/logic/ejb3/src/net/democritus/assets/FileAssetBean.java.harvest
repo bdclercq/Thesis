@@ -1,0 +1,93 @@
+-- anchor:custom-imports:start
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  @Override
+  public CrudsResult<Void> uploadAssetChunk(ParameterContext<AssetChunk> parameter) {
+    AssetLocalAgent assetAgent = AssetLocalAgent.getAssetAgent(parameter.getContext());
+    AssetChunk assetChunk = parameter.getValue();
+    DataRef asset = assetChunk.getAsset();
+
+    CrudsResult<AssetDetails> assetFindResult = assetAgent.getDetails(asset);
+    if (assetFindResult.isError()) {
+      return assetFindResult.convertError();
+    }
+
+    AssetDetails assetDetails = assetFindResult.getValue();
+    DataRef fileAsset = assetDetails.getFileAsset();
+
+    FileAssetDetails fileAssetDetails = getDetails(fileAsset);
+    return new FileAssetChunkUploader().upload(parameter, fileAssetDetails);
+  }
+
+
+  @Override
+  public CrudsResult<AssetChunk> getAssetChunk(ParameterContext<AssetChunkRef> refParam) {
+    AssetLocalAgent assetAgent = AssetLocalAgent.getAssetAgent(refParam.getContext());
+    AssetChunkRef chunkRef = refParam.getValue();
+    CrudsResult<AssetDetails> assetFindResult = assetAgent.getDetails(chunkRef.getAsset());
+
+    if (assetFindResult.isError()) {
+      return assetFindResult.convertError();
+    }
+
+    FileAssetDetails details = getDetails(assetFindResult.getValue().getFileAsset());
+
+    return new FileAssetChunkRetriever().retrieve(refParam, details);
+  }
+
+  private void initName(FileAssetDetails details) {
+    String uploadUri = details.getUploadUri();
+    int idx = uploadUri.lastIndexOf('/');
+    String name = uploadUri.substring(idx + 1);
+    details.setName(name);
+  }
+
+  private void removeLocalFile(ParameterContext<FileAssetDetails> parameter) {
+    FileAssetDetails fileDetails = parameter.getValue();
+    if (logger.isDebugEnabled()) {
+      logger.debug("Removing local file " + fileDetails.getName());
+    }
+
+    File file = getFile(parameter);
+    boolean fileDeleted = file.delete();
+    if (!fileDeleted && logger.isWarnEnabled()) {
+      logger.warn("Local file could not be removed, name=" + fileDetails.getName());
+    }
+    boolean directoryDeleted = file.getParentFile().delete();
+    if (!directoryDeleted && logger.isWarnEnabled()) {
+      logger.warn("Local directory could not be removed, dir=" + file.getParentFile());
+    }
+  }
+
+  private File getFile(ParameterContext<FileAssetDetails> parameter) {
+    FileAssetDetails fileDetails = parameter.getValue();
+    String uploadUri = fileDetails.getUploadUri();
+    File uploadDir = getUploadDir(parameter.getUserContext());
+    return new File(uploadDir, uploadUri);
+  }
+
+  private File getUploadDir(UserContext userContext) {
+    return FileAssetDirectoryManager.getUploadDir(userContext);
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-postDelete:start
+      removeLocalFile(idParameter.construct(details));
+-- anchor:custom-postDelete:end
+-- anchor:custom-preCreate:start
+    boolean nameDefined = details.getName() != null && !details.getName().isEmpty();
+    boolean uploadDefined = details.getUploadUri() != null && !details.getUploadUri().isEmpty();
+
+    if (!nameDefined && !uploadDefined) {
+      return getDiagnosticHelper().createCrudsError("assets.fileAsset.nonameoruploaduri");
+    } else if (!nameDefined) {
+      initName(details);
+    } else if (!uploadDefined) {
+      new FileAssetCreator().initUploadFile(detailsParameter);
+    }
+-- anchor:custom-preCreate:end
+-- anchor:custom-preDelete:start
+    FileAssetDetails details = getDetails(id);
+-- anchor:custom-preDelete:end

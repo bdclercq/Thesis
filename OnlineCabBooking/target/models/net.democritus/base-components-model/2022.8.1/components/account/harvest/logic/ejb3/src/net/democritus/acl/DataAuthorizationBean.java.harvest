@@ -1,0 +1,16 @@
+-- anchor:custom-imports:start
+import net.democritus.sys.CrudsResult;
+-- anchor:custom-imports:end
+-- anchor:custom-variables:start
+	@EJB
+	private DataAccessLocal dataAccessLocal;
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  // For now just link to dataAccess implementation
+  // later different implementations can be added (AD, ...)
+
+  @Override
+  public CrudsResult<ProfileAccessRights> getProfileAccessRights(ParameterContext<ProfileAccessQuery> queryParameter) {
+    return dataAccessLocal.getProfileAccessRights(queryParameter);
+  }
+-- anchor:custom-methods:end

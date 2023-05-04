@@ -1,0 +1,15 @@
+<button class="btn" data-bind="attr: { id: id },
+                                shortcut: { key: shortcut, callback: trigger.trigger },
+                                tooltip: tooltip,
+                                click: trigger.trigger,
+                                css: layout,
+                                visible: visible,
+                                enable: enable">
+    <!--ko if: icon-->
+    <span data-bind="css: icon"></span>
+    <!--ko if: label-->
+    &nbsp;
+    <!--/ko-->
+    <!--/ko-->
+    <span data-bind="text: label"></span>
+</button>

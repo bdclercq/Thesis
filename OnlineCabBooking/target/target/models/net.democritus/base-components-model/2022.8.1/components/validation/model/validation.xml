@@ -1,0 +1,16 @@
+<component name="validation">
+  <version>1.0</version>
+  <fullName>BASE:validation</fullName>
+  <mainScreen>validation-status</mainScreen>
+  <componentDependencies>
+    <componentDependency name="validation:utils">
+      <dependsOn name="utils"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+  </componentDependencies>
+  <options>
+    <hasDataBaseSchema>VALIDATION</hasDataBaseSchema>
+    <isBaseComponent/>
+    <valueFieldType.disableHashCodeMethod/>
+  </options>
+</component>

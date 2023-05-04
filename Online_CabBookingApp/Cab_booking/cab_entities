@@ -1,0 +1,25 @@
+digraph "package" {
+
+splines  = ortho;
+fontname = "Inconsolata";
+
+node [colorscheme = ylgnbu4];
+edge [colorscheme = dark28, dir = both];
+
+Abstractuser       [shape = record, label = "{ Abstractuser | - userId : Integer\l - address : Address\l - Password : String\l - Username : String\l - Mobile : String\l - Email : String\l }"];
+Address            [shape = record, label = "{ Address | - pincode : String\l - id : Integer\l - city : String\l - state : String\l }"];
+Admin              [shape = record, label = "{ Admin |  }"];
+Cab                [shape = record, label = "{ Cab | - ratePerKm : Integer\l - carType : String\l - cabId : Integer\l - driver : Driver\l }"];
+CurrentUserSession [shape = record, label = "{ CurrentUserSession | - localDateTime : LocalDateTime\l - uuid : String\l - id : Integer\l - userId : Integer\l }"];
+Customer           [shape = record, label = "{ Customer | - journey_status : boolean\l }"];
+CustomerDTO        [shape = record, label = "{ CustomerDTO | - userId : Integer\l - password : String\l }"];
+Driver             [shape = record, label = "{ Driver | - licenseNo : Integer\l - available : Boolean\l - tripBooking : TripBooking\l - cab : Cab\l - rating : Double\l }"];
+Payment            [shape = record, label = "{ \<\<enumeration\>\>\nPayment | + ONLINE : \l + OFFLINE : \l }"];
+TripBooking        [shape = record, label = "{ TripBooking | - Fromdate_time : LocalDate\l - TripBookingId : Integer\l - driver : Driver\l - From_location : String\l - Todate_time : LocalDate\l - Payment : Boolean\l - CustomerId : Integer\l - km : Integer\l - To_location : String\l - Totalamount : Integer\l }"];
+driverDTO          [shape = record, label = "{ driverDTO | - Username : String\l - licenseNo : Integer\l - address : Address\l - userId : Integer\l - rating : Double\l - cab : Cab\l - available : Boolean\l - Email : String\l - Mobile : String\l - tripBooking : TripBooking\l }"];
+
+Admin              -> Abstractuser       [color = "#000082", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+Customer           -> Abstractuser       [color = "#000082", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+Driver             -> Abstractuser       [color = "#000082", style = solid , arrowtail = none    , arrowhead = normal  , taillabel = "", label = "", headlabel = ""];
+
+}

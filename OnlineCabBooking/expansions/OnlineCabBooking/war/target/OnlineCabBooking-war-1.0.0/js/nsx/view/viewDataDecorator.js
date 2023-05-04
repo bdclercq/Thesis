@@ -1,0 +1,1 @@
+"use strict";define((function(){return{decorate:function(e,i){var n=i.fieldProvider,t=i.linkSelector,r={},l={};return $.each(e,(function(e,i){var r=n.getField(e),c={value:i,meta:r,enabled:!0};r&&"link"===r.fieldType&&(c.selectLink=t),l[e]=c})),r.fields=l,r}}}));

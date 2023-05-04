@@ -1,0 +1,1 @@
+"use strict";define(["knockout","nsx/nsx-help-info"],(function(n,t){n.bindingHandlers.helpInfo={init:function(i,e){var o=n.utils.unwrapObservable(e());t.getHelpInfo(o,(function(n){var t="<b>"+n+"</b>";$(i).tooltip({title:t,html:!0})}))}}}));

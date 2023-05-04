@@ -1,0 +1,18 @@
+<dataElement name="Payment">
+  <packageName>cabBookingCore</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="statusPayed">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Boolean"/>
+      </valueField>
+    </field>
+  </fields>
+  <dataStates>
+    <dataState name="Online"/>
+    <dataState name="Offline"/>
+  </dataStates>
+</dataElement>

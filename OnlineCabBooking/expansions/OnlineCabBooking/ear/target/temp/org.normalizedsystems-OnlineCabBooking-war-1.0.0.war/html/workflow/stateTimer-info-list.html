@@ -1,0 +1,73 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="workflow-stateTimer-name-header">
+      <span data-bind="translate: 'workflow.stateTimer.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: processor.sort.trigger" class="workflow-stateTimer-processor-header">
+      <span data-bind="translate: 'workflow.stateTimer.processor'"></span>
+      <i class="sortable" data-bind="css: processor.icon"></i>
+    </th>
+    <th data-bind="click: beginState.sort.trigger" class="workflow-stateTimer-beginState-header">
+      <span data-bind="translate: 'workflow.stateTimer.beginState'"></span>
+      <i class="sortable" data-bind="css: beginState.icon"></i>
+    </th>
+    <th data-bind="click: targetState.sort.trigger" class="workflow-stateTimer-targetState-header">
+      <span data-bind="translate: 'workflow.stateTimer.targetState'"></span>
+      <i class="sortable" data-bind="css: targetState.icon"></i>
+    </th>
+    <th data-bind="click: allowedPeriod.sort.trigger" class="workflow-stateTimer-allowedPeriod-header">
+      <span data-bind="translate: 'workflow.stateTimer.allowedPeriod'"></span>
+      <i class="sortable" data-bind="css: allowedPeriod.icon"></i>
+    </th>
+    <th data-bind="click: requiredAction.sort.trigger" class="workflow-stateTimer-requiredAction-header">
+      <span data-bind="translate: 'workflow.stateTimer.requiredAction'"></span>
+      <i class="sortable" data-bind="css: requiredAction.icon"></i>
+    </th>
+    <th class="workflow-stateTimer-workflow-header">
+      <span data-bind="translate: 'workflow.stateTimer.workflow'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="workflow-stateTimer-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="workflow-stateTimer-processor-cell">
+      <span data-bind="text: processor"></span>
+    </td>
+    <td class="workflow-stateTimer-beginState-cell">
+      <span data-bind="text: beginState"></span>
+    </td>
+    <td class="workflow-stateTimer-targetState-cell">
+      <span data-bind="text: targetState"></span>
+    </td>
+    <td class="workflow-stateTimer-allowedPeriod-cell">
+      <span data-bind="text: allowedPeriod"></span>
+    </td>
+    <td class="workflow-stateTimer-requiredAction-cell">
+      <span data-bind="text: requiredAction"></span>
+    </td>
+    <td class="workflow-stateTimer-workflow-cell">
+      <span data-bind="with: workflow">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

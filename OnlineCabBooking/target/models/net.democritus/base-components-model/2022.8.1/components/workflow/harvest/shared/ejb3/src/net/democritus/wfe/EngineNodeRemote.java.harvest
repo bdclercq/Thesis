@@ -1,0 +1,8 @@
+-- anchor:custom-methods:start
+  CrudsResult<Void> promoteToMaster(ParameterContext<DataRef> parameter);
+  CrudsResult<Void> postHealthCheck(ParameterContext<DataRef> parameter);
+  CrudsResult<Void> setNotResponding(ParameterContext<DataRef> parameter);
+  CrudsResult<Void> activateEngineNodes(ParameterContext<Void> parameter);
+  CrudsResult<EngineNodeDetails> getEngineNodeByName(ParameterContext<String> nameParameter);
+  CrudsResult<EngineNodeDetails> getEngineNodeById(ParameterContext<Long> idParameter);
+-- anchor:custom-methods:end

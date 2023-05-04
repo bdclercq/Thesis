@@ -1,0 +1,69 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="onlineCabBookingComp-driver-name-header">
+      <span data-bind="translate: 'onlineCabBookingComp.driver.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: licenseNo.sort.trigger" class="onlineCabBookingComp-driver-licenseNo-header">
+      <span data-bind="translate: 'onlineCabBookingComp.driver.licenseNo'"></span>
+      <i class="sortable" data-bind="css: licenseNo.icon"></i>
+    </th>
+    <th data-bind="click: rating.sort.trigger" class="onlineCabBookingComp-driver-rating-header">
+      <span data-bind="translate: 'onlineCabBookingComp.driver.rating'"></span>
+      <i class="sortable" data-bind="css: rating.icon"></i>
+    </th>
+    <th data-bind="click: isAvailable.sort.trigger" class="onlineCabBookingComp-driver-isAvailable-header">
+      <span data-bind="translate: 'onlineCabBookingComp.driver.isAvailable'"></span>
+      <i class="sortable" data-bind="css: isAvailable.icon"></i>
+    </th>
+    <th class="onlineCabBookingComp-driver-cab-header">
+      <span data-bind="translate: 'onlineCabBookingComp.driver.cab'"></span>
+    </th>
+    <th class="onlineCabBookingComp-driver-tripBooking-header">
+      <span data-bind="translate: 'onlineCabBookingComp.driver.tripBooking'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="onlineCabBookingComp-driver-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="onlineCabBookingComp-driver-licenseNo-cell">
+      <span data-bind="text: licenseNo"></span>
+    </td>
+    <td class="onlineCabBookingComp-driver-rating-cell">
+      <span data-bind="text: rating"></span>
+    </td>
+    <td class="onlineCabBookingComp-driver-isAvailable-cell">
+      <input type="checkbox" data-bind="checked: isAvailable" disabled/>
+    </td>
+    <td class="onlineCabBookingComp-driver-cab-cell">
+      <span data-bind="with: cab">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="onlineCabBookingComp-driver-tripBooking-cell">
+      <span data-bind="with: tripBooking">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

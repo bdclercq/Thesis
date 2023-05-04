@@ -1,0 +1,37 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.customer.id'"></span>
+    </th>
+    <td>
+      <span data-bind="text: id"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:start -->
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.customer.journeyStatus'"></span>
+    </th>
+    <td>
+      <input type="checkbox" data-bind="checked: journeyStatus" disabled/>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.customer.person'"></span>
+    </th>
+    <td>
+      <span data-bind="with: person">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:end -->
+  <!-- @anchor:field-rows:start -->
+  <!-- @anchor:field-rows:end -->
+  <!-- anchor:custom-field-rows:start -->
+  <!-- anchor:custom-field-rows:end -->
+</table>

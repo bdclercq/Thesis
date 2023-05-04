@@ -1,0 +1,63 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="workflow-engineNode-name-header">
+      <span data-bind="translate: 'workflow.engineNode.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: status.sort.trigger" class="workflow-engineNode-status-header">
+      <span data-bind="translate: 'workflow.engineNode.status'"></span>
+      <i class="sortable" data-bind="css: status.icon"></i>
+    </th>
+    <th data-bind="click: hostname.sort.trigger" class="workflow-engineNode-hostname-header">
+      <span data-bind="translate: 'workflow.engineNode.hostname'"></span>
+      <i class="sortable" data-bind="css: hostname.icon"></i>
+    </th>
+    <th data-bind="click: master.sort.trigger" class="workflow-engineNode-master-header">
+      <span data-bind="translate: 'workflow.engineNode.master'"></span>
+      <i class="sortable" data-bind="css: master.icon"></i>
+    </th>
+    <th data-bind="click: lastActive.sort.trigger" class="workflow-engineNode-lastActive-header">
+      <span data-bind="translate: 'workflow.engineNode.lastActive'"></span>
+      <i class="sortable" data-bind="css: lastActive.icon"></i>
+    </th>
+    <th data-bind="click: activeSince.sort.trigger" class="workflow-engineNode-activeSince-header">
+      <span data-bind="translate: 'workflow.engineNode.activeSince'"></span>
+      <i class="sortable" data-bind="css: activeSince.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="workflow-engineNode-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="workflow-engineNode-status-cell">
+      <span data-bind="text: status"></span>
+    </td>
+    <td class="workflow-engineNode-hostname-cell">
+      <span data-bind="text: hostname"></span>
+    </td>
+    <td class="workflow-engineNode-master-cell">
+      <input type="checkbox" data-bind="checked: master" disabled/>
+    </td>
+    <td class="workflow-engineNode-lastActive-cell">
+      <span data-bind="dateTimeString: lastActive"></span>
+    </td>
+    <td class="workflow-engineNode-activeSince-cell">
+      <span data-bind="dateTimeString: activeSince"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

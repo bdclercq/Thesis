@@ -1,0 +1,95 @@
+-- anchor:custom-imports:start
+import net.democritus.properties.RuntimeProperties;
+-- anchor:custom-imports:end
+-- anchor:custom-variables:start
+  @EJB
+  private TimerHandlerLocal timerHandler;
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  private boolean isSingleNodeApplication() {
+    return RuntimeProperties.getRuntimeProperties().getEjbVersion().equals("ejb3.0");
+  }
+
+  private void updateRunningStateProjection(ParameterContext<EngineServiceRunningState> parameter) {
+    EngineServiceRunningState projection = parameter.getValue();
+    SearchResult<Date> nextRun = timerHandler.getNextRun(parameter.construct(projection.getDataRef()));
+
+    if (nextRun.isError()) {
+      projection.setRunning("error");
+    } else if (!nextRun.getFirst().isDefined()) {
+      projection.setRunning("not running");
+    } else if (!projection.getStatus().equals("start")) {
+      projection.setRunning("running [disabled]");
+    } else {
+      projection.setNextRun(nextRun.getFirst().getValue());
+      projection.setRunning("running [enabled]");
+    }
+  }
+
+  public CrudsResult<Void> updateLastRunAt(ParameterContext<DataRef> dataRefParameter) {
+    return engineServiceCrudsLocal.updateLastRunAt(dataRefParameter);
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-after-find:start
+    if (result.isSuccess() && isSingleNodeApplication()) {
+      List<T> results = result.getResults();
+      for (T engine : results) {
+        if (engine instanceof EngineServiceRunningState) {
+          updateRunningStateProjection(searchParameter.construct((EngineServiceRunningState) engine));
+        }
+      }
+    }
+-- anchor:custom-after-find:end
+-- anchor:custom-after-getProjection:start
+    if (result.isSuccess()
+        && result.getValue() instanceof EngineServiceRunningState
+        && isSingleNodeApplication()) {
+      updateRunningStateProjection(projectionRefParameter.construct((EngineServiceRunningState) result.getValue()));
+    }
+-- anchor:custom-after-getProjection:end
+-- anchor:custom-command-disableAllEngines:start
+    SearchDetails<EngineServiceFindAllEngineServicesDetails> searchDetails = SearchDetails.fetchAllDetails(new EngineServiceFindAllEngineServicesDetails());
+    searchDetails.setSkipCount(true);
+    SearchResult<EngineServiceDetails> searchResult = find(commandParameter.construct(searchDetails));
+    if (searchResult.isError()) {
+      return CommandResult.error(commandParameter.getValue(), "Failed to find engineServices");
+    }
+
+    for (EngineServiceDetails engineServiceDetails : searchResult.getResults()) {
+      engineServiceDetails.setStatus("stop");
+      CrudsResult<DataRef> result = modify(commandParameter.construct(engineServiceDetails));
+      if (result.isError()) {
+        return CommandResult.error(commandParameter.getValue(), "Failed to disable engineService '" + engineServiceDetails.getName() + "'");
+      }
+    }
+-- anchor:custom-command-disableAllEngines:end
+-- anchor:custom-command-enableAllEngines:start
+    SearchDetails<EngineServiceFindAllEngineServicesDetails> searchDetails = SearchDetails.fetchAllDetails(new EngineServiceFindAllEngineServicesDetails());
+    searchDetails.setSkipCount(true);
+    SearchResult<EngineServiceDetails> searchResult = find(commandParameter.construct(searchDetails));
+    if (searchResult.isError()) {
+      return CommandResult.error(commandParameter.getValue(), "Failed to find engineServices");
+    }
+
+    for (EngineServiceDetails engineServiceDetails : searchResult.getResults()) {
+      engineServiceDetails.setStatus("start");
+      CrudsResult<DataRef> result = modify(commandParameter.construct(engineServiceDetails));
+      if (result.isError()) {
+        return CommandResult.error(commandParameter.getValue(), "Failed to enable engineService '" + engineServiceDetails.getName() + "'");
+      }
+    }
+-- anchor:custom-command-enableAllEngines:end
+-- anchor:custom-command-refreshEngine:start
+    Integer refreshResult = timerHandler.refreshTimer(engineServiceDetails.getName());
+    commandResult = refreshResult >= 0 ?
+        CommandResult.success(refreshEngineCommand) :
+        CommandResult.error(refreshEngineCommand, "Refresh command failed");
+-- anchor:custom-command-refreshEngine:end
+-- anchor:custom-command-startEngine:start
+    engineServiceDetails.setStatus("start");
+    modify(parameterFactory.construct(engineServiceDetails));
+-- anchor:custom-command-startEngine:end
+-- anchor:custom-command-stopEngine:start
+    engineServiceDetails.setStatus("stop");
+    modify(parameterFactory.construct(engineServiceDetails));
+-- anchor:custom-command-stopEngine:end

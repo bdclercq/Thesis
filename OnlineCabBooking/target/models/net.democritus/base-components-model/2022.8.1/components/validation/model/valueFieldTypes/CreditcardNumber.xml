@@ -1,0 +1,7 @@
+<valueFieldType name="CreditcardNumber">
+  <fullType>creditcardNumber</fullType>
+  <valueClass>net.democritus.valuetype.basic.CreditcardNumber</valueClass>
+  <displayType>string</displayType>
+  <storageType>string</storageType>
+  <customTransportClass>false</customTransportClass>
+</valueFieldType>

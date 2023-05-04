@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<navigation xmlns="https://schemas.normalizedsystems.org/xsd/default-stack/2021/0/1/applicationMenu">
+  <components>
+    <!-- anchor:components:start -->
+    <component name="utils"/>
+    <component name="account"/>
+    <component name="validation"/>
+    <component name="assets"/>
+    <component name="workflow"/>
+    <component name="onlineCabBookingComp"/>
+    <!-- anchor:components:end -->
+  </components>
+
+  <menus>
+    <!-- example menu:
+    <menu profile="admin">
+      <menuitem ref="component_element_action1"/>
+      <separator/>
+      <submenu name="sub">
+        <menuitem ref="component_element_action2"/>
+      </submenu>
+    </menu>
+    -->
+
+    <!-- @anchor:menus:start -->
+    <!-- @anchor:menus:end -->
+    <!-- anchor:custom-menus:start -->
+    <!-- anchor:custom-menus:end -->
+
+    <!-- anchor:default-complete:start -->
+    <menu profile="default-complete">
+      <submenu name="Utils">
+        <menuitem ref="utils-execution-list-page"/>
+        <menuitem ref="utils-idCounter-list-page"/>
+        <menuitem ref="utils-paramTargetValue-list-page"/>
+        <menuitem ref="utils-tagValuePair-list-page"/>
+        <menuitem ref="utils-thumbnail-list-page"/>
+      </submenu>
+      <submenu name="Account">
+        <menuitem ref="account-account-list-page"/>
+        <menuitem ref="account-component-list-page"/>
+        <menuitem ref="account-dataAccess-list-page"/>
+        <menuitem ref="account-helpInfo-list-page"/>
+        <menuitem ref="account-menu-list-page"/>
+        <menuitem ref="account-menuItem-list-page"/>
+        <menuitem ref="account-portal-list-page"/>
+        <menuitem ref="account-profile-list-page"/>
+        <menuitem ref="account-screen-list-page"/>
+        <menuitem ref="account-screenProfile-list-page"/>
+        <menuitem ref="account-user-list-page"/>
+        <menuitem ref="account-userGroup-list-page"/>
+      </submenu>
+      <submenu name="Validation">
+        <menuitem ref="validation-validation-list-page"/>
+      </submenu>
+      <submenu name="Assets">
+        <menuitem ref="assets-asset-list-page"/>
+        <menuitem ref="assets-externalAsset-list-page"/>
+        <menuitem ref="assets-fileAsset-list-page"/>
+        <menuitem ref="assets-internalAsset-list-page"/>
+        <menuitem ref="assets-internalAssetChunk-list-page"/>
+        <menuitem ref="assets-remoteAsset-list-page"/>
+      </submenu>
+      <submenu name="Workflow">
+        <menuitem ref="workflow-engineNode-list-page"/>
+        <menuitem ref="workflow-engineNodeService-list-page"/>
+        <menuitem ref="workflow-engineService-list-page"/>
+        <menuitem ref="workflow-stateTask-list-page"/>
+        <menuitem ref="workflow-stateTimer-list-page"/>
+        <menuitem ref="workflow-timeTask-list-page"/>
+        <menuitem ref="workflow-timeWindow-list-page"/>
+        <menuitem ref="workflow-timeWindowGroup-list-page"/>
+        <menuitem ref="workflow-workflow-list-page"/>
+      </submenu>
+      <submenu name="OnlineCabBookingComp">
+        <menuitem ref="onlineCabBookingComp-address-list-page"/>
+        <menuitem ref="onlineCabBookingComp-cab-list-page"/>
+        <menuitem ref="onlineCabBookingComp-carType-list-page"/>
+        <menuitem ref="onlineCabBookingComp-customer-list-page"/>
+        <menuitem ref="onlineCabBookingComp-driver-list-page"/>
+        <menuitem ref="onlineCabBookingComp-payment-list-page"/>
+        <menuitem ref="onlineCabBookingComp-person-list-page"/>
+        <menuitem ref="onlineCabBookingComp-tripBooking-list-page"/>
+      </submenu>
+    </menu>
+    <!-- anchor:default-complete:end -->
+
+  </menus>
+</navigation>

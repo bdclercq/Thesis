@@ -1,0 +1,1 @@
+define(["require","exports","knockout"],(function(e,i,r){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.defineFilter=void 0,i.defineFilter=function(e,i){i=i||{};var n=e.trigger,t=e.condition,o=r.observable();return n.subscribe((function(e){t(e)&&o(e)})),{subscribe:function(e){o.subscribe(e)}}}}));

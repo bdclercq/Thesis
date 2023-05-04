@@ -1,0 +1,935 @@
+openapi: 3.0.0
+info:
+  version: '1.0.0'
+  title: onlineCabBookingComp component interface
+  expanderComment: 'expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1'
+  #anchor:custom-info:start
+  #anchor:custom-info:end
+#anchor:custom-root:start
+#anchor:custom-root:end
+paths:
+  /address-search-json:
+    get:
+      summary: 'get address instances by {searchMethod}'
+      description: address instances are searchable by different search methods, which require different details
+      operationId: 'get address instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllAddresss
+              - findByNameEq
+              - findByPincodeEq
+              - findByCityEq
+              - findByStateEq
+              - findByStreetEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ state street houseNumber  ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.pincode={yourpincode}
+
+                  - details.city={yourcity}
+
+                  - details.state={yourstate}
+
+                  - details.street={yourstreet}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=state&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=state&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=city&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=city&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=pincode&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=pincode&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=street&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=street&sortFields[3].descending=oneOf{true, false}
+                  - sortFields[4].fieldName=houseNumber&sortFields[4].ascending=oneOf{true, false}
+                  - sortFields[4].fieldName=houseNumber&sortFields[4].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/AddressGeneratedResponse'
+
+  /cab-search-json:
+    get:
+      summary: 'get cab instances by {searchMethod}'
+      description: cab instances are searchable by different search methods, which require different details
+      operationId: 'get cab instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllCabs
+              - findByNameEq
+              - findByDriverEq
+              - findByCarTypeEq
+              - findAllCab
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ ratePerKm carType driver ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.driver.id={yourdriver}
+
+                  - details.carType.id={yourcarType}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=ratePerKm&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=ratePerKm&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=carType&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=carType&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=driver&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=driver&sortFields[2].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/CabGeneratedResponse'
+
+  /carType-search-json:
+    get:
+      summary: 'get carType instances by {searchMethod}'
+      description: carType instances are searchable by different search methods, which require different details
+      operationId: 'get carType instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllCarTypes
+              - findByNameEq
+              - findAllCarType
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name  ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/CarTypeGeneratedResponse'
+
+  /customer-search-json:
+    get:
+      summary: 'get customer instances by {searchMethod}'
+      description: customer instances are searchable by different search methods, which require different details
+      operationId: 'get customer instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllCustomers
+              - findByNameEq
+              - findByUsername
+              - findAllCustomer
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ journeyStatus person ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=journeyStatus&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=journeyStatus&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=person&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=person&sortFields[1].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/CustomerGeneratedResponse'
+
+  /driver-search-json:
+    get:
+      summary: 'get driver instances by {searchMethod}'
+      description: driver instances are searchable by different search methods, which require different details
+      operationId: 'get driver instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllDrivers
+              - findByNameEq
+              - findByLicenseNoEq
+              - findByRatingEq
+              - findByIsAvailableEq
+              - findByTripBookingEq
+              - findByCabEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ licenseNo rating isAvailable cab tripBooking ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.licenseNo={yourlicenseNo}
+
+                  - details.rating={yourrating}
+
+                  - details.isAvailable={yourisAvailable}
+
+                  - details.tripBooking.id={yourtripBooking}
+
+                  - details.cab.id={yourcab}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=licenseNo&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=licenseNo&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=rating&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=rating&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=isAvailable&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=isAvailable&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=cab&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=cab&sortFields[3].descending=oneOf{true, false}
+                  - sortFields[4].fieldName=tripBooking&sortFields[4].ascending=oneOf{true, false}
+                  - sortFields[4].fieldName=tripBooking&sortFields[4].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/DriverGeneratedResponse'
+
+  /payment-search-json:
+    get:
+      summary: 'get payment instances by {searchMethod}'
+      description: payment instances are searchable by different search methods, which require different details
+      operationId: 'get payment instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllPayments
+              - findByNameEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ statusPayed  ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=statusPayed&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=statusPayed&sortFields[0].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/PaymentGeneratedResponse'
+
+  /person-search-json:
+    get:
+      summary: 'get person instances by {searchMethod}'
+      description: person instances are searchable by different search methods, which require different details
+      operationId: 'get person instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllPersons
+              - findByNameEq
+              - findByEmailEq
+              - findByAddressEq
+              - findByMobileEq
+              - findByUsernameEq
+              - findAllPerson
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ username email mobile address ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.email={youremail}
+
+                  - details.address.id={youraddress}
+
+                  - details.mobile={yourmobile}
+
+                  - details.username={yourusername}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=username&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=username&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=password&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=password&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=email&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=email&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=mobile&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=mobile&sortFields[3].descending=oneOf{true, false}
+                  - sortFields[4].fieldName=address&sortFields[4].ascending=oneOf{true, false}
+                  - sortFields[4].fieldName=address&sortFields[4].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/PersonGeneratedResponse'
+
+  /tripBooking-search-json:
+    get:
+      summary: 'get tripBooking instances by {searchMethod}'
+      description: tripBooking instances are searchable by different search methods, which require different details
+      operationId: 'get tripBooking instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllTripBookings
+              - findByNameEq
+              - findByCustomerEq
+              - findByDriverEq
+              - findAllTripBooking
+              - findByFromDateTimeEq
+              - findByToDateTimeEq
+              - findByCustomerEq_FromDateTimeEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ fromDateTime toDateTime km totalAmount customer driver fromLocation toLocation payment ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.customer.id={yourcustomer}
+
+                  - details.driver.id={yourdriver}
+
+                  - details.fromDateTime={yourfromDateTime}
+
+                  - details.toDateTime={yourtoDateTime}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=customer&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=customer&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=driver&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=driver&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=fromLocation&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=fromLocation&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=toLocation&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=toLocation&sortFields[3].descending=oneOf{true, false}
+                  - sortFields[4].fieldName=fromDateTime&sortFields[4].ascending=oneOf{true, false}
+                  - sortFields[4].fieldName=fromDateTime&sortFields[4].descending=oneOf{true, false}
+                  - sortFields[5].fieldName=toDateTime&sortFields[5].ascending=oneOf{true, false}
+                  - sortFields[5].fieldName=toDateTime&sortFields[5].descending=oneOf{true, false}
+                  - sortFields[6].fieldName=km&sortFields[6].ascending=oneOf{true, false}
+                  - sortFields[6].fieldName=km&sortFields[6].descending=oneOf{true, false}
+                  - sortFields[7].fieldName=totalAmount&sortFields[7].ascending=oneOf{true, false}
+                  - sortFields[7].fieldName=totalAmount&sortFields[7].descending=oneOf{true, false}
+                  - sortFields[8].fieldName=payment&sortFields[8].ascending=oneOf{true, false}
+                  - sortFields[8].fieldName=payment&sortFields[8].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/TripBookingGeneratedResponse'
+
+components:
+    schemas:
+        DataRef:
+            type: object
+            properties:
+                className:
+                    type: string
+                classPrefix:
+                    type: string
+                componentName:
+                    type: string
+                dataRefLink:
+                    type: string
+                id:
+                    type: number
+                name:
+                    type: string
+                packName:
+                    type: string
+        DateLong:
+            type: object
+            properties:
+                value:
+                    type: string
+
+        AddressGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/AddressDetails'
+        AddressDetails:
+            type: object
+            properties:
+                state:
+                    type: string
+                city:
+                    type: string
+                pincode:
+                    type: string
+                street:
+                    type: string
+                houseNumber:
+                    type: integer
+
+        CabGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/CabDetails'
+        CabDetails:
+            type: object
+            properties:
+                ratePerKm:
+                    type: integer
+                carType:
+                    $ref: '#/components/schemas/DataRef'
+                driver:
+                    $ref: '#/components/schemas/DataRef'
+
+        CarTypeGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/CarTypeDetails'
+        CarTypeDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+
+        CustomerGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/CustomerDetails'
+        CustomerDetails:
+            type: object
+            properties:
+                journeyStatus:
+                    type: boolean
+                person:
+                    $ref: '#/components/schemas/DataRef'
+
+        DriverGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/DriverDetails'
+        DriverDetails:
+            type: object
+            properties:
+                licenseNo:
+                    type: integer
+                rating:
+                    type: number
+                isAvailable:
+                    type: boolean
+                cab:
+                    $ref: '#/components/schemas/DataRef'
+                tripBooking:
+                    $ref: '#/components/schemas/DataRef'
+
+        PaymentGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/PaymentDetails'
+        PaymentDetails:
+            type: object
+            properties:
+                statusPayed:
+                    type: boolean
+
+        PersonGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/PersonDetails'
+        PersonDetails:
+            type: object
+            properties:
+                username:
+                    type: string
+                password:
+                    type: string
+                email:
+                    type: string
+                mobile:
+                    type: string
+                address:
+                    $ref: '#/components/schemas/DataRef'
+
+        TripBookingGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/TripBookingDetails'
+        TripBookingDetails:
+            type: object
+            properties:
+                customer:
+                    $ref: '#/components/schemas/DataRef'
+                driver:
+                    $ref: '#/components/schemas/DataRef'
+                fromLocation:
+                    $ref: '#/components/schemas/DataRef'
+                toLocation:
+                    $ref: '#/components/schemas/DataRef'
+                fromDateTime:
+                    type: string
+                toDateTime:
+                    type: string
+                km:
+                    type: number
+                totalAmount:
+                    type: number
+                payment:
+                    $ref: '#/components/schemas/DataRef'
+

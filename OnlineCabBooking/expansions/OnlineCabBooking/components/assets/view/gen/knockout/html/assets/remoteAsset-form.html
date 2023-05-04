@@ -1,0 +1,44 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="remoteAsset.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="remoteAsset.name"
+             data-bind="translate: 'assets.remoteAsset.name'">
+      </label>
+      <div class="controls" id="remoteAsset.name" data-bind="focus: 1">
+        <input type='text' name='remoteAsset.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('remoteAsset.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: url.visible -->
+    <div class="control-group"
+       data-bind="css: { error: url.hasErrors}">
+      <label class="control-label"
+             for="remoteAsset.url"
+             data-bind="translate: 'assets.remoteAsset.url'">
+      </label>
+      <div class="controls" id="remoteAsset.url" data-bind="focus: 2">
+        <input type='text' name='remoteAsset.url' data-bind='value: detailModel.url, enable: isFieldEnabled("remoteAsset.url", editMode)' />
+        <div data-bind="formError: url"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

@@ -1,0 +1,6 @@
+-- anchor:custom-variables:start
+  AssetForm = require("assets/asset/asset-upload-form");
+-- anchor:custom-variables:end
+-- anchor:custom-options:start
+      formView = "assets/asset-upload-form";
+-- anchor:custom-options:end

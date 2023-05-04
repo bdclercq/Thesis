@@ -1,0 +1,71 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="screenProfile.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: screen.visible -->
+    <div class="control-group"
+       data-bind="css: { error: screen.hasErrors}">
+      <label class="control-label"
+             for="screenProfile.screen"
+             data-bind="translate: 'account.screenProfile.screen'">
+      </label>
+      <div class="controls" id="screenProfile.screen" data-bind="focus: 1">
+        <span data-bind="selectDataRef: {
+            field: detailModel.screen,
+            element: 'account.screen',
+            hideDropdown: false
+        }, enable: isFieldEnabled('screenProfile.screen', editMode)">
+        </span>
+        <div data-bind="formError: screen"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: profile.visible -->
+    <div class="control-group"
+       data-bind="css: { error: profile.hasErrors}">
+      <label class="control-label"
+             for="screenProfile.profile"
+             data-bind="translate: 'account.screenProfile.profile'">
+      </label>
+      <div class="controls" id="screenProfile.profile" data-bind="focus: 2">
+        <span data-bind="selectDataRef: {
+            field: detailModel.profile,
+            element: 'account.profile',
+            hideDropdown: false
+        }, enable: isFieldEnabled('screenProfile.profile', editMode)">
+        </span>
+        <div data-bind="formError: profile"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: screens.visible -->
+    <div class="control-group"
+       data-bind="css: { error: screens.hasErrors}">
+      <label class="control-label"
+             for="screenProfile.screens"
+             data-bind="translate: 'account.screenProfile.screens'">
+      </label>
+      <div class="controls" id="screenProfile.screens" data-bind="focus: 3">
+        <span data-bind="selectManyToMany: {
+            field: detailModel.screens,
+            element: 'account.screen'
+        }, enable: isFieldEnabled('screenProfile.screens', editMode)">
+        </span>
+        <div data-bind="formError: screens"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

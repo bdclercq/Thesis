@@ -1,0 +1,8 @@
+<ul class="nav nav-list">
+    <li class="nav-header">Navigation</li>
+    <!--ko foreach: links-->
+    <li data-bind="css: { 'active': isSelected }">
+        <a href="#" data-bind="text: label, click: link.trigger"></a>
+    </li>
+    <!--/ko-->
+</ul>

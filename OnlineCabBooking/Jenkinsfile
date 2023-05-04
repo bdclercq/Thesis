@@ -1,0 +1,89 @@
+pipeline {
+  options {
+    // Only keep the 50 most recent builds in Jenkins
+    buildDiscarder(logRotator(numToKeepStr: '50'))
+  }
+  agent any
+  tools {
+    maven 'maven'
+    jdk 'jdk17'
+  }
+  environment {
+    APPLICATION_NAME = 'OnlineCabBooking'
+    IMAGE_NAME = 'nsapp/onlinecabbooking'
+
+    POM_INFO = pomInfo()
+    MVN_VERSION = "${POM_INFO.version}"
+  }
+  stages {
+    stage('validate') {
+      steps {
+        modelValidations pomFile: 'pom-expansion.xml'
+      }
+    }
+    stage('expand') {
+      steps {
+        sh 'mvn -f pom-expansion.xml clean expanders:expand -Dexpansion.clean=true'
+      }
+    }
+    stage('build') {
+      steps {
+        dir("expansions/${APPLICATION_NAME}") {
+          withSonarQubeEnv('nsx') {
+            sh 'mvn -Pfull clean verify'
+          }
+        }
+      }
+    }
+    stage('report') {
+      steps {
+        dir("expansions/${APPLICATION_NAME}") {
+          dependencyAnalyzer()
+          waitForQualityGate abortPipeline: false
+          sonarGate()
+        }
+      }
+    }
+    stage('docker') {
+      when {
+        anyOf {
+          allOf {
+            expression { BRANCH_NAME == 'develop' }
+            expression { MVN_VERSION ==~ /\d+\.\d+\.\d+-SNAPSHOT/ }
+          }
+
+          allOf {
+            expression { BRANCH_NAME == 'master' }
+            expression { MVN_VERSION ==~ /\d+\.\d+\.\d+/ }
+          }
+
+          allOf {
+            expression { BRANCH_NAME ==~ /feature\/.*/ }
+            expression { MVN_VERSION ==~ /\d+\.\d+\.\d+-[A-Za-z0-9]+-SNAPSHOT/ }
+          }
+        }
+      }
+      steps {
+        script {
+          stage('docker prepare') {
+            sh "cp expansions/${APPLICATION_NAME}/ear/target/${APPLICATION_NAME}.ear docker/deploy/${APPLICATION_NAME}.ear"
+            sh "cp expansions/${APPLICATION_NAME}/database/000-init-database.sql docker/sql/V1.1__init_database.sql"
+            sh "cp expansions/${APPLICATION_NAME}/database/001-app-init-data.sql docker/sql/V1.2__app_init_data.sql"
+          }
+          stage('docker build/deploy') {
+            dir('docker') {
+              nsxDocker.buildAndDeploy(IMAGE_NAME, MVN_VERSION)
+            }
+          }
+        }
+      }
+    }
+  }
+  post {
+    always {
+      buildReport(slackChannel: '#build-status')
+      jacoco()
+      junit '**/target/surefire-reports/**/*.xml'
+    }
+  }
+}

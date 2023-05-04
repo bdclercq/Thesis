@@ -1,0 +1,9 @@
+-- anchor:custom-methods:start
+  public CrudsResult<Boolean> checkEncryptedPassword(ParameterContext<UserInput> userInputParameterContext) {
+    return userLocal.checkEncryptedPassword(userInputParameterContext);
+  }
+
+  public CrudsResult<Boolean> checkPassword(ParameterContext<UserInput> userInputParameterContext) {
+    return userLocal.checkPassword(userInputParameterContext);
+  }
+-- anchor:custom-methods:end

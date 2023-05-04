@@ -1,0 +1,1 @@
+define(["require","exports","nsx/field/field-layout-extender"],(function(e,n,d){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.extendForm=void 0,n.extendForm=function(e,n){n=n||{};var i=e.model,o=e.config;return i.fields.forEach((function(e){var n=e.fieldName,i=o[n]||{};(0,d.extendField)({model:e,config:i})})),{}}}));

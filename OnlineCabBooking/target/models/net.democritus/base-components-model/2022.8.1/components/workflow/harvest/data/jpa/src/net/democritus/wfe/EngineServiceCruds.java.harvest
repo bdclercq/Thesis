@@ -1,0 +1,40 @@
+-- anchor:custom-methods:start
+  public CrudsResult<Void> updateLastRunAt(ParameterContext<DataRef> dataRefParameter) {
+    CrudsResult<DataRef> dataRefCrudsResult = resolveDataRef(dataRefParameter);
+    if (dataRefCrudsResult.isError()) {
+      if (logger.isErrorEnabled()) {
+        logger.error("Could not update lastRunAt, engineServiceId is not defined");
+      }
+      return dataRefCrudsResult.convertError();
+    }
+
+    try {
+      Long engineId = dataRefCrudsResult.getValue().getId();
+      Query query = entityManager.createNamedQuery(EngineServiceData.QUERY_UPDATE_LASTRUNAT);
+      query.setParameter("id", engineId);
+      int nbUpdatedEntities = query.executeUpdate();
+      entityManager.flush();
+
+      if (nbUpdatedEntities == 1) {
+        return CrudsResult.success();
+      } else if (nbUpdatedEntities == 0) {
+        if (logger.isErrorEnabled()) {
+          logger.error("Could not update lastRunAt, no engineService exists with id " + engineId);
+        }
+        return CrudsResult.error();
+      } else {
+        if (logger.isWarnEnabled()) {
+          logger.warn("Multiple engineServices updated lastRunAt with id " + engineId);
+        }
+        return CrudsResult.error();
+      }
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Could not update lastRunAt", e
+        );
+      }
+      return CrudsResult.error();
+    }
+  }
+-- anchor:custom-methods:end

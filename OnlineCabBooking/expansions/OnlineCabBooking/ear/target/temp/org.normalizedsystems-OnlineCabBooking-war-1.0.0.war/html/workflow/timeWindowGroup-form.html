@@ -1,0 +1,61 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="timeWindowGroup.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="timeWindowGroup.name"
+             data-bind="translate: 'workflow.timeWindowGroup.name'">
+      </label>
+      <div class="controls" id="timeWindowGroup.name" data-bind="focus: 1">
+        <input type='text' name='timeWindowGroup.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('timeWindowGroup.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: visible.visible -->
+    <div class="control-group"
+       data-bind="css: { error: visible.hasErrors}">
+      <label class="control-label"
+             for="timeWindowGroup.visible"
+             data-bind="translate: 'workflow.timeWindowGroup.visible'">
+      </label>
+      <div class="controls" id="timeWindowGroup.visible" data-bind="focus: 2">
+        <input type='text' name='timeWindowGroup.visible' data-bind="textInput: detailModel.visible, enable: isFieldEnabled('timeWindowGroup.visible', editMode)" />
+        <div data-bind="formError: visible"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: timeWindows.visible -->
+    <div class="control-group"
+       data-bind="css: { error: timeWindows.hasErrors}">
+      <label class="control-label"
+             for="timeWindowGroup.timeWindows"
+             data-bind="translate: 'workflow.timeWindowGroup.timeWindows'">
+      </label>
+      <div class="controls" id="timeWindowGroup.timeWindows" data-bind="focus: 3">
+        <span data-bind="selectManyToMany: {
+            field: detailModel.timeWindows,
+            element: 'workflow.timeWindow'
+        }, enable: isFieldEnabled('timeWindowGroup.timeWindows', editMode)">
+        </span>
+        <div data-bind="formError: timeWindows"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

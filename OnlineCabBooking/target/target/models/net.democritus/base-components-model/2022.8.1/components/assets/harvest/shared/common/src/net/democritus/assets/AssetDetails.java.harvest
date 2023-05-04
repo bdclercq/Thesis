@@ -1,0 +1,11 @@
+-- anchor:custom-imports:start
+import java.util.UUID;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  public void setType(AssetType assetType) {
+    this.mType = assetType.name();
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-default-constructor:start
+    this.mFileId = UUID.randomUUID().toString();
+-- anchor:custom-default-constructor:end

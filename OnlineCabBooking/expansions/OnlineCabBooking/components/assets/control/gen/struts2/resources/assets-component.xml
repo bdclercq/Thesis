@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<struts>
+
+  <include file='assets-header.xml'/>
+
+  <!-- anchor:struts-data-element:start -->
+  <include file='assets/asset.xml'/>
+  <include file='assets/externalAsset.xml'/>
+  <include file='assets/fileAsset.xml'/>
+  <include file='assets/internalAsset.xml'/>
+  <include file='assets/internalAssetChunk.xml'/>
+  <include file='assets/remoteAsset.xml'/>
+  <!-- anchor:struts-data-element:end -->
+
+  <!-- @anchor:includes:start -->
+  <!-- @anchor:includes:end -->
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+  <constant name="struts.multipart.maxSize" value="134217728" />
+  <!-- anchor:custom-packages:end -->
+
+  <include file='assets-footer.xml'/>
+
+</struts>

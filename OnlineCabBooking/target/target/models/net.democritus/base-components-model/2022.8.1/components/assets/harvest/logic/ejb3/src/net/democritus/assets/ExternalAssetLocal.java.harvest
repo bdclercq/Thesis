@@ -1,0 +1,3 @@
+-- anchor:custom-methods:start
+  CrudsResult<AssetChunk> getAssetChunk(ParameterContext<AssetChunkRef> refParam);
+-- anchor:custom-methods:end

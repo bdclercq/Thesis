@@ -1,0 +1,1 @@
+"use strict";define(["knockout","knockoutamd"],(function(t){return t.amdTemplateEngine.defaultPath="html",t.amdTemplateEngine.defaultSuffix=".html",{}}));

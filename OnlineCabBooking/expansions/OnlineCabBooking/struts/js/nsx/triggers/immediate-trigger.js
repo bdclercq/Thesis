@@ -1,0 +1,1 @@
+define(["require","exports"],(function(e,n){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),n.atOnce=n.defineImmediateTrigger=void 0;var t=new(function(){function e(){}return e.prototype.subscribe=function(e){e.call(this)},e}());n.defineImmediateTrigger=function(){return t},n.atOnce=function(){return t}}));

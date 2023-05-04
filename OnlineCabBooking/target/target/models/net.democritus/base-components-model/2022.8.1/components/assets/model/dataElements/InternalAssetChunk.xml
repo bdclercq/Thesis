@@ -1,0 +1,77 @@
+<dataElement name="InternalAssetChunk">
+  <packageName>net.democritus.assets</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="content">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="byte[]"/>
+      </valueField>
+    </field>
+    <field name="internalAsset">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="assets" name="InternalAsset"/>
+        <linkFieldType name="Ln02"/>
+      </linkField>
+    </field>
+    <field name="byteSize">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Integer"/>
+      </valueField>
+    </field>
+    <field name="position">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Integer"/>
+      </valueField>
+    </field>
+    <field name="isLast">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Boolean"/>
+      </valueField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findAllInternalAssetChunks"/>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByInternalAssetEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:internalAsset">
+          <operator>Eq</operator>
+          <field name="internalAsset"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByInternalAssetEq_PositionEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:internalAsset">
+          <operator>Eq</operator>
+          <field name="internalAsset"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Eq:position">
+          <operator>Eq</operator>
+          <field name="position"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+  </finders>
+</dataElement>

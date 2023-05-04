@@ -1,0 +1,1 @@
+define(["require","exports"],(function(A,E){"use strict";return{VALUE:"VALUE",DATAREF:"DATAREF",LIST:"LIST",DATE:"DATE",FILE:"FILE"}}));

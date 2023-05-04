@@ -1,0 +1,45 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th class="assets-internalAssetChunk-internalAsset-header">
+      <span data-bind="translate: 'assets.internalAssetChunk.internalAsset'"></span>
+    </th>
+    <th data-bind="click: byteSize.sort.trigger" class="assets-internalAssetChunk-byteSize-header">
+      <span data-bind="translate: 'assets.internalAssetChunk.byteSize'"></span>
+      <i class="sortable" data-bind="css: byteSize.icon"></i>
+    </th>
+    <th data-bind="click: position.sort.trigger" class="assets-internalAssetChunk-position-header">
+      <span data-bind="translate: 'assets.internalAssetChunk.position'"></span>
+      <i class="sortable" data-bind="css: position.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="assets-internalAssetChunk-internalAsset-cell">
+      <span data-bind="with: internalAsset">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="assets-internalAssetChunk-byteSize-cell">
+      <span data-bind="text: byteSize"></span>
+    </td>
+    <td class="assets-internalAssetChunk-position-cell">
+      <span data-bind="text: position"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

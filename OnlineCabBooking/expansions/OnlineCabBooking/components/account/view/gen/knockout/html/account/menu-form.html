@@ -1,0 +1,67 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="menu.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="menu.name"
+             data-bind="translate: 'account.menu.name'">
+      </label>
+      <div class="controls" id="menu.name" data-bind="focus: 1">
+        <input type='text' name='menu.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('menu.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: portal.visible -->
+    <div class="control-group"
+       data-bind="css: { error: portal.hasErrors}">
+      <label class="control-label"
+             for="menu.portal"
+             data-bind="translate: 'account.menu.portal'">
+      </label>
+      <div class="controls" id="menu.portal" data-bind="focus: 2">
+        <span data-bind="selectDataRef: {
+            field: detailModel.portal,
+            element: 'account.portal',
+            hideDropdown: false
+        }, enable: isFieldEnabled('menu.portal', editMode)">
+        </span>
+        <div data-bind="formError: portal"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: profile.visible -->
+    <div class="control-group"
+       data-bind="css: { error: profile.hasErrors}">
+      <label class="control-label"
+             for="menu.profile"
+             data-bind="translate: 'account.menu.profile'">
+      </label>
+      <div class="controls" id="menu.profile" data-bind="focus: 3">
+        <span data-bind="selectDataRef: {
+            field: detailModel.profile,
+            element: 'account.profile',
+            hideDropdown: false
+        }, enable: isFieldEnabled('menu.profile', editMode)">
+        </span>
+        <div data-bind="formError: profile"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

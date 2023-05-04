@@ -1,0 +1,198 @@
+package net.democritus.acl.action;
+
+// expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1
+
+// @anchor:imports:start
+import net.palver.logging.LoggerFactory;
+import net.palver.logging.Logger;
+import net.democritus.sys.Context;
+import account.context.ContextRetriever;
+import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import org.apache.struts2.ServletActionContext;
+import net.democritus.acl.HelpInfoAgent;
+import net.democritus.acl.HelpInfoDetails;
+
+import net.democritus.sys.DataRef;
+import net.democritus.sys.PageRef;
+import net.democritus.sys.CrudsResult;
+import net.democritus.sys.SearchDataRef;
+import net.democritus.sys.SearchResult;
+
+import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
+
+import net.democritus.acl.struts2.UserContextRetriever;
+
+import net.democritus.sys.UserContext;
+import net.democritus.json.JsonResult;
+import net.democritus.json.DiagnosticsToStrutsMapper;
+// @anchor:imports:end
+
+// anchor:custom-imports:start
+// anchor:custom-imports:end
+
+public class HelpInfoEnterer extends ActionSupport implements Preparable {
+
+  private String helpInfoOid = "";
+  private String helpInfoName = null;
+  private HelpInfoDetails helpInfoDetails = new HelpInfoDetails();
+
+  private Map session = ActionContext.getContext().getSession();
+
+  private CrudsResult<DataRef> crudsResult;
+
+  // @anchor:variables:start
+  private static final Logger logger = LoggerFactory.getLogger(HelpInfoEnterer.class);
+  private HelpInfoAgent helpInfoAgent;
+  // @anchor:variables:end
+
+  // anchor:custom-variables:start
+  // anchor:custom-variables:end
+
+  public HelpInfoAgent getHelpInfoAgent() {
+    return helpInfoAgent;
+  }
+
+  public HelpInfoDetails getHelpInfoDetails() {
+    return helpInfoDetails;
+  }
+
+  // convenience method, that skips the 'Details' part
+  public HelpInfoDetails getHelpInfo() {
+    return getHelpInfoDetails();
+  }
+
+  public String getHelpInfoOid() {
+    return helpInfoOid;
+  }
+
+  public void setHelpInfoOid(String helpInfoOid) {
+    this.helpInfoOid = helpInfoOid;
+  }
+
+  public String getHelpInfoName() {
+    return helpInfoName;
+  }
+
+  public void setHelpInfoName(String helpInfoName) {
+    this.helpInfoName = helpInfoName;
+  }
+
+  public void prepare() throws Exception {
+    // @anchor:prepare:start
+    helpInfoAgent = createHelpInfoAgent();
+    // @anchor:prepare:end
+    // anchor:custom-prepare:start
+    // anchor:custom-prepare:end
+  }
+
+  public String execute() throws Exception {
+
+    // @anchor:execute-validation:start
+    // @anchor:execute-validation:end
+
+    String actionResult;
+
+    if (helpInfoName != null) {
+      helpInfoDetails.setName(helpInfoName);
+    }
+
+    // @anchor:execute-fileUploadOnly-before:start
+    // @anchor:execute-fileUploadOnly-before:end
+
+    crudsResult = saveDetails(helpInfoDetails);
+    if (crudsResult.isSuccess()) {
+      DataRef dataRef = crudsResult.getValue();
+
+      helpInfoName = dataRef.getName();
+      helpInfoOid = dataRef.getId().toString();
+
+      actionResult = Action.SUCCESS;
+    } else {
+      helpInfoOid = "";
+
+      actionResult = Action.INPUT;
+    }
+
+    // @anchor:execute-fileUploadOnly-after:start
+    // @anchor:execute-fileUploadOnly-after:end
+
+    DiagnosticsToStrutsMapper.mapDiagnostics(this, crudsResult);
+
+    return actionResult;
+  }
+
+  public CrudsResult<DataRef> getCrudsResult() {
+    return crudsResult;
+  }
+
+  public JsonResult<DataRef> getJsonResult() {
+
+    if (crudsResult == null) {
+      // there were validation or conversion errors
+      return JsonResult.createError(getActionErrors(), getFieldErrors());
+    }
+
+    if (crudsResult.isSuccess()) {
+      return JsonResult.createValue(crudsResult.getValue(), getActionMessages());
+    } else {
+      return JsonResult.createError(getActionErrors(), getFieldErrors());
+    }
+  }
+
+  public HelpInfoDetails getJsonRoot() {
+    return helpInfoDetails;
+  }
+
+  private boolean hashelpInfoOid() {
+    return !(helpInfoOid.equals("") || helpInfoOid.equals("0"));
+  }
+
+  private CrudsResult<DataRef> saveDetails(HelpInfoDetails helpInfoDetails) {
+    boolean isNew;
+
+    if (hashelpInfoOid()) {
+      helpInfoDetails.setId(new Long(helpInfoOid));
+    }
+
+    Long id = helpInfoDetails.getId();
+    isNew = id == null || id == 0L;
+
+    if (isNew) {
+      return helpInfoAgent.create(helpInfoDetails);
+    } else {
+      return helpInfoAgent.modify(helpInfoDetails);
+    }
+  }
+
+  // @anchor:methods:start
+  private static HelpInfoAgent createHelpInfoAgent() {
+    return HelpInfoAgent.getHelpInfoAgent(getContext());
+  }
+
+  private static Context getContext() {
+    return ContextRetriever.getContext();
+  }
+
+  /**
+   * @deprecated Use {@link ContextRetriever} instead
+   */
+  @Deprecated
+  private static UserContext getUserContext() {
+    return UserContextRetriever.getUserContext();
+  }
+  // @anchor:methods:end
+
+  // anchor:custom-methods:start
+  // anchor:custom-methods:end
+}

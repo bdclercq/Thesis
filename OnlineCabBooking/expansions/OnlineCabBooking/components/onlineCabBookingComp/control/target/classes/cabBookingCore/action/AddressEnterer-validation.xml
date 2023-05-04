@@ -1,0 +1,74 @@
+<!DOCTYPE validators [
+<!ELEMENT validators (field|validator)+>
+
+<!ELEMENT field (field-validator+)>
+<!ATTLIST field
+	name CDATA #REQUIRED
+>
+
+<!ELEMENT field-validator (param*, message)>
+<!ATTLIST field-validator
+	type CDATA #REQUIRED
+    short-circuit (true|false) "false"
+>
+
+<!ELEMENT validator (param*, message)>
+<!ATTLIST validator
+	type CDATA #REQUIRED
+    short-circuit (true|false) "false"
+>
+
+<!ELEMENT param (#PCDATA)>
+<!ATTLIST param
+    name CDATA #REQUIRED
+>
+
+<!ELEMENT message (#PCDATA)>
+<!ATTLIST message
+    key CDATA #IMPLIED
+>
+
+]>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<validators>
+<!-- generated name -->
+  <field name='address.name'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+<!-- generated name -->
+<!-- anchor:fieldValidators:start -->
+  <field name='address.state'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='address.city'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='address.pincode'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='address.street'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='address.houseNumber'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+<!-- anchor:fieldValidators:end -->
+</validators>

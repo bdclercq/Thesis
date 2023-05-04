@@ -1,0 +1,90 @@
+<!DOCTYPE validators [
+<!ELEMENT validators (field|validator)+>
+
+<!ELEMENT field (field-validator+)>
+<!ATTLIST field
+	name CDATA #REQUIRED
+>
+
+<!ELEMENT field-validator (param*, message)>
+<!ATTLIST field-validator
+	type CDATA #REQUIRED
+    short-circuit (true|false) "false"
+>
+
+<!ELEMENT validator (param*, message)>
+<!ATTLIST validator
+	type CDATA #REQUIRED
+    short-circuit (true|false) "false"
+>
+
+<!ELEMENT param (#PCDATA)>
+<!ATTLIST param
+    name CDATA #REQUIRED
+>
+
+<!ELEMENT message (#PCDATA)>
+<!ATTLIST message
+    key CDATA #IMPLIED
+>
+
+]>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<validators>
+<!-- anchor:fieldValidators:start -->
+  <field name='stateTimer.name'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='stateTimer.processor'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='stateTimer.implementation'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='stateTimer.params'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='stateTimer.beginState'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='stateTimer.targetState'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='stateTimer.alteredState'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='stateTimer.allowedPeriod'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='stateTimer.requiredAction'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+<!-- anchor:fieldValidators:end -->
+</validators>

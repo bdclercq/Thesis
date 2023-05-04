@@ -1,0 +1,156 @@
+<dataElement name="EngineNodeService">
+  <packageName>net.democritus.wfe</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="name">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isNameField/>
+      </options>
+    </field>
+    <field name="status">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>true</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="engineNode">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="workflow" name="EngineNode"/>
+        <linkFieldType name="Ln02"/>
+      </linkField>
+    </field>
+    <field name="engineService">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="workflow" name="EngineService"/>
+        <linkFieldType name="Ln02"/>
+      </linkField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="lastRunAt">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="DateLong"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="nextRun">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="DateLong"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findAllEngineNodeServices"/>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+          <field name="name"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByStatusEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:status">
+          <operator>Eq</operator>
+          <field name="status"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByEngineNodeEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:engineNode">
+          <operator>Eq</operator>
+          <field name="engineNode"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByEngineServiceEq_StatusNe">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:engineService">
+          <operator>Eq</operator>
+          <field name="engineService"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Ne:status">
+          <operator>Ne</operator>
+          <field name="status"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByEngineServiceEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:engineService">
+          <operator>Eq</operator>
+          <field name="engineService"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByEngineNodeEq_EngineServiceEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:engineNode">
+          <operator>Eq</operator>
+          <field name="engineNode"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Eq:engineService">
+          <operator>Eq</operator>
+          <field name="engineService"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+  </finders>
+  <dataProjections>
+    <dataProjection name="updateDetails">
+      <referenceFields>
+        <referenceField>
+          <field name="status"/>
+        </referenceField>
+        <referenceField>
+          <field name="lastRunAt"/>
+        </referenceField>
+        <referenceField>
+          <field name="nextRun"/>
+        </referenceField>
+      </referenceFields>
+    </dataProjection>
+  </dataProjections>
+  <dataStates>
+    <dataState name="Not running"/>
+    <dataState name="Not responding"/>
+    <dataState name="Waiting"/>
+    <dataState name="Working"/>
+    <dataState name="Shutting down"/>
+    <dataState name="Ready for shutdown"/>
+  </dataStates>
+  <options>
+    <cruds.modifyWithProjection/>
+  </options>
+</dataElement>

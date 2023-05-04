@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.normalizedsystems</groupId>
+    <artifactId>account</artifactId>
+    <version>1.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>account-view</artifactId>
+  <packaging>pom</packaging>
+
+  <name>account-view</name>
+
+  <dependencies>
+    <!-- component -->
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>account-control</artifactId>
+    </dependency>
+
+    <!-- external -->
+    <!-- COMMON -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+    </dependency>
+    <!-- KNOCKOUT -->
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>javax.servlet.jsp-api</artifactId>
+    </dependency>
+
+    <!-- @anchor:dependencies:start -->
+    <!-- @anchor:dependencies:end -->
+    <!-- anchor:custom-dependencies:start -->
+    <!-- anchor:custom-dependencies:end -->
+  </dependencies>
+
+  <build>
+    <resources>
+      <resource>
+        <directory>../../../struts/js</directory>
+      </resource>
+    </resources>
+
+    <!-- @anchor:build:start -->
+    <!-- @anchor:build:end -->
+    <!-- anchor:custom-build:start -->
+    <!-- anchor:custom-build:end -->
+  </build>
+
+  <!-- @anchor:project:start -->
+  <!-- @anchor:project:end -->
+  <!-- anchor:custom-project:start -->
+  <!-- anchor:custom-project:end -->
+</project>

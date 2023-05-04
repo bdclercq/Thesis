@@ -1,0 +1,5 @@
+<script>
+  require(["jquery", 'nsx/metadata/nsx-application-properties'], function ($, AppProps) {
+      AppProps.defineHelperButton();
+  })
+</script>

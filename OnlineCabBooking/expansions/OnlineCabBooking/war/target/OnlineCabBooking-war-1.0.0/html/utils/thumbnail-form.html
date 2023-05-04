@@ -1,0 +1,226 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="thumbnail.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.name"
+             data-bind="translate: 'utils.thumbnail.name'">
+      </label>
+      <div class="controls" id="thumbnail.name" data-bind="focus: 1">
+        <input type='text' name='thumbnail.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('thumbnail.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: fullName.visible -->
+    <div class="control-group"
+       data-bind="css: { error: fullName.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.fullName"
+             data-bind="translate: 'utils.thumbnail.fullName'">
+      </label>
+      <div class="controls" id="thumbnail.fullName" data-bind="focus: 2">
+        <input type='text' name='thumbnail.fullName' data-bind="textInput: detailModel.fullName, enable: isFieldEnabled('thumbnail.fullName', editMode)" />
+        <div data-bind="formError: fullName"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: uri.visible -->
+    <div class="control-group"
+       data-bind="css: { error: uri.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.uri"
+             data-bind="translate: 'utils.thumbnail.uri'">
+      </label>
+      <div class="controls" id="thumbnail.uri" data-bind="focus: 3">
+        <input type='text' name='thumbnail.uri' data-bind="textInput: detailModel.uri, enable: isFieldEnabled('thumbnail.uri', editMode)" />
+        <div data-bind="formError: uri"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: depth.visible -->
+    <div class="control-group"
+       data-bind="css: { error: depth.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.depth"
+             data-bind="translate: 'utils.thumbnail.depth'">
+      </label>
+      <div class="controls" id="thumbnail.depth" data-bind="focus: 4">
+        <span data-bind='integerInput: detailModel.depth, enable: isFieldEnabled("thumbnail.depth", editMode)'></span>
+        <div data-bind="formError: depth"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: border.visible -->
+    <div class="control-group"
+       data-bind="css: { error: border.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.border"
+             data-bind="translate: 'utils.thumbnail.border'">
+      </label>
+      <div class="controls" id="thumbnail.border" data-bind="focus: 5">
+        <span data-bind='integerInput: detailModel.border, enable: isFieldEnabled("thumbnail.border", editMode)'></span>
+        <div data-bind="formError: border"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: thumbType.visible -->
+    <div class="control-group"
+       data-bind="css: { error: thumbType.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.thumbType"
+             data-bind="translate: 'utils.thumbnail.thumbType'">
+      </label>
+      <div class="controls" id="thumbnail.thumbType" data-bind="focus: 6">
+        <input type='text' name='thumbnail.thumbType' data-bind="textInput: detailModel.thumbType, enable: isFieldEnabled('thumbnail.thumbType', editMode)" />
+        <div data-bind="formError: thumbType"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: thumbName.visible -->
+    <div class="control-group"
+       data-bind="css: { error: thumbName.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.thumbName"
+             data-bind="translate: 'utils.thumbnail.thumbName'">
+      </label>
+      <div class="controls" id="thumbnail.thumbName" data-bind="focus: 7">
+        <input type='text' name='thumbnail.thumbName' data-bind="textInput: detailModel.thumbName, enable: isFieldEnabled('thumbnail.thumbName', editMode)" />
+        <div data-bind="formError: thumbName"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: targetType.visible -->
+    <div class="control-group"
+       data-bind="css: { error: targetType.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.targetType"
+             data-bind="translate: 'utils.thumbnail.targetType'">
+      </label>
+      <div class="controls" id="thumbnail.targetType" data-bind="focus: 8">
+        <input type='text' name='thumbnail.targetType' data-bind="textInput: detailModel.targetType, enable: isFieldEnabled('thumbnail.targetType', editMode)" />
+        <div data-bind="formError: targetType"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: targetName.visible -->
+    <div class="control-group"
+       data-bind="css: { error: targetName.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.targetName"
+             data-bind="translate: 'utils.thumbnail.targetName'">
+      </label>
+      <div class="controls" id="thumbnail.targetName" data-bind="focus: 9">
+        <input type='text' name='thumbnail.targetName' data-bind="textInput: detailModel.targetName, enable: isFieldEnabled('thumbnail.targetName', editMode)" />
+        <div data-bind="formError: targetName"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: targetId.visible -->
+    <div class="control-group"
+       data-bind="css: { error: targetId.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.targetId"
+             data-bind="translate: 'utils.thumbnail.targetId'">
+      </label>
+      <div class="controls" id="thumbnail.targetId" data-bind="focus: 10">
+        <span data-bind='integerInput: detailModel.targetId, enable: isFieldEnabled("thumbnail.targetId", editMode)'></span>
+        <div data-bind="formError: targetId"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: leftX.visible -->
+    <div class="control-group"
+       data-bind="css: { error: leftX.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.leftX"
+             data-bind="translate: 'utils.thumbnail.leftX'">
+      </label>
+      <div class="controls" id="thumbnail.leftX" data-bind="focus: 11">
+        <span data-bind='integerInput: detailModel.leftX, enable: isFieldEnabled("thumbnail.leftX", editMode)'></span>
+        <div data-bind="formError: leftX"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: topY.visible -->
+    <div class="control-group"
+       data-bind="css: { error: topY.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.topY"
+             data-bind="translate: 'utils.thumbnail.topY'">
+      </label>
+      <div class="controls" id="thumbnail.topY" data-bind="focus: 12">
+        <span data-bind='integerInput: detailModel.topY, enable: isFieldEnabled("thumbnail.topY", editMode)'></span>
+        <div data-bind="formError: topY"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: width.visible -->
+    <div class="control-group"
+       data-bind="css: { error: width.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.width"
+             data-bind="translate: 'utils.thumbnail.width'">
+      </label>
+      <div class="controls" id="thumbnail.width" data-bind="focus: 13">
+        <span data-bind='integerInput: detailModel.width, enable: isFieldEnabled("thumbnail.width", editMode)'></span>
+        <div data-bind="formError: width"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: height.visible -->
+    <div class="control-group"
+       data-bind="css: { error: height.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.height"
+             data-bind="translate: 'utils.thumbnail.height'">
+      </label>
+      <div class="controls" id="thumbnail.height" data-bind="focus: 14">
+        <span data-bind='integerInput: detailModel.height, enable: isFieldEnabled("thumbnail.height", editMode)'></span>
+        <div data-bind="formError: height"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: clickAction.visible -->
+    <div class="control-group"
+       data-bind="css: { error: clickAction.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.clickAction"
+             data-bind="translate: 'utils.thumbnail.clickAction'">
+      </label>
+      <div class="controls" id="thumbnail.clickAction" data-bind="focus: 15">
+        <input type='text' name='thumbnail.clickAction' data-bind="textInput: detailModel.clickAction, enable: isFieldEnabled('thumbnail.clickAction', editMode)" />
+        <div data-bind="formError: clickAction"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: hooverAction.visible -->
+    <div class="control-group"
+       data-bind="css: { error: hooverAction.hasErrors}">
+      <label class="control-label"
+             for="thumbnail.hooverAction"
+             data-bind="translate: 'utils.thumbnail.hooverAction'">
+      </label>
+      <div class="controls" id="thumbnail.hooverAction" data-bind="focus: 16">
+        <input type='text' name='thumbnail.hooverAction' data-bind="textInput: detailModel.hooverAction, enable: isFieldEnabled('thumbnail.hooverAction', editMode)" />
+        <div data-bind="formError: hooverAction"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

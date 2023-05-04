@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<navigation xmlns="https://schemas.normalizedsystems.org/xsd/default-stack/2021/0/1/componentMenu">
+  <targets>
+    <!-- anchor:targets:start -->
+    <target id="account-account-list-page" url="/OnlineCabBooking/account/account/all" name="account.Account"/>
+    <target id="account-account-io-page" url="/OnlineCabBooking/account/account/data" name="account.Account.data"/>
+    <target id="account-component-list-page" url="/OnlineCabBooking/account/component/all" name="account.Component"/>
+    <target id="account-dataAccess-list-page" url="/OnlineCabBooking/account/dataAccess/all" name="account.DataAccess"/>
+    <target id="account-dataAccess-io-page" url="/OnlineCabBooking/account/dataAccess/data" name="account.DataAccess.data"/>
+    <target id="account-helpInfo-list-page" url="/OnlineCabBooking/account/helpInfo/all" name="account.HelpInfo"/>
+    <target id="account-helpInfo-io-page" url="/OnlineCabBooking/account/helpInfo/data" name="account.HelpInfo.data"/>
+    <target id="account-menu-list-page" url="/OnlineCabBooking/account/menu/all" name="account.Menu"/>
+    <target id="account-menuItem-list-page" url="/OnlineCabBooking/account/menuItem/all" name="account.MenuItem"/>
+    <target id="account-portal-list-page" url="/OnlineCabBooking/account/portal/all" name="account.Portal"/>
+    <target id="account-profile-list-page" url="/OnlineCabBooking/account/profile/all" name="account.Profile"/>
+    <target id="account-profile-io-page" url="/OnlineCabBooking/account/profile/data" name="account.Profile.data"/>
+    <target id="account-screen-list-page" url="/OnlineCabBooking/account/screen/all" name="account.Screen"/>
+    <target id="account-screenProfile-list-page" url="/OnlineCabBooking/account/screenProfile/all" name="account.ScreenProfile"/>
+    <target id="account-user-list-page" url="/OnlineCabBooking/account/user/all" name="account.User"/>
+    <target id="account-user-io-page" url="/OnlineCabBooking/account/user/data" name="account.User.data"/>
+    <target id="account-userGroup-list-page" url="/OnlineCabBooking/account/userGroup/all" name="account.UserGroup"/>
+    <target id="account-userGroup-io-page" url="/OnlineCabBooking/account/userGroup/data" name="account.UserGroup.data"/>
+    <!-- anchor:targets:end -->
+    <!-- @anchor:targets:start -->
+    <!-- @anchor:targets:end -->
+
+    <!-- example:
+    <target id="item1" url="/OnlineCabBooking/account/item1" name="property.name"/>
+    -->
+    <!-- anchor:custom-targets:start -->
+    <!-- anchor:custom-targets:end -->
+
+  </targets>
+</navigation>

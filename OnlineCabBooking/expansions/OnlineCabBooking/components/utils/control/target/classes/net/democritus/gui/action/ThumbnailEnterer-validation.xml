@@ -1,0 +1,132 @@
+<!DOCTYPE validators [
+<!ELEMENT validators (field|validator)+>
+
+<!ELEMENT field (field-validator+)>
+<!ATTLIST field
+	name CDATA #REQUIRED
+>
+
+<!ELEMENT field-validator (param*, message)>
+<!ATTLIST field-validator
+	type CDATA #REQUIRED
+    short-circuit (true|false) "false"
+>
+
+<!ELEMENT validator (param*, message)>
+<!ATTLIST validator
+	type CDATA #REQUIRED
+    short-circuit (true|false) "false"
+>
+
+<!ELEMENT param (#PCDATA)>
+<!ATTLIST param
+    name CDATA #REQUIRED
+>
+
+<!ELEMENT message (#PCDATA)>
+<!ATTLIST message
+    key CDATA #IMPLIED
+>
+
+]>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<validators>
+<!-- anchor:fieldValidators:start -->
+  <field name='thumbnail.name'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.fullName'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.uri'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.depth'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.border'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.thumbType'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.thumbName'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.targetType'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.targetName'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.targetId'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.leftX'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.topY'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.width'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.height'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.clickAction'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='thumbnail.hooverAction'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+<!-- anchor:fieldValidators:end -->
+</validators>

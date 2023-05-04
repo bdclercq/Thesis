@@ -1,0 +1,69 @@
+; expanded with nsx-expanders:5.12.1, expansionResource net.democritus:conf-expanders:5.12.1
+
+; This is the top-most EditorConfig file
+root = true
+
+; anchor:gen-config:start
+; Applied to all files matching **
+[**]
+;; Indents should consist out of spaces
+indent_style = space
+;; Indents should be 2 spaces
+indent_size = 2
+;; Tabs should be 2 spaces
+tab_width = 2
+;; Continuation indents should be 4 spaces
+ij_continuation_indent_size = 4
+
+; Applied to java files matching **.java
+[**.java]
+;; We always want a blank line after the header of a class
+ij_java_blank_lines_after_class_header = 1
+;; We always want a blank line before the end of a class
+ij_java_blank_lines_before_class_end = 1
+;; We don't want any blank lines before a right brace
+ij_java_keep_blank_lines_before_right_brace = 0
+;; We don't want more than 1 sequential blank line in our code
+ij_java_keep_blank_lines_in_code = 1
+
+;; We don't want to optimize imports to use wildcards until 1000 classes are reached
+ij_java_class_count_to_use_import_on_demand = 1000
+;; We don't want to optimize static imports to use wildcards until 1000 names are reached
+ij_java_names_count_to_use_import_on_demand = 1000
+
+;; We want to ensure that spaces are inserted where needed
+ij_java_space_before_catch_left_brace = true
+ij_java_space_before_catch_parentheses = true
+ij_java_space_before_class_left_brace = true
+ij_java_space_before_do_left_brace = true
+ij_java_space_before_else_left_brace = true
+ij_java_space_before_finally_left_brace = true
+ij_java_space_before_for_left_brace = true
+ij_java_space_before_for_parentheses = true
+ij_java_space_before_if_left_brace = true
+ij_java_space_before_if_parentheses = true
+ij_java_space_before_method_left_brace = true
+ij_java_space_before_switch_left_brace = true
+ij_java_space_before_switch_parentheses = true
+ij_java_space_before_synchronized_left_brace = true
+ij_java_space_before_synchronized_parentheses = true
+ij_java_space_before_try_left_brace = true
+ij_java_space_before_try_parentheses = true
+ij_java_space_before_while_left_brace = true
+ij_java_space_before_while_parentheses = true
+ij_java_spaces_around_additive_operators = true
+ij_java_spaces_around_assignment_operators = true
+ij_java_spaces_around_bitwise_operators = true
+ij_java_spaces_around_equality_operators = true
+ij_java_spaces_around_lambda_arrow = true
+ij_java_spaces_around_logical_operators = true
+ij_java_spaces_around_multiplicative_operators = true
+ij_java_spaces_around_relational_operators = true
+ij_java_spaces_around_shift_operators = true
+ij_java_spaces_around_type_bounds_in_type_parameters = true
+; anchor:gen-config:end
+
+; @anchor:config:start
+; @anchor:config:end
+; anchor:custom-config:start
+; anchor:custom-config:end

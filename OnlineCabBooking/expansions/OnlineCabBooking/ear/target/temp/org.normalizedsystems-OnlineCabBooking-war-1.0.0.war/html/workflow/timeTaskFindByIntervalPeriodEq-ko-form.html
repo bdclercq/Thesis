@@ -1,0 +1,21 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('timeTask.intervalPeriod', editMode), css: { error: detailModel.intervalPeriod.hasErrors}">
+    <label class="control-label"
+           for="timeTask.intervalPeriod"
+           data-bind="translate: 'workflow.timeTask.intervalPeriod'">
+    </label>
+    <div class="controls" id="timeTask.intervalPeriod" data-bind="focus: 1">
+      <span data-bind='integerInput: detailModel.intervalPeriod, enable: isFieldEnabled("timeTask.intervalPeriod", editMode)'></span>
+      <div data-bind="visible: detailModel.intervalPeriod.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.intervalPeriod.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>OnlineCabBooking</artifactId>
+    <groupId>org.normalizedsystems</groupId>
+    <version>1.0.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <groupId>org.normalized</groupId>
+  <artifactId>OnlineCabBooking-ear</artifactId>
+  <packaging>ear</packaging>
+
+  <name>OnlineCabBooking-ear</name>
+  <url>http://www.normalizedsystems.org</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>OnlineCabBooking-war</artifactId>
+      <type>war</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>OnlineCabBooking-shared</artifactId>
+      <type>jar</type>
+    </dependency>
+
+    <!-- utils -->
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>utils-shared</artifactId>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>utils-logic</artifactId>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>utils-proxy</artifactId>
+      <type>jar</type>
+    </dependency>
+    <!-- account -->
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>account-shared</artifactId>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>account-logic</artifactId>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>account-proxy</artifactId>
+      <type>jar</type>
+    </dependency>
+    <!-- validation -->
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>validation-shared</artifactId>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>validation-logic</artifactId>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>validation-proxy</artifactId>
+      <type>jar</type>
+    </dependency>
+    <!-- assets -->
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>assets-shared</artifactId>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>assets-logic</artifactId>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>assets-proxy</artifactId>
+      <type>jar</type>
+    </dependency>
+    <!-- workflow -->
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>workflow-shared</artifactId>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>workflow-logic</artifactId>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>workflow-proxy</artifactId>
+      <type>jar</type>
+    </dependency>
+    <!-- onlineCabBookingComp -->
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>onlineCabBookingComp-shared</artifactId>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>onlineCabBookingComp-logic</artifactId>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>onlineCabBookingComp-proxy</artifactId>
+      <type>jar</type>
+    </dependency>
+
+    <!-- @anchor:dependencies:start -->
+    <!-- @anchor:dependencies:end -->
+    <!-- anchor:custom-dependencies:start -->
+    <!-- anchor:custom-dependencies:end -->
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <version>5</version>
+          <defaultLibBundleDir>lib</defaultLibBundleDir>
+          <skinnyWars>true</skinnyWars>
+          <finalName>OnlineCabBooking</finalName>
+          <displayName>OnlineCabBooking</displayName>
+
+          <modules>
+            <webModule>
+              <groupId>org.normalizedsystems</groupId>
+              <artifactId>OnlineCabBooking-war</artifactId>
+              <contextRoot>/OnlineCabBooking</contextRoot>
+            </webModule>
+
+            <ejbModule>
+              <groupId>org.normalizedsystems</groupId>
+              <artifactId>utils-logic</artifactId>
+              <bundleFileName>utils.jar</bundleFileName>
+            </ejbModule>
+            <ejbModule>
+              <groupId>org.normalizedsystems</groupId>
+              <artifactId>account-logic</artifactId>
+              <bundleFileName>account.jar</bundleFileName>
+            </ejbModule>
+            <ejbModule>
+              <groupId>org.normalizedsystems</groupId>
+              <artifactId>validation-logic</artifactId>
+              <bundleFileName>validation.jar</bundleFileName>
+            </ejbModule>
+            <ejbModule>
+              <groupId>org.normalizedsystems</groupId>
+              <artifactId>assets-logic</artifactId>
+              <bundleFileName>assets.jar</bundleFileName>
+            </ejbModule>
+            <ejbModule>
+              <groupId>org.normalizedsystems</groupId>
+              <artifactId>workflow-logic</artifactId>
+              <bundleFileName>workflow.jar</bundleFileName>
+            </ejbModule>
+            <ejbModule>
+              <groupId>org.normalizedsystems</groupId>
+              <artifactId>onlineCabBookingComp-logic</artifactId>
+              <bundleFileName>onlineCabBookingComp.jar</bundleFileName>
+            </ejbModule>
+
+            <!-- @anchor:ear-modules:start -->
+            <!-- @anchor:ear-modules:end -->
+            <!-- anchor:custom-ear-modules:start -->
+            <!-- anchor:custom-ear-modules:end -->
+          </modules>
+
+          <!-- @anchor:ear-configuration:start -->
+          <!-- @anchor:ear-configuration:end -->
+          <!-- anchor:custom-ear-configuration:start -->
+          <!-- anchor:custom-ear-configuration:end -->
+        </configuration>
+      </plugin>
+
+      <!-- @anchor:build-plugins:start -->
+      <!-- @anchor:build-plugins:end -->
+      <!-- anchor:custom-build-plugins:start -->
+      <!-- anchor:custom-build-plugins:end -->
+    </plugins>
+
+    <!-- @anchor:build:start -->
+    <!-- @anchor:build:end -->
+    <!-- anchor:custom-build:start -->
+    <!-- anchor:custom-build:end -->
+  </build>
+
+  <!-- @anchor:project:start -->
+  <!-- @anchor:project:end -->
+  <!-- anchor:custom-project:start -->
+  <!-- anchor:custom-project:end -->
+</project>

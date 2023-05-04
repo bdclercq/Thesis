@@ -1,0 +1,66 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="workflow-timeTask-name-header">
+      <span data-bind="translate: 'workflow.timeTask.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: processor.sort.trigger" class="workflow-timeTask-processor-header">
+      <span data-bind="translate: 'workflow.timeTask.processor'"></span>
+      <i class="sortable" data-bind="css: processor.icon"></i>
+    </th>
+    <th data-bind="click: triggerState.sort.trigger" class="workflow-timeTask-triggerState-header">
+      <span data-bind="translate: 'workflow.timeTask.triggerState'"></span>
+      <i class="sortable" data-bind="css: triggerState.icon"></i>
+    </th>
+    <th data-bind="click: intervalPeriod.sort.trigger" class="workflow-timeTask-intervalPeriod-header">
+      <span data-bind="translate: 'workflow.timeTask.intervalPeriod'"></span>
+      <i class="sortable" data-bind="css: intervalPeriod.icon"></i>
+    </th>
+    <th data-bind="click: requiredAction.sort.trigger" class="workflow-timeTask-requiredAction-header">
+      <span data-bind="translate: 'workflow.timeTask.requiredAction'"></span>
+      <i class="sortable" data-bind="css: requiredAction.icon"></i>
+    </th>
+    <th class="workflow-timeTask-workflow-header">
+      <span data-bind="translate: 'workflow.timeTask.workflow'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="workflow-timeTask-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="workflow-timeTask-processor-cell">
+      <span data-bind="text: processor"></span>
+    </td>
+    <td class="workflow-timeTask-triggerState-cell">
+      <span data-bind="text: triggerState"></span>
+    </td>
+    <td class="workflow-timeTask-intervalPeriod-cell">
+      <span data-bind="text: intervalPeriod"></span>
+    </td>
+    <td class="workflow-timeTask-requiredAction-cell">
+      <span data-bind="text: requiredAction"></span>
+    </td>
+    <td class="workflow-timeTask-workflow-cell">
+      <span data-bind="with: workflow">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

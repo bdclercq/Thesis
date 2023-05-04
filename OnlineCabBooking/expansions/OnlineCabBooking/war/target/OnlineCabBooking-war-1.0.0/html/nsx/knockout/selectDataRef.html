@@ -1,0 +1,29 @@
+<!--ko if: dropdownEnabled-->
+<div class="input-append dropdown" data-bind="css: dropdown.visibilityClass, clickOutside: dropdown.hide.trigger">
+  <span class="nsx-clear-button">
+    <input type="text" data-bind="textInput: textInput, event: { 'blur' : dropdown.hide.trigger }, hasFocus: hasFocus">
+    <a class="nsx-clear-button clearButton" data-bind="click: clearSelection.trigger"><span class="icon-remove"></span></a>
+  </span>
+    <span class="btn dropDownButton" data-bind="click: dropdown.show.trigger">
+        <span class="caret"></span>
+    </span>
+    <ul class="dropdown-menu nsx-dropdown" role="menu" style="width: 80%"
+        data-bind="foreach: dropdown.items">
+        <li data-bind="with: value, click: select.trigger"><a href="#" data-bind="text: name"></a></li>
+    </ul>
+    <span class="btn searchButton" data-bind="click: searchPopup.show.trigger">
+        <span class="icon-search"></span>
+    </span>
+</div>
+<!--/ko-->
+<!--ko if: !dropdownEnabled-->
+<div class="input-append">
+  <span class="nsx-clear-button">
+    <input type="text" data-bind="textInput: textInput, hasFocus: hasFocus">
+    <a class="nsx-clear-button clearButton" data-bind="click: clearSelection.trigger"><span class="icon-remove"></span></a>
+  </span>
+    <span class="btn searchButton" data-bind="click: searchPopup.show.trigger">
+        <span class="icon-search"></span>
+    </span>
+</div>
+<!--/ko-->

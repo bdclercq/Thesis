@@ -1,0 +1,56 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="account-userGroup-name-header">
+      <span data-bind="translate: 'account.userGroup.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: type.sort.trigger" class="account-userGroup-type-header">
+      <span data-bind="translate: 'account.userGroup.type'"></span>
+      <i class="sortable" data-bind="css: type.icon"></i>
+    </th>
+    <th data-bind="click: lastModifiedAt.sort.trigger" class="account-userGroup-lastModifiedAt-header">
+      <span data-bind="translate: 'account.userGroup.lastModifiedAt'"></span>
+      <i class="sortable" data-bind="css: lastModifiedAt.icon"></i>
+    </th>
+    <th data-bind="click: enteredAt.sort.trigger" class="account-userGroup-enteredAt-header">
+      <span data-bind="translate: 'account.userGroup.enteredAt'"></span>
+      <i class="sortable" data-bind="css: enteredAt.icon"></i>
+    </th>
+    <th data-bind="click: disabled.sort.trigger" class="account-userGroup-disabled-header">
+      <span data-bind="translate: 'account.userGroup.disabled'"></span>
+      <i class="sortable" data-bind="css: disabled.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-userGroup-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="account-userGroup-type-cell">
+      <span data-bind="text: type"></span>
+    </td>
+    <td class="account-userGroup-lastModifiedAt-cell">
+      <span data-bind="dateString: lastModifiedAt"></span>
+    </td>
+    <td class="account-userGroup-enteredAt-cell">
+      <span data-bind="dateString: enteredAt"></span>
+    </td>
+    <td class="account-userGroup-disabled-cell">
+      <span data-bind="text: disabled"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

@@ -1,0 +1,1 @@
+"use strict";define(["jquery"],(function(e){return{createBuilder:function(n){var r={};return r.mapField=function(e){return function(e,n){return{meta:{name:e.name,label:e.name,type:e.dataType},markup:n.getMarkup(e),value:ko.observable(),name:e.name}}(e,n)},r.mapFields=function(n){return e.map(n,(function(e){return r.mapField(e)}))},r}}}));

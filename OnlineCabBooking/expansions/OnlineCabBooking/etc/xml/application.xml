@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<application xmlns="http://java.sun.com/xml/ns/j2ee"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+             http://java.sun.com/xml/ns/j2ee/application_1_4.xsd"
+             version="1.4">
+
+  <display-name>OnlineCabBooking</display-name>
+
+  <module>
+    <web>
+      <web-uri>OnlineCabBooking.war</web-uri>
+      <context-root>/OnlineCabBooking</context-root>
+    </web>
+  </module>
+
+  <module>
+    <ejb>utils.jar</ejb>
+  </module>
+  <module>
+    <ejb>account.jar</ejb>
+  </module>
+  <module>
+    <ejb>validation.jar</ejb>
+  </module>
+  <module>
+    <ejb>assets.jar</ejb>
+  </module>
+  <module>
+    <ejb>workflow.jar</ejb>
+  </module>
+  <module>
+    <ejb>onlineCabBookingComp.jar</ejb>
+  </module>
+
+  <!-- @anchor:elements:start -->
+  <!-- @anchor:elements:end -->
+  <!-- anchor:custom-elements:start -->
+  <!-- anchor:custom-elements:end -->
+
+</application>

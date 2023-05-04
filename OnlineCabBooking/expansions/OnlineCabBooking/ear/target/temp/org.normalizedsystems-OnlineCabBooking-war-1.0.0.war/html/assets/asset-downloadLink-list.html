@@ -1,0 +1,57 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="assets-asset-name-header">
+      <span data-bind="translate: 'assets.asset.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: type.sort.trigger" class="assets-asset-type-header">
+      <span data-bind="translate: 'assets.asset.type'"></span>
+      <i class="sortable" data-bind="css: type.icon"></i>
+    </th>
+    <th class="assets-asset-downloadLink-header">
+      <span data-bind="translate: 'assets.asset.downloadLink'"></span>
+    </th>
+    <th data-bind="click: contentType.sort.trigger" class="assets-asset-contentType-header">
+      <span data-bind="translate: 'assets.asset.contentType'"></span>
+      <i class="sortable" data-bind="css: contentType.icon"></i>
+    </th>
+    <th class="assets-asset-fileSize-header">
+      <span data-bind="translate: 'assets.asset.fileSize'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="assets-asset-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="assets-asset-type-cell">
+      <span data-bind="text: type"></span>
+    </td>
+    <td class="assets-asset-downloadLink-cell">
+      <a target="_blank" data-bind="attr: {href: downloadLink},
+        click: function() { return true;}, clickBubble: false">
+        <span data-bind="text: downloadLink"></span>
+      </a>
+    </td>
+    <td class="assets-asset-contentType-cell">
+      <span data-bind="text: contentType"></span>
+    </td>
+    <td class="assets-asset-fileSize-cell">
+      <span data-bind="text: fileSize"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

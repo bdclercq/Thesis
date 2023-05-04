@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+
+  database:
+    # Expose postgres port for local deployment
+    ports:
+      - "54321:5432"
+
+  application:
+    image: nsapp/onlinecabbooking:latest
+    environment:
+      ENABLE_DEBUG: "yes"
+    ports:
+      # Expose http port for local deployment
+      - "8080:80"
+      # Expose debugging port to perform remote JVM debugging
+      - "4041:4041"

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="account-control" />
+        <module name="assets-shared" />
+        <module name="onlineCabBookingComp-shared" />
+        <module name="workflow-logic" />
+        <module name="assets-data" />
+        <module name="OnlineCabBooking-shared" />
+        <module name="assets-proxy" />
+        <module name="validation-control" />
+        <module name="account-data" />
+        <module name="account-logic" />
+        <module name="utils-shared" />
+        <module name="onlineCabBookingComp-proxy" />
+        <module name="validation-proxy" />
+        <module name="validation-logic" />
+        <module name="validation-shared" />
+        <module name="onlineCabBookingComp-logic" />
+        <module name="OnlineCabBooking-ear" />
+        <module name="workflow-control" />
+        <module name="utils-proxy" />
+        <module name="workflow-shared" />
+        <module name="account-proxy" />
+        <module name="account-shared" />
+        <module name="assets-control" />
+        <module name="workflow-proxy" />
+        <module name="OnlineCabBooking-war" />
+        <module name="onlineCabBookingComp-data" />
+        <module name="workflow-data" />
+        <module name="onlineCabBookingComp-control" />
+        <module name="utils-data" />
+        <module name="utils-control" />
+        <module name="validation-data" />
+        <module name="utils-logic" />
+        <module name="assets-logic" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

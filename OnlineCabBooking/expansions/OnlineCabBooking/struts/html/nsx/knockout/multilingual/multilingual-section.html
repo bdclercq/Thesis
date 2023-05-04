@@ -1,0 +1,19 @@
+<span data-bind="visible: visible() && viewModel.accessRights.canView()" style="display: none">
+  <div class="row-fluid">
+      <div class="span12">
+          <span data-bind="template: {name: 'nsx/knockout/minimumPagingNoView', data: viewModel}"></span>
+      </div>
+  </div>
+  <div class="row-fluid">
+      <div class="span6" data-bind="with: viewModel.listModel">
+          <span data-bind="template: {
+                name: 'nsx/knockout/multilingual/translation-list',
+                afterRender: $data.attachCommandForm
+            },
+            visible: hasItems"></span>
+      </div>
+      <div class="span6" data-bind="visible: viewModel.hasSelection() && viewModel.accessRights.canModify()">
+        <span data-bind="instanceForm: command"></span>
+      </div>
+  </div>
+</span>

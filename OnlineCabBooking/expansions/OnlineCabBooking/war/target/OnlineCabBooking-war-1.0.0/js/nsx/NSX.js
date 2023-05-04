@@ -1,0 +1,1 @@
+"use strict";function NSXInit(t){return this.applicationName=t,this.application={},this.components={},this.elements={},this.actions={},this.utils={},this.models={},this.dialog={},this}

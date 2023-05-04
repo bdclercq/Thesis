@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.normalizedsystems</groupId>
+  <artifactId>OnlineCabBooking</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>OnlineCabBooking</name>
+  <modules>
+    <module>war</module>
+    <module>ear</module>
+    <module>shared</module>
+
+    <!-- @anchor:modules:start -->
+    <!-- @anchor:modules:end -->
+    <!-- anchor:custom-modules:start -->
+    <!-- anchor:custom-modules:end -->
+  </modules>
+
+  <properties>
+    <expanders.version>5.12.1</expanders.version>
+    <!-- @anchor:properties:start -->
+    <javaee.version>7.0</javaee.version>
+    <!-- @anchor:properties:end -->
+    <!-- anchor:custom-properties:start -->
+    <!-- disable git checks, because expanded code does not have history -->
+    <sonar.scm.disabled>true</sonar.scm.disabled>
+    <!-- probably unnecessary right now, but ignore .gitignore (because expansions/ is an excluded directory -->
+    <sonar.scm.exclusions.disabled>true</sonar.scm.exclusions.disabled>
+    <!-- disable code duplication for now; we need to implement extra filtering, as the raw results are useless -->
+    <sonar.cpd.exclusions>**/*</sonar.cpd.exclusions>
+    <!-- exclude base components -->
+    <sonar.exclusions>
+      components/account/**/*,
+      components/assets/**/*,
+      components/utils/**/*,
+      components/validation/**/*,
+      components/workflow/**/*
+    </sonar.exclusions>
+    <!-- use filtered jacoco reports that exclude expanded lines; experimental/WIP -->
+    <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco-filtered.xml</sonar.coverage.jacoco.xmlReportPaths>
+    <!-- set language level for sonarqube to 17 -->
+    <sonar.java.source>17</sonar.java.source>
+
+    <!-- dependency analysis -->
+    <cyclonedx-maven-plugin.version>2.6.2</cyclonedx-maven-plugin.version>
+    <!-- anchor:custom-properties:end -->
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <!-- application dependencies -->
+
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>OnlineCabBooking-war</artifactId>
+        <version>1.0.0</version>
+        <type>war</type>
+      </dependency>
+
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>OnlineCabBooking-shared</artifactId>
+        <version>1.0.0</version>
+        <type>jar</type>
+      </dependency>
+
+      <!-- components -->
+
+      <!-- utils -->
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>utils-view</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>utils-control</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>utils-proxy</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>utils-logic</artifactId>
+        <version>1.0</version>
+        <type>ejb</type>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>utils-logic</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>utils-data</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>utils-shared</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>utils-client</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <!-- account -->
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>account-view</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>account-control</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>account-proxy</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>account-logic</artifactId>
+        <version>1.0</version>
+        <type>ejb</type>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>account-logic</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>account-data</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>account-shared</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>account-client</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <!-- validation -->
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>validation-view</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>validation-control</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>validation-proxy</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>validation-logic</artifactId>
+        <version>1.0</version>
+        <type>ejb</type>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>validation-logic</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>validation-data</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>validation-shared</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>validation-client</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <!-- assets -->
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>assets-view</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>assets-control</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>assets-proxy</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>assets-logic</artifactId>
+        <version>1.0</version>
+        <type>ejb</type>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>assets-logic</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>assets-data</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>assets-shared</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>assets-client</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <!-- workflow -->
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>workflow-view</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>workflow-control</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>workflow-proxy</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>workflow-logic</artifactId>
+        <version>1.0</version>
+        <type>ejb</type>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>workflow-logic</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>workflow-data</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>workflow-shared</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>workflow-client</artifactId>
+        <version>1.0</version>
+      </dependency>
+      <!-- onlineCabBookingComp -->
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>onlineCabBookingComp-view</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>onlineCabBookingComp-control</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>onlineCabBookingComp-proxy</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>onlineCabBookingComp-logic</artifactId>
+        <version>1.0.0</version>
+        <type>ejb</type>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>onlineCabBookingComp-logic</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>onlineCabBookingComp-data</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>onlineCabBookingComp-shared</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.normalizedsystems</groupId>
+        <artifactId>onlineCabBookingComp-client</artifactId>
+        <version>1.0.0</version>
+      </dependency>
+
+      <!-- @anchor:dependency-management:start -->
+      <!-- library dependencies -->
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.1.0</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>net.democritus</groupId>
+        <artifactId>nsx-presentation-struts2</artifactId>
+        <version>2022.1.0</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-core</artifactId>
+        <version>2.5.30</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>net.democritus.struts</groupId>
+        <artifactId>shared-struts25</artifactId>
+        <version>2021.1.1</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>net.democritus</groupId>
+        <artifactId>nsx-common</artifactId>
+        <version>2022.1.0</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>net.democritus</groupId>
+        <artifactId>nsx-logging</artifactId>
+        <version>2022.1.0</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>net.democritus</groupId>
+        <artifactId>nsx-shared-common</artifactId>
+        <version>2022.1.0</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-api</artifactId>
+        <version>${javaee.version}</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>net.democritus</groupId>
+        <artifactId>nsx-shared-jpa</artifactId>
+        <version>2022.1.0</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>net.democritus</groupId>
+        <artifactId>nsx-shared-owasp</artifactId>
+        <version>2022.1.0</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>net.democritus</groupId>
+        <artifactId>nsx-shared-ejb3</artifactId>
+        <version>2022.1.0</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>net.democritus</groupId>
+        <artifactId>nsx-shared-opencsv</artifactId>
+        <version>2022.1.0</version>
+        <scope>compile</scope>
+      </dependency>
+      <dependency>
+        <groupId>javax.servlet.jsp</groupId>
+        <artifactId>javax.servlet.jsp-api</artifactId>
+        <version>2.3.3</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.jetty.toolchain</groupId>
+        <artifactId>jetty-schemas</artifactId>
+        <version>4.0.3</version>
+        <scope>provided</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-json-plugin</artifactId>
+        <version>2.5.30</version>
+        <scope>compile</scope>
+      </dependency>
+      <!-- @anchor:dependency-management:end -->
+      <!-- anchor:custom-dependency-management:start -->
+      <!-- anchor:custom-dependency-management:end -->
+
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.10.1</version>
+        <configuration>
+          <release>17</release>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M7</version>
+      </plugin>
+
+      <!-- @anchor:build-plugins:start -->
+      <!-- @anchor:build-plugins:end -->
+      <!-- anchor:custom-build-plugins:start -->
+      <!-- anchor:custom-build-plugins:end -->
+    </plugins>
+
+    <!-- @anchor:build:start -->
+    <!-- @anchor:build:end -->
+    <!-- anchor:custom-build:start -->
+    <!-- anchor:custom-build:end -->
+  </build>
+
+  <profiles>
+    <profile>
+      <id>full</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>components/utils</module>
+        <module>components/account</module>
+        <module>components/validation</module>
+        <module>components/assets</module>
+        <module>components/workflow</module>
+        <module>components/onlineCabBookingComp</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>slim</id>
+      <modules>
+        <module>components/onlineCabBookingComp</module>
+      </modules>
+    </profile>
+    <!-- @anchor:profiles:start -->
+    <!-- @anchor:profiles:end -->
+    <!-- anchor:custom-profiles:start -->
+    <profile>
+      <id>sonar</id>
+      <activation>
+        <property>
+          <name>env.JENKINS_HOME</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <!-- run jacoco -->
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.8</version>
+            <configuration>
+              <excludes>
+                <!-- exclude base components; it doesn't seem to work for some reason
+                     or maybe the base components tests should be ignored instead -->
+                <exclude>components/account/**/*</exclude>
+                <exclude>components/assets/**/*</exclude>
+                <exclude>components/utils/**/*</exclude>
+                <exclude>components/validation/**/*</exclude>
+                <exclude>components/workflow/**/*</exclude>
+              </excludes>
+            </configuration>
+            <executions>
+              <execution>
+                <id>coverage</id>
+                <goals>
+                  <goal>prepare-agent</goal>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- run jacoco filter to ignore expanded code -->
+          <plugin>
+            <groupId>net.democritus.maven.plugins</groupId>
+            <artifactId>expansion-validation-maven-plugin</artifactId>
+            <version>2022.1.0</version>
+            <executions>
+              <execution>
+                <phase>verify</phase>
+                <goals>
+                  <goal>jacoco</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- run sonar -->
+          <plugin>
+            <groupId>org.sonarsource.scanner.maven</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>3.9.1.2184</version>
+            <executions>
+              <execution>
+                <id>sonar</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sonar</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>dependency-analysis</id>
+      <activation>
+        <property>
+          <name>env.JENKINS_HOME</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.cyclonedx</groupId>
+            <artifactId>cyclonedx-maven-plugin</artifactId>
+            <version>${cyclonedx-maven-plugin.version}</version>
+            <inherited>false</inherited>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>makeAggregateBom</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+                <includeCompileScope>true</includeCompileScope>
+                <includeProvidedScope>true</includeProvidedScope>
+                <includeRuntimeScope>true</includeRuntimeScope>
+                <includeSystemScope>true</includeSystemScope>
+                <includeTestScope>false</includeTestScope>
+             </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <!-- anchor:custom-profiles:end -->
+  </profiles>
+
+  <!-- @anchor:project:start -->
+  <!-- @anchor:project:end -->
+  <!-- anchor:custom-project:start -->
+  <!-- anchor:custom-project:end -->
+</project>

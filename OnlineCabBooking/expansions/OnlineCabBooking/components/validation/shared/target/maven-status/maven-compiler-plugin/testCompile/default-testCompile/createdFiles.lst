@@ -1,0 +1,15 @@
+net/democritus/basic/TimeValidatorTest.class
+net/democritus/basic/ImageFieldValidatorTest.class
+net/democritus/basic/DateTimeConverterTest.class
+net/democritus/basic/jquery/JQueryDateFormatTest.class
+net/democritus/basic/RijksRegisterNummerConverterTest.class
+net/democritus/basic/RijksRegisterNummerValidatorTest.class
+net/democritus/basic/KBOValidatorTest.class
+net/democritus/basic/DateConverterTest.class
+net/democritus/basic/IbanFieldValidatorTest.class
+net/democritus/basic/IBANValidationTest.class
+net/democritus/basic/TimeConverterTest.class
+net/democritus/basic/CreditcardNumberValidatorTest.class
+net/democritus/basic/TimeTest.class
+net/democritus/basic/CreditcardNumberConverterTest.class
+net/democritus/basic/EmailFieldValidatorTest.class

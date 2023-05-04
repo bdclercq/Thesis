@@ -1,0 +1,126 @@
+
+* Introduction
+
+| Arco Oost <2012-07-13 Fri> | initial version |
+
+
+In a data element within Normalized Systems, one is able to define fields that describe a value field, a link field or even an indirect link field.
+
+Out of the box, value fields can be type using primitive data types, e.g.
+
+| String      | StringLong | IntSpinner   |
+| Short       | StringFile | Long Spinner |
+| Integer     | StringMail |              |
+| Long        | StringDate |              |
+| Double      | StringLink |              |
+| Date        | StringPass |              |
+    
+Although these value types are usefull in capturing data, they are not very specific. For example, a String type can be used to capture both a person's first name and his last name. A String can also be use to define a Skype id. The problem is, that this does not in anyway describe the actual semantics of the field that is captured. The primitive types are just a way to technically define the way the data is stored in the system. It does not represent the meaning of the value.
+
+In order to be able to capture the semantic meaning of a value field, the notion of a value type descriptor is introduced. The value type descriptor helps to narrow the usage and to define how the value is stored and how it is represented.
+
+* Value Type Descriptors
+
+| parameter    | description                                                                    |
+|--------------+--------------------------------------------------------------------------------|
+| display      | The way the value is represented in the frontend                               |
+| storage      | The primitive type to store the value                                          |
+| converter    | A converter that converts:                                                     |
+|              | - from display type <-> value type                                             |
+|              | - from storage type <-> value type                                             |
+| validator    | Validates the value type after it is converted                                 |
+| presentation | A factory class that delivers an expander for the requested display technology |
+|              |                                                                                |
+
+** Syntax
+
+#+BEGIN_SRC text
+descriptor =
+[componentName"#"]typeName
+valueTypeClass
+["display="displayType]
+["storage="storageType]
+["converter=" qualifiedName]
+["validator=" qualifiedName]
+["presentation=" qualifiedName]
+
+simpleName = [A-Za-z][A-Za-z0-9-_]*
+componentName = simpleName
+typeName= simpleName
+
+javaName = [[A-Za-z][A-Za-z0-9_]*
+packageName = javaName ["." packageName]
+qualifiedName = [packageName "."] className
+
+valueTypeClass = qualifiedName
+
+#+END_SRC
+
+*** Short type name
+
+#+BEGIN_SRC text
+[componentName"#"]typeName
+#+END_SRC
+
+The first line defines the short name for the type, that is used in the datadescriptor. When the value type is imported from another component, it is necessary to prefix the typename with the name of the component defining the value type, followed by a hash (#). If the value type is defined in the same component as the datascriptor, the component name is optional.
+
+* Implementation
+
+** Converter
+
+*** Struts
+
+In a struts environment the Converter class will be called by a Struts<FieldName>
+
+** Validator
+
+The validator is only applied to the converted value. This means, that no validation wider than the field can be done. This means that validations that concerns the entire element (or even the component or the whole application) should be done in the element's bean, preferably in the bean-anchors. In the future we might define validators that concern the whole element, but these will be specified apart from the value type descriptors.
+
+** Presentation
+
+The presentation class, delivers a factory class implementing IFieldPresentationFactory. The presentationFactory is used to ins
+
+If no presentation class is defined, the default expansion within the framework for the display type is used.
+
+* Interfaces
+
+** IFieldPresentation
+
+#+BEGIN_SRC java
+public interface IFieldPresentationExpander {
+
+  public String editField(ValueFieldDescriptor fd);
+  public String displayField(ValueFieldDescriptor fd);
+
+}
+#+END_SRC
+
+** IFieldPresentationFactory
+
+#+BEGIN_SRC java
+public interface IFieldPresentationFactory {
+  IFieldPresentationExpander createPresentationExpander(
+      ComponentExpansionContext componentExpansionContext,
+      DataDescriptor dataDescriptor,
+      FieldPresentationEnum presentationType
+      ) throws PresentationExpanderNotFoundException;
+}
+#+END_SRC
+* Example
+
+#+BEGIN_SRC text
+time
+net.democritus.valuetype.basic.Time
+display=string
+storage=string
+validator=net.democritus.valuetype.basic.TimeValidator
+converter=net.democritus.valuetype.basic.TimeConverter
+presentation=net.democritus.valuetype.basic.TimeFieldPresentationFactory
+#+END_SRC
+
+#+BEGIN_SRC text
+account net.democritus Timed
+String name ynn
+validation#time startTime ynn
+#+END_SRC
+

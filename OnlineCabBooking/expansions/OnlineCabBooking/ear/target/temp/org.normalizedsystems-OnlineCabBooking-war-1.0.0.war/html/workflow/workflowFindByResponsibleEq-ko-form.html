@@ -1,0 +1,26 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('workflow.responsible', editMode), css: { error: detailModel.responsible.hasErrors}">
+    <label class="control-label"
+           for="workflow.responsible"
+           data-bind="translate: 'workflow.workflow.responsible'">
+    </label>
+    <div class="controls" id="workflow.responsible" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.responsible,
+          element: 'account.user',
+          hideDropdown: false
+      }, enable: isFieldEnabled('workflow.responsible', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.responsible.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.responsible.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

@@ -1,0 +1,222 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="user.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="user.name"
+             data-bind="translate: 'account.user.name'">
+      </label>
+      <div class="controls" id="user.name" data-bind="focus: 1">
+        <input type='text' name='user.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('user.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: password.visible -->
+    <div class="control-group"
+       data-bind="css: { error: password.hasErrors}">
+      <label class="control-label"
+             for="user.password"
+             data-bind="translate: 'account.user.password'">
+      </label>
+      <div class="controls" id="user.password" data-bind="focus: 2">
+        <input type='password' name='user.password' data-bind='value: detailModel.password, enable: isFieldEnabled("user.password", editMode)' />
+        <div data-bind="formError: password"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: fullName.visible -->
+    <div class="control-group"
+       data-bind="css: { error: fullName.hasErrors}">
+      <label class="control-label"
+             for="user.fullName"
+             data-bind="translate: 'account.user.fullName'">
+      </label>
+      <div class="controls" id="user.fullName" data-bind="focus: 3">
+        <input type='text' name='user.fullName' data-bind="textInput: detailModel.fullName, enable: isFieldEnabled('user.fullName', editMode)" />
+        <div data-bind="formError: fullName"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: email.visible -->
+    <div class="control-group"
+       data-bind="css: { error: email.hasErrors}">
+      <label class="control-label"
+             for="user.email"
+             data-bind="translate: 'account.user.email'">
+      </label>
+      <div class="controls" id="user.email" data-bind="focus: 4">
+        <input type='text' name='user.email' data-bind="textInput: detailModel.email, enable: isFieldEnabled('user.email', editMode)" />
+        <div data-bind="formError: email"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: mobile.visible -->
+    <div class="control-group"
+       data-bind="css: { error: mobile.hasErrors}">
+      <label class="control-label"
+             for="user.mobile"
+             data-bind="translate: 'account.user.mobile'">
+      </label>
+      <div class="controls" id="user.mobile" data-bind="focus: 5">
+        <input type='text' name='user.mobile' data-bind="textInput: detailModel.mobile, enable: isFieldEnabled('user.mobile', editMode)" />
+        <div data-bind="formError: mobile"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: language.visible -->
+    <div class="control-group"
+       data-bind="css: { error: language.hasErrors}">
+      <label class="control-label"
+             for="user.language"
+             data-bind="translate: 'account.user.language'">
+      </label>
+      <div class="controls" id="user.language" data-bind="focus: 6">
+        <span data-bind="tagValue: {
+            field: detailModel.language,
+            tag: 'user_language'
+        }, enable: isFieldEnabled('user.language', editMode)">
+        </span>
+        <div data-bind="formError: language"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: firstName.visible -->
+    <div class="control-group"
+       data-bind="css: { error: firstName.hasErrors}">
+      <label class="control-label"
+             for="user.firstName"
+             data-bind="translate: 'account.user.firstName'">
+      </label>
+      <div class="controls" id="user.firstName" data-bind="focus: 7">
+        <input type='text' name='user.firstName' data-bind="textInput: detailModel.firstName, enable: isFieldEnabled('user.firstName', editMode)" />
+        <div data-bind="formError: firstName"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: lastName.visible -->
+    <div class="control-group"
+       data-bind="css: { error: lastName.hasErrors}">
+      <label class="control-label"
+             for="user.lastName"
+             data-bind="translate: 'account.user.lastName'">
+      </label>
+      <div class="controls" id="user.lastName" data-bind="focus: 8">
+        <input type='text' name='user.lastName' data-bind="textInput: detailModel.lastName, enable: isFieldEnabled('user.lastName', editMode)" />
+        <div data-bind="formError: lastName"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: persNr.visible -->
+    <div class="control-group"
+       data-bind="css: { error: persNr.hasErrors}">
+      <label class="control-label"
+             for="user.persNr"
+             data-bind="translate: 'account.user.persNr'">
+      </label>
+      <div class="controls" id="user.persNr" data-bind="focus: 9">
+        <input type='text' name='user.persNr' data-bind="textInput: detailModel.persNr, enable: isFieldEnabled('user.persNr', editMode)" />
+        <div data-bind="formError: persNr"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: timeout.visible -->
+    <div class="control-group"
+       data-bind="css: { error: timeout.hasErrors}">
+      <label class="control-label"
+             for="user.timeout"
+             data-bind="translate: 'account.user.timeout'">
+      </label>
+      <div class="controls" id="user.timeout" data-bind="focus: 10">
+        <span data-bind="tagValue: {
+            field: detailModel.timeout,
+            tag: 'user_timeout'
+        }, enable: isFieldEnabled('user.timeout', editMode)">
+        </span>
+        <div data-bind="formError: timeout"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: account.visible -->
+    <div class="control-group"
+       data-bind="css: { error: account.hasErrors}">
+      <label class="control-label"
+             for="user.account"
+             data-bind="translate: 'account.user.account'">
+      </label>
+      <div class="controls" id="user.account" data-bind="focus: 11">
+        <span data-bind="selectDataRef: {
+            field: detailModel.account,
+            element: 'account.account',
+            hideDropdown: false
+        }, enable: isFieldEnabled('user.account', editMode)">
+        </span>
+        <div data-bind="formError: account"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: profile.visible -->
+    <div class="control-group"
+       data-bind="css: { error: profile.hasErrors}">
+      <label class="control-label"
+             for="user.profile"
+             data-bind="translate: 'account.user.profile'">
+      </label>
+      <div class="controls" id="user.profile" data-bind="focus: 12">
+        <span data-bind="selectDataRef: {
+            field: detailModel.profile,
+            element: 'account.profile',
+            hideDropdown: false
+        }, enable: isFieldEnabled('user.profile', editMode)">
+        </span>
+        <div data-bind="formError: profile"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: userGroups.visible -->
+    <div class="control-group"
+       data-bind="css: { error: userGroups.hasErrors}">
+      <label class="control-label"
+             for="user.userGroups"
+             data-bind="translate: 'account.user.userGroups'">
+      </label>
+      <div class="controls" id="user.userGroups" data-bind="focus: 13">
+        <span data-bind="selectManyToMany: {
+            field: detailModel.userGroups,
+            element: 'account.userGroup'
+        }, enable: isFieldEnabled('user.userGroups', editMode)">
+        </span>
+        <div data-bind="formError: userGroups"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: encryptedPassword.visible -->
+    <div class="control-group"
+       data-bind="css: { error: encryptedPassword.hasErrors}">
+      <label class="control-label"
+             for="user.encryptedPassword"
+             data-bind="translate: 'account.user.encryptedPassword'">
+      </label>
+      <div class="controls" id="user.encryptedPassword" data-bind="focus: 14">
+        <input type='password' name='user.encryptedPassword' data-bind='value: detailModel.encryptedPassword, enable: isFieldEnabled("user.encryptedPassword", editMode)' />
+        <div data-bind="formError: encryptedPassword"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

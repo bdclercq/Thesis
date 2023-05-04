@@ -1,0 +1,35 @@
+<table class="table table-striped table-bordered table-condensed">
+    <thead>
+    <tr>
+        <th data-bind="sortableColumn: {target: $parent, column: 'name'}">
+            <span data-bind="translate: 'ns.language.name'"></span>
+            <span class="sortable"></span>
+        </th>
+        <!-- anchor:status-titles:start -->
+        <th data-bind="sortableColumn: {target: $parent, column: 'code'}">
+            <span data-bind="translate: 'ns.language.code'"></span>
+            <span class="sortable"></span>
+        </th>
+
+        <th>
+            <span>status</span>
+        </th>
+        <!-- anchor:status-titles:end -->
+    </tr>
+    </thead>
+    <tbody data-bind="foreach: items">
+    <tr data-bind="click: $parent.selectRow, css: {'info': $parent.isSelectedItem($data)}">
+        <td>
+            <span data-bind="text: name"></span>
+        </td>
+        <td>
+            <span data-bind='text: code'></span>
+        </td>
+        <td>
+            <span data-bind="if: hasTranslation">
+                <span><span class="icon-ok"></span></span>
+            </span>
+        </td>
+    </tr>
+    </tbody>
+</table>

@@ -1,0 +1,1 @@
+define(["require","exports","knockout"],(function(e,i,n){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.defineBundledTrigger=void 0;i.defineBundledTrigger=function(){var e=n.observable();function i(i){e(i)}return e.extend({notify:"always",rateLimit:10}),{addTrigger:function(e){e.subscribe(i)},subscribe:function(i){e.subscribe(i)}}}}));

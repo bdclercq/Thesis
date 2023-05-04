@@ -1,0 +1,64 @@
+.modal-backdrop {
+  opacity: .1;
+}
+
+.nsx-search-dialog {
+  z-index: 5000;
+}
+
+.nsx-dropdown {
+  /* 5 items */
+  max-height: 125px;
+  overflow: auto;
+}
+
+.nsx-title {
+  color: #953B46;
+}
+
+.nsx-icon {
+  color: #00315B;
+}
+
+span.nsx-clear-button {
+  position: relative;
+}
+
+span.nsx-clear-button a {
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  font-size: 14px;
+  color: darkgrey;
+}
+
+input.nsx-page {
+  margin-bottom: 2px;
+  width: 32px;
+  text-align: right;
+  height: 18px;
+}
+
+.nsx-multiselect-item {
+  cursor: pointer;
+  background-color: #eee;
+  padding: 2px 5px 2px 5px;
+  vertical-align: middle;
+  border-radius: 7px;
+  white-space: nowrap;
+  margin-right: 5px;
+}
+
+.nsx-multiselect-item > span {
+  max-width: 178px;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.nsx-multiselect-item > span.nsx-multiselect-item-close {
+  color: darkgrey;
+}

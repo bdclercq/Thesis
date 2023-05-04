@@ -1,0 +1,1 @@
+"use strict";define(["jquery","knockout","nsx/view/dynamicTable"],(function(n,e,i){e.bindingHandlers.elementList={init:function(t,o,r,c,d){var a=e.unwrap(o()),l=a.model,s=a.projection||l.getFieldProvider(),u=i.createFromProjection(s);return n(t).html(u),e.applyBindings(l,u),{controlsDescendantBindings:!0}},update:function(n,e,i,t,o){console.log("updating")}}}));

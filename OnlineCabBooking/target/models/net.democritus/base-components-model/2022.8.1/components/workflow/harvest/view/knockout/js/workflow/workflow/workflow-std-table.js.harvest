@@ -1,0 +1,8 @@
+-- anchor:custom-list:start
+    listView.items.subscribe(function (items) {
+      if (items.length > 0 && !listView.selection()) {
+        var item = items[0];
+        item.select.trigger();
+      }
+    });
+-- anchor:custom-list:end

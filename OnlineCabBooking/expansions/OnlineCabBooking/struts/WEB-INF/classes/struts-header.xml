@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+
+<struts>
+  <constant name="struts.action.excludePattern" value="
+    // @anchor:exclude-pattern:start ,
+    // @anchor:exclude-pattern:end ,
+    // anchor:custom-exclude-pattern:start ,
+    // anchor:custom-exclude-pattern:end ,
+  "/>
+
+  <!-- @anchor:constants:start -->
+  <!-- @anchor:constants:end -->
+  <!-- anchor:custom-constants:start -->
+  <!-- anchor:custom-constants:end -->
+
+  <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+  <constant name="struts.devMode" value="false"/>
+
+  <package name="nsx-json-default" namespace="/" extends="json-default">
+    <interceptors>
+      <interceptor name="nsxJsonInterceptor" class="net.democritus.json.NSXJsonInterceptor"/>
+      <interceptor name="jsonResponseHeadersInterceptor" class="net.democritus.json.JsonResponseHeadersInterceptor"/>
+      <interceptor name="noCachingInterceptor" class="net.democritus.security.interceptor.NoCachingInterceptor"/>
+      <!-- @anchor:json-interceptors:start -->
+      <interceptor name="accessInfoInterceptor" class="net.democritus.web.interceptor.AccessInfoInterceptor"/>
+
+      <interceptor-stack name="accessInfoStack">
+        <!-- anchor:custom-access-info-stack:start -->
+        <!-- anchor:custom-access-info-stack:end -->
+        <interceptor-ref name="accessInfoInterceptor"/>
+        <interceptor-ref name="noCachingInterceptor"/>
+        <interceptor-ref name="jsonResponseHeadersInterceptor"/>
+        <interceptor-ref name="defaultStack"/>
+      </interceptor-stack>
+      <!-- @anchor:json-interceptors:end -->
+      <!-- anchor:custom-json-interceptors:start -->
+      <!-- anchor:custom-json-interceptors:end -->
+
+      <interceptor-stack name="jsonEntererStack">
+        <!-- @anchor:json-enterer-stack:start -->
+        <interceptor-ref name="accessInfoInterceptor"/>
+        <!-- @anchor:json-enterer-stack:end -->
+        <!-- anchor:custom-json-enterer-stack:start -->
+        <!-- anchor:custom-json-enterer-stack:end -->
+        <interceptor-ref name="fileUpload"/>
+        <interceptor-ref name="basicStack"/>
+        <interceptor-ref name="nsxJsonInterceptor">
+          <!-- getJsonRoot() must be defined on the enterer action -->
+          <param name="root">jsonRoot</param>
+        </interceptor-ref>
+        <interceptor-ref name="conversionError"/>
+        <interceptor-ref name="validation">
+          <param name="excludeMethods">input,back,cancel</param>
+        </interceptor-ref>
+        <interceptor-ref name="workflow"/>
+        <interceptor-ref name="jsonResponseHeadersInterceptor"/>
+      </interceptor-stack>
+
+      <interceptor-stack name="jsonFinderStack">
+        <!-- @anchor:json-finder-stack:start -->
+        <interceptor-ref name="accessInfoInterceptor"/>
+        <!-- @anchor:json-finder-stack:end -->
+        <!-- anchor:custom-json-finder-stack:start -->
+        <!-- anchor:custom-json-finder-stack:end -->
+        <interceptor-ref name="fileUpload"/>
+        <interceptor-ref name="basicStack"/>
+        <interceptor-ref name="nsxJsonInterceptor"/>
+        <interceptor-ref name="conversionError"/>
+        <interceptor-ref name="validation">
+          <param name="excludeMethods">input,back,cancel</param>
+        </interceptor-ref>
+        <interceptor-ref name="workflow"/>
+        <interceptor-ref name="noCachingInterceptor"/>
+        <interceptor-ref name="jsonResponseHeadersInterceptor"/>
+      </interceptor-stack>
+
+      <interceptor-stack name="jsonCommandStack">
+        <!-- @anchor:json-command-stack:start -->
+        <interceptor-ref name="accessInfoInterceptor"/>
+        <!-- @anchor:json-command-stack:end -->
+        <!-- anchor:custom-json-command-stack:start -->
+        <!-- anchor:custom-json-command-stack:end -->
+        <interceptor-ref name="fileUpload"/>
+        <interceptor-ref name="basicStack"/>
+        <interceptor-ref name="nsxJsonInterceptor"/>
+        <interceptor-ref name="conversionError"/>
+        <interceptor-ref name="validation">
+          <param name="excludeMethods">input,back,cancel</param>
+        </interceptor-ref>
+        <interceptor-ref name="workflow"/>
+        <interceptor-ref name="jsonResponseHeadersInterceptor"/>
+      </interceptor-stack>
+    </interceptors>
+
+    <!-- @anchor:json-package:start -->
+    <default-interceptor-ref name="accessInfoStack"/>
+    <!-- @anchor:json-package:end -->
+    <!-- anchor:custom-json-package:start -->
+    <!-- anchor:custom-json-package:end -->
+  </package>
+
+  <package name="nsx-json-application" namespace="/" extends="json-default">
+    <action name="translate-json" class="net.democritus.utils.action.TranslateTextAction" method="execute">
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- takes 2 parameters:
+    application: the name of the menu file
+    role:        the rolename of the menu. If the role is not found the 'default' role is selected
+     -->
+    <action name="menu-json" class="net.palver.navigation.action.GetMenuAction" method="execute">
+      <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- takes 1 parameter: component#element
+         returns all finders for the data element
+    -->
+    <action name="findersForDataElement-json" class="net.democritus.metadata.action.GetFindersForDataElementAction" method="execute">
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- takes 1 parameter: component -->
+    <action name="getComponentMetaData-json" class="net.democritus.metadata.action.GetComponentMetaDataAction" method="execute">
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- takes 2 parameters:
+        component
+        dataElement
+     -->
+    <action name="getDataElementMetaData-json" class="net.democritus.metadata.action.GetDataElementMetaDataAction" method="execute">
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name="getApplicationProperties-json" class="net.democritus.metadata.action.GetApplicationPropertiesAction" method="execute">
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name="request-nonce-json" class="net.democritus.security.action.RequestNonceAction" method="execute">
+      <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- takes 2 parameters:
+    application: the name of the mindmap file
+    role:        the rolename of the mindmap. If the role is not found the 'default' role is selected
+     -->
+    <action name="mindmap-json" class="net.palver.mindmap.action.GetMindmapAction" method="execute">
+      <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+  </package>
+
+  <package name="nsx-default" namespace="/" extends="struts-default">
+    <interceptors>
+      <interceptor name="noCachingInterceptor" class="net.democritus.security.interceptor.NoCachingInterceptor"/>
+      <!-- @anchor:interceptors:start -->
+      <interceptor name="accessInfoInterceptor" class="net.democritus.web.interceptor.AccessInfoInterceptor"/>
+      <interceptor name="screenInfoInterceptor" class="net.democritus.web.interceptor.ScreenInfoInterceptor"/>
+      <interceptor name="defaultStyleInterceptor" class="net.democritus.web.interceptor.DefaultStyleInterceptor"/>
+      <interceptor-stack name="accessInfoDefaultStyleStack">
+        <!-- anchor:custom-access-info-default-style-stack:start -->
+        <!-- anchor:custom-access-info-default-style-stack:end -->
+        <interceptor-ref name="accessInfoInterceptor"/>
+        <interceptor-ref name="screenInfoInterceptor"/>
+        <interceptor-ref name="defaultStyleInterceptor"/>
+        <interceptor-ref name="noCachingInterceptor"/>
+        <interceptor-ref name="defaultStack"/>
+      </interceptor-stack>
+      <!-- @anchor:interceptors:end -->
+      <!-- anchor:custom-interceptors:start -->
+      <!-- anchor:custom-interceptors:end -->
+    </interceptors>
+
+    <default-interceptor-ref name="accessInfoDefaultStyleStack"/>
+
+    <default-action-ref name="index"/>
+
+    <global-results>
+      <!-- @anchor:nsx-default-global-results:start -->
+      <result name="login" type="redirectAction">
+        <!-- name="login": see Action.LOGIN -->
+        <param name="namespace">/</param>
+        <param name="actionName">relogin</param>
+      </result>
+      <!-- @anchor:nsx-default-global-results:end -->
+      <!-- anchor:custom-nsx-default-global-results:start -->
+      <!-- anchor:custom-nsx-default-global-results:end -->
+    </global-results>
+
+    <action name="index">
+      <result type="redirectAction">
+        <param name="namespace">/</param>
+        <param name="actionName">login</param>
+      </result>
+    </action>
+  </package>
+
+  <package name="nsx-login" namespace="/" extends="struts-default">
+    <interceptors>
+      <!-- @anchor:login-interceptors:start -->
+      <interceptor name="defaultStyleInterceptor" class="net.democritus.web.interceptor.DefaultStyleInterceptor"/>
+      <interceptor-stack name="accessInfoStack">
+        <interceptor-ref name="defaultStyleInterceptor"/>
+        <interceptor-ref name="defaultStack"/>
+      </interceptor-stack>
+      <!-- @anchor:login-interceptors:end -->
+      <!-- anchor:custom-login-interceptors:start -->
+      <!-- anchor:custom-login-interceptors:end -->
+    </interceptors>
+
+    <!-- @anchor:login-default-interceptors:start -->
+    <default-interceptor-ref name="accessInfoStack"/>
+    <!-- @anchor:login-default-interceptors:end -->
+
+    <global-results>
+      <result name="login" type="redirectAction">
+        <!-- name="login": see Action.LOGIN -->
+        <!-- type="redirectAction": give defaultStyleInterceptor another shot -->
+        <param name="namespace">/</param>
+        <param name="actionName">relogin</param>
+      </result>
+    </global-results>
+
+    <!-- @anchor:login-package:start -->
+    <action name="login" class="net.democritus.web.action.SessionTerminatorAction" method="execute">
+      <result name="login">/jsp/login.jsp</result>
+    </action>
+
+    <action name="relogin" class="net.democritus.web.action.SessionTerminatorAction" method="execute">
+      <result name="login">/jsp/relogin.jsp</result>
+    </action>
+
+    <action name="welcome" class="net.democritus.web.action.LoginValidatorAction" method="execute">
+      <result name="success">/jsp/welcome.jsp</result>
+      <result name="redirect" type="redirect">${destinationUrl}</result>
+      <result name="duplicate">/jsp/duplicateSession.jsp</result>
+    </action>
+
+    <action name="noDownload">
+      <result name="success">/jsp/noDownload.jsp</result>
+    </action>
+
+    <action name="do-logout" class="net.democritus.web.action.LogoutAction" method="execute">
+      <result name="redirect" type="redirect">${destinationUrl}</result>
+      <result name="success" type="redirectAction">
+        <!-- redirect to /login will terminate session -->
+        <param name="namespace">/</param>
+        <param name="actionName">login</param>
+      </result>
+    </action>
+
+    <action name="removeSession" class="net.democritus.web.action.RemoteSessionTerminatorAction" method="execute">
+      <result name="success">/jsp/login.jsp</result>
+    </action>
+    <!-- @anchor:login-package:end -->
+    <!-- anchor:custom-login-package:start -->
+    <!-- anchor:custom-login-package:end -->
+  </package>
+
+  <package name="downloads" namespace="/" extends="nsx-default">
+    <action name='download' class='net.palver.struts2.action.DownloadAction' method='execute'>
+      <result name="success" type="stream">
+        <param name="contentType">${contentType}</param>
+        <param name="contentLength">${contentLength}</param>
+        <param name="inputName">downloadStream</param>
+        <param name="contentDisposition">attachment;filename="${fileName}"</param>
+        <param name="bufferSize">1024</param>
+      </result>
+      <result name='error' type='redirectAction'>
+        <param name="namespace">/</param>
+        <param name="actionName">noDownload</param>
+      </result>
+    </action>
+  </package>
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+  <!-- anchor:custom-packages:end -->
+</struts>

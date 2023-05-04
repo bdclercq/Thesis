@@ -1,0 +1,10 @@
+<div class="dropdown">
+  <span class="dropdown-toggle btn" data-toggle="dropdown">
+    <span data-bind="text: label"></span> <span class="caret"></span>
+  </span>
+  <div class="dropdown-menu">
+    <!--ko foreach: buttons-->
+    <div data-bind="template: {name: view, data: viewModel, if: visible}"></div>
+    <!--/ko-->
+  </div>
+</div>

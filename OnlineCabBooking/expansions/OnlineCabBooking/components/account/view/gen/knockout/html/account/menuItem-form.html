@@ -1,0 +1,85 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="menuItem.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: menu.visible -->
+    <div class="control-group"
+       data-bind="css: { error: menu.hasErrors}">
+      <label class="control-label"
+             for="menuItem.menu"
+             data-bind="translate: 'account.menuItem.menu'">
+      </label>
+      <div class="controls" id="menuItem.menu" data-bind="focus: 1">
+        <span data-bind="selectDataRef: {
+            field: detailModel.menu,
+            element: 'account.menu',
+            hideDropdown: false
+        }, enable: isFieldEnabled('menuItem.menu', editMode)">
+        </span>
+        <div data-bind="formError: menu"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: screen.visible -->
+    <div class="control-group"
+       data-bind="css: { error: screen.hasErrors}">
+      <label class="control-label"
+             for="menuItem.screen"
+             data-bind="translate: 'account.menuItem.screen'">
+      </label>
+      <div class="controls" id="menuItem.screen" data-bind="focus: 2">
+        <span data-bind="selectDataRef: {
+            field: detailModel.screen,
+            element: 'account.screen',
+            hideDropdown: false
+        }, enable: isFieldEnabled('menuItem.screen', editMode)">
+        </span>
+        <div data-bind="formError: screen"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: menuItem.visible -->
+    <div class="control-group"
+       data-bind="css: { error: menuItem.hasErrors}">
+      <label class="control-label"
+             for="menuItem.menuItem"
+             data-bind="translate: 'account.menuItem.menuItem'">
+      </label>
+      <div class="controls" id="menuItem.menuItem" data-bind="focus: 3">
+        <span data-bind="selectDataRef: {
+            field: detailModel.menuItem,
+            element: 'account.menuItem',
+            hideDropdown: true
+        }, enable: isFieldEnabled('menuItem.menuItem', editMode)">
+        </span>
+        <div data-bind="formError: menuItem"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: sortOrder.visible -->
+    <div class="control-group"
+       data-bind="css: { error: sortOrder.hasErrors}">
+      <label class="control-label"
+             for="menuItem.sortOrder"
+             data-bind="translate: 'account.menuItem.sortOrder'">
+      </label>
+      <div class="controls" id="menuItem.sortOrder" data-bind="focus: 4">
+        <span data-bind='integerInput: detailModel.sortOrder, enable: isFieldEnabled("menuItem.sortOrder", editMode)'></span>
+        <div data-bind="formError: sortOrder"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

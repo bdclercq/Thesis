@@ -1,0 +1,26 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('dataAccess.forProfile', editMode), css: { error: detailModel.forProfile.hasErrors}">
+    <label class="control-label"
+           for="dataAccess.forProfile"
+           data-bind="translate: 'account.dataAccess.forProfile'">
+    </label>
+    <div class="controls" id="dataAccess.forProfile" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.forProfile,
+          element: 'account.profile',
+          hideDropdown: false
+      }, enable: isFieldEnabled('dataAccess.forProfile', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.forProfile.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.forProfile.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

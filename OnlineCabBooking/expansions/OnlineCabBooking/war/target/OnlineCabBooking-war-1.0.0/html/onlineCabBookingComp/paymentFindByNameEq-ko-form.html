@@ -1,0 +1,21 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('payment.name', editMode), css: { error: detailModel.name.hasErrors}">
+    <label class="control-label"
+           for="payment.name"
+           data-bind="translate: 'onlineCabBookingComp.payment.name'">
+    </label>
+    <div class="controls" id="payment.name" data-bind="focus: 1">
+      <input type='text' name='payment.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('payment.name', editMode)" />
+      <div data-bind="visible: detailModel.name.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.name.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

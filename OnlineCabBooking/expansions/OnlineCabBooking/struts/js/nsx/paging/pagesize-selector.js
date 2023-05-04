@@ -1,0 +1,1 @@
+define(["require","exports","knockout"],(function(e,i,r){"use strict";Object.defineProperty(i,"__esModule",{value:!0}),i.definePagesizeSelector=void 0,i.definePagesizeSelector=function(e){var i=(e=e||{}).pageSizes||[2,3,5,7,10,20];return{pageSize:r.observable(e.default||7),pageSizes:i}}}));

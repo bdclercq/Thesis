@@ -1,0 +1,74 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="execution.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="execution.name"
+             data-bind="translate: 'utils.execution.name'">
+      </label>
+      <div class="controls" id="execution.name" data-bind="focus: 1">
+        <span data-bind="tagValue: {
+            field: detailModel.name,
+            tag: 'execution_name'
+        }, enable: isFieldEnabled('execution.name', editMode)">
+        </span>
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: component.visible -->
+    <div class="control-group"
+       data-bind="css: { error: component.hasErrors}">
+      <label class="control-label"
+             for="execution.component"
+             data-bind="translate: 'utils.execution.component'">
+      </label>
+      <div class="controls" id="execution.component" data-bind="focus: 2">
+        <input type='text' name='execution.component' data-bind="textInput: detailModel.component, enable: isFieldEnabled('execution.component', editMode)" />
+        <div data-bind="formError: component"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: element.visible -->
+    <div class="control-group"
+       data-bind="css: { error: element.hasErrors}">
+      <label class="control-label"
+             for="execution.element"
+             data-bind="translate: 'utils.execution.element'">
+      </label>
+      <div class="controls" id="execution.element" data-bind="focus: 3">
+        <input type='text' name='execution.element' data-bind="textInput: detailModel.element, enable: isFieldEnabled('execution.element', editMode)" />
+        <div data-bind="formError: element"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: packageName.visible -->
+    <div class="control-group"
+       data-bind="css: { error: packageName.hasErrors}">
+      <label class="control-label"
+             for="execution.packageName"
+             data-bind="translate: 'utils.execution.packageName'">
+      </label>
+      <div class="controls" id="execution.packageName" data-bind="focus: 4">
+        <input type='text' name='execution.packageName' data-bind="textInput: detailModel.packageName, enable: isFieldEnabled('execution.packageName', editMode)" />
+        <div data-bind="formError: packageName"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

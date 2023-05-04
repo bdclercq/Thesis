@@ -1,0 +1,229 @@
+<dataElement name="Notifier">
+  <packageName>net.democritus.comm</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="subject">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Onderwerp</hasTranslation>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="toAddresses">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>To adressen</hasTranslation>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="ccAddresses">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Cc adressen</hasTranslation>
+      </options>
+    </field>
+    <field name="bccAddresses">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Bcc adressen</hasTranslation>
+      </options>
+    </field>
+    <field name="content">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Inhoud</hasTranslation>
+      </options>
+    </field>
+    <field name="attachment">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Bijlage</hasTranslation>
+      </options>
+    </field>
+    <field name="priority">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>true</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Prioriteit</hasTranslation>
+      </options>
+    </field>
+    <field name="createdAt">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Date"/>
+      </valueField>
+      <options>
+        <hasTranslation>Aangemaakt op</hasTranslation>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="sentAt">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Date"/>
+      </valueField>
+      <options>
+        <hasTranslation>Verzonden op</hasTranslation>
+        <isExposedField/>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="status">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>true</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isExposedField/>
+        <isShowInfo/>
+        <isStatusField/>
+      </options>
+    </field>
+    <field name="fromAddress">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findAllNotifiers"/>
+    <finder name="findByAttachmentEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:attachment">
+          <operator>Eq</operator>
+          <field name="attachment"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op bijlage</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByBccAddressesEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:bccAddresses">
+          <operator>Eq</operator>
+          <field name="bccAddresses"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op bcc adressen</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByCcAddressesEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:ccAddresses">
+          <operator>Eq</operator>
+          <field name="ccAddresses"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op cc adressen</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByContentEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:content">
+          <operator>Eq</operator>
+          <field name="content"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op inhoud</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByPriorityEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:priority">
+          <operator>Eq</operator>
+          <field name="priority"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op prioriteit</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByStatusEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:status">
+          <operator>Eq</operator>
+          <field name="status"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op status</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findBySubjectEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:subject">
+          <operator>Eq</operator>
+          <field name="subject"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op onderwerp</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByToAddressesEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:toAddresses">
+          <operator>Eq</operator>
+          <field name="toAddresses"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op to adressen</hasTranslation>
+      </options>
+    </finder>
+  </finders>
+</dataElement>

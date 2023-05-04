@@ -1,0 +1,31 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="payment.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: statusPayed.visible -->
+    <div class="control-group"
+       data-bind="css: { error: statusPayed.hasErrors}">
+      <label class="control-label"
+             for="payment.statusPayed"
+             data-bind="translate: 'onlineCabBookingComp.payment.statusPayed'">
+      </label>
+      <div class="controls" id="payment.statusPayed" data-bind="focus: 1">
+        <input type='checkbox' name='payment.statusPayed' data-bind='checked: detailModel.statusPayed, enable: isFieldEnabled("payment.statusPayed", editMode)'/>
+        <div data-bind="formError: statusPayed"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

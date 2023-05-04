@@ -1,0 +1,31 @@
+<dataElement name="Customer">
+  <packageName>cabBookingCore</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="journeyStatus">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Boolean"/>
+      </valueField>
+    </field>
+    <field name="person">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Person"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findByUsername">
+      <options>
+        <isCustomFinder/>
+      </options>
+    </finder>
+    <finder name="findAllCustomer"/>
+  </finders>
+</dataElement>

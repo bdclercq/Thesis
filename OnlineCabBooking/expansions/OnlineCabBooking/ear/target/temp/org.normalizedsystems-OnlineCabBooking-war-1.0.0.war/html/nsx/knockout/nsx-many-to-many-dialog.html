@@ -1,0 +1,95 @@
+<span>
+  <span data-bind="with: sourceModel">
+    <!-- ko if: $data.searching.hasFinderSelection -->
+    <div class="row-fluid" data-bind="visible: searching.isFinderVisible" style="display: none">
+      <div class="span12">
+        <div class="well">
+          <span data-bind="with: searching.finderSelectionModel">
+            <span data-bind="finderPanel: selectedFinder"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- /ko -->
+  </span>
+
+  <div class="row-fluid">
+
+    <div class="span6" data-bind="with: sourceModel">
+
+      <button type="button" class="btn" data-bind="click: searching.toggleFinder, visible: searching.hasFinderSelection">
+        <span class="icon-search"></span>
+      </button> 
+
+
+      <span data-bind="visible: paging.hasMultiplePages">
+        <button type="button" class="btn" data-bind="click: paging.previousPage, enable: paging.hasPreviousPage">
+          <span class="icon-chevron-up"></span>
+        </button>
+        
+        <button type="button" class="btn" data-bind="click: paging.nextPage, enable: paging.hasNextPage">
+          <span class="icon-chevron-down"></span>
+        </button>
+        
+        <span>&nbsp;Page: </span>
+        <span data-bind="text: paging.currentPage"></span> 
+        of
+        <span data-bind="text: paging.numberOfPages"></span>
+      </span>
+      
+      <table class="table table-striped table-bordered table-condensed" data-bind="with: listModel">
+        <thead>
+          <tr>
+            <th width="20px">&nbsp;</th>
+            <th>name</th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: items">
+          <tr data-bind="click: $parent.selectRow, css: {'info': $parent.isSelectedItem($data)}">
+            <td style="text-align: center">
+              <span data-bind="visible: $parent.isItemUsed($data)">
+                <span class="icon-angle-right"></span>
+              </span>
+            </td>
+            <td data-bind="text: name"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="span6" data-bind="with: targetModel">
+      <span data-bind="visible: true || hasMultiplePages">
+        <button type="button" class="btn" data-bind="click: previousPage, enable: hasPreviousPage">
+          <span class="icon-chevron-up"></span>
+          <span><s:text name="ns.previousPage"/></span>
+        </button>
+        
+        <button type="button" class="btn" data-bind="click: nextPage, enable: hasNextPage">
+          <span class="icon-chevron-down"></span>
+          <span><s:text name="ns.nextPage"/></span>
+        </button>
+        
+        <span>&nbsp;Page: </span>
+        <span data-bind="text: currentPage()"></span> 
+        of
+        <span data-bind="text: numberOfPages"></span>
+      </span>
+
+      <table class="table table-striped table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th width="20px">&nbsp;</th>
+            <th>name</th>
+          </tr>
+        </thead>
+        <tbody data-bind="foreach: items">
+          <tr data-bind="click: $parent.selectRow, css: {'info': $parent.isSelectedItem($data)}">
+            <td>&nbsp;</td>
+            <td data-bind="text: name"></td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+</span>

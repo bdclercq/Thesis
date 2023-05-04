@@ -1,0 +1,130 @@
+-- anchor:custom-imports:start
+import account.settings.AccountApplicationSettings;
+
+import net.democritus.jndi.ComponentJNDI;
+import net.democritus.sys.BasicProcessingContext;
+import net.democritus.sys.Context;
+import net.democritus.sys.TaskPerformer;
+import net.democritus.usr.UserContextWithRights;
+
+import javax.naming.NamingException;
+-- anchor:custom-imports:end
+-- anchor:custom-variables:start
+  private TaskPerformer<DataAccessRights, DataAccessQuery> dataAuthorization = getDataAuthorizationBean();
+  private TaskPerformer<TaskAccessRights, DataAccessQuery> taskAuthorization = getTaskAuthorizationBean();
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  @Override
+  public TaskResult<DataAccessRights> getDataAccessRights(ParameterContext<DataAccessQuery> accessParameter) {
+    DataAccessQuery accessQuery = accessParameter.getValue();
+    UserContext userContext = accessParameter.getUserContext();
+
+    if (userContext instanceof UserContextWithRights) {
+      AccessRightCacheResult cacheEntry = ((UserContextWithRights) userContext).getAccessRights().getAccessRight(accessQuery);
+      if (cacheEntry.isFound()) {
+        return TaskResult.success((DataAccessRights) cacheEntry.getAccessRights());
+      }
+    }
+
+    TaskResult<DataAccessRights> taskResult = retrieveDataAccessRights(accessQuery, accessParameter.getContext());
+
+    if (taskResult.isSuccess() && userContext instanceof UserContextWithRights) {
+      DataAccessRights dataAccessRights = taskResult.getValue();
+      ((UserContextWithRights) userContext).getAccessRights().registerAccessRights(accessQuery, dataAccessRights);
+    }
+    return taskResult;
+  }
+
+  @Override
+  public TaskResult<TaskAccessRights> getTaskAccessRights(ParameterContext<DataAccessQuery> accessParameter) {
+    DataAccessQuery accessQuery = accessParameter.getValue();
+    UserContext userContext = accessParameter.getUserContext();
+
+    if (userContext instanceof UserContextWithRights) {
+      AccessRightCacheResult cacheEntry = ((UserContextWithRights) userContext).getAccessRights().getAccessRight(accessQuery);
+      if (cacheEntry.isFound()) {
+        return TaskResult.success((TaskAccessRights) cacheEntry.getAccessRights());
+      }
+    }
+
+    TaskResult<TaskAccessRights> taskResult = retrieveTaskAccessRights(accessQuery, accessParameter.getContext());
+
+    if (taskResult.isSuccess() && userContext instanceof UserContextWithRights) {
+      TaskAccessRights taskAccessRights = taskResult.getValue();
+      ((UserContextWithRights) userContext).getAccessRights().registerAccessRights(accessQuery, taskAccessRights);
+    }
+    return taskResult;
+  }
+
+  private TaskResult<DataAccessRights> retrieveDataAccessRights(DataAccessQuery accessQuery, Context context) {
+    ProcessingContext processingContext = new BasicProcessingContext(
+        getDataAuthorizationImplementation(),
+        getDataAuthorizationParams());
+
+    ParameterContext<DataAccessQuery> parameterContext = context
+        .extend(processingContext)
+        .withParameter(accessQuery);
+
+    return dataAuthorization.perform(parameterContext);
+  }
+
+  private TaskResult<TaskAccessRights> retrieveTaskAccessRights(DataAccessQuery accessQuery, Context context) {
+    ProcessingContext processingContext = new BasicProcessingContext(
+        getTaskAuthorizationImplementation(),
+        getTaskAuthorizationParams());
+
+    ParameterContext<DataAccessQuery> parameterContext = context
+        .extend(processingContext)
+        .withParameter(accessQuery);
+
+    return taskAuthorization.perform(parameterContext);
+  }
+
+  private String getDataAuthorizationImplementation() {
+    return AccountApplicationSettings.getProperty("authorization.data.implementation").orElse("net.democritus.acl.DataAuthorizationImpl");
+  }
+
+  private String getDataAuthorizationParams() {
+    return AccountApplicationSettings.getProperty("authorization.data.params").orElse("");
+  }
+
+  private String getTaskAuthorizationImplementation() {
+    return AccountApplicationSettings.getProperty("authorization.task.implementation").orElse("net.democritus.acl.TaskAuthorizationImpl");
+  }
+
+  private String getTaskAuthorizationParams() {
+    return AccountApplicationSettings.getProperty("authorization.task.params").orElse("");
+  }
+
+  private TaskPerformer<TaskAccessRights, DataAccessQuery> getTaskAuthorizationBean() {
+    ComponentJNDI componentJNDI = ComponentJNDI.getComponentJNDI("account");
+    String localName = componentJNDI.getTaskLocalName("TaskAuthorization");
+    String remoteName = componentJNDI.getTaskRemoteName("TaskAuthorization");
+
+    try {
+      return componentJNDI.lookupLocal(localName);
+    } catch (NamingException e) {
+      try {
+        return componentJNDI.lookupRemote(remoteName);
+      } catch (NamingException e1) {
+        throw new IllegalStateException("Cannot find local or remote task authorization bean", e1);
+      }
+    }
+  }
+
+  private TaskPerformer<DataAccessRights, DataAccessQuery> getDataAuthorizationBean() {
+    ComponentJNDI componentJNDI = ComponentJNDI.getComponentJNDI("account");
+    String localName = componentJNDI.getTaskLocalName("DataAuthorization");
+    String remoteName = componentJNDI.getTaskRemoteName("DataAuthorization");
+
+    try {
+      return componentJNDI.lookupLocal(localName);
+    } catch (NamingException e) {
+      try {
+        return componentJNDI.lookupRemote(remoteName);
+      } catch (NamingException e1) {
+        throw new IllegalStateException("Cannot find local or remote data authorization bean", e1);
+      }
+    }
+  }
+-- anchor:custom-methods:end

@@ -1,0 +1,21 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('timeWindowGroup.visible', editMode), css: { error: detailModel.visible.hasErrors}">
+    <label class="control-label"
+           for="timeWindowGroup.visible"
+           data-bind="translate: 'workflow.timeWindowGroup.visible'">
+    </label>
+    <div class="controls" id="timeWindowGroup.visible" data-bind="focus: 1">
+      <input type='text' name='timeWindowGroup.visible' data-bind="textInput: detailModel.visible, enable: isFieldEnabled('timeWindowGroup.visible', editMode)" />
+      <div data-bind="visible: detailModel.visible.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.visible.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

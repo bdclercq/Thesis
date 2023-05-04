@@ -1,0 +1,19 @@
+-- anchor:custom-calculation-downloadLink:start
+    result = "/assets/asset/download?fileId=" + assetData.getFileId();
+-- anchor:custom-calculation-downloadLink:end
+-- anchor:custom-calculation-fileSize:start
+    Long byteSize = assetData.getByteSize();
+
+    if (byteSize == null) {
+      result = "-";
+    } else if (byteSize > 1024*1024) {
+      double sizeInMb = byteSize / (1024d * 1024d);
+      double sizeRounded = Math.round(sizeInMb * 100d) / 100d;
+      result = sizeRounded + " MB";
+    } else if (byteSize > 1024) {
+      int sizeInKb = (int) Math.round(byteSize / 1024d);
+      result = sizeInKb + " KB";
+    } else {
+      result = byteSize + " B";
+    }
+-- anchor:custom-calculation-fileSize:end

@@ -1,0 +1,228 @@
+<dataElement name="Account">
+  <packageName>net.democritus.usr</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="name">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Naam</hasTranslation>
+        <isNameField/>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="refId">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="fullName">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Volledige naam</hasTranslation>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="address">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Adres</hasTranslation>
+      </options>
+    </field>
+    <field name="zipCode">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Postcode</hasTranslation>
+      </options>
+    </field>
+    <field name="city">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Gemeente</hasTranslation>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="country">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Land</hasTranslation>
+      </options>
+    </field>
+    <field name="email">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>E-mail</hasTranslation>
+      </options>
+    </field>
+    <field name="phone">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Telefoon</hasTranslation>
+      </options>
+    </field>
+    <field name="style">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>true</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Stijl</hasTranslation>
+      </options>
+    </field>
+    <field name="status">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+        <isStatusField/>
+      </options>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findAllAccounts"/>
+    <finder name="findByAddressEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:address">
+          <operator>Eq</operator>
+          <field name="address"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op adres</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByCityEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:city">
+          <operator>Eq</operator>
+          <field name="city"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op gemeente</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByCountryEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:country">
+          <operator>Eq</operator>
+          <field name="country"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op land</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByEmailEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:email">
+          <operator>Eq</operator>
+          <field name="email"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op E-mail</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByFullNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:fullName">
+          <operator>Eq</operator>
+          <field name="fullName"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op volledige naam</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+          <field name="name"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByRefIdEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:refId">
+          <operator>Eq</operator>
+          <field name="refId"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByStatusEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:status">
+          <operator>Eq</operator>
+          <field name="status"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByZipCodeEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:zipCode">
+          <operator>Eq</operator>
+          <field name="zipCode"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op postcode</hasTranslation>
+      </options>
+    </finder>
+  </finders>
+  <options>
+    <includeCsvImport/>
+  </options>
+</dataElement>

@@ -1,0 +1,100 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="engineNode.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="engineNode.name"
+             data-bind="translate: 'workflow.engineNode.name'">
+      </label>
+      <div class="controls" id="engineNode.name" data-bind="focus: 1">
+        <input type='text' name='engineNode.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('engineNode.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: status.visible -->
+    <div class="control-group"
+       data-bind="css: { error: status.hasErrors}">
+      <label class="control-label"
+             for="engineNode.status"
+             data-bind="translate: 'workflow.engineNode.status'">
+      </label>
+      <div class="controls" id="engineNode.status" data-bind="focus: 2">
+        <span data-bind="tagValue: {
+            field: detailModel.status,
+            tag: 'engineNode_status'
+        }, enable: isFieldEnabled('engineNode.status', editMode)">
+        </span>
+        <div data-bind="formError: status"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: hostname.visible -->
+    <div class="control-group"
+       data-bind="css: { error: hostname.hasErrors}">
+      <label class="control-label"
+             for="engineNode.hostname"
+             data-bind="translate: 'workflow.engineNode.hostname'">
+      </label>
+      <div class="controls" id="engineNode.hostname" data-bind="focus: 3">
+        <input type='text' name='engineNode.hostname' data-bind="textInput: detailModel.hostname, enable: isFieldEnabled('engineNode.hostname', editMode)" />
+        <div data-bind="formError: hostname"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: master.visible -->
+    <div class="control-group"
+       data-bind="css: { error: master.hasErrors}">
+      <label class="control-label"
+             for="engineNode.master"
+             data-bind="translate: 'workflow.engineNode.master'">
+      </label>
+      <div class="controls" id="engineNode.master" data-bind="focus: 4">
+        <input type='checkbox' name='engineNode.master' data-bind='checked: detailModel.master, enable: isFieldEnabled("engineNode.master", editMode)'/>
+        <div data-bind="formError: master"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: lastActive.visible -->
+    <div class="control-group"
+       data-bind="css: { error: lastActive.hasErrors}">
+      <label class="control-label"
+             for="engineNode.lastActive"
+             data-bind="translate: 'workflow.engineNode.lastActive'">
+      </label>
+      <div class="controls" id="engineNode.lastActive" data-bind="focus: 5">
+        <span data-bind="dateTimeInput: detailModel.lastActive, enable: isFieldEnabled('engineNode.lastActive', editMode)"></span>
+        <div data-bind="formError: lastActive"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: activeSince.visible -->
+    <div class="control-group"
+       data-bind="css: { error: activeSince.hasErrors}">
+      <label class="control-label"
+             for="engineNode.activeSince"
+             data-bind="translate: 'workflow.engineNode.activeSince'">
+      </label>
+      <div class="controls" id="engineNode.activeSince" data-bind="focus: 6">
+        <span data-bind="dateTimeInput: detailModel.activeSince, enable: isFieldEnabled('engineNode.activeSince', editMode)"></span>
+        <div data-bind="formError: activeSince"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

@@ -1,0 +1,11 @@
+<taskElement name="StopAllEnginesTask">
+  <packageName>net.democritus.workflow</packageName>
+  <targetClass>net.democritus.workflow.WorkflowDetails</targetClass>
+  <targetElement component="workflow" name="Workflow"/>
+  <taskElementType name="Standard"/>
+  <transactionType name="aggregateTask"/>
+  <options>
+    <includePerform/>
+    <includeRemoteAccess/>
+  </options>
+</taskElement>

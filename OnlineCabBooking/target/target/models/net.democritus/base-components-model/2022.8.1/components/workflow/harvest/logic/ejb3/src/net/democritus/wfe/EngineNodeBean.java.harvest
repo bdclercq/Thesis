@@ -1,0 +1,112 @@
+-- anchor:custom-imports:start
+import net.democritus.workflow.SearchResultCacheProvider;
+-- anchor:custom-imports:end
+-- anchor:custom-variables:start
+  @EJB
+  private EngineNodeServiceLocal engineNodeServiceLocal;
+
+  private static final SearchResultCacheProvider<EngineNodeBean, EngineNodeDetails> CACHE_PROVIDER = new SearchResultCacheProvider<>(
+      (bean, ctx) -> {
+        SearchDetails<EngineNodeFindAllEngineNodesDetails> searchDetails = SearchDetails.fetchAllDetails(new EngineNodeFindAllEngineNodesDetails());
+        searchDetails.setSkipCount(true);
+        return bean.find(ctx.withParameter(searchDetails));
+      });
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  @Override
+  public CrudsResult<Void> promoteToMaster(ParameterContext<DataRef> parameter) {
+    return engineNodeCrudsLocal.promoteToMaster(parameter);
+  }
+
+  @Override
+  public CrudsResult<Void> activateEngineNodes(ParameterContext<Void> parameter) {
+    EngineNodeFindAllEngineNodesDetails finder = new EngineNodeFindAllEngineNodesDetails();
+    SearchDetails<EngineNodeFindAllEngineNodesDetails> allDetailsFinder = SearchDetails.fetchAllDetails(finder);
+    allDetailsFinder.setSkipCount(true);
+    SearchResult<EngineNodeDetails> searchResult = find(parameter.construct(allDetailsFinder));
+
+    if (searchResult.isError()) {
+      logger.error("Cannot find engineNodes to activate");
+      return CrudsResult.error();
+    }
+
+    for (EngineNodeDetails engineNode : searchResult.getResults()) {
+      engineNode.setStatus(EngineNodeState.READY.getStatus());
+      modify(parameter.construct(engineNode));
+    }
+
+    return CrudsResult.success();
+  }
+
+  @Override
+  public CrudsResult<Void> postHealthCheck(ParameterContext<DataRef> parameter) {
+    EngineNodeDetails details = getDetails(parameter.getValue());
+    details.setLastActive(new Date());
+    details.setStatus(EngineNodeState.ACTIVE.getStatus());
+
+    if (EngineNodeState.NOT_RESPONDING.getStatus().equals(details.getStatus())) {
+      logger.info("node='" + details.getName() + "' is active again");
+    }
+
+    CrudsResult<DataRef> result = modify(parameter.construct(details));
+    return result.isSuccess() ? CrudsResult.success() : result.<Void>convertError();
+  }
+
+  @Override
+  public CrudsResult<Void> setNotResponding(ParameterContext<DataRef> parameter) {
+    EngineNodeDetails details = getDetails(parameter.getValue());
+    details.setStatus(EngineNodeState.NOT_RESPONDING.getStatus());
+
+    logger.debug("node='" + details.getName() + "' does not seem active");
+
+    CrudsResult<DataRef> modifyResult = modify(parameter.construct(details));
+    if (modifyResult.isError()) {
+      return modifyResult.convertError();
+    }
+
+    for (DataRef engineNodeService : getEngineNodeServices(parameter)) {
+      engineNodeServiceLocal.setNotResponding(parameter.construct(engineNodeService));
+    }
+
+    return CrudsResult.success();
+  }
+
+  private List<DataRef> getEngineNodeServices(ParameterContext<DataRef> parameter) {
+    EngineNodeServiceFindByEngineNodeEqDetails finder = new EngineNodeServiceFindByEngineNodeEqDetails();
+    finder.setEngineNode(parameter.getValue());
+
+    SearchDetails<EngineNodeServiceFindByEngineNodeEqDetails> searchDetails = SearchDetails.fetchAll(finder);
+    searchDetails.setProjection("dataRef");
+    SearchResult<DataRef> searchResult = engineNodeServiceLocal.find(parameter.construct(searchDetails));
+
+    return searchResult.getResults();
+  }
+
+  @Override
+  public CrudsResult<EngineNodeDetails> getEngineNodeByName(ParameterContext<String> nameParameter) {
+    return CACHE_PROVIDER.getCache(this, nameParameter.getContext())
+        .getInstance(e -> nameParameter.getValue().equals(e.getName()));
+  }
+  @Override
+  public CrudsResult<EngineNodeDetails> getEngineNodeById(ParameterContext<Long> idParameter) {
+    return CACHE_PROVIDER.getCache(this, idParameter.getContext())
+        .getInstance(e -> e.getId().equals(idParameter.getValue()));
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-postCreate:start
+    CACHE_PROVIDER.expireCaches();
+-- anchor:custom-postCreate:end
+-- anchor:custom-postCreateOrModify:start
+    CACHE_PROVIDER.expireCaches();
+-- anchor:custom-postCreateOrModify:end
+-- anchor:custom-postDelete:start
+      CACHE_PROVIDER.expireCaches();
+-- anchor:custom-postDelete:end
+-- anchor:custom-postModify:start
+    CACHE_PROVIDER.expireCaches();
+-- anchor:custom-postModify:end
+-- anchor:custom-preDelete:start
+    for (DataRef engineNodeService : getEngineNodeServices(idParameter.construct(DataRef.withId(id)))) {
+      engineNodeServiceLocal.delete(idParameter.construct(engineNodeService.getId()));
+    }
+-- anchor:custom-preDelete:end

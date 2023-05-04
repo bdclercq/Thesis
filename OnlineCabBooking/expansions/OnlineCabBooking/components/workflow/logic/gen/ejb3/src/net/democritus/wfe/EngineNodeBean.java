@@ -1,0 +1,585 @@
+package net.democritus.wfe;
+
+// expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1
+
+import javax.annotation.Resource;
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
+
+import javax.ejb.EJB;
+import javax.ejb.Stateless;
+import javax.ejb.SessionContext;
+import javax.ejb.TransactionAttribute;
+import javax.ejb.TransactionAttributeType;
+
+import javax.naming.Context;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.NamedQueries;
+import javax.persistence.Query;
+
+import net.democritus.support.ejb3.SearchDataRefToSearchDetailsMapper;
+
+import java.util.List;
+import java.util.Date;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Properties;
+import java.util.Map;
+import java.util.HashMap;
+import java.util.UUID;
+
+import net.democritus.sys.DataRef;
+import net.democritus.sys.ProjectionRef;
+import net.democritus.sys.Diagnostic;
+import net.democritus.sys.DiagnosticReason;
+import net.democritus.sys.DiagnosticFactory;
+import net.democritus.sys.DataRefValidation;
+import net.democritus.sys.diagnostics.DiagnosticHelper;
+
+import net.democritus.sys.command.ICommand;
+import net.democritus.sys.command.CommandResult;
+
+import net.democritus.sys.CrudsResult;
+import net.democritus.sys.SearchResult;
+import net.democritus.sys.UserContext;
+import net.democritus.sys.ParameterContext;
+import net.democritus.sys.IParameterContextFactory;
+import net.democritus.sys.search.SearchDetails;
+import net.democritus.projection.IDataElementProjector;
+
+import static net.democritus.sys.DiagnosticConstants.*;
+import static net.palver.util.Options.Option;
+
+import net.democritus.state.StateUpdate;
+
+
+// @anchor:imports:start
+import net.palver.logging.LoggerFactory;
+import net.palver.logging.Logger;
+import java.util.Date;
+import javax.ejb.Remote;
+import javax.ejb.Local;
+// @anchor:imports:end
+
+// anchor:imports:start
+// anchor:imports:end
+
+// anchor:valuetype-imports:start
+import java.util.Date;
+
+// anchor:valuetype-imports:end
+
+// anchor:custom-imports:start
+import net.democritus.workflow.SearchResultCacheProvider;
+// anchor:custom-imports:end
+
+@Stateless()
+// @anchor:annotations:start
+@Remote(EngineNodeRemote.class)
+@Local(EngineNodeLocal.class)
+// @anchor:annotations:end
+@DeclareRoles({
+// anchor:custom-declare-roles:start
+// anchor:custom-declare-roles:end
+})
+public class EngineNodeBean /*@anchor:interfaces:start@*/implements EngineNodeRemote, EngineNodeLocal/*@anchor:interfaces:end@*/{
+
+  private final DiagnosticHelper diagnosticHelper = new DiagnosticHelper("workflow", "EngineNode");
+  private final DiagnosticFactory diagnosticFactory = diagnosticHelper.getDiagnosticFactory();
+
+  @Resource
+  private SessionContext sessionContext;
+
+  // anchor:entity-managers:start
+  // anchor:entity-managers:end
+
+  // anchor:link-variables:start
+  // anchor:link-variables:end
+
+  // @anchor:variables:start
+  private static final Logger logger = LoggerFactory.getLogger(EngineNodeBean.class);
+  @Deprecated
+  @PersistenceContext(unitName="OnlineCabBooking_workflow")
+  private EntityManager entityManager;
+
+  @EJB
+  EngineNodeCrudsLocal engineNodeCrudsLocal;
+  // @anchor:variables:end
+
+  // anchor:custom-variables:start
+  @EJB
+  private EngineNodeServiceLocal engineNodeServiceLocal;
+
+  private static final SearchResultCacheProvider<EngineNodeBean, EngineNodeDetails> CACHE_PROVIDER = new SearchResultCacheProvider<>(
+      (bean, ctx) -> {
+        SearchDetails<EngineNodeFindAllEngineNodesDetails> searchDetails = SearchDetails.fetchAllDetails(new EngineNodeFindAllEngineNodesDetails());
+        searchDetails.setSkipCount(true);
+        return bean.find(ctx.withParameter(searchDetails));
+      });
+  // anchor:custom-variables:end
+
+  /*========== Bean lifecycle methods ==========*/
+
+  // anchor:crudsMethods:start
+  // @anchor:create-annotations:start
+  // @anchor:create-annotations:end
+  // anchor:custom-create-annotations:start
+  // anchor:custom-create-annotations:end
+  public CrudsResult<DataRef> create(ParameterContext<EngineNodeDetails> detailsParameter) {
+    if (sessionContext.getRollbackOnly()) {
+      return getDiagnosticHelper().createCrudsError(CREATE_ERROR_MSG_KEY);
+    }
+
+    EngineNodeDetails details = detailsParameter.getValue();
+    @SuppressWarnings("unused")
+    UserContext userContext = detailsParameter.getUserContext();
+    net.democritus.sys.Context context = detailsParameter.getContext();
+
+    // @anchor:preCreate:start
+    // @anchor:preCreate:end
+
+    // anchor:custom-preCreate:start
+    // anchor:custom-preCreate:end
+
+    // @anchor:preCreate-validation:start
+    // @anchor:preCreate-validation:end
+
+    CrudsResult<DataRef> result = engineNodeCrudsLocal.create(context.withParameter(details));
+
+    if (result.isError()) {
+      return result;
+    }
+
+    // @anchor:postCreate:start
+    // @anchor:postCreate:end
+
+    // anchor:custom-postCreate:start
+    CACHE_PROVIDER.expireCaches();
+    // anchor:custom-postCreate:end
+    return result;
+  }
+
+  // @anchor:modify-annotations:start
+  // @anchor:modify-annotations:end
+  // anchor:custom-modify-annotations:start
+  // anchor:custom-modify-annotations:end
+  public CrudsResult<DataRef> modify(ParameterContext<EngineNodeDetails> detailsParameter) {
+    if (sessionContext.getRollbackOnly()) {
+        return getDiagnosticHelper().createCrudsError(MODIFY_ERROR_MSG_KEY);
+    }
+
+    EngineNodeDetails details = detailsParameter.getValue();
+    @SuppressWarnings("unused")
+    UserContext userContext = detailsParameter.getUserContext();
+    net.democritus.sys.Context context = detailsParameter.getContext();
+
+    // @anchor:preModify:start
+    // @anchor:preModify:end
+
+    // anchor:custom-preModify:start
+    // anchor:custom-preModify:end
+
+    // @anchor:preModify-validation:start
+    // @anchor:preModify-validation:end
+
+    CrudsResult<DataRef> result = engineNodeCrudsLocal.modify(context.withParameter(details));
+    if (result.isError()) {
+      return result;
+    }
+
+    // @anchor:postModify:start
+    // @anchor:postModify:end
+
+    // anchor:custom-postModify:start
+    CACHE_PROVIDER.expireCaches();
+    // anchor:custom-postModify:end
+
+    return result;
+  }
+
+  // @anchor:createOrModify-annotations:start
+  // @anchor:createOrModify-annotations:end
+  // anchor:custom-createOrModify-annotations:start
+  // anchor:custom-createOrModify-annotations:end
+  public <P> CrudsResult<DataRef> createOrModify(ParameterContext<P> projectionParameter) {
+    if (sessionContext.getRollbackOnly()) {
+      return getDiagnosticHelper().createCrudsError(MODIFY_ERROR_MSG_KEY);
+    }
+
+    P projection = projectionParameter.getValue();
+    net.democritus.sys.Context context = projectionParameter.getContext();
+
+    // @anchor:preCreateOrModify:start
+    // @anchor:preCreateOrModify:end
+    // anchor:custom-preCreateOrModify:start
+    // anchor:custom-preCreateOrModify:end
+
+    // @anchor:preCreateOrModify-validation:start
+    // @anchor:preCreateOrModify-validation:end
+
+    CrudsResult<DataRef> result = engineNodeCrudsLocal.createOrModify(projectionParameter);
+    if (result.isError()) {
+      return result;
+    }
+
+    // @anchor:postCreateOrModify:start
+    // @anchor:postCreateOrModify:end
+    // anchor:custom-postCreateOrModify:start
+    CACHE_PROVIDER.expireCaches();
+    // anchor:custom-postCreateOrModify:end
+
+    return result;
+  }
+
+  // @anchor:delete-annotations:start
+  // @anchor:delete-annotations:end
+  // anchor:custom-delete-annotations:start
+  // anchor:custom-delete-annotations:end
+  public CrudsResult<Void> delete(ParameterContext<Long> idParameter) {
+    if (sessionContext.getRollbackOnly()) {
+      return getDiagnosticHelper().createCrudsError(DELETE_ERROR_MSG_KEY);
+    }
+
+    net.democritus.sys.Context context = idParameter.getContext();
+    Long id = idParameter.getValue();
+
+    // @anchor:preDelete:start
+    // @anchor:preDelete:end
+
+    // anchor:custom-preDelete:start
+    for (DataRef engineNodeService : getEngineNodeServices(idParameter.construct(DataRef.withId(id)))) {
+      engineNodeServiceLocal.delete(idParameter.construct(engineNodeService.getId()));
+    }
+    // anchor:custom-preDelete:end
+
+    try {
+      // @anchor:preDelete-tryBlock:start
+      // @anchor:preDelete-tryBlock:end
+
+      DataRef dataRef = idToDataRef(idParameter.getValue());
+      CrudsResult<Void> result = engineNodeCrudsLocal.delete(context.withParameter(dataRef));
+
+      if (result.isError()) {
+          return result;
+      }
+
+      // @anchor:postDelete:start
+      // @anchor:postDelete:end
+
+      // anchor:custom-postDelete:start
+      CACHE_PROVIDER.expireCaches();
+      // anchor:custom-postDelete:end
+
+      return CrudsResult.success(null);
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Delete failed for ID = " + id, e
+        );
+      }
+      return getDiagnosticHelper().createCrudsError(DELETE_ERROR_MSG_KEY);
+    }
+  }
+
+  // @anchor:deleteByDataRef-annotations:start
+  // @anchor:deleteByDataRef-annotations:end
+  // anchor:custom-deleteByDataRef-annotations:start
+  // anchor:custom-deleteByDataRef-annotations:end
+  public CrudsResult<Void> deleteByDataRef(ParameterContext<DataRef> dataRefParameter) {
+    if (sessionContext.getRollbackOnly()) {
+      return getDiagnosticHelper().createCrudsError(DELETE_ERROR_MSG_KEY);
+    }
+    CrudsResult<DataRef> dataRefResult = resolveDataRef(dataRefParameter);
+    if (dataRefResult.isError()) {
+      return dataRefResult.convertError();
+    }
+    return delete(dataRefParameter.construct(dataRefResult.getValue().getId()));
+  }
+  // anchor:crudsMethods:end
+
+  /*========== Business logic methods ==========*/
+
+  // anchor:businessLogic:start
+  public CrudsResult<DataRef> getId(ParameterContext<String> nameParameter) {
+    return engineNodeCrudsLocal.getDataRefFromName(nameParameter);
+  }
+
+  public CrudsResult<String> getName(ParameterContext<Long> idParameter) {
+    // @anchor:before-getName:start
+    // @anchor:before-getName:end
+    CrudsResult<DataRef> dataRefResult = engineNodeCrudsLocal.getDataRefFromId(idParameter);
+
+    if (dataRefResult.isError()) {
+      return dataRefResult.convertError();
+    }
+    return CrudsResult.success(dataRefResult.getValue().getName());
+  }
+
+  public DataRef getDataRef(Long id) {
+    return engineNodeCrudsLocal.getDataRefFromId(ParameterContext.create(null, id)).getValue();
+  }
+
+  @Deprecated
+  public EngineNodeInfo getInfo(Long id) {
+    return getInfo(ParameterContext.create(null, id)).getValue();
+  }
+
+  @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+  public EngineNodeDetails getDetails(Long id) {
+    return getDetailsFromDataRef(ParameterContext.create(null, idToDataRef(id))).getValue();
+  }
+
+  @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+  public EngineNodeDetails getDetails(DataRef dataRef) {
+    return getDetailsFromDataRef(ParameterContext.create(null, dataRef)).getValue();
+  }
+
+  public CrudsResult<DataRef> getDataRef(ParameterContext<Long> idParameter) {
+    return engineNodeCrudsLocal.getDataRefFromId(idParameter);
+  }
+
+  @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+  public CrudsResult<DataRef> resolveDataRef(ParameterContext<DataRef> dataRefParameter) {
+    return engineNodeCrudsLocal.resolveDataRef(dataRefParameter);
+  }
+
+  @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+  public CrudsResult<EngineNodeInfo> getInfo(ParameterContext<Long> idParameter) {
+    DataRef dataRef = idToDataRef(idParameter.getValue());
+    ProjectionRef projectionRef = new ProjectionRef("info", dataRef);
+    ParameterContext<ProjectionRef> projectionRefParameter = idParameter.construct(projectionRef );
+    return getProjection(projectionRefParameter);
+  }
+
+  @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+  public CrudsResult<EngineNodeDetails> getDetails(ParameterContext<Long> idParameter) {
+    Long id = idParameter.getValue();
+
+    // @anchor:preGetDetails:start
+    // @anchor:preGetDetails:end
+
+    DataRef dataRef = idToDataRef(id);
+    CrudsResult<EngineNodeDetails> result = getDetailsFromDataRef(idParameter.construct(dataRef));
+
+    if (result.isError()) {
+      return result;
+    }
+
+    // @anchor:postGetDetails:start
+    // @anchor:postGetDetails:end
+
+    return result;
+  }
+
+  @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+  public CrudsResult<EngineNodeDetails> getDetailsFromDataRef(ParameterContext<DataRef> dataRefParameter) {
+    DataRef dataRef = dataRefParameter.getValue();
+    ProjectionRef projectionRef = new ProjectionRef("details", dataRef);
+    return getProjection(dataRefParameter.construct(projectionRef));
+  }
+
+  // anchor:businessLogic:end
+
+  /*========== findBy methods ==========*/
+
+  // anchor:findBy:start
+  // anchor:custom-projections:start
+  // anchor:custom-projections:end
+
+  private Map<String, IDataElementProjector> elementProjectorMap = new HashMap<>();
+  {
+    /* no longer used */
+    // anchor:custom-projection-mapping:start
+    // anchor:custom-projection-mapping:end
+  }
+
+  // anchor:custom-getProjection-annotations:start
+  // anchor:custom-getProjection-annotations:end
+  public <T> CrudsResult<T> getProjection(ParameterContext<ProjectionRef> projectionRefParameter) {
+    CrudsResult<T> result;
+
+    ProjectionRef projectionRef = projectionRefParameter.getValue();
+    DataRef dataRef = projectionRef.getDataRef();
+
+    // @anchor:before-getProjection:start
+    // @anchor:before-getProjection:end
+
+    // anchor:custom-before-getProjection:start
+    // anchor:custom-before-getProjection:end
+
+    result = engineNodeCrudsLocal.getProjection(projectionRefParameter);
+
+    // anchor:custom-after-getProjection:start
+    // anchor:custom-after-getProjection:end
+
+    return result;
+  }
+
+  // anchor:custom-find-annotations:start
+  // anchor:custom-find-annotations:end
+  public <S extends EngineNodeFindDetails, T> SearchResult<T> find(ParameterContext<SearchDetails<S>> searchParameter) {
+    SearchResult<T> result;
+    // anchor:custom-before-find:start
+    // anchor:custom-before-find:end
+
+    result = engineNodeCrudsLocal.find(searchParameter);
+
+    // anchor:custom-after-find:start
+    // anchor:custom-after-find:end
+
+    return result;
+  }
+
+  // anchor:findBy:end
+
+  /*========== Command implementations ==========*/
+
+  // anchor:command-implementations:start
+  // anchor:command-implementations:end
+
+  /*========== Import/Export ==========*/
+
+  // anchor:import-export:start
+  // anchor:import-export:end
+
+  /*========== utility ==========*/
+
+  private DiagnosticHelper getDiagnosticHelper() {
+    return diagnosticHelper;
+  }
+
+  private DiagnosticFactory getDiagnosticFactory() {
+    return diagnosticFactory;
+  }
+
+  private DataRef idToDataRef(Long id) {
+    return new DataRef(
+        id,
+        "[no name]",
+        "workflow",
+        "net.democritus.wfe",
+        "EngineNode"
+    );
+  }
+
+  // anchor:compare-set-methods:start
+  @Override
+  public CrudsResult<Void> compareAndSetStatus(ParameterContext<StateUpdate> parameter) {
+    return engineNodeCrudsLocal.compareAndSetStatus(parameter);
+  }
+  // anchor:compare-set-methods:end
+
+  // @anchor:methods:start
+
+  /*========== Exposed Field Methods ==========*/
+
+  // anchor:exposed-fields:start
+  public CrudsResult<Boolean> getMaster(ParameterContext<DataRef> idParameter) {
+    return engineNodeCrudsLocal.getMaster(idParameter);
+  }
+
+  public CrudsResult<Date> getLastActive(ParameterContext<DataRef> idParameter) {
+    return engineNodeCrudsLocal.getLastActive(idParameter);
+  }
+
+  public CrudsResult<Void> setMaster(ParameterContext<Boolean> idParameter) {
+    return engineNodeCrudsLocal.setMaster(idParameter);
+  }
+
+  public CrudsResult<Void> setLastActive(ParameterContext<Date> idParameter) {
+    return engineNodeCrudsLocal.setLastActive(idParameter);
+  }
+
+  // anchor:exposed-fields:end
+  // @anchor:methods:end
+
+  /*========== customizations ==========*/
+
+  // anchor:custom-methods:start
+  @Override
+  public CrudsResult<Void> promoteToMaster(ParameterContext<DataRef> parameter) {
+    return engineNodeCrudsLocal.promoteToMaster(parameter);
+  }
+
+  @Override
+  public CrudsResult<Void> activateEngineNodes(ParameterContext<Void> parameter) {
+    EngineNodeFindAllEngineNodesDetails finder = new EngineNodeFindAllEngineNodesDetails();
+    SearchDetails<EngineNodeFindAllEngineNodesDetails> allDetailsFinder = SearchDetails.fetchAllDetails(finder);
+    allDetailsFinder.setSkipCount(true);
+    SearchResult<EngineNodeDetails> searchResult = find(parameter.construct(allDetailsFinder));
+
+    if (searchResult.isError()) {
+      logger.error("Cannot find engineNodes to activate");
+      return CrudsResult.error();
+    }
+
+    for (EngineNodeDetails engineNode : searchResult.getResults()) {
+      engineNode.setStatus(EngineNodeState.READY.getStatus());
+      modify(parameter.construct(engineNode));
+    }
+
+    return CrudsResult.success();
+  }
+
+  @Override
+  public CrudsResult<Void> postHealthCheck(ParameterContext<DataRef> parameter) {
+    EngineNodeDetails details = getDetails(parameter.getValue());
+    details.setLastActive(new Date());
+    details.setStatus(EngineNodeState.ACTIVE.getStatus());
+
+    if (EngineNodeState.NOT_RESPONDING.getStatus().equals(details.getStatus())) {
+      logger.info("node='" + details.getName() + "' is active again");
+    }
+
+    CrudsResult<DataRef> result = modify(parameter.construct(details));
+    return result.isSuccess() ? CrudsResult.success() : result.<Void>convertError();
+  }
+
+  @Override
+  public CrudsResult<Void> setNotResponding(ParameterContext<DataRef> parameter) {
+    EngineNodeDetails details = getDetails(parameter.getValue());
+    details.setStatus(EngineNodeState.NOT_RESPONDING.getStatus());
+
+    logger.debug("node='" + details.getName() + "' does not seem active");
+
+    CrudsResult<DataRef> modifyResult = modify(parameter.construct(details));
+    if (modifyResult.isError()) {
+      return modifyResult.convertError();
+    }
+
+    for (DataRef engineNodeService : getEngineNodeServices(parameter)) {
+      engineNodeServiceLocal.setNotResponding(parameter.construct(engineNodeService));
+    }
+
+    return CrudsResult.success();
+  }
+
+  private List<DataRef> getEngineNodeServices(ParameterContext<DataRef> parameter) {
+    EngineNodeServiceFindByEngineNodeEqDetails finder = new EngineNodeServiceFindByEngineNodeEqDetails();
+    finder.setEngineNode(parameter.getValue());
+
+    SearchDetails<EngineNodeServiceFindByEngineNodeEqDetails> searchDetails = SearchDetails.fetchAll(finder);
+    searchDetails.setProjection("dataRef");
+    SearchResult<DataRef> searchResult = engineNodeServiceLocal.find(parameter.construct(searchDetails));
+
+    return searchResult.getResults();
+  }
+
+  @Override
+  public CrudsResult<EngineNodeDetails> getEngineNodeByName(ParameterContext<String> nameParameter) {
+    return CACHE_PROVIDER.getCache(this, nameParameter.getContext())
+        .getInstance(e -> nameParameter.getValue().equals(e.getName()));
+  }
+  @Override
+  public CrudsResult<EngineNodeDetails> getEngineNodeById(ParameterContext<Long> idParameter) {
+    return CACHE_PROVIDER.getCache(this, idParameter.getContext())
+        .getInstance(e -> e.getId().equals(idParameter.getValue()));
+  }
+  // anchor:custom-methods:end
+
+}

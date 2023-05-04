@@ -1,0 +1,44 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('engineNodeService.engineService', editMode), css: { error: detailModel.engineService.hasErrors}">
+    <label class="control-label"
+           for="engineNodeService.engineService"
+           data-bind="translate: 'workflow.engineNodeService.engineService'">
+    </label>
+    <div class="controls" id="engineNodeService.engineService" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.engineService,
+          element: 'workflow.engineService',
+          hideDropdown: false
+      }, enable: isFieldEnabled('engineNodeService.engineService', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.engineService.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.engineService.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="control-group" data-bind="visible: isFieldVisible('engineNodeService.status', editMode), css: { error: detailModel.status.hasErrors}">
+    <label class="control-label"
+           for="engineNodeService.status"
+           data-bind="translate: 'workflow.engineNodeService.status'">
+    </label>
+    <div class="controls" id="engineNodeService.status" data-bind="focus: 2">
+      <span data-bind="tagValue: {
+          field: detailModel.status,
+          tag: 'engineNodeService_status'
+      }, enable: isFieldEnabled('engineNodeService.status', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.status.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.status.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

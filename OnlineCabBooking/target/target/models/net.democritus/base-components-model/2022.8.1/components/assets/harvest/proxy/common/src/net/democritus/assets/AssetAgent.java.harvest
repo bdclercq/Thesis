@@ -1,0 +1,69 @@
+-- anchor:custom-imports:start
+import net.democritus.sys.ParamTargetValueAgent;
+
+import java.io.InputStream;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  public CrudsResult<AssetChunk> getAssetChunk(AssetChunkRef reference) {
+    return assetProxy.getAssetChunk(createParameter(reference));
+  }
+
+  public CrudsResult<DataRef> uploadAsset(AssetStream assetStream) {
+    AssetDetails assetDetails = assetStream.getAssetDetails();
+    InputStream inputStream = assetStream.getInputStream();
+
+    CrudsResult<DataRef> createResult = create(assetDetails);
+    if (createResult.isError()) {
+      return createResult.convertError();
+    }
+    DataRef assetRef = createResult.getValue();
+    assetDetails.setId(assetRef.getId());
+
+    return uploadStream(assetRef, inputStream);
+  }
+
+  private CrudsResult<DataRef> uploadStream(DataRef assetRef, InputStream inputStream) {
+    int chunkSize = getChunkSize();
+
+    AssetChunkReader assetChunkReader = new AssetChunkReader(assetRef, inputStream, chunkSize);
+    try {
+      while (assetChunkReader.hasNext()) {
+        AssetChunk assetChunk = assetChunkReader.getNext();
+        CrudsResult<Void> uploadResult = assetProxy.uploadChunk(createParameter(assetChunk));
+
+        if (uploadResult.isError()) {
+          return uploadResult.convertError();
+        }
+      }
+      return CrudsResult.success(assetRef);
+    } finally {
+      assetChunkReader.close();
+    }
+  }
+
+  public CrudsResult<AssetStream> getAssetStream(DataRef assetRef) {
+    CrudsResult<AssetDetails> crudsResult = getDetails(assetRef);
+    if (crudsResult.isError()) {
+      return crudsResult.convertError();
+    }
+    AssetDetails assetDetails = crudsResult.getValue();
+
+    InputStream inputStream = new AssetChunkInputStream(this, assetRef);
+
+    AssetStream assetStream = new AssetStream();
+    assetStream.setAssetDetails(assetDetails);
+    assetStream.setInputStream(inputStream);
+
+    return CrudsResult.success(assetStream);
+  }
+
+  private int getChunkSize() {
+    ParamTargetValueAgent paramTargetValueAgent = ParamTargetValueAgent.getParamTargetValueAgent(mContext);
+    String chunkSize = paramTargetValueAgent.getParamTargetValue("assetChunkSize", "default");
+    if (chunkSize == null || chunkSize.isEmpty()) {
+      return 1024 * 128;
+    } else {
+      return Integer.parseInt(chunkSize);
+    }
+  }
+-- anchor:custom-methods:end

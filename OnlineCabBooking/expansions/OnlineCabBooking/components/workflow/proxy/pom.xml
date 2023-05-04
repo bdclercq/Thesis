@@ -1,0 +1,212 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.normalizedsystems</groupId>
+    <artifactId>workflow</artifactId>
+    <version>1.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <artifactId>workflow-proxy</artifactId>
+  <packaging>jar</packaging>
+
+  <name>workflow-proxy</name>
+
+  <dependencies>
+    <!-- internal dependencies -->
+
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>workflow-shared</artifactId>
+    </dependency>
+
+    <!-- other components -->
+
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>account-shared</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>utils-shared</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>validation-shared</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>account-proxy</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>utils-proxy</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>validation-proxy</artifactId>
+    </dependency>
+
+    <!-- system dependencies -->
+
+    <!-- COMMON -->
+    <dependency>
+      <groupId>net.democritus</groupId>
+      <artifactId>nsx-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>net.democritus</groupId>
+      <artifactId>nsx-logging</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>net.democritus</groupId>
+      <artifactId>nsx-shared-common</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+    </dependency>
+    <!-- EJB3 -->
+    <dependency>
+      <groupId>net.democritus</groupId>
+      <artifactId>nsx-shared-ejb3</artifactId>
+    </dependency>
+    <!-- EJB3_1 -->
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+    </dependency>
+
+    <!-- @anchor:dependencies:start -->
+    <!-- @anchor:dependencies:end -->
+    <!-- anchor:custom-dependencies:start -->
+    <!-- anchor:custom-dependencies:end -->
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>gen/common/src</source>
+                <source>ext/common/src</source>
+                <source>gen/ejb3/src</source>
+                <source>ext/ejb3/src</source>
+
+                <!-- @anchor:source-include:start -->
+                <!-- @anchor:source-include:end -->
+                <!-- anchor:custom-source-include:start -->
+                <!-- anchor:custom-source-include:end -->
+              </sources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>add-test-source</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>test/common/src</source>
+                <source>test/ejb3/src</source>
+
+                <!-- @anchor:test-source-include:start -->
+                <!-- @anchor:test-source-include:end -->
+                <!-- anchor:custom-test-source-include:start -->
+                <!-- anchor:custom-test-source-include:end -->
+              </sources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>add-resource</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>add-resource</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>gen/common/resources</directory>
+                </resource>
+                <resource>
+                  <directory>ext/common/resources</directory>
+                </resource>
+                <resource>
+                  <directory>gen/ejb3/resources</directory>
+                </resource>
+                <resource>
+                  <directory>ext/ejb3/resources</directory>
+                </resource>
+
+                <!-- @anchor:resource-include:start -->
+                <!-- @anchor:resource-include:end -->
+                <!-- anchor:custom-resource-include:start -->
+                <!-- anchor:custom-resource-include:end -->
+              </resources>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>add-test-resource</id>
+            <phase>generate-test-resources</phase>
+            <goals>
+              <goal>add-test-resource</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>test/common/resources</directory>
+                </resource>
+                <resource>
+                  <directory>test/ejb3/resources</directory>
+                </resource>
+
+                <!-- @anchor:test-resource-include:start -->
+                <!-- @anchor:test-resource-include:end -->
+                <!-- anchor:custom-test-resource-include:start -->
+                <!-- anchor:custom-test-resource-include:end -->
+              </resources>
+            </configuration>
+          </execution>
+
+          <!-- @anchor:build-executions:start -->
+          <!-- @anchor:build-executions:end -->
+          <!-- anchor:custom-build-executions:start -->
+          <!-- anchor:custom-build-executions:end -->
+        </executions>
+      </plugin>
+
+      <!-- @anchor:build-plugins:start -->
+      <!-- @anchor:build-plugins:end -->
+      <!-- anchor:custom-build-plugins:start -->
+      <!-- anchor:custom-build-plugins:end -->
+    </plugins>
+
+    <!-- @anchor:build:start -->
+    <!-- @anchor:build:end -->
+    <!-- anchor:custom-build:start -->
+    <!-- anchor:custom-build:end -->
+  </build>
+
+  <!-- @anchor:project:start -->
+  <!-- @anchor:project:end -->
+  <!-- anchor:custom-project:start -->
+  <!-- anchor:custom-project:end -->
+</project>

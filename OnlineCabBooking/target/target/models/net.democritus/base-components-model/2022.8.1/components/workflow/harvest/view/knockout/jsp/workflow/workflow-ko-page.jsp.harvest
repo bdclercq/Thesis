@@ -1,0 +1,95 @@
+-- anchor:custom-html:start
+<div class="row-fluid btn-toolbar" data-bind="visible: true" style="display: none;">
+     <button id="enableAll" type="button" class="btn" data-bind="click: enableAllEngines">
+         <span class="icon-play"></span> <span>Enable Engines</span>
+     </button>
+     <button id="disableAll" type="button" class="btn" data-bind="click: disableAllEngines">
+         <span class="icon-pause"></span> <span>Disable Engines</span>
+     </button>
+ </div>
+
+ <div data-bind="visible: workflowModel.hasSelection" style="display: none;">
+
+     <ul class="nav nav-tabs">
+         <li class="active"><a data-toggle="tab" href="#panelEngineService">Engine services</a></li>
+         <li><a data-toggle="tab" href="#panelStateTask">State tasks</a></li>
+         <li><a data-toggle="tab" href="#panelStateTimer">State timers</a></li>
+     </ul>
+
+     <div class="tab-content">
+
+         <div class="tab-pane active" id="panelEngineService">
+             <div data-bind="with: engineServiceModel">
+                 <div class="row">
+                     <div class="span12" data-bind="template: 'nsx/knockout/paging'">
+                     </div>
+
+                 </div>
+                 <div class="nsx-filler-row"></div>
+                 <div class="row-fluid"
+                      data-bind="visible: searching.hasFinderSelection && searching.isFinderVisible"
+                      style="display: none;">
+                     <div class="span12 nsx-searching"
+                          data-bind="template: {name: 'nsx/knockout/finderPage', data: searching}">
+                     </div>
+                 </div>
+                 <div class="row-fluid">
+                     <div class="span12"
+                          data-bind="template: {name: 'workflow/engineService-runningState-noStatus-ko-list', data: listModel}">
+                     </div>
+                 </div>
+                 <div class="row-fluid">
+                     <button type="button" class="btn" data-bind="visible: startButtonVisible, click: startEngine">
+                         <span class="icon-play"></span> <span
+                             data-bind="translate: 'workflow.engineService.startEngine'">Start</span>
+                     </button>
+                     <button type="button" class="btn" data-bind="visible: stopButtonVisible, click: stopEngine">
+                         <span class="icon-pause"></span> <span
+                             data-bind="translate: 'workflow.engineService.stopEngine'">Stop</span>
+                     </button>
+                 </div>
+             </div>
+         </div>
+
+         <div class="tab-pane" id="panelStateTask" data-bind="with: stateTaskModel">
+             <div class="row">
+                 <div class="span12" data-bind="template: 'nsx/knockout/paging'">
+                 </div>
+             </div>
+             <div class="nsx-filler-row"></div>
+             <div class="row-fluid"
+                  data-bind="visible: searching.hasFinderSelection && searching.isFinderVisible"
+                  style="display: none;">
+                 <div class="span12 nsx-searching"
+                      data-bind="template: {name: 'nsx/knockout/finderPage', data: searching}">
+                 </div>
+             </div>
+             <div class="row-fluid">
+                 <div class="span12"
+                      data-bind="template: {name: 'workflow/stateTask-ko-list', data: listModel}">
+                 </div>
+             </div>
+         </div>
+
+         <div class="tab-pane" id="panelStateTimer" data-bind="with: stateTimerModel">
+             <div class="row">
+                 <div class="span12" data-bind="template: 'nsx/knockout/paging'">
+                 </div>
+             </div>
+             <div class="nsx-filler-row"></div>
+             <div class="row-fluid"
+                  data-bind="visible: searching.hasFinderSelection && searching.isFinderVisible"
+                  style="display: none;">
+                 <div class="span12 nsx-searching"
+                      data-bind="template: {name: 'nsx/knockout/finderPage', data: searching}">
+                 </div>
+             </div>
+             <div class="row-fluid">
+                 <div class="span12"
+                      data-bind="template: {name: 'workflow/stateTimer-ko-list', data: listModel}">
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+-- anchor:custom-html:end

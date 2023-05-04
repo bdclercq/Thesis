@@ -1,0 +1,55 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="account-menu-name-header">
+      <span data-bind="translate: 'account.menu.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th class="account-menu-portal-header">
+      <span data-bind="translate: 'account.menu.portal'"></span>
+    </th>
+    <th class="account-menu-profile-header">
+      <span data-bind="translate: 'account.menu.profile'"></span>
+    </th>
+    <th class="account-menu-menuItems-header">
+      <span data-bind="translate: 'account.menu.menuItems'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-menu-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="account-menu-portal-cell">
+      <span data-bind="with: portal">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="account-menu-profile-cell">
+      <span data-bind="with: profile">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="account-menu-menuItems-cell">
+      <span data-bind="collection: { field: menuItems, name: 'account.menu.menuItems'}">
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

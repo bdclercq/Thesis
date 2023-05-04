@@ -1,0 +1,57 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="portal.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="portal.name"
+             data-bind="translate: 'account.portal.name'">
+      </label>
+      <div class="controls" id="portal.name" data-bind="focus: 1">
+        <input type='text' name='portal.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('portal.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: version.visible -->
+    <div class="control-group"
+       data-bind="css: { error: version.hasErrors}">
+      <label class="control-label"
+             for="portal.version"
+             data-bind="translate: 'account.portal.version'">
+      </label>
+      <div class="controls" id="portal.version" data-bind="focus: 2">
+        <input type='text' name='portal.version' data-bind="textInput: detailModel.version, enable: isFieldEnabled('portal.version', editMode)" />
+        <div data-bind="formError: version"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: description.visible -->
+    <div class="control-group"
+       data-bind="css: { error: description.hasErrors}">
+      <label class="control-label"
+             for="portal.description"
+             data-bind="translate: 'account.portal.description'">
+      </label>
+      <div class="controls" id="portal.description" data-bind="focus: 3">
+        <input type='text' name='portal.description' data-bind="textInput: detailModel.description, enable: isFieldEnabled('portal.description', editMode)" />
+        <div data-bind="formError: description"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

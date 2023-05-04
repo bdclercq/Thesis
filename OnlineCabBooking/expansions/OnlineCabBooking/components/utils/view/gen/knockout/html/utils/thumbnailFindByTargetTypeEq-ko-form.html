@@ -1,0 +1,21 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('thumbnail.targetType', editMode), css: { error: detailModel.targetType.hasErrors}">
+    <label class="control-label"
+           for="thumbnail.targetType"
+           data-bind="translate: 'utils.thumbnail.targetType'">
+    </label>
+    <div class="controls" id="thumbnail.targetType" data-bind="focus: 1">
+      <input type='text' name='thumbnail.targetType' data-bind="textInput: detailModel.targetType, enable: isFieldEnabled('thumbnail.targetType', editMode)" />
+      <div data-bind="visible: detailModel.targetType.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.targetType.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

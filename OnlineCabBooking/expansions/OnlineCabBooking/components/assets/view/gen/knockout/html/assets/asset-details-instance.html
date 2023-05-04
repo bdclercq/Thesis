@@ -1,0 +1,101 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.asset.id'"></span>
+    </th>
+    <td>
+      <span data-bind="text: id"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:start -->
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.asset.name'"></span>
+    </th>
+    <td>
+      <span data-bind="text: name"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.asset.type'"></span>
+    </th>
+    <td>
+      <span data-bind="text: type"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.asset.fileAsset'"></span>
+    </th>
+    <td>
+      <span data-bind="with: fileAsset">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.asset.internalAsset'"></span>
+    </th>
+    <td>
+      <span data-bind="with: internalAsset">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.asset.contentType'"></span>
+    </th>
+    <td>
+      <span data-bind="text: contentType"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.asset.byteSize'"></span>
+    </th>
+    <td>
+      <span data-bind="text: byteSize"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.asset.fileId'"></span>
+    </th>
+    <td>
+      <span data-bind="text: fileId"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.asset.complete'"></span>
+    </th>
+    <td>
+      <input type="checkbox" data-bind="checked: complete" disabled/>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.asset.externalAsset'"></span>
+    </th>
+    <td>
+      <span data-bind="with: externalAsset">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:end -->
+  <!-- @anchor:field-rows:start -->
+  <!-- @anchor:field-rows:end -->
+  <!-- anchor:custom-field-rows:start -->
+  <!-- anchor:custom-field-rows:end -->
+</table>

@@ -1,0 +1,27 @@
+-- anchor:custom-methods:start
+  public CrudsResult<AssetChunk> getAssetChunk(ParameterContext<AssetChunkRef> refParam) {
+    try {
+      return assetRemote.getAssetChunk(refParam);
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Could not retrieve chunk ", e
+        );
+      }
+      return CrudsResult.error(UNKNOWN_ERROR);
+    }
+  }
+
+  public CrudsResult<Void> uploadChunk(ParameterContext<AssetChunk> parameter) {
+    try {
+      return assetRemote.uploadChunk(parameter);
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Could not upload chunk ", e
+        );
+      }
+      return CrudsResult.error(UNKNOWN_ERROR);
+    }
+  }
+-- anchor:custom-methods:end

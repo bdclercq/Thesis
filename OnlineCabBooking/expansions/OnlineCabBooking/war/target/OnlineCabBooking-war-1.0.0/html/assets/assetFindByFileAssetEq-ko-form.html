@@ -1,0 +1,26 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('asset.fileAsset', editMode), css: { error: detailModel.fileAsset.hasErrors}">
+    <label class="control-label"
+           for="asset.fileAsset"
+           data-bind="translate: 'assets.asset.fileAsset'">
+    </label>
+    <div class="controls" id="asset.fileAsset" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.fileAsset,
+          element: 'assets.fileAsset',
+          hideDropdown: false
+      }, enable: isFieldEnabled('asset.fileAsset', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.fileAsset.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.fileAsset.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

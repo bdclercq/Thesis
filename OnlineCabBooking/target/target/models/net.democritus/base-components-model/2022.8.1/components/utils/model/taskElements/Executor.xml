@@ -1,0 +1,13 @@
+<taskElement name="Executor">
+  <packageName>net.democritus.sys</packageName>
+  <targetClass>net.democritus.sys.ExecutionDetails</targetClass>
+  <targetElement component="utils" name="Execution"/>
+  <paramClass>net.democritus.sys.ExecutorParams</paramClass>
+  <taskElementType name="Standard"/>
+  <transactionType name="atomicExternal"/>
+  <options>
+    <includeDelegation/>
+    <includePerform/>
+    <includeRemoteAccess/>
+  </options>
+</taskElement>

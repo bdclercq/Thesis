@@ -1,0 +1,131 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="timeTask.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="timeTask.name"
+             data-bind="translate: 'workflow.timeTask.name'">
+      </label>
+      <div class="controls" id="timeTask.name" data-bind="focus: 1">
+        <input type='text' name='timeTask.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('timeTask.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: processor.visible -->
+    <div class="control-group"
+       data-bind="css: { error: processor.hasErrors}">
+      <label class="control-label"
+             for="timeTask.processor"
+             data-bind="translate: 'workflow.timeTask.processor'">
+      </label>
+      <div class="controls" id="timeTask.processor" data-bind="focus: 2">
+        <input type='text' name='timeTask.processor' data-bind="textInput: detailModel.processor, enable: isFieldEnabled('timeTask.processor', editMode)" />
+        <div data-bind="formError: processor"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: implementation.visible -->
+    <div class="control-group"
+       data-bind="css: { error: implementation.hasErrors}">
+      <label class="control-label"
+             for="timeTask.implementation"
+             data-bind="translate: 'workflow.timeTask.implementation'">
+      </label>
+      <div class="controls" id="timeTask.implementation" data-bind="focus: 3">
+        <input type='text' name='timeTask.implementation' data-bind="textInput: detailModel.implementation, enable: isFieldEnabled('timeTask.implementation', editMode)" />
+        <div data-bind="formError: implementation"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: params.visible -->
+    <div class="control-group"
+       data-bind="css: { error: params.hasErrors}">
+      <label class="control-label"
+             for="timeTask.params"
+             data-bind="translate: 'workflow.timeTask.params'">
+      </label>
+      <div class="controls" id="timeTask.params" data-bind="focus: 4">
+        <input type='text' name='timeTask.params' data-bind="textInput: detailModel.params, enable: isFieldEnabled('timeTask.params', editMode)" />
+        <div data-bind="formError: params"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: triggerState.visible -->
+    <div class="control-group"
+       data-bind="css: { error: triggerState.hasErrors}">
+      <label class="control-label"
+             for="timeTask.triggerState"
+             data-bind="translate: 'workflow.timeTask.triggerState'">
+      </label>
+      <div class="controls" id="timeTask.triggerState" data-bind="focus: 5">
+        <input type='text' name='timeTask.triggerState' data-bind="textInput: detailModel.triggerState, enable: isFieldEnabled('timeTask.triggerState', editMode)" />
+        <div data-bind="formError: triggerState"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: intervalPeriod.visible -->
+    <div class="control-group"
+       data-bind="css: { error: intervalPeriod.hasErrors}">
+      <label class="control-label"
+             for="timeTask.intervalPeriod"
+             data-bind="translate: 'workflow.timeTask.intervalPeriod'">
+      </label>
+      <div class="controls" id="timeTask.intervalPeriod" data-bind="focus: 6">
+        <span data-bind='integerInput: detailModel.intervalPeriod, enable: isFieldEnabled("timeTask.intervalPeriod", editMode)'></span>
+        <div data-bind="formError: intervalPeriod"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: requiredAction.visible -->
+    <div class="control-group"
+       data-bind="css: { error: requiredAction.hasErrors}">
+      <label class="control-label"
+             for="timeTask.requiredAction"
+             data-bind="translate: 'workflow.timeTask.requiredAction'">
+      </label>
+      <div class="controls" id="timeTask.requiredAction" data-bind="focus: 7">
+        <span data-bind="tagValue: {
+            field: detailModel.requiredAction,
+            tag: 'timeTask_requiredAction'
+        }, enable: isFieldEnabled('timeTask.requiredAction', editMode)">
+        </span>
+        <div data-bind="formError: requiredAction"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: workflow.visible -->
+    <div class="control-group"
+       data-bind="css: { error: workflow.hasErrors}">
+      <label class="control-label"
+             for="timeTask.workflow"
+             data-bind="translate: 'workflow.timeTask.workflow'">
+      </label>
+      <div class="controls" id="timeTask.workflow" data-bind="focus: 8">
+        <span data-bind="selectDataRef: {
+            field: detailModel.workflow,
+            element: 'workflow.workflow',
+            hideDropdown: false
+        }, enable: isFieldEnabled('timeTask.workflow', editMode)">
+        </span>
+        <div data-bind="formError: workflow"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

@@ -1,0 +1,37 @@
+-- anchor:custom-imports:start
+import java.util.Date;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  private boolean hasRunningNode(EngineServiceData engineServiceData) {
+    for (EngineNodeServiceData engineNodeServiceData : engineServiceData.getEngineNodeServices()) {
+      if (!EngineNodeServiceState.NOT_RESPONDING.getStatus().equals(engineNodeServiceData.getStatus())) {
+        return true;
+      }
+    }
+    return false;
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-calculation-nextRun:start
+    EngineServiceData engineServiceData = dataParameter.getValue();
+    Date earliestRun = null;
+    for (EngineNodeServiceData engineNodeServiceData : engineServiceData.getEngineNodeServices()) {
+      if (EngineNodeServiceState.NOT_RESPONDING.getStatus().equals(engineNodeServiceData.getStatus())) {
+        continue;
+      }
+      Date nextNodeRun = engineNodeServiceData.getNextRun();
+      if (earliestRun == null || (nextNodeRun != null && nextNodeRun.before(earliestRun))) {
+        earliestRun = nextNodeRun;
+      }
+    }
+    result = earliestRun;
+-- anchor:custom-calculation-nextRun:end
+-- anchor:custom-calculation-running:start
+    EngineServiceData engineServiceData = dataParameter.getValue();
+    if (!hasRunningNode(engineServiceData)) {
+      result = "not running";
+    } else if ("start".equals(engineServiceData.getStatus())) {
+      result = "running [enabled]";
+    } else {
+      result = "running [disabled]";
+    }
+-- anchor:custom-calculation-running:end

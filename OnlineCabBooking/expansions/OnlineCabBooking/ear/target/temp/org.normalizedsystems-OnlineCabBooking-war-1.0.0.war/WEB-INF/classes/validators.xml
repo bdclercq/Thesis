@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators [
+<!ELEMENT validators (validator*)>
+
+<!ELEMENT validator (#PCDATA)>
+<!ATTLIST validator
+    name CDATA #REQUIRED
+    class CDATA #REQUIRED>
+]>
+
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<validators>
+  <validator name='required' class='com.opensymphony.xwork2.validator.validators.RequiredFieldValidator'/>
+  <validator name='requiredstring' class='com.opensymphony.xwork2.validator.validators.RequiredStringValidator'/>
+  <validator name='int' class='com.opensymphony.xwork2.validator.validators.IntRangeFieldValidator'/>
+  <validator name='long' class='com.opensymphony.xwork2.validator.validators.LongRangeFieldValidator'/>
+  <validator name='short' class='com.opensymphony.xwork2.validator.validators.ShortRangeFieldValidator'/>
+  <validator name='double' class='com.opensymphony.xwork2.validator.validators.DoubleRangeFieldValidator'/>
+  <validator name='date' class='com.opensymphony.xwork2.validator.validators.DateRangeFieldValidator'/>
+  <validator name='expression' class='com.opensymphony.xwork2.validator.validators.ExpressionValidator'/>
+  <validator name='fieldexpression' class='com.opensymphony.xwork2.validator.validators.FieldExpressionValidator'/>
+  <validator name='email' class='com.opensymphony.xwork2.validator.validators.EmailValidator'/>
+  <validator name='url' class='com.opensymphony.xwork2.validator.validators.URLValidator'/>
+  <validator name='visitor' class='com.opensymphony.xwork2.validator.validators.VisitorFieldValidator'/>
+  <validator name='conversion' class='com.opensymphony.xwork2.validator.validators.ConversionErrorFieldValidator'/>
+  <validator name='stringlength' class='com.opensymphony.xwork2.validator.validators.StringLengthFieldValidator'/>
+  <validator name='regex' class='com.opensymphony.xwork2.validator.validators.RegexFieldValidator'/>
+  <validator name='conditionalvisitor' class='com.opensymphony.xwork2.validator.validators.ConditionalVisitorFieldValidator'/>
+  <!-- anchor:validators:start -->
+  <validator name='creditcardNumber' class='validation.validators.StrutsCreditcardNumberValidator'/>
+  <validator name='dateTime' class='validation.validators.StrutsDateTimeValidator'/>
+  <validator name='e-mail' class='validation.validators.StrutsEmailValidator'/>
+  <validator name='iban' class='validation.validators.StrutsIbanValidator'/>
+  <validator name='image' class='validation.validators.StrutsImageValidator'/>
+  <validator name='kbo' class='validation.validators.StrutsKBOValidator'/>
+  <validator name='rijksRegisterNummer' class='validation.validators.StrutsRijksRegisterNummerValidator'/>
+  <validator name='time' class='validation.validators.StrutsTimeValidator'/>
+  <!-- anchor:validators:end -->
+</validators>

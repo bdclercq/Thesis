@@ -1,0 +1,83 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="address.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: state.visible -->
+    <div class="control-group"
+       data-bind="css: { error: state.hasErrors}">
+      <label class="control-label"
+             for="address.state"
+             data-bind="translate: 'onlineCabBookingComp.address.state'">
+      </label>
+      <div class="controls" id="address.state" data-bind="focus: 1">
+        <input type='text' name='address.state' data-bind="textInput: detailModel.state, enable: isFieldEnabled('address.state', editMode)" />
+        <div data-bind="formError: state"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: city.visible -->
+    <div class="control-group"
+       data-bind="css: { error: city.hasErrors}">
+      <label class="control-label"
+             for="address.city"
+             data-bind="translate: 'onlineCabBookingComp.address.city'">
+      </label>
+      <div class="controls" id="address.city" data-bind="focus: 2">
+        <input type='text' name='address.city' data-bind="textInput: detailModel.city, enable: isFieldEnabled('address.city', editMode)" />
+        <div data-bind="formError: city"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: pincode.visible -->
+    <div class="control-group"
+       data-bind="css: { error: pincode.hasErrors}">
+      <label class="control-label"
+             for="address.pincode"
+             data-bind="translate: 'onlineCabBookingComp.address.pincode'">
+      </label>
+      <div class="controls" id="address.pincode" data-bind="focus: 3">
+        <input type='text' name='address.pincode' data-bind="textInput: detailModel.pincode, enable: isFieldEnabled('address.pincode', editMode)" />
+        <div data-bind="formError: pincode"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: street.visible -->
+    <div class="control-group"
+       data-bind="css: { error: street.hasErrors}">
+      <label class="control-label"
+             for="address.street"
+             data-bind="translate: 'onlineCabBookingComp.address.street'">
+      </label>
+      <div class="controls" id="address.street" data-bind="focus: 4">
+        <input type='text' name='address.street' data-bind="textInput: detailModel.street, enable: isFieldEnabled('address.street', editMode)" />
+        <div data-bind="formError: street"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: houseNumber.visible -->
+    <div class="control-group"
+       data-bind="css: { error: houseNumber.hasErrors}">
+      <label class="control-label"
+             for="address.houseNumber"
+             data-bind="translate: 'onlineCabBookingComp.address.houseNumber'">
+      </label>
+      <div class="controls" id="address.houseNumber" data-bind="focus: 5">
+        <span data-bind='integerInput: detailModel.houseNumber, enable: isFieldEnabled("address.houseNumber", editMode)'></span>
+        <div data-bind="formError: houseNumber"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

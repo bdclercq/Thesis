@@ -1,0 +1,18 @@
+-- anchor:custom-imports:start
+import java.util.List;
+import net.democritus.sys.FlowResult;
+import net.democritus.sys.TaskResult;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  public FlowResult<Void> runWorkflowWithEngineService(DataRef engineServiceParameter) {
+    return workflowProxy.runWorkflowWithEngineService(createParameter(engineServiceParameter));
+  }
+
+  public FlowResult<Void> runWorkflowWithTargets(DataRef workflowParameter, List<DataRef> targetInstances) {
+    return workflowProxy.runWorkflowWithTargets(createParameter(workflowParameter), targetInstances);
+  }
+
+  public TaskResult<Void> recoverWorkflow(DataRef workflow) {
+    return workflowProxy.recoverWorkflow(createParameter(workflow));
+  }
+-- anchor:custom-methods:end

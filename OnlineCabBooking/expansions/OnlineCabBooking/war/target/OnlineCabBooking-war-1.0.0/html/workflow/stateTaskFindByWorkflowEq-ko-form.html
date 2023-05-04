@@ -1,0 +1,26 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('stateTask.workflow', editMode), css: { error: detailModel.workflow.hasErrors}">
+    <label class="control-label"
+           for="stateTask.workflow"
+           data-bind="translate: 'workflow.stateTask.workflow'">
+    </label>
+    <div class="controls" id="stateTask.workflow" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.workflow,
+          element: 'workflow.workflow',
+          hideDropdown: false
+      }, enable: isFieldEnabled('stateTask.workflow', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.workflow.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.workflow.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

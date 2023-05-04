@@ -1,0 +1,6 @@
+<validation xmlns="https://schemas.normalizedsystems.org/xsd/model-validations/1/0/0/validation">
+  <excludes>
+    <!-- Model validation exclusions can be defined here. -->
+    <!-- More info: https://foundation.stars-end.net/tools/model-validations/#4-filter-reports -->
+  </excludes>
+</validation>

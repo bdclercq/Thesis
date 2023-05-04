@@ -1,0 +1,1514 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: account component interface
+  expanderComment: 'expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1'
+  #anchor:custom-info:start
+  #anchor:custom-info:end
+#anchor:custom-root:start
+#anchor:custom-root:end
+paths:
+  /account-search-json:
+    get:
+      summary: 'get account instances by {searchMethod}'
+      description: account instances are searchable by different search methods, which require different details
+      operationId: 'get account instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllAccounts
+              - findByNameEq
+              - findByAddressEq
+              - findByCityEq
+              - findByCountryEq
+              - findByEmailEq
+              - findByFullNameEq
+              - findByRefIdEq
+              - findByStatusEq
+              - findByZipCodeEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name refId fullName city status  ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.address={youraddress}
+
+                  - details.city={yourcity}
+
+                  - details.country={yourcountry}
+
+                  - details.email={youremail}
+
+                  - details.fullName={yourfullName}
+
+                  - details.refId={yourrefId}
+
+                  - details.status={yourstatus}
+
+                  - details.zipCode={yourzipCode}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=refId&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=refId&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=fullName&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=fullName&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=address&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=address&sortFields[3].descending=oneOf{true, false}
+                  - sortFields[4].fieldName=zipCode&sortFields[4].ascending=oneOf{true, false}
+                  - sortFields[4].fieldName=zipCode&sortFields[4].descending=oneOf{true, false}
+                  - sortFields[5].fieldName=city&sortFields[5].ascending=oneOf{true, false}
+                  - sortFields[5].fieldName=city&sortFields[5].descending=oneOf{true, false}
+                  - sortFields[6].fieldName=country&sortFields[6].ascending=oneOf{true, false}
+                  - sortFields[6].fieldName=country&sortFields[6].descending=oneOf{true, false}
+                  - sortFields[7].fieldName=email&sortFields[7].ascending=oneOf{true, false}
+                  - sortFields[7].fieldName=email&sortFields[7].descending=oneOf{true, false}
+                  - sortFields[8].fieldName=phone&sortFields[8].ascending=oneOf{true, false}
+                  - sortFields[8].fieldName=phone&sortFields[8].descending=oneOf{true, false}
+                  - sortFields[9].fieldName=style&sortFields[9].ascending=oneOf{true, false}
+                  - sortFields[9].fieldName=style&sortFields[9].descending=oneOf{true, false}
+                  - sortFields[10].fieldName=status&sortFields[10].ascending=oneOf{true, false}
+                  - sortFields[10].fieldName=status&sortFields[10].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/AccountGeneratedResponse'
+
+  /component-search-json:
+    get:
+      summary: 'get component instances by {searchMethod}'
+      description: component instances are searchable by different search methods, which require different details
+      operationId: 'get component instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllComponents
+              - findByNameEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name  ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ComponentGeneratedResponse'
+
+  /dataAccess-search-json:
+    get:
+      summary: 'get dataAccess instances by {searchMethod}'
+      description: dataAccess instances are searchable by different search methods, which require different details
+      operationId: 'get dataAccess instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllDataAccesss
+              - findByNameEq
+              - findByElementEq
+              - findByElementEq_FunctionalityEq
+              - findByElementEq_TargetEq
+              - findByForProfileEq
+              - findByForProfileEq_ElementEq
+              - findByForProfileEq_FunctionalityEq
+              - findByForUserEq
+              - findByForUserEq_ElementEq
+              - findByForUserEq_FunctionalityEq
+              - findByTargetEq
+              - findByForUserGroupEq_ElementEq
+              - findByForUserEq_ElementEq_TargetEq_FunctionalityEq
+              - findByForProfileEq_ElementEq_TargetEq_FunctionalityEq
+              - findByForUserGroupEq_ElementEq_TargetEq_FunctionalityEq
+              - findByForUserGroupEq
+              - findBySpecificationOrWildcard
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ element target functionality authorized forProfile ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+              query:
+                  value: query
+                  summary: this projections shows [ element functionality target  ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.element={yourelement}
+
+                  - details.functionality={yourfunctionality}
+
+                  - details.target={yourtarget}
+
+                  - details.forProfile.id={yourforProfile}
+
+                  - details.forUser.id={yourforUser}
+
+                  - details.forUserGroup.id={yourforUserGroup}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=forProfile&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=forProfile&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=forUser&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=forUser&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=userGroups&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=userGroups&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=element&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=element&sortFields[3].descending=oneOf{true, false}
+                  - sortFields[4].fieldName=target&sortFields[4].ascending=oneOf{true, false}
+                  - sortFields[4].fieldName=target&sortFields[4].descending=oneOf{true, false}
+                  - sortFields[5].fieldName=functionality&sortFields[5].ascending=oneOf{true, false}
+                  - sortFields[5].fieldName=functionality&sortFields[5].descending=oneOf{true, false}
+                  - sortFields[6].fieldName=authorized&sortFields[6].ascending=oneOf{true, false}
+                  - sortFields[6].fieldName=authorized&sortFields[6].descending=oneOf{true, false}
+                  - sortFields[7].fieldName=lastModifiedAt&sortFields[7].ascending=oneOf{true, false}
+                  - sortFields[7].fieldName=lastModifiedAt&sortFields[7].descending=oneOf{true, false}
+                  - sortFields[8].fieldName=enteredAt&sortFields[8].ascending=oneOf{true, false}
+                  - sortFields[8].fieldName=enteredAt&sortFields[8].descending=oneOf{true, false}
+                  - sortFields[9].fieldName=disabled&sortFields[9].ascending=oneOf{true, false}
+                  - sortFields[9].fieldName=disabled&sortFields[9].descending=oneOf{true, false}
+                  - sortFields[10].fieldName=forUserGroup&sortFields[10].ascending=oneOf{true, false}
+                  - sortFields[10].fieldName=forUserGroup&sortFields[10].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/DataAccessGeneratedResponse'
+
+  /helpInfo-search-json:
+    get:
+      summary: 'get helpInfo instances by {searchMethod}'
+      description: helpInfo instances are searchable by different search methods, which require different details
+      operationId: 'get helpInfo instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllHelpInfos
+              - findByNameEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name description  ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=description&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=description&sortFields[1].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/HelpInfoGeneratedResponse'
+
+  /menu-search-json:
+    get:
+      summary: 'get menu instances by {searchMethod}'
+      description: menu instances are searchable by different search methods, which require different details
+      operationId: 'get menu instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllMenus
+              - findByNameEq
+              - findByPortalEq
+              - findByPortalEq_ProfileEq
+              - findByProfileEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name portal profile ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.portal.id={yourportal}
+
+                  - details.profile.id={yourprofile}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=portal&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=portal&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=profile&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=profile&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=menuItems&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=menuItems&sortFields[3].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/MenuGeneratedResponse'
+
+  /menuItem-search-json:
+    get:
+      summary: 'get menuItem instances by {searchMethod}'
+      description: menuItem instances are searchable by different search methods, which require different details
+      operationId: 'get menuItem instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllMenuItems
+              - findByNameEq
+              - findByMenuEq
+              - findByMenuEq_ScreenEq
+              - findByMenuItemEq
+              - findByScreenEq
+              - findBySortOrderGt
+              - findBySortOrderLt
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ sortOrder menu screen menuItem submenuItems ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.menu.id={yourmenu}
+
+                  - details.screen.id={yourscreen}
+
+                  - details.menuItem.id={yourmenuItem}
+
+                  - details.sortOrder={yoursortOrder}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=menu&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=menu&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=screen&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=screen&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=menuItem&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=menuItem&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=submenuItems&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=submenuItems&sortFields[3].descending=oneOf{true, false}
+                  - sortFields[4].fieldName=sortOrder&sortFields[4].ascending=oneOf{true, false}
+                  - sortFields[4].fieldName=sortOrder&sortFields[4].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/MenuItemGeneratedResponse'
+
+  /portal-search-json:
+    get:
+      summary: 'get portal instances by {searchMethod}'
+      description: portal instances are searchable by different search methods, which require different details
+      operationId: 'get portal instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllPortals
+              - findByNameEq
+              - findByNameEq_VersionEq
+              - findByVersionEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name version  ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.version={yourversion}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=version&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=version&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=description&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=description&sortFields[2].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/PortalGeneratedResponse'
+
+  /profile-search-json:
+    get:
+      summary: 'get profile instances by {searchMethod}'
+      description: profile instances are searchable by different search methods, which require different details
+      operationId: 'get profile instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllProfiles
+              - findByNameEq
+              - findByUserGroupEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name weight screens userGroup ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+              detailsWithoutRefs:
+                  value: detailsWithoutRefs
+                  summary: this projections shows [ name weight  ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.userGroup.id={youruserGroup}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=screens&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=screens&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=userGroup&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=userGroup&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=weight&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=weight&sortFields[3].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ProfileGeneratedResponse'
+
+  /screen-search-json:
+    get:
+      summary: 'get screen instances by {searchMethod}'
+      description: screen instances are searchable by different search methods, which require different details
+      operationId: 'get screen instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllScreens
+              - findByNameEq
+              - findByComponentEq
+              - findByLinkEq
+              - findByNameEq_ComponentEq
+              - findBySortOrderGt
+              - findBySortOrderLt
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name link sortOrder component ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.component.id={yourcomponent}
+
+                  - details.link={yourlink}
+
+                  - details.sortOrder={yoursortOrder}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=link&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=link&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=sortOrder&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=sortOrder&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=component&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=component&sortFields[3].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ScreenGeneratedResponse'
+
+  /screenProfile-search-json:
+    get:
+      summary: 'get screenProfile instances by {searchMethod}'
+      description: screenProfile instances are searchable by different search methods, which require different details
+      operationId: 'get screenProfile instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllScreenProfiles
+              - findByProfileEq
+              - findByScreenEq
+              - findByScreenEq_ProfileEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [  screen profile screens ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.profile.id={yourprofile}
+
+                  - details.screen.id={yourscreen}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=screen&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=screen&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=profile&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=profile&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=screens&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=screens&sortFields[2].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ScreenProfileGeneratedResponse'
+
+  /user-search-json:
+    get:
+      summary: 'get user instances by {searchMethod}'
+      description: user instances are searchable by different search methods, which require different details
+      operationId: 'get user instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllUsers
+              - findByNameEq
+              - findByAccountEq
+              - findByAccountEq_ProfileEq
+              - findByFullNameEq
+              - findByPersNrEq
+              - findByProfileEq
+              - findByEmailEq
+              - findByNameEq_ProfileEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name fullName email language account profile userGroups ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+              input:
+                  value: input
+                  summary: this projections shows [ password name  ]
+
+              detailsWithoutRefs:
+                  value: detailsWithoutRefs
+                  summary: this projections shows [ name password fullName email mobile language firstName lastName persNr lastModifiedAt enteredAt disabled timeout encryptedPassword  ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.account.id={youraccount}
+
+                  - details.profile.id={yourprofile}
+
+                  - details.fullName={yourfullName}
+
+                  - details.persNr={yourpersNr}
+
+                  - details.email={youremail}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=password&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=password&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=fullName&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=fullName&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=email&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=email&sortFields[3].descending=oneOf{true, false}
+                  - sortFields[4].fieldName=mobile&sortFields[4].ascending=oneOf{true, false}
+                  - sortFields[4].fieldName=mobile&sortFields[4].descending=oneOf{true, false}
+                  - sortFields[5].fieldName=language&sortFields[5].ascending=oneOf{true, false}
+                  - sortFields[5].fieldName=language&sortFields[5].descending=oneOf{true, false}
+                  - sortFields[6].fieldName=firstName&sortFields[6].ascending=oneOf{true, false}
+                  - sortFields[6].fieldName=firstName&sortFields[6].descending=oneOf{true, false}
+                  - sortFields[7].fieldName=lastName&sortFields[7].ascending=oneOf{true, false}
+                  - sortFields[7].fieldName=lastName&sortFields[7].descending=oneOf{true, false}
+                  - sortFields[8].fieldName=persNr&sortFields[8].ascending=oneOf{true, false}
+                  - sortFields[8].fieldName=persNr&sortFields[8].descending=oneOf{true, false}
+                  - sortFields[9].fieldName=lastModifiedAt&sortFields[9].ascending=oneOf{true, false}
+                  - sortFields[9].fieldName=lastModifiedAt&sortFields[9].descending=oneOf{true, false}
+                  - sortFields[10].fieldName=enteredAt&sortFields[10].ascending=oneOf{true, false}
+                  - sortFields[10].fieldName=enteredAt&sortFields[10].descending=oneOf{true, false}
+                  - sortFields[11].fieldName=disabled&sortFields[11].ascending=oneOf{true, false}
+                  - sortFields[11].fieldName=disabled&sortFields[11].descending=oneOf{true, false}
+                  - sortFields[12].fieldName=timeout&sortFields[12].ascending=oneOf{true, false}
+                  - sortFields[12].fieldName=timeout&sortFields[12].descending=oneOf{true, false}
+                  - sortFields[13].fieldName=account&sortFields[13].ascending=oneOf{true, false}
+                  - sortFields[13].fieldName=account&sortFields[13].descending=oneOf{true, false}
+                  - sortFields[14].fieldName=profile&sortFields[14].ascending=oneOf{true, false}
+                  - sortFields[14].fieldName=profile&sortFields[14].descending=oneOf{true, false}
+                  - sortFields[15].fieldName=userGroups&sortFields[15].ascending=oneOf{true, false}
+                  - sortFields[15].fieldName=userGroups&sortFields[15].descending=oneOf{true, false}
+                  - sortFields[16].fieldName=encryptedPassword&sortFields[16].ascending=oneOf{true, false}
+                  - sortFields[16].fieldName=encryptedPassword&sortFields[16].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/UserGeneratedResponse'
+
+  /userGroup-search-json:
+    get:
+      summary: 'get userGroup instances by {searchMethod}'
+      description: userGroup instances are searchable by different search methods, which require different details
+      operationId: 'get userGroup instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllUserGroups
+              - findByNameEq
+              - findByTypeEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name type  ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.type={yourtype}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=type&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=type&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=lastModifiedAt&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=lastModifiedAt&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=enteredAt&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=enteredAt&sortFields[3].descending=oneOf{true, false}
+                  - sortFields[4].fieldName=disabled&sortFields[4].ascending=oneOf{true, false}
+                  - sortFields[4].fieldName=disabled&sortFields[4].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/UserGroupGeneratedResponse'
+
+components:
+    schemas:
+        DataRef:
+            type: object
+            properties:
+                className:
+                    type: string
+                classPrefix:
+                    type: string
+                componentName:
+                    type: string
+                dataRefLink:
+                    type: string
+                id:
+                    type: number
+                name:
+                    type: string
+                packName:
+                    type: string
+        DateLong:
+            type: object
+            properties:
+                value:
+                    type: string
+
+        AccountGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/AccountDetails'
+        AccountDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+                refId:
+                    type: string
+                fullName:
+                    type: string
+                address:
+                    type: string
+                zipCode:
+                    type: string
+                city:
+                    type: string
+                country:
+                    type: string
+                email:
+                    type: string
+                phone:
+                    type: string
+                style:
+                    type: string
+                status:
+                    type: string
+
+        ComponentGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ComponentDetails'
+        ComponentDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+
+        DataAccessGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/DataAccessDetails'
+        DataAccessDetails:
+            type: object
+            properties:
+                forProfile:
+                    $ref: '#/components/schemas/DataRef'
+                forUser:
+                    $ref: '#/components/schemas/DataRef'
+                userGroups:
+                    $ref: '#/components/schemas/DataRef'
+                element:
+                    type: string
+                target:
+                    type: string
+                functionality:
+                    type: string
+                authorized:
+                    type: string
+                lastModifiedAt:
+                    type: string
+                enteredAt:
+                    type: string
+                disabled:
+                    type: string
+                forUserGroup:
+                    $ref: '#/components/schemas/DataRef'
+
+        HelpInfoGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/HelpInfoDetails'
+        HelpInfoDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+                description:
+                    type: string
+
+        MenuGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/MenuDetails'
+        MenuDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+                portal:
+                    $ref: '#/components/schemas/DataRef'
+                profile:
+                    $ref: '#/components/schemas/DataRef'
+                menuItems:
+                    $ref: '#/components/schemas/DataRef'
+
+        MenuItemGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/MenuItemDetails'
+        MenuItemDetails:
+            type: object
+            properties:
+                menu:
+                    $ref: '#/components/schemas/DataRef'
+                screen:
+                    $ref: '#/components/schemas/DataRef'
+                menuItem:
+                    $ref: '#/components/schemas/DataRef'
+                submenuItems:
+                    $ref: '#/components/schemas/DataRef'
+                sortOrder:
+                    type: integer
+
+        PortalGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/PortalDetails'
+        PortalDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+                version:
+                    type: string
+                description:
+                    type: string
+
+        ProfileGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ProfileDetails'
+        ProfileDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+                screens:
+                    $ref: '#/components/schemas/DataRef'
+                userGroup:
+                    $ref: '#/components/schemas/DataRef'
+                weight:
+                    type: integer
+
+        ScreenGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ScreenDetails'
+        ScreenDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+                link:
+                    type: string
+                sortOrder:
+                    type: integer
+                component:
+                    $ref: '#/components/schemas/DataRef'
+
+        ScreenProfileGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ScreenProfileDetails'
+        ScreenProfileDetails:
+            type: object
+            properties:
+                screen:
+                    $ref: '#/components/schemas/DataRef'
+                profile:
+                    $ref: '#/components/schemas/DataRef'
+                screens:
+                    $ref: '#/components/schemas/DataRef'
+
+        UserGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserDetails'
+        UserDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+                password:
+                    type: password
+                fullName:
+                    type: string
+                email:
+                    type: string
+                mobile:
+                    type: string
+                language:
+                    type: string
+                firstName:
+                    type: string
+                lastName:
+                    type: string
+                persNr:
+                    type: string
+                lastModifiedAt:
+                    type: string
+                enteredAt:
+                    type: string
+                disabled:
+                    type: string
+                timeout:
+                    type: integer
+                account:
+                    $ref: '#/components/schemas/DataRef'
+                profile:
+                    $ref: '#/components/schemas/DataRef'
+                userGroups:
+                    $ref: '#/components/schemas/DataRef'
+                encryptedPassword:
+                    type: password
+
+        UserGroupGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/UserGroupDetails'
+        UserGroupDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+                type:
+                    type: string
+                lastModifiedAt:
+                    type: string
+                enteredAt:
+                    type: string
+                disabled:
+                    type: string
+

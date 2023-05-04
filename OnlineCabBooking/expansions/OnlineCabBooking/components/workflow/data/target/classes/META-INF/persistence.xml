@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+  <persistence-unit name="OnlineCabBooking_workflow" transaction-type="JTA">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+    <jta-data-source>jdbc_OnlineCabBooking_base</jta-data-source>
+    <non-jta-data-source>jdbc_2_OnlineCabBooking_base</non-jta-data-source>
+    <properties>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+      <!-- @anchor:properties:start -->
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <!-- @anchor:properties:end -->
+      <!-- anchor:custom-properties:start -->
+      <!-- anchor:custom-properties:end -->
+    </properties>
+  </persistence-unit>
+  <!-- @anchor:persistence-units:start -->
+  <!-- @anchor:persistence-units:end -->
+  <!-- anchor:custom-persistence-units:start -->
+  <!-- anchor:custom-persistence-units:end -->
+</persistence>

@@ -1,0 +1,92 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="workflow-engineService-name-header">
+      <span data-bind="translate: 'workflow.engineService.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: status.sort.trigger" class="workflow-engineService-status-header">
+      <span data-bind="translate: 'workflow.engineService.status'"></span>
+      <i class="sortable" data-bind="css: status.icon"></i>
+    </th>
+    <th data-bind="click: busy.sort.trigger" class="workflow-engineService-busy-header">
+      <span data-bind="translate: 'workflow.engineService.busy'"></span>
+      <i class="sortable" data-bind="css: busy.icon"></i>
+    </th>
+    <th data-bind="click: waitTime.sort.trigger" class="workflow-engineService-waitTime-header">
+      <span data-bind="translate: 'workflow.engineService.waitTime'"></span>
+      <i class="sortable" data-bind="css: waitTime.icon"></i>
+    </th>
+    <th class="workflow-engineService-timeWindowGroup-header">
+      <span data-bind="translate: 'workflow.engineService.timeWindowGroup'"></span>
+    </th>
+    <th data-bind="click: lastRunAt.sort.trigger" class="workflow-engineService-lastRunAt-header">
+      <span data-bind="translate: 'workflow.engineService.lastRunAt'"></span>
+      <i class="sortable" data-bind="css: lastRunAt.icon"></i>
+    </th>
+    <th data-bind="click: batchSize.sort.trigger" class="workflow-engineService-batchSize-header">
+      <span data-bind="translate: 'workflow.engineService.batchSize'"></span>
+      <i class="sortable" data-bind="css: batchSize.icon"></i>
+    </th>
+    <th data-bind="click: maximumNumberOfNodes.sort.trigger" class="workflow-engineService-maximumNumberOfNodes-header">
+      <span data-bind="translate: 'workflow.engineService.maximumNumberOfNodes'"></span>
+      <i class="sortable" data-bind="css: maximumNumberOfNodes.icon"></i>
+    </th>
+    <th class="workflow-engineService-running-header">
+      <span data-bind="translate: 'workflow.engineService.running'"></span>
+    </th>
+    <th class="workflow-engineService-nextRun-header">
+      <span data-bind="translate: 'workflow.engineService.nextRun'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="workflow-engineService-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="workflow-engineService-status-cell">
+      <span data-bind="text: status"></span>
+    </td>
+    <td class="workflow-engineService-busy-cell">
+      <span data-bind="text: busy"></span>
+    </td>
+    <td class="workflow-engineService-waitTime-cell">
+      <span data-bind="text: waitTime"></span>
+    </td>
+    <td class="workflow-engineService-timeWindowGroup-cell">
+      <span data-bind="with: timeWindowGroup">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <td class="workflow-engineService-lastRunAt-cell">
+      <span data-bind='dateTimeString: lastRunAt'></span>
+    </td>
+    <td class="workflow-engineService-batchSize-cell">
+      <span data-bind="text: batchSize"></span>
+    </td>
+    <td class="workflow-engineService-maximumNumberOfNodes-cell">
+      <span data-bind="text: maximumNumberOfNodes"></span>
+    </td>
+    <td class="workflow-engineService-running-cell">
+      <span data-bind="text: running"></span>
+    </td>
+    <td class="workflow-engineService-nextRun-cell">
+      <span data-bind="dateTimeString: nextRun"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

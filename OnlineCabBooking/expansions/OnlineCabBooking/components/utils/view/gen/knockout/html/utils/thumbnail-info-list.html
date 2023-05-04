@@ -1,0 +1,77 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="utils-thumbnail-name-header">
+      <span data-bind="translate: 'utils.thumbnail.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: fullName.sort.trigger" class="utils-thumbnail-fullName-header">
+      <span data-bind="translate: 'utils.thumbnail.fullName'"></span>
+      <i class="sortable" data-bind="css: fullName.icon"></i>
+    </th>
+    <th data-bind="click: uri.sort.trigger" class="utils-thumbnail-uri-header">
+      <span data-bind="translate: 'utils.thumbnail.uri'"></span>
+      <i class="sortable" data-bind="css: uri.icon"></i>
+    </th>
+    <th data-bind="click: depth.sort.trigger" class="utils-thumbnail-depth-header">
+      <span data-bind="translate: 'utils.thumbnail.depth'"></span>
+      <i class="sortable" data-bind="css: depth.icon"></i>
+    </th>
+    <th data-bind="click: thumbType.sort.trigger" class="utils-thumbnail-thumbType-header">
+      <span data-bind="translate: 'utils.thumbnail.thumbType'"></span>
+      <i class="sortable" data-bind="css: thumbType.icon"></i>
+    </th>
+    <th data-bind="click: targetType.sort.trigger" class="utils-thumbnail-targetType-header">
+      <span data-bind="translate: 'utils.thumbnail.targetType'"></span>
+      <i class="sortable" data-bind="css: targetType.icon"></i>
+    </th>
+    <th data-bind="click: leftX.sort.trigger" class="utils-thumbnail-leftX-header">
+      <span data-bind="translate: 'utils.thumbnail.leftX'"></span>
+      <i class="sortable" data-bind="css: leftX.icon"></i>
+    </th>
+    <th data-bind="click: topY.sort.trigger" class="utils-thumbnail-topY-header">
+      <span data-bind="translate: 'utils.thumbnail.topY'"></span>
+      <i class="sortable" data-bind="css: topY.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="utils-thumbnail-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="utils-thumbnail-fullName-cell">
+      <span data-bind="text: fullName"></span>
+    </td>
+    <td class="utils-thumbnail-uri-cell">
+      <span data-bind="text: uri"></span>
+    </td>
+    <td class="utils-thumbnail-depth-cell">
+      <span data-bind="text: depth"></span>
+    </td>
+    <td class="utils-thumbnail-thumbType-cell">
+      <span data-bind="text: thumbType"></span>
+    </td>
+    <td class="utils-thumbnail-targetType-cell">
+      <span data-bind="text: targetType"></span>
+    </td>
+    <td class="utils-thumbnail-leftX-cell">
+      <span data-bind="text: leftX"></span>
+    </td>
+    <td class="utils-thumbnail-topY-cell">
+      <span data-bind="text: topY"></span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

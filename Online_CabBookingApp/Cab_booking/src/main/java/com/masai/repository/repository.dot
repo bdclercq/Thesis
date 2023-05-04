@@ -1,0 +1,18 @@
+digraph "package" {
+
+splines  = ortho;
+fontname = "Inconsolata";
+
+node [colorscheme = ylgnbu4];
+edge [colorscheme = dark28, dir = both];
+
+AddressDao  [shape = record, pos = "1.681,0.583!"     , label = "{ \<\<interface\>\>\nAddressDao |  }"];
+AdminDao    [shape = record, pos = "4.250,0.583!"     , label = "{ \<\<interface\>\>\nAdminDao |  }"];
+CabDao      [shape = record, pos = "2.764,1.944!"     , label = "{ \<\<interface\>\>\nCabDao | + viewCarType() : List\<String\>\l }"];
+CustomerDao [shape = record, pos = "-1.056,0.583!"    , label = "{ \<\<interface\>\>\nCustomerDao |  }"];
+DriverDao   [shape = record, pos = "-1.056,1.944!"    , label = "{ \<\<interface\>\>\nDriverDao | + viewBestDriver() : List\<Driver\>\l }"];
+SessionDao  [shape = record, pos = "-1.056,3.611!"    , label = "{ \<\<interface\>\>\nSessionDao | + findByUuid(String) : Optional\<CurrentUserSession\>\l + findById(Integer) : Optional\<CurrentUserSession\>\l }"];
+TripDao     [shape = record, pos = "-1.056,5.889!"    , label = "{ \<\<interface\>\>\nTripDao | + findByCustomeridAsce() : List\<TripBooking\>\l + findByFromdate_timeAsce() : List\<TripBooking\>\l + findByDriverAscs() : List\<TripBooking\>\l + findByCustomerIdAndFromdate_time(Integer, LocalDate) : List\<TripBooking\>\l }"];
+
+
+}

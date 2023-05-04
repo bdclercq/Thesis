@@ -1,0 +1,88 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="person.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: username.visible -->
+    <div class="control-group"
+       data-bind="css: { error: username.hasErrors}">
+      <label class="control-label"
+             for="person.username"
+             data-bind="translate: 'onlineCabBookingComp.person.username'">
+      </label>
+      <div class="controls" id="person.username" data-bind="focus: 1">
+        <input type='text' name='person.username' data-bind="textInput: detailModel.username, enable: isFieldEnabled('person.username', editMode)" />
+        <div data-bind="formError: username"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: password.visible -->
+    <div class="control-group"
+       data-bind="css: { error: password.hasErrors}">
+      <label class="control-label"
+             for="person.password"
+             data-bind="translate: 'onlineCabBookingComp.person.password'">
+      </label>
+      <div class="controls" id="person.password" data-bind="focus: 2">
+        <input type='text' name='person.password' data-bind="textInput: detailModel.password, enable: isFieldEnabled('person.password', editMode)" />
+        <div data-bind="formError: password"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: email.visible -->
+    <div class="control-group"
+       data-bind="css: { error: email.hasErrors}">
+      <label class="control-label"
+             for="person.email"
+             data-bind="translate: 'onlineCabBookingComp.person.email'">
+      </label>
+      <div class="controls" id="person.email" data-bind="focus: 3">
+        <input type='text' name='person.email' data-bind="textInput: detailModel.email, enable: isFieldEnabled('person.email', editMode)" />
+        <div data-bind="formError: email"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: mobile.visible -->
+    <div class="control-group"
+       data-bind="css: { error: mobile.hasErrors}">
+      <label class="control-label"
+             for="person.mobile"
+             data-bind="translate: 'onlineCabBookingComp.person.mobile'">
+      </label>
+      <div class="controls" id="person.mobile" data-bind="focus: 4">
+        <input type='text' name='person.mobile' data-bind="textInput: detailModel.mobile, enable: isFieldEnabled('person.mobile', editMode)" />
+        <div data-bind="formError: mobile"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: address.visible -->
+    <div class="control-group"
+       data-bind="css: { error: address.hasErrors}">
+      <label class="control-label"
+             for="person.address"
+             data-bind="translate: 'onlineCabBookingComp.person.address'">
+      </label>
+      <div class="controls" id="person.address" data-bind="focus: 5">
+        <span data-bind="selectDataRef: {
+            field: detailModel.address,
+            element: 'onlineCabBookingComp.address',
+            hideDropdown: false
+        }, enable: isFieldEnabled('person.address', editMode)">
+        </span>
+        <div data-bind="formError: address"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

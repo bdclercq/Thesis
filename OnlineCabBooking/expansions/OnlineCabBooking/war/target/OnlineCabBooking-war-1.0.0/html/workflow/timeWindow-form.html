@@ -1,0 +1,57 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="timeWindow.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="timeWindow.name"
+             data-bind="translate: 'workflow.timeWindow.name'">
+      </label>
+      <div class="controls" id="timeWindow.name" data-bind="focus: 1">
+        <input type='text' name='timeWindow.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('timeWindow.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: startTime.visible -->
+    <div class="control-group"
+       data-bind="css: { error: startTime.hasErrors}">
+      <label class="control-label"
+             for="timeWindow.startTime"
+             data-bind="translate: 'workflow.timeWindow.startTime'">
+      </label>
+      <div class="controls" id="timeWindow.startTime" data-bind="focus: 2">
+        <input type='text' name='timeWindow.startTime' data-bind="textInput: detailModel.startTime, enable: isFieldEnabled('timeWindow.startTime', editMode)" />
+        <div data-bind="formError: startTime"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: stopTime.visible -->
+    <div class="control-group"
+       data-bind="css: { error: stopTime.hasErrors}">
+      <label class="control-label"
+             for="timeWindow.stopTime"
+             data-bind="translate: 'workflow.timeWindow.stopTime'">
+      </label>
+      <div class="controls" id="timeWindow.stopTime" data-bind="focus: 3">
+        <input type='text' name='timeWindow.stopTime' data-bind="textInput: detailModel.stopTime, enable: isFieldEnabled('timeWindow.stopTime', editMode)" />
+        <div data-bind="formError: stopTime"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

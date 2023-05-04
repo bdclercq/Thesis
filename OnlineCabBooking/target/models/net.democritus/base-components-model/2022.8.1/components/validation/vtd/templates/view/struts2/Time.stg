@@ -1,0 +1,27 @@
+
+editField(styler, componentName, classPrefix, fieldName) ::= <<
+  <sj:datepicker
+    name="$classPrefix$Details.$fieldName$"
+    label="%{getText('$componentName$.$classPrefix$.$fieldName$')}"
+    timepicker="true"
+    timepickerOnly="true"
+  />
+>>
+
+displayField(styler, componentName, classPrefix, fieldName) ::= <<
+<tr>
+  $label(styler, componentName, classPrefix, fieldName)$
+  <td class="$styler.value$">
+    <span class="$styler.emphasis$">
+      <s:property value="$classPrefix$Details.$fieldName$"/>
+    </span>
+  </td>
+</tr>
+>>
+
+label(styler, compName, classPrefix, fieldName) ::= <<
+<td class="$styler.label$">
+  <span class="$styler.noEmphasis$"><s:text name="$compName$.$classPrefix$.$fieldName$"/> : </span>
+</td>
+>>
+

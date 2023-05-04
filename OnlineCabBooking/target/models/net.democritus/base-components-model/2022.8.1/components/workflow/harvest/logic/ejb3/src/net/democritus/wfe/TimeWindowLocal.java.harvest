@@ -1,0 +1,3 @@
+-- anchor:custom-methods:start
+  CrudsResult<TimeWindowDetails> getTimeWindowById(ParameterContext<Long> timeWindowIdParameter);
+-- anchor:custom-methods:end

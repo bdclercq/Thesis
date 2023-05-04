@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/ext/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/ext/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/ext/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/ext/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/gen/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/gen/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/gen/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/gen_test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/gen_test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/gen_test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/gen_test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/data/test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/account/logic" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/ext/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/ext/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/ext/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/ext/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/gen/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/gen/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/gen/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/gen_test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/gen_test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/gen_test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/gen_test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/data/test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/assets/logic" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/ext/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/ext/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/ext/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/ext/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/gen/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/gen/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/gen/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/gen_test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/gen_test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/gen_test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/gen_test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/data/test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/onlineCabBookingComp/logic" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/ext/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/ext/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/ext/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/ext/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/gen/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/gen/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/gen/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/gen_test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/gen_test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/gen_test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/gen_test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/data/test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/utils/logic" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/ext/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/ext/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/ext/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/ext/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/gen/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/gen/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/gen/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/gen_test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/gen_test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/gen_test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/gen_test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/data/test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/validation/logic" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/ext/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/ext/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/ext/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/ext/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/gen/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/gen/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/gen/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/gen_test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/gen_test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/gen_test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/gen_test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/test/common/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/test/common/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/test/jpa/resources" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/data/test/jpa/src" />
+    <file type="ejb" url="file://$PROJECT_DIR$/components/workflow/logic" />
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/ear" />
+    <file type="web" url="file://$PROJECT_DIR$/control/ext/common/src" />
+    <file type="web" url="file://$PROJECT_DIR$/control/ext/struts2/src" />
+    <file type="web" url="file://$PROJECT_DIR$/control/gen/common/src" />
+    <file type="web" url="file://$PROJECT_DIR$/control/gen/struts2/src" />
+    <file type="web" url="file://$PROJECT_DIR$/war" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK" />
+</project>

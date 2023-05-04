@@ -1,0 +1,52 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.externalAsset.id'"></span>
+    </th>
+    <td>
+      <span data-bind="text: id"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:start -->
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.externalAsset.name'"></span>
+    </th>
+    <td>
+      <span data-bind="text: name"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.externalAsset.uri'"></span>
+    </th>
+    <td>
+      <a target="_blank" data-bind="attr: {href: uri},
+        click: function() { return true;}, clickBubble: false">
+        <span data-bind="text: uri"></span>
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.externalAsset.byteSize'"></span>
+    </th>
+    <td>
+      <span data-bind="text: byteSize"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'assets.externalAsset.contentType'"></span>
+    </th>
+    <td>
+      <span data-bind="text: contentType"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:end -->
+  <!-- @anchor:field-rows:start -->
+  <!-- @anchor:field-rows:end -->
+  <!-- anchor:custom-field-rows:start -->
+  <!-- anchor:custom-field-rows:end -->
+</table>

@@ -1,0 +1,132 @@
+<dataElement name="MenuItem">
+  <packageName>net.democritus.usr.menu</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="menu">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="account" name="Menu"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="screen">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="account" name="Screen"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+      <options>
+        <isShowInfo/>
+        <showLinkDetails/>
+      </options>
+    </field>
+    <field name="menuItem">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="account" name="MenuItem"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="submenuItems">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="account" name="MenuItem"/>
+        <linkFieldType name="Ln05"/>
+      </linkField>
+      <options>
+        <isShowInfo/>
+        <showLinkDetails/>
+      </options>
+    </field>
+    <field name="sortOrder">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Integer"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findByMenuEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:menu">
+          <operator>Eq</operator>
+          <field name="menu"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByMenuEq_ScreenEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:menu">
+          <operator>Eq</operator>
+          <field name="menu"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Eq:screen">
+          <operator>Eq</operator>
+          <field name="screen"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByMenuItemEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:menuItem">
+          <operator>Eq</operator>
+          <field name="menuItem"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByScreenEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:screen">
+          <operator>Eq</operator>
+          <field name="screen"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findBySortOrderGt">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Gt:sortOrder">
+          <operator>Gt</operator>
+          <field name="sortOrder"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findBySortOrderLt">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Lt:sortOrder">
+          <operator>Lt</operator>
+          <field name="sortOrder"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findAllMenuItems"/>
+  </finders>
+  <options>
+    <hasDisplayName>menu_screen</hasDisplayName>
+  </options>
+</dataElement>

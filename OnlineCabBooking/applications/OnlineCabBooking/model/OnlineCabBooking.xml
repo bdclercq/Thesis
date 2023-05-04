@@ -1,0 +1,20 @@
+<application name="OnlineCabBooking">
+  <shortName>OnlineCabBooking</shortName>
+  <version>1.0.0</version>
+  <components>
+    <component name="utils"/>
+    <component name="account"/>
+    <component name="assets"/>
+    <component name="validation"/>
+    <component name="workflow"/>
+    <component name="onlineCabBookingComp"/>
+  </components>
+  <layoutStyles>
+    <layoutStyle name="nsxbootstrap"/>
+  </layoutStyles>
+  <options>
+    <struts.security.enforceHttpMethod/>
+    <struts.security.csrfProtection/>
+    <security.hstsHeader/>
+  </options>
+</application>

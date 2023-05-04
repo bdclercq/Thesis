@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<struts>
+
+  <include file='utils-header.xml'/>
+
+  <!-- anchor:struts-data-element:start -->
+  <include file='utils/execution.xml'/>
+  <include file='utils/idCounter.xml'/>
+  <include file='utils/paramTargetValue.xml'/>
+  <include file='utils/tagValuePair.xml'/>
+  <include file='utils/thumbnail.xml'/>
+  <!-- anchor:struts-data-element:end -->
+
+  <!-- @anchor:includes:start -->
+  <!-- @anchor:includes:end -->
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+  <package name='utils-custom' namespace='/' extends='nsx-json-default'>
+
+    <action name='getSessionInfo-json' class='net.democritus.web.GetSessionInfoAction' method='execute'>
+      <result name='success' type='json'>
+        <param name='noCache'>true</param>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+  </package>
+  <!-- anchor:custom-packages:end -->
+
+  <include file='utils-footer.xml'/>
+
+</struts>

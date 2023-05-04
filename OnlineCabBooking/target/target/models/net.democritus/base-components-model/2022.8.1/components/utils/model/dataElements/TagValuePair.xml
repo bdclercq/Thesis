@@ -1,0 +1,70 @@
+<dataElement name="TagValuePair">
+  <packageName>net.democritus.sys</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="tag">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="value">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <hasTranslation>Waarde</hasTranslation>
+        <isShowInfo/>
+      </options>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findAllTagValuePairs"/>
+    <finder name="findByTagEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:tag">
+          <operator>Eq</operator>
+          <field name="tag"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByTagEq_ValueEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:tag">
+          <operator>Eq</operator>
+          <field name="tag"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Eq:value">
+          <operator>Eq</operator>
+          <field name="value"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op tag en waarde</hasTranslation>
+      </options>
+    </finder>
+    <finder name="findByValueEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:value">
+          <operator>Eq</operator>
+          <field name="value"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+      <options>
+        <hasTranslation>Zoek op waarde</hasTranslation>
+      </options>
+    </finder>
+  </finders>
+  <options>
+    <hasDisplayName>tag_value</hasDisplayName>
+    <nameNotWanted/>
+  </options>
+</dataElement>

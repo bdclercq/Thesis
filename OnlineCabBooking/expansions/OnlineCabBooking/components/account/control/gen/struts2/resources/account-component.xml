@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<struts>
+
+  <include file='account-header.xml'/>
+
+  <!-- anchor:struts-data-element:start -->
+  <include file='account/account.xml'/>
+  <include file='account/component.xml'/>
+  <include file='account/dataAccess.xml'/>
+  <include file='account/helpInfo.xml'/>
+  <include file='account/menu.xml'/>
+  <include file='account/menuItem.xml'/>
+  <include file='account/portal.xml'/>
+  <include file='account/profile.xml'/>
+  <include file='account/screen.xml'/>
+  <include file='account/screenProfile.xml'/>
+  <include file='account/user.xml'/>
+  <include file='account/userGroup.xml'/>
+  <!-- anchor:struts-data-element:end -->
+
+  <!-- @anchor:includes:start -->
+  <!-- @anchor:includes:end -->
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+  <!-- anchor:custom-packages:end -->
+
+  <include file='account-footer.xml'/>
+
+</struts>

@@ -1,0 +1,52 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="account-screen-name-header">
+      <span data-bind="translate: 'account.screen.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: link.sort.trigger" class="account-screen-link-header">
+      <span data-bind="translate: 'account.screen.link'"></span>
+      <i class="sortable" data-bind="css: link.icon"></i>
+    </th>
+    <th data-bind="click: sortOrder.sort.trigger" class="account-screen-sortOrder-header">
+      <span data-bind="translate: 'account.screen.sortOrder'"></span>
+      <i class="sortable" data-bind="css: sortOrder.icon"></i>
+    </th>
+    <th class="account-screen-component-header">
+      <span data-bind="translate: 'account.screen.component'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-screen-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="account-screen-link-cell">
+      <span data-bind="text: link"></span>
+    </td>
+    <td class="account-screen-sortOrder-cell">
+      <span data-bind="text: sortOrder"></span>
+    </td>
+    <td class="account-screen-component-cell">
+      <span data-bind="with: component">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

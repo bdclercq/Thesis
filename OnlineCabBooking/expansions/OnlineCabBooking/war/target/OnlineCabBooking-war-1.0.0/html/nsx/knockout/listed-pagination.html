@@ -1,0 +1,17 @@
+<div class="pagination text-center">
+    <ul>
+        <li data-bind="css: {disabled: isFirstPage}">
+            <a href="#" aria-label="Previous" data-bind="click: previousPage.trigger">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <!--ko foreach: pages-->
+        <li data-bind="css: {'active' : active}"><a href="#" data-bind="text: label, click: link.trigger"></a></li>
+        <!--/ko-->
+        <li data-bind="css: {disabled: isLastPage}">
+            <a href="#" aria-label="Next" data-bind="click: nextPage.trigger">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</div>

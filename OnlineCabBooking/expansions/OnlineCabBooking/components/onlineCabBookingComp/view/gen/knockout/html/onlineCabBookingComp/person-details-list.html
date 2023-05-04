@@ -1,0 +1,66 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="onlineCabBookingComp-person-name-header">
+      <span data-bind="translate: 'onlineCabBookingComp.person.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: username.sort.trigger" class="onlineCabBookingComp-person-username-header">
+      <span data-bind="translate: 'onlineCabBookingComp.person.username'"></span>
+      <i class="sortable" data-bind="css: username.icon"></i>
+    </th>
+    <th data-bind="click: password.sort.trigger" class="onlineCabBookingComp-person-password-header">
+      <span data-bind="translate: 'onlineCabBookingComp.person.password'"></span>
+      <i class="sortable" data-bind="css: password.icon"></i>
+    </th>
+    <th data-bind="click: email.sort.trigger" class="onlineCabBookingComp-person-email-header">
+      <span data-bind="translate: 'onlineCabBookingComp.person.email'"></span>
+      <i class="sortable" data-bind="css: email.icon"></i>
+    </th>
+    <th data-bind="click: mobile.sort.trigger" class="onlineCabBookingComp-person-mobile-header">
+      <span data-bind="translate: 'onlineCabBookingComp.person.mobile'"></span>
+      <i class="sortable" data-bind="css: mobile.icon"></i>
+    </th>
+    <th class="onlineCabBookingComp-person-address-header">
+      <span data-bind="translate: 'onlineCabBookingComp.person.address'"></span>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="onlineCabBookingComp-person-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="onlineCabBookingComp-person-username-cell">
+      <span data-bind="text: username"></span>
+    </td>
+    <td class="onlineCabBookingComp-person-password-cell">
+      <span data-bind="text: password"></span>
+    </td>
+    <td class="onlineCabBookingComp-person-email-cell">
+      <span data-bind="text: email"></span>
+    </td>
+    <td class="onlineCabBookingComp-person-mobile-cell">
+      <span data-bind="text: mobile"></span>
+    </td>
+    <td class="onlineCabBookingComp-person-address-cell">
+      <span data-bind="with: address">
+        <a href="#" data-bind="click: link.trigger, clickBubble: false">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

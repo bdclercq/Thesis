@@ -1,0 +1,46 @@
+<!-- should be bound to pageModel:
+     hasPreviousPage()
+     hasNextPage()
+     currentPage()
+     numberOfPages()
+     hasMultiplePages()
+
+     nextPage()
+     previousPage()
+     create()
+
+     toggleFinder()
+  -->
+<span>
+  <span data-bind="visible: paging.hasMultiplePages" style="display:none">
+    <button 
+       type="button" 
+       class="btn" 
+       data-bind="click: paging.previousPage, enable: paging.hasPreviousPage">
+      <span class="icon-chevron-up"></span>
+    </button>
+
+    <button 
+       type="button"
+       class="btn"
+       data-bind="click: paging.nextPage, enable: paging.hasNextPage">
+      <span class="icon-chevron-down"></span>
+    </button>
+  </span>
+
+  <button
+     type="button"
+     class="btn"
+     data-bind="click: paging.reloadPage">
+    <span class="icon-refresh"></span>
+  </button>
+
+  <span data-bind="visible: paging.hasMultiplePages" style="display:none">
+    <span>&nbsp;
+      <span data-bind="translate: 'ns.page'"></span>
+      <input type="text" class="nsx-page" data-bind="value: paging.userPage" ></input>
+      <span data-bind="translate: 'ns.of'"></span>
+      <span data-bind="text: paging.numberOfPages"></span>
+    </span>
+  </span>
+</span>

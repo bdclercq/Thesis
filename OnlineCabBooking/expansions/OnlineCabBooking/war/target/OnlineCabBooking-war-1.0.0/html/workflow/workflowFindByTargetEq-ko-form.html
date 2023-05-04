@@ -1,0 +1,21 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('workflow.target', editMode), css: { error: detailModel.target.hasErrors}">
+    <label class="control-label"
+           for="workflow.target"
+           data-bind="translate: 'workflow.workflow.target'">
+    </label>
+    <div class="controls" id="workflow.target" data-bind="focus: 1">
+      <input type='text' name='workflow.target' data-bind="textInput: detailModel.target, enable: isFieldEnabled('workflow.target', editMode)" />
+      <div data-bind="visible: detailModel.target.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.target.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<navigation xmlns="https://schemas.normalizedsystems.org/xsd/default-stack/2021/0/1/componentMenu">
+  <targets>
+    <!-- anchor:targets:start -->
+    <target id="onlineCabBookingComp-address-list-page" url="/OnlineCabBooking/onlineCabBookingComp/address/all" name="onlineCabBookingComp.Address"/>
+    <target id="onlineCabBookingComp-cab-list-page" url="/OnlineCabBooking/onlineCabBookingComp/cab/all" name="onlineCabBookingComp.Cab"/>
+    <target id="onlineCabBookingComp-carType-list-page" url="/OnlineCabBooking/onlineCabBookingComp/carType/all" name="onlineCabBookingComp.CarType"/>
+    <target id="onlineCabBookingComp-customer-list-page" url="/OnlineCabBooking/onlineCabBookingComp/customer/all" name="onlineCabBookingComp.Customer"/>
+    <target id="onlineCabBookingComp-driver-list-page" url="/OnlineCabBooking/onlineCabBookingComp/driver/all" name="onlineCabBookingComp.Driver"/>
+    <target id="onlineCabBookingComp-payment-list-page" url="/OnlineCabBooking/onlineCabBookingComp/payment/all" name="onlineCabBookingComp.Payment"/>
+    <target id="onlineCabBookingComp-person-list-page" url="/OnlineCabBooking/onlineCabBookingComp/person/all" name="onlineCabBookingComp.Person"/>
+    <target id="onlineCabBookingComp-tripBooking-list-page" url="/OnlineCabBooking/onlineCabBookingComp/tripBooking/all" name="onlineCabBookingComp.TripBooking"/>
+    <!-- anchor:targets:end -->
+    <!-- @anchor:targets:start -->
+    <!-- @anchor:targets:end -->
+
+    <!-- example:
+    <target id="item1" url="/OnlineCabBooking/onlineCabBookingComp/item1" name="property.name"/>
+    -->
+    <!-- anchor:custom-targets:start -->
+    <!-- anchor:custom-targets:end -->
+
+  </targets>
+</navigation>

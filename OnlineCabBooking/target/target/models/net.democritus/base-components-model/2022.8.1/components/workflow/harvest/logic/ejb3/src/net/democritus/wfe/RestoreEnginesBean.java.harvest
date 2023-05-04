@@ -1,0 +1,31 @@
+-- anchor:custom-imports:start
+import net.democritus.sys.Context;
+import net.democritus.workflow.EngineNodeExpiredNodeCleaner;
+import net.democritus.workflow.WorkflowInterruptRecoverer;
+-- anchor:custom-imports:end
+-- anchor:custom-postPerform:start
+    try {
+      engineNodeExpiredNodeCleaner.cleanExpiredNodes();
+      workflowInterruptRecoverer.recoverInterruptedInstances();
+      taskResult = TaskResult.success();
+    } catch (Exception e) {
+      logger.error("Workflow recovery failed", e);
+      taskResult = TaskResult.error();
+    }
+-- anchor:custom-postPerform:end
+-- anchor:custom-prePerform:start
+    EngineNodeDetails engineNodeDetails = targetParameter.getValue();
+    if (engineNodeDetails.getMaster() == null || !engineNodeDetails.getMaster()) {
+      logger.error("Engine node must be master to execute engine recovery");
+      return TaskResult.error();
+    }
+
+    logger.debug("Restoring engines...");
+    Context context = targetParameter.getContext();
+
+    EngineNodeExpiredNodeCleaner engineNodeExpiredNodeCleaner = new EngineNodeExpiredNodeCleaner(context);
+
+    WorkflowInterruptRecoverer workflowInterruptRecoverer = new WorkflowInterruptRecoverer(context);
+    workflowInterruptRecoverer.setRecoverClaimingFlows(false);
+    workflowInterruptRecoverer.setRecoverNonClaimingFlows(true);
+-- anchor:custom-prePerform:end

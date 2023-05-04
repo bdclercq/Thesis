@@ -1,0 +1,20 @@
+<expansionSettings>
+  <modelDirectory>..</modelDirectory>
+  <expansionDirectory>../expansions</expansionDirectory>
+  <expansions>
+    <expansion>
+      <type component="elements" name="JeeApplication"/>
+      <target>OnlineCabBooking::1.0.0</target>
+      <variant>OnlineCabBooking</variant>
+    </expansion>
+  </expansions>
+  <expansionResources>
+    <expansionResource name="net.democritus:nsx-default-stack" version="2022.10.2"/>
+    <expansionResource name="net.democritus:sql-expanders" version="2.5.0"/>
+  </expansionResources>
+  <settingsDirectories>
+    <settingsDirectory>
+      <directory>../settings</directory>
+    </settingsDirectory>
+  </settingsDirectories>
+</expansionSettings>

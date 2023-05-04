@@ -1,0 +1,119 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<thead data-bind="with: heading">
+  <tr>
+    <!-- anchor:headers:start -->
+    <th data-bind="click: name.sort.trigger" class="account-user-name-header">
+      <span data-bind="translate: 'account.user.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
+    <th data-bind="click: password.sort.trigger" class="account-user-password-header">
+      <span data-bind="translate: 'account.user.password'"></span>
+      <i class="sortable" data-bind="css: password.icon"></i>
+    </th>
+    <th data-bind="click: fullName.sort.trigger" class="account-user-fullName-header">
+      <span data-bind="translate: 'account.user.fullName'"></span>
+      <i class="sortable" data-bind="css: fullName.icon"></i>
+    </th>
+    <th data-bind="click: email.sort.trigger" class="account-user-email-header">
+      <span data-bind="translate: 'account.user.email'"></span>
+      <i class="sortable" data-bind="css: email.icon"></i>
+    </th>
+    <th data-bind="click: mobile.sort.trigger" class="account-user-mobile-header">
+      <span data-bind="translate: 'account.user.mobile'"></span>
+      <i class="sortable" data-bind="css: mobile.icon"></i>
+    </th>
+    <th data-bind="click: language.sort.trigger" class="account-user-language-header">
+      <span data-bind="translate: 'account.user.language'"></span>
+      <i class="sortable" data-bind="css: language.icon"></i>
+    </th>
+    <th data-bind="click: firstName.sort.trigger" class="account-user-firstName-header">
+      <span data-bind="translate: 'account.user.firstName'"></span>
+      <i class="sortable" data-bind="css: firstName.icon"></i>
+    </th>
+    <th data-bind="click: lastName.sort.trigger" class="account-user-lastName-header">
+      <span data-bind="translate: 'account.user.lastName'"></span>
+      <i class="sortable" data-bind="css: lastName.icon"></i>
+    </th>
+    <th data-bind="click: persNr.sort.trigger" class="account-user-persNr-header">
+      <span data-bind="translate: 'account.user.persNr'"></span>
+      <i class="sortable" data-bind="css: persNr.icon"></i>
+    </th>
+    <th data-bind="click: lastModifiedAt.sort.trigger" class="account-user-lastModifiedAt-header">
+      <span data-bind="translate: 'account.user.lastModifiedAt'"></span>
+      <i class="sortable" data-bind="css: lastModifiedAt.icon"></i>
+    </th>
+    <th data-bind="click: enteredAt.sort.trigger" class="account-user-enteredAt-header">
+      <span data-bind="translate: 'account.user.enteredAt'"></span>
+      <i class="sortable" data-bind="css: enteredAt.icon"></i>
+    </th>
+    <th data-bind="click: disabled.sort.trigger" class="account-user-disabled-header">
+      <span data-bind="translate: 'account.user.disabled'"></span>
+      <i class="sortable" data-bind="css: disabled.icon"></i>
+    </th>
+    <th data-bind="click: timeout.sort.trigger" class="account-user-timeout-header">
+      <span data-bind="translate: 'account.user.timeout'"></span>
+      <i class="sortable" data-bind="css: timeout.icon"></i>
+    </th>
+    <th data-bind="click: encryptedPassword.sort.trigger" class="account-user-encryptedPassword-header">
+      <span data-bind="translate: 'account.user.encryptedPassword'"></span>
+      <i class="sortable" data-bind="css: encryptedPassword.icon"></i>
+    </th>
+    <!-- anchor:headers:end -->
+    <!-- @anchor:headers:start -->
+    <!-- @anchor:headers:end -->
+    <!-- anchor:custom-headers:start -->
+    <!-- anchor:custom-headers:end -->
+  </tr>
+</thead>
+<tbody data-bind="foreach: list.items">
+  <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
+    <!-- anchor:values:start -->
+    <td class="account-user-name-cell">
+      <span data-bind="text: name"></span>
+    </td>
+    <td class="account-user-password-cell">
+      <span>****</span>
+    </td>
+    <td class="account-user-fullName-cell">
+      <span data-bind="text: fullName"></span>
+    </td>
+    <td class="account-user-email-cell">
+      <span data-bind="text: email"></span>
+    </td>
+    <td class="account-user-mobile-cell">
+      <span data-bind="text: mobile"></span>
+    </td>
+    <td class="account-user-language-cell">
+      <span data-bind="text: language"></span>
+    </td>
+    <td class="account-user-firstName-cell">
+      <span data-bind="text: firstName"></span>
+    </td>
+    <td class="account-user-lastName-cell">
+      <span data-bind="text: lastName"></span>
+    </td>
+    <td class="account-user-persNr-cell">
+      <span data-bind="text: persNr"></span>
+    </td>
+    <td class="account-user-lastModifiedAt-cell">
+      <span data-bind="dateString: lastModifiedAt"></span>
+    </td>
+    <td class="account-user-enteredAt-cell">
+      <span data-bind="dateString: enteredAt"></span>
+    </td>
+    <td class="account-user-disabled-cell">
+      <span data-bind="text: disabled"></span>
+    </td>
+    <td class="account-user-timeout-cell">
+      <span data-bind="text: timeout"></span>
+    </td>
+    <td class="account-user-encryptedPassword-cell">
+      <span>****</span>
+    </td>
+    <!-- anchor:values:end -->
+    <!-- @anchor:values:start -->
+    <!-- @anchor:values:end -->
+    <!-- anchor:custom-values:start -->
+    <!-- anchor:custom-values:end -->
+  </tr>
+</tbody>

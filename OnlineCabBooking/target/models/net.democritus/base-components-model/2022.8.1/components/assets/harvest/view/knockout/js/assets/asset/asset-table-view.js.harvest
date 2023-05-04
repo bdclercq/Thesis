@@ -1,0 +1,46 @@
+-- anchor:custom-variables:start
+  var AssetRegisterExternalDialog = require('assets/asset/asset-external-create');
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  function defineNewInstanceButton(toolbar, input) {
+    var createRightsRequest = accessRightsController.requestRight({
+      element: AssetElement,
+      requestedRight: AccessRights.Right.CREATE
+    });
+    var createIntent = AssetEvents.defineCreateIntentTrigger({
+      constants: input.constants,
+      values: input.values
+    });
+    return toolbar.defineButton({
+      trigger: createIntent,
+      icon: "icon-upload-alt",
+      label: "Upload asset",
+      visible: createRightsRequest.approved
+    });
+  }
+
+
+  function defineRegisterExternalAssetButton(toolbar, input) {
+    var createRightsRequest = accessRightsController.requestRight({
+      element: AssetElement,
+      requestedRight: AccessRights.Right.CREATE
+    });
+    var intent = Trigger.defineEventTrigger({
+      key: "assets.asset.intent.createExternalAsset",
+      source: null
+    });
+    return toolbar.defineButton({
+      position: 1,
+      trigger: intent,
+      icon: "icon-link",
+      label: "Register external asset",
+      visible: createRightsRequest.approved
+    });
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-page-after:start
+    toolbar.removeButton(editInstanceButton);
+
+    defineRegisterExternalAssetButton(toolbar, tableContext);
+    AssetRegisterExternalDialog.defineCreateDialog();
+-- anchor:custom-page-after:end

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>OnlineCabBooking</artifactId>
+    <groupId>org.normalizedsystems</groupId>
+    <version>1.0.0</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <groupId>org.normalizedsystems</groupId>
+  <artifactId>OnlineCabBooking-war</artifactId>
+  <packaging>war</packaging>
+
+  <name>OnlineCabBooking-war</name>
+  <url>http://www.normalizedsystems.org</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>OnlineCabBooking-shared</artifactId>
+      <type>jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>utils-control</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>account-control</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>validation-control</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>assets-control</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>workflow-control</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.normalizedsystems</groupId>
+      <artifactId>onlineCabBookingComp-control</artifactId>
+    </dependency>
+
+    <!-- @anchor:dependencies:start -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.jetty.toolchain</groupId>
+      <artifactId>jetty-schemas</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <!-- STRUTS2 CONTROL -->
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.struts</groupId>
+      <artifactId>struts2-json-plugin</artifactId>
+    </dependency>
+    <!-- @anchor:dependencies:end -->
+    <!-- anchor:custom-dependencies:start -->
+    <!-- anchor:custom-dependencies:end -->
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.3</version>
+        <configuration>
+          <webResources>
+            <resource>
+              <directory>../view/gen/common</directory>
+            </resource>
+            <!-- @anchor:web-resources:start -->
+            <!-- KNOCKOUT VIEW -->
+            <resource>
+              <directory>../view/gen/knockout</directory>
+            </resource>
+
+            <!-- the component resources -->
+            <resource>
+              <directory>../components/utils/view/gen/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/utils/view/ext/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/account/view/gen/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/account/view/ext/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/validation/view/gen/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/validation/view/ext/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/assets/view/gen/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/assets/view/ext/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/workflow/view/gen/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/workflow/view/ext/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/onlineCabBookingComp/view/gen/knockout/</directory>
+            </resource>
+            <resource>
+              <directory>../components/onlineCabBookingComp/view/ext/knockout/</directory>
+            </resource>
+            <!-- APPLICATION EXT -->
+            <resource>
+              <directory>../control/ext/struts2/resources</directory>
+            </resource>
+
+            <resource>
+              <directory>../control/ext/common/resources</directory>
+            </resource>
+            <resource>
+              <directory>../view/ext/common</directory>
+            </resource>
+            <resource>
+              <directory>../view/ext/knockout</directory>
+            </resource>
+            <resource>
+              <directory>../view/ext/knockout</directory>
+            </resource>
+            <!-- STRUTS2 CONTROL -->
+            <resource>
+              <directory>../control/gen/struts2/resources</directory>
+              <targetPath>WEB-INF/classes</targetPath>
+            </resource>
+            <!-- webStyles -->
+            <resource>
+              <directory>../struts/</directory>
+              <excludes>
+                <exclude>jsp/ps2/page.jsp</exclude>
+                <exclude>js/require/requireConfig.js</exclude>
+              </excludes>
+            </resource>
+            <resource>
+              <directory>../struts/</directory>
+              <filtering>true</filtering>
+              <includes>
+                <include>jsp/ps2/page.jsp</include>
+                <include>js/require/requireConfig.js</include>
+              </includes>
+            </resource>
+            <!-- @anchor:web-resources:end -->
+            <!-- anchor:custom-web-resources:start -->
+            <!-- anchor:custom-web-resources:end -->
+          </webResources>
+
+          <overlays>
+            <!-- @anchor:overlays:start -->
+            <!-- @anchor:overlays:end -->
+            <!-- anchor:custom-overlays:start -->
+            <!-- anchor:custom-overlays:end -->
+          </overlays>
+
+          <!-- @anchor:war-configuration:start -->
+          <!-- @anchor:war-configuration:end -->
+          <!-- anchor:custom-war-configuration:start -->
+          <!-- anchor:custom-war-configuration:end -->
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.2.0</version>
+        <executions>
+          <!-- @anchor:build-helper-maven-plugin-executions:start -->
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>../control/gen/common/src</source>
+                <source>../control/ext/common/src</source>
+                <source>../control/gen/struts2/src</source>
+                <source>../control/ext/struts2/src</source>
+
+                <!-- anchor:custom-sources:start -->
+                <!-- anchor:custom-sources:end -->
+              </sources>
+            </configuration>
+          </execution>
+          <execution>
+            <goals>
+              <goal>timestamp-property</goal>
+            </goals>
+            <configuration>
+              <name>war-default-timestamp</name>
+              <pattern>yyyyMMddHHmmss</pattern>
+            </configuration>
+          </execution>
+          <!-- @anchor:build-helper-maven-plugin-executions:end -->
+        </executions>
+      </plugin>
+
+      <!-- @anchor:build-plugins:start -->
+      <!-- @anchor:build-plugins:end -->
+      <!-- anchor:custom-build-plugins:start -->
+      <!-- anchor:custom-build-plugins:end -->
+    </plugins>
+
+    <!-- @anchor:build:start -->
+    <filters>
+      <filter>src/main/filtering.properties</filter>
+    </filters>
+    <!-- @anchor:build:end -->
+    <!-- anchor:custom-build:start -->
+    <!-- anchor:custom-build:end -->
+  </build>
+
+  <!-- @anchor:project:start -->
+  <!-- @anchor:project:end -->
+  <!-- anchor:custom-project:start -->
+  <!-- anchor:custom-project:end -->
+</project>

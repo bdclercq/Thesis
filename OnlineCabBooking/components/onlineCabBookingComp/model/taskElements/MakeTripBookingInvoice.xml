@@ -1,0 +1,11 @@
+<taskElement name="MakeTripBookingInvoice">
+  <packageName>cabBookingCore</packageName>
+  <targetElement component="onlineCabBookingComp" name="TripBooking"/>
+  <taskElementType name="Standard"/>
+  <transactionType name="noTransaction"/>
+  <options>
+    <includeDelegation/>
+    <includePerform/>
+    <includeRemoteAccess/>
+  </options>
+</taskElement>

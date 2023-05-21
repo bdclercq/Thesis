@@ -1,6 +1,0 @@
--- anchor:custom-constants:start
-  public static final String QUERY_PROMOTE_MASTER = ENTITY_NAME + "_promoteToMaster";
--- anchor:custom-constants:end
--- anchor:custom-queries:start
-    , @NamedQuery(name = EngineNodeData.QUERY_PROMOTE_MASTER, query = "UPDATE " + EngineNodeData.ENTITY_NAME + " o set o.master=true where o.id=:id and NOT exists (select x from " + EngineNodeData.ENTITY_NAME + " x where x.master=true)")
--- anchor:custom-queries:end

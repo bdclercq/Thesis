@@ -116,6 +116,11 @@ define(function (require) {
           disabled: ko.pureComputed(function () {
             return utils.isDefined(constants().tripBooking)
           })
+      },
+      name: {
+          disabled: ko.pureComputed(function () {
+            return utils.isDefined(constants().name)
+          })
       }
       // anchor:field-layout-config:end
     }

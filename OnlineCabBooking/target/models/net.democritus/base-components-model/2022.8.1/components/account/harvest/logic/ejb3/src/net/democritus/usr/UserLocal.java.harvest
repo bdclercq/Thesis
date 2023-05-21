@@ -1,4 +1,0 @@
--- anchor:custom-methods:start
-  CrudsResult<Boolean> checkEncryptedPassword(ParameterContext<UserInput> userInputParameterContext);
-  CrudsResult<Boolean> checkPassword(ParameterContext<UserInput> userInputParameterContext);
--- anchor:custom-methods:end

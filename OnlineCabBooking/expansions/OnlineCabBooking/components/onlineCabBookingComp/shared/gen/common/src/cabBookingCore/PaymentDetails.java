@@ -31,6 +31,7 @@ public class PaymentDetails
   private String mName;
   // anchor:instance-variables:start
   private Boolean mStatusPayed;
+  private Double mTotalAmount;
   // anchor:instance-variables:end
   // @anchor:instance-variables:start
   // @anchor:instance-variables:end
@@ -45,6 +46,7 @@ public class PaymentDetails
     this.mName = "";
     // anchor:default-constructor-initialization:start
     this.mStatusPayed = Boolean.FALSE;
+    this.mTotalAmount = null;
     // anchor:default-constructor-initialization:end
     // @anchor:default-constructor-initialization:start
     // @anchor:default-constructor-initialization:end
@@ -59,6 +61,7 @@ public class PaymentDetails
       , String name
       // anchor:detailed-constructor-parameters:start
       , Boolean statusPayed
+      , Double totalAmount
       // anchor:detailed-constructor-parameters:end
       // @anchor:detailed-constructor-parameters:start
       // @anchor:detailed-constructor-parameters:end
@@ -67,6 +70,7 @@ public class PaymentDetails
     this.mName = name;
     // anchor:detailed-constructor-initialization:start
     this.mStatusPayed = statusPayed;
+    this.mTotalAmount = totalAmount;
     // anchor:detailed-constructor-initialization:end
     // @anchor:detailed-constructor-initialization:start
     // @anchor:detailed-constructor-initialization:end
@@ -107,6 +111,14 @@ public class PaymentDetails
 
   public void setStatusPayed(Boolean statusPayed) {
     this.mStatusPayed = statusPayed;
+  }
+
+  public Double getTotalAmount() {
+    return this.mTotalAmount;
+  }
+
+  public void setTotalAmount(Double totalAmount) {
+    this.mTotalAmount = totalAmount;
   }
   // anchor:getters-setters:end
 

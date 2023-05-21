@@ -1,7 +1,0 @@
--- anchor:custom-packages:start
-  <package name='account-account-knockout-html-custom' namespace='/account/account' extends='nsx-default'>
-    <action name='*'>
-      <result>/html/account/account-instance-page.html</result>
-    </action>
-  </package>
--- anchor:custom-packages:end

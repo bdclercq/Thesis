@@ -48,10 +48,10 @@ public class CabDetailsProjector implements IDataElementProjector<CabData, CabDe
 
     if (data != null) {
       projection.setId(data.getId());
-      projection.setName(crudsInternal.getDisplayName(dataParameter));
 
       // anchor:project-setters:start
       projection.setRatePerKm(data.getRatePerKm());
+      projection.setName(data.getName());
       projection.setCarType(crudsInternal.getCarType(dataParameter.construct(data.getCarType())).getValueOrElse(EMPTY_DATA_REF));
       projection.setDriver(crudsInternal.getDriver(dataParameter.construct(data.getDriver())).getValueOrElse(EMPTY_DATA_REF));
       // anchor:project-setters:end
@@ -71,6 +71,7 @@ public class CabDetailsProjector implements IDataElementProjector<CabData, CabDe
 
     // anchor:toData-setters:start
     data.setRatePerKm(projection.getRatePerKm());
+    data.setName(projection.getName());
     crudsInternal.setCarType(data, projectionParameter.construct(projection.getCarType()));
     crudsInternal.setDriver(data, projectionParameter.construct(projection.getDriver()));
     // anchor:toData-setters:end

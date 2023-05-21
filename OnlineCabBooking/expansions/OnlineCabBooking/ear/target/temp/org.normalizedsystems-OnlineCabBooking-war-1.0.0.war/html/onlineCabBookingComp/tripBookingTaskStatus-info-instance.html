@@ -1,0 +1,73 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.id'"></span>
+    </th>
+    <td>
+      <span data-bind="text: id"></span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:start -->
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.name'"></span>
+    </th>
+    <td>
+      <span data-bind="text: name"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.startedAt'"></span>
+    </th>
+    <td>
+      <span data-bind="dateString: startedAt"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.finishedAt'"></span>
+    </th>
+    <td>
+      <span data-bind="dateString: finishedAt"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.status'"></span>
+    </th>
+    <td>
+      <span data-bind="text: status"></span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.stateTask'"></span>
+    </th>
+    <td>
+      <span data-bind="with: stateTask">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <span data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.tripBooking'"></span>
+    </th>
+    <td>
+      <span data-bind="with: tripBooking">
+        <a href="#" data-bind="click: link.trigger">
+          <span data-bind="text: name"></span>
+        </a>
+      </span>
+    </td>
+  </tr>
+  <!-- anchor:field-rows:end -->
+  <!-- @anchor:field-rows:start -->
+  <!-- @anchor:field-rows:end -->
+  <!-- anchor:custom-field-rows:start -->
+  <!-- anchor:custom-field-rows:end -->
+</table>

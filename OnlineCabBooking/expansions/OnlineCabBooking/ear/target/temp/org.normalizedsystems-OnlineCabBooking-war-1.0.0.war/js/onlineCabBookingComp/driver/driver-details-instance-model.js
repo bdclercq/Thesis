@@ -44,12 +44,12 @@ define(function (require) {
       return {
         id: ko.observable(),
         // anchor:init-viewModel:start
-        name: ko.observable(),
         licenseNo: ko.observable(),
         rating: ko.observable(),
         isAvailable: ko.observable(),
         cab: defineLink(CabEvents),
-        tripBooking: defineLink(TripBookingEvents)
+        tripBooking: defineLink(TripBookingEvents),
+        name: ko.observable()
         // anchor:init-viewModel:end
         // @anchor:init-viewModel:start
         // @anchor:init-viewModel:end
@@ -62,12 +62,12 @@ define(function (require) {
       if (!!driverDetails) {
         viewmodel.id(driverDetails.id);
         // anchor:update-viewModel:start
-        viewmodel.name(driverDetails.name);
         viewmodel.licenseNo(driverDetails.licenseNo);
         viewmodel.rating(driverDetails.rating);
         viewmodel.isAvailable(driverDetails.isAvailable);
         viewmodel.cab.value(driverDetails.cab);
         viewmodel.tripBooking.value(driverDetails.tripBooking);
+        viewmodel.name(driverDetails.name);
         // anchor:update-viewModel:end
         // @anchor:update-viewModel:start
         // @anchor:update-viewModel:end

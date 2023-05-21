@@ -10,9 +10,19 @@
         <valueFieldType component="" name="Boolean"/>
       </valueField>
     </field>
+    <field name="totalAmount">
+      <fieldType>VALUE_FIELD</fieldType>
+      <description>Total amount of the payment</description>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Double"/>
+      </valueField>
+    </field>
   </fields>
   <dataStates>
     <dataState name="Online"/>
     <dataState name="Offline"/>
+    <dataState name="statusPayed"/>
   </dataStates>
 </dataElement>

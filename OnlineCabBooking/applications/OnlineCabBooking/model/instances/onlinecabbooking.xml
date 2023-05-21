@@ -8,5 +8,8 @@
   <options>
     <finders.enableTypedFinders/>
     <hibernate.version>5</hibernate.version>
+    <struts.security.enforceHttpMethod/>
+    <struts.security.csrfProtection/>
+    <security.hstsHeader/>
   </options>
 </applicationInstance>

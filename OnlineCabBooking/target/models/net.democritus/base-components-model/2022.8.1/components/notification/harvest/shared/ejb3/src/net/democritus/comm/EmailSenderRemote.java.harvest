@@ -1,7 +1,0 @@
--- anchor:custom-imports:start
-import net.democritus.sys.ParameterContext;
-import net.democritus.sys.TaskResult;
--- anchor:custom-imports:end
--- anchor:custom-methods:start
-    public TaskResult<Void> sendEmail(ParameterContext<NotifierDetails> detailsParameter);
--- anchor:custom-methods:end

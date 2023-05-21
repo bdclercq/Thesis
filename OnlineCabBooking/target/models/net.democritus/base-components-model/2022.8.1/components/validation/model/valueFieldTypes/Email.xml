@@ -1,7 +1,0 @@
-<valueFieldType name="Email">
-  <fullType>e-mail</fullType>
-  <valueClass>net.democritus.valuetype.basic.Email</valueClass>
-  <displayType>string</displayType>
-  <storageType>string</storageType>
-  <customTransportClass>false</customTransportClass>
-</valueFieldType>

@@ -83,6 +83,19 @@
       </div>
     </div>
     <!-- /ko -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="driver.name"
+             data-bind="translate: 'onlineCabBookingComp.driver.name'">
+      </label>
+      <div class="controls" id="driver.name" data-bind="focus: 6">
+        <input type='text' name='driver.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('driver.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
     <!-- anchor:form-fields:end -->
 
     <!-- @anchor:form-fields-after:start -->

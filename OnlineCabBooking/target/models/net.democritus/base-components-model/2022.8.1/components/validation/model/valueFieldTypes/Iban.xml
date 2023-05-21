@@ -1,7 +1,0 @@
-<valueFieldType name="Iban">
-  <fullType>iban</fullType>
-  <valueClass>net.democritus.valuetype.basic.Iban</valueClass>
-  <displayType>string</displayType>
-  <storageType>string</storageType>
-  <customTransportClass>false</customTransportClass>
-</valueFieldType>

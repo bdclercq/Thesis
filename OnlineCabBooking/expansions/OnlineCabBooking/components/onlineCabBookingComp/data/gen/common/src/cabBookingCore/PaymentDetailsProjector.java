@@ -52,6 +52,7 @@ public class PaymentDetailsProjector implements IDataElementProjector<PaymentDat
 
       // anchor:project-setters:start
       projection.setStatusPayed(data.getStatusPayed());
+      projection.setTotalAmount(data.getTotalAmount());
       // anchor:project-setters:end
       // @anchor:project-setters:start
       // @anchor:project-setters:end
@@ -69,6 +70,7 @@ public class PaymentDetailsProjector implements IDataElementProjector<PaymentDat
 
     // anchor:toData-setters:start
     data.setStatusPayed(projection.getStatusPayed());
+    data.setTotalAmount(projection.getTotalAmount());
     // anchor:toData-setters:end
     // @anchor:toData-setters:start
     // @anchor:toData-setters:end

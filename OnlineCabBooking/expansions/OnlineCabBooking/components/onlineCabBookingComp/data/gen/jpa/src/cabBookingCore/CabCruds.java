@@ -205,22 +205,12 @@ public class CabCruds /*@anchor:interfaces:start@*/implements CabCrudsLocal, Cab
     }
 
     // @anchor:implicitNameFieldOnly-beforePersist:start
-    String identity = details.getName();
-    if (identity != null) {
-      identity = identity.trim();
-      identity = identity.length() > 0 ? identity : null;
-    }
     // @anchor:implicitNameFieldOnly-beforePersist:end
 
     try {
       entityManager.persist(cabData);
 
       // @anchor:implicitNameFieldOnly-afterPersist:start
-      if (identity == null) {
-        identity = "C-" + cabData.getId().toString();
-      }
-      cabData.setName(identity);
-      entityManager.flush();
       // @anchor:implicitNameFieldOnly-afterPersist:end
 
       if (cabData != null) {

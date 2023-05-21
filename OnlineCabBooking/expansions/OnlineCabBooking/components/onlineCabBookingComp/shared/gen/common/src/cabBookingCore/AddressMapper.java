@@ -72,6 +72,10 @@ public class AddressMapper implements IDataElementMapper<AddressDetails> {
       if (addressDetails.getHouseNumber() != null) {
         map.put("houseNumber", String.valueOf(addressDetails.getHouseNumber()));
       }
+
+      if (addressDetails.getName() != null) {
+        map.put("name", addressDetails.getName());
+      }
       // anchor:convert-fields-to-map:end
 
       // @anchor:fields-to-map:start
@@ -125,6 +129,11 @@ public class AddressMapper implements IDataElementMapper<AddressDetails> {
         } catch (NumberFormatException e) {
           return Result.error("houseNumber: Expected number, but got '" + houseNumberValueFromMap + "'");
         }
+      }
+
+      String nameValueFromMap = map.get("name");
+      if (nameValueFromMap != null && !nameValueFromMap.isEmpty()) {
+        addressDetails.setName(nameValueFromMap);
       }
       // anchor:convert-map-to-fields:end
 

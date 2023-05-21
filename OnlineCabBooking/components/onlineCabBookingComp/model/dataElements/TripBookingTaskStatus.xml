@@ -1,0 +1,94 @@
+<dataElement name="TripBookingTaskStatus">
+  <packageName>cabBookingCore</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="name">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+    </field>
+    <field name="startedAt">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Date"/>
+      </valueField>
+    </field>
+    <field name="finishedAt">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Date"/>
+      </valueField>
+    </field>
+    <field name="status">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isStatusField/>
+      </options>
+    </field>
+    <field name="stateTask">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="workflow" name="StateTask"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+    <field name="tripBooking">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="TripBooking"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findByStatusEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="status"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="name"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByTripBookingEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="tripBooking"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByStateTaskEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="stateTask"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findAllTripBookingTaskStatusses"/>
+  </finders>
+</dataElement>

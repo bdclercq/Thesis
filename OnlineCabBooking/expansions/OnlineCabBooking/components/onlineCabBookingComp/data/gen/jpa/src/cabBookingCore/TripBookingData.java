@@ -46,6 +46,7 @@ import javax.persistence.Table;
 @NamedQueries({
   @NamedQuery(name=TripBookingData.QUERY_FINDALL, query="select o FROM " + TripBookingData.ENTITY_NAME + " o")
   // @anchor:queries:start
+  , @NamedQuery(name = TripBookingData.QUERY_COMPARE_SET_STATUS, query = "UPDATE " + TripBookingData.ENTITY_NAME + " o SET o.status = :targetStatus WHERE o.id = :id AND o.status = :expectedStatus")
   // @anchor:queries:end
   // anchor:custom-queries:start
   // anchor:custom-queries:end
@@ -53,6 +54,7 @@ import javax.persistence.Table;
 public class TripBookingData implements java.io.Serializable {
 
   // @anchor:constants:start
+  public static final String QUERY_COMPARE_SET_STATUS = "cabBookingCore.TripBooking.compareAndSetStatus";
   public static final String ENTITY_NAME = "cabBookingCore.TripBooking";
   public static final String QUERY_FINDALL = "cabBookingCore.TripBooking.findAll";
   // @anchor:constants:end
@@ -73,8 +75,8 @@ public class TripBookingData implements java.io.Serializable {
   private Date mFromDateTime;
   private Date mToDateTime;
   private Double mKm;
-  private Double mTotalAmount;
   private Long mPayment;
+  private String mStatus;
   // anchor:member-fields:end
 
   // anchor:custom-variables:start
@@ -102,8 +104,8 @@ public class TripBookingData implements java.io.Serializable {
       , Date fromDateTime
       , Date toDateTime
       , Double km
-      , Double totalAmount
       , Long payment
+      , String status
       // anchor:constructor-parameters:end
     ) {
     this.mId = id;
@@ -118,8 +120,8 @@ public class TripBookingData implements java.io.Serializable {
     this.mFromDateTime = fromDateTime;
     this.mToDateTime = toDateTime;
     this.mKm = km;
-    this.mTotalAmount = totalAmount;
     this.mPayment = payment;
+    this.mStatus = status;
     // anchor:constructor-assign:end
   }
 
@@ -269,22 +271,6 @@ public class TripBookingData implements java.io.Serializable {
     this.mKm = km;
   }
 
-  // @anchor:annotations-getter-totalAmount:start
-  // @anchor:annotations-getter-totalAmount:end
-  // anchor:custom-annotations-getter-totalAmount:start
-  // anchor:custom-annotations-getter-totalAmount:end
-  public Double getTotalAmount() {
-    return this.mTotalAmount;
-  }
-
-  // @anchor:annotations-setter-totalAmount:start
-  // @anchor:annotations-setter-totalAmount:end
-  // anchor:custom-annotations-setter-totalAmount:start
-  // anchor:custom-annotations-setter-totalAmount:end
-  public void setTotalAmount(Double totalAmount) {
-    this.mTotalAmount = totalAmount;
-  }
-
   // @anchor:annotations-getter-payment:start
   @Column(name="payment_id")
   // @anchor:annotations-getter-payment:end
@@ -300,6 +286,22 @@ public class TripBookingData implements java.io.Serializable {
   // anchor:custom-annotations-setter-payment:end
   public void setPayment(Long payment) {
     this.mPayment = payment;
+  }
+
+  // @anchor:annotations-getter-status:start
+  // @anchor:annotations-getter-status:end
+  // anchor:custom-annotations-getter-status:start
+  // anchor:custom-annotations-getter-status:end
+  public String getStatus() {
+    return this.mStatus;
+  }
+
+  // @anchor:annotations-setter-status:start
+  // @anchor:annotations-setter-status:end
+  // anchor:custom-annotations-setter-status:start
+  // anchor:custom-annotations-setter-status:end
+  public void setStatus(String status) {
+    this.mStatus = status;
   }
   // anchor:getters-and-setters:end
 

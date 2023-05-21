@@ -8,6 +8,8 @@ import net.democritus.sys.CrudsResult;
 import net.democritus.sys.SearchResult;
 import net.democritus.sys.ParameterContext;
 import net.democritus.sys.search.SearchDetails;
+import net.democritus.state.StateUpdate;
+
 import java.util.Date;
 import java.util.List;
 
@@ -47,6 +49,7 @@ public interface TripBookingCrudsLocal {
   // anchor:calculation-methods:end
 
   // anchor:compare-set-methods:start
+  CrudsResult<Void> compareAndSetStatus(ParameterContext<StateUpdate> parameter);
   // anchor:compare-set-methods:end
 
   // @anchor:methods:start

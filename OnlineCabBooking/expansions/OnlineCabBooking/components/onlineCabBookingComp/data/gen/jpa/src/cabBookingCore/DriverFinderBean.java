@@ -282,7 +282,7 @@ public class DriverFinderBean implements DriverFinderLocal {
   }
 
   private JPAQueryBuilder createQueryBuilder() {
-    return new JPAQueryBuilder(DriverData.ENTITY_NAME, "id");
+    return new JPAQueryBuilder(DriverData.ENTITY_NAME, "name");
   }
 
   // @anchor:methods:start

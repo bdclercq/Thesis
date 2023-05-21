@@ -31,14 +31,6 @@
 ]>
 <!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
 <validators>
-<!-- generated name -->
-  <field name='driver.name'>
-    <field-validator type='conversion'>
-      <param name='repopulateField'>true</param>
-      <message>Conversion error</message>
-    </field-validator>
-  </field>
-<!-- generated name -->
 <!-- anchor:fieldValidators:start -->
   <field name='driver.licenseNo'>
     <field-validator type='conversion'>
@@ -53,6 +45,12 @@
     </field-validator>
   </field>
   <field name='driver.isAvailable'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
+  <field name='driver.name'>
     <field-validator type='conversion'>
       <param name='repopulateField'>true</param>
       <message>Conversion error</message>

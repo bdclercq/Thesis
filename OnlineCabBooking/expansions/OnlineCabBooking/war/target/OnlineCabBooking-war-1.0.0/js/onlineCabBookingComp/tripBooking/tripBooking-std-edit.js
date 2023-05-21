@@ -144,14 +144,14 @@ define(function (require) {
             return utils.isDefined(constants().km)
           })
       },
-      totalAmount: {
-          disabled: ko.pureComputed(function () {
-            return utils.isDefined(constants().totalAmount)
-          })
-      },
       payment: {
           disabled: ko.pureComputed(function () {
             return utils.isDefined(constants().payment)
+          })
+      },
+      status: {
+          disabled: ko.pureComputed(function () {
+            return utils.isDefined(constants().status)
           })
       }
       // anchor:field-layout-config:end

@@ -205,22 +205,12 @@ public class DriverCruds /*@anchor:interfaces:start@*/implements DriverCrudsLoca
     }
 
     // @anchor:implicitNameFieldOnly-beforePersist:start
-    String identity = details.getName();
-    if (identity != null) {
-      identity = identity.trim();
-      identity = identity.length() > 0 ? identity : null;
-    }
     // @anchor:implicitNameFieldOnly-beforePersist:end
 
     try {
       entityManager.persist(driverData);
 
       // @anchor:implicitNameFieldOnly-afterPersist:start
-      if (identity == null) {
-        identity = "D-" + driverData.getId().toString();
-      }
-      driverData.setName(identity);
-      entityManager.flush();
       // @anchor:implicitNameFieldOnly-afterPersist:end
 
       if (driverData != null) {

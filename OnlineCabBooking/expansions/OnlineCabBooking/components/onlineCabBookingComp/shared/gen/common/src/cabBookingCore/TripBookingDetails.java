@@ -38,8 +38,8 @@ public class TripBookingDetails
   private Date mFromDateTime;
   private Date mToDateTime;
   private Double mKm;
-  private Double mTotalAmount;
   private DataRef mPayment;
+  private String mStatus;
   // anchor:instance-variables:end
   // @anchor:instance-variables:start
   // @anchor:instance-variables:end
@@ -60,8 +60,8 @@ public class TripBookingDetails
     this.mFromDateTime = new Date();
     this.mToDateTime = new Date();
     this.mKm = null;
-    this.mTotalAmount = null;
     this.mPayment = DataRef.withId(0L);
+    this.mStatus = "";
     // anchor:default-constructor-initialization:end
     // @anchor:default-constructor-initialization:start
     // @anchor:default-constructor-initialization:end
@@ -82,8 +82,8 @@ public class TripBookingDetails
       , Date fromDateTime
       , Date toDateTime
       , Double km
-      , Double totalAmount
       , DataRef payment
+      , String status
       // anchor:detailed-constructor-parameters:end
       // @anchor:detailed-constructor-parameters:start
       // @anchor:detailed-constructor-parameters:end
@@ -98,8 +98,8 @@ public class TripBookingDetails
     this.mFromDateTime = fromDateTime;
     this.mToDateTime = toDateTime;
     this.mKm = km;
-    this.mTotalAmount = totalAmount;
     this.mPayment = payment;
+    this.mStatus = status;
     // anchor:detailed-constructor-initialization:end
     // @anchor:detailed-constructor-initialization:start
     // @anchor:detailed-constructor-initialization:end
@@ -190,20 +190,32 @@ public class TripBookingDetails
     this.mKm = km;
   }
 
-  public Double getTotalAmount() {
-    return this.mTotalAmount;
-  }
-
-  public void setTotalAmount(Double totalAmount) {
-    this.mTotalAmount = totalAmount;
-  }
-
   public DataRef getPayment() {
     return this.mPayment;
   }
 
   public void setPayment(DataRef payment) {
     this.mPayment = payment;
+  }
+
+  public String getStatus() {
+    return this.mStatus;
+  }
+
+  public void setStatus(String status) {
+    this.mStatus = status;
+  }
+
+  public TripBookingState getStatusAsEnum() {
+    return TripBookingState.getTripBookingState(this.mStatus);
+  }
+
+  public void setStatusEnum(TripBookingState status) {
+    if (status != TripBookingState.NOT_MAPPED) {
+      this.mStatus = status.getStatus();
+    } else {
+      throw new IllegalArgumentException("Cannot set unmapped status");
+    }
   }
   // anchor:getters-setters:end
 

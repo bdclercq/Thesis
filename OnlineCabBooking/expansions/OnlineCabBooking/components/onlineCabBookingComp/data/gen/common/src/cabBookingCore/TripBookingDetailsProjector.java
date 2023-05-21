@@ -56,7 +56,7 @@ public class TripBookingDetailsProjector implements IDataElementProjector<TripBo
       projection.setFromDateTime(data.getFromDateTime());
       projection.setToDateTime(data.getToDateTime());
       projection.setKm(data.getKm());
-      projection.setTotalAmount(data.getTotalAmount());
+      projection.setStatus(data.getStatus());
       projection.setCustomer(crudsInternal.getCustomer(dataParameter.construct(data.getCustomer())).getValueOrElse(EMPTY_DATA_REF));
       projection.setDriver(crudsInternal.getDriver(dataParameter.construct(data.getDriver())).getValueOrElse(EMPTY_DATA_REF));
       projection.setFromLocation(crudsInternal.getFromLocation(dataParameter.construct(data.getFromLocation())).getValueOrElse(EMPTY_DATA_REF));
@@ -81,7 +81,7 @@ public class TripBookingDetailsProjector implements IDataElementProjector<TripBo
     data.setFromDateTime(projection.getFromDateTime());
     data.setToDateTime(projection.getToDateTime());
     data.setKm(projection.getKm());
-    data.setTotalAmount(projection.getTotalAmount());
+    data.setStatus(projection.getStatus());
     crudsInternal.setCustomer(data, projectionParameter.construct(projection.getCustomer()));
     crudsInternal.setDriver(data, projectionParameter.construct(projection.getDriver()));
     crudsInternal.setFromLocation(data, projectionParameter.construct(projection.getFromLocation()));

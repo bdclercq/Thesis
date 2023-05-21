@@ -29,6 +29,7 @@ public interface TripBookingFinderLocal {
   SearchResult<TripBookingData> findByFromDateTimeEq(ParameterContext<SearchDetails<TripBookingFindByFromDateTimeEqDetails>> searchParameter);
   SearchResult<TripBookingData> findByToDateTimeEq(ParameterContext<SearchDetails<TripBookingFindByToDateTimeEqDetails>> searchParameter);
   SearchResult<TripBookingData> findByCustomerEq_FromDateTimeEq(ParameterContext<SearchDetails<TripBookingFindByCustomerEq_FromDateTimeEqDetails>> searchParameter);
+  SearchResult<TripBookingData> findByStatusEq(ParameterContext<SearchDetails<TripBookingFindByStatusEqDetails>> searchParameter);
   // anchor:findBys-methods:end
 
   <S extends TripBookingFindDetails> SearchResult<TripBookingData> find(ParameterContext<SearchDetails<S>> searchParameter);

@@ -65,6 +65,7 @@ import javax.persistence.TemporalType;
 // @anchor:imports:start
 import net.palver.logging.LoggerFactory;
 import net.palver.logging.Logger;
+import net.democritus.state.StateUpdate;
 // @anchor:imports:end
 
 // anchor:imports:start
@@ -1011,6 +1012,45 @@ public class TripBookingCruds /*@anchor:interfaces:start@*/implements TripBookin
   // anchor:projectMethods:end
 
   // @anchor:methods:start
+  // anchor:compare-set-methods:start
+  @Override
+  public CrudsResult<Void> compareAndSetStatus(ParameterContext<StateUpdate> parameter) {
+    StateUpdate stateUpdate = parameter.getValue();
+    DataRef target = stateUpdate.getTarget();
+    String expectedStatus = stateUpdate.getExpectedStatus();
+    String targetStatus = stateUpdate.getTargetStatus();
+
+    try {
+      Query query = entityManager.createNamedQuery(TripBookingData.QUERY_COMPARE_SET_STATUS);
+      query.setParameter("id", target.getId());
+      query.setParameter("expectedStatus", expectedStatus);
+      query.setParameter("targetStatus", targetStatus);
+
+      int nbUpdatedEntities = query.executeUpdate();
+      entityManager.flush();
+
+      if (nbUpdatedEntities == 1) {
+        return CrudsResult.success();
+      } else {
+        CrudsResult<TripBookingDetails> detailsResult = getDetails(parameter.construct(target));
+        String actualStatus = detailsResult.isSuccess() ? detailsResult.getValue().getStatus() : "???";
+        if (logger.isDebugEnabled()) {
+          logger.debug(
+              "compareAndSetStatus failed for TripBooking with id=" + target.getId() + ", expectedStatus='" + expectedStatus + "', actualStatus='" + actualStatus + "', targetStatus='" + targetStatus + "'"
+          );
+        }
+        return CrudsResult.error();
+      }
+    } catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Could not update status", e
+        );
+      }
+      return CrudsResult.error();
+    }
+  }
+  // anchor:compare-set-methods:end
   // @anchor:methods:end
 
   // anchor:custom-methods:start

@@ -1,3 +1,0 @@
--- anchor:custom-default-constructor:start
-    this(new Date());
--- anchor:custom-default-constructor:end

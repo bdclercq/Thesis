@@ -60,6 +60,10 @@ public class CabMapper implements IDataElementMapper<CabDetails> {
       if (cabDetails.getRatePerKm() != null) {
         map.put("ratePerKm", String.valueOf(cabDetails.getRatePerKm()));
       }
+
+      if (cabDetails.getName() != null) {
+        map.put("name", cabDetails.getName());
+      }
       if (DataRefValidation.isDataRefDefined(cabDetails.getCarType())) {
         Result<String> carType = carTypeDataRefConverter.asString(cabDetails.getCarType());
         if (carType.isError()) {
@@ -108,6 +112,11 @@ public class CabMapper implements IDataElementMapper<CabDetails> {
         } catch (NumberFormatException e) {
           return Result.error("ratePerKm: Expected number, but got '" + ratePerKmValueFromMap + "'");
         }
+      }
+
+      String nameValueFromMap = map.get("name");
+      if (nameValueFromMap != null && !nameValueFromMap.isEmpty()) {
+        cabDetails.setName(nameValueFromMap);
       }
       String carTypeValueFromMap = map.get("carType");
       Result<DataRef> carType = carTypeDataRefConverter.fromString(carTypeValueFromMap);

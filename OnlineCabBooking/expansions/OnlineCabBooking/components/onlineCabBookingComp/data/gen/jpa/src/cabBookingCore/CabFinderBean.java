@@ -249,7 +249,7 @@ public class CabFinderBean implements CabFinderLocal {
   }
 
   private JPAQueryBuilder createQueryBuilder() {
-    return new JPAQueryBuilder(CabData.ENTITY_NAME, "id");
+    return new JPAQueryBuilder(CabData.ENTITY_NAME, "name");
   }
 
   // @anchor:methods:start

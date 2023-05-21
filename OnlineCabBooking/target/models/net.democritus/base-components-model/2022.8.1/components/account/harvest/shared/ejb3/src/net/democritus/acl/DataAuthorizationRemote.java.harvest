@@ -1,7 +1,0 @@
--- anchor:custom-imports:start
-import net.democritus.sys.CrudsResult;
-import net.democritus.sys.ParameterContext;
--- anchor:custom-imports:end
--- anchor:custom-methods:start
-  CrudsResult<ProfileAccessRights> getProfileAccessRights(ParameterContext<ProfileAccessQuery> queryParameter);
--- anchor:custom-methods:end

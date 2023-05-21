@@ -1,0 +1,6 @@
+<flowElement name="TripBookingFlow">
+  <packageName>cabBookingCore</packageName>
+  <targetClass>cabBookingCore.TripBooking</targetClass>
+  <statusField>Status</statusField>
+  <workflowName>TripBookingFlow</workflowName>
+</flowElement>

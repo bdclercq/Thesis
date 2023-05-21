@@ -44,10 +44,10 @@ define(function (require) {
       return {
         id: ko.observable(),
         // anchor:init-viewModel:start
-        name: ko.observable(),
         ratePerKm: ko.observable(),
         carType: defineLink(CarTypeEvents),
-        driver: defineLink(DriverEvents)
+        driver: defineLink(DriverEvents),
+        name: ko.observable()
         // anchor:init-viewModel:end
         // @anchor:init-viewModel:start
         // @anchor:init-viewModel:end
@@ -60,10 +60,10 @@ define(function (require) {
       if (!!cabDetails) {
         viewmodel.id(cabDetails.id);
         // anchor:update-viewModel:start
-        viewmodel.name(cabDetails.name);
         viewmodel.ratePerKm(cabDetails.ratePerKm);
         viewmodel.carType.value(cabDetails.carType);
         viewmodel.driver.value(cabDetails.driver);
+        viewmodel.name(cabDetails.name);
         // anchor:update-viewModel:end
         // @anchor:update-viewModel:start
         // @anchor:update-viewModel:end

@@ -1,0 +1,11 @@
+<taskElement name="ValidateTripBooking">
+  <packageName>cabBookingCore</packageName>
+  <targetElement component="onlineCabBookingComp" name="TripBooking"/>
+  <taskElementType name="Standard"/>
+  <transactionType name="noTransaction"/>
+  <options>
+    <includeDelegation/>
+    <includeRemoteAccess/>
+    <includePerform/>
+  </options>
+</taskElement>

@@ -1,0 +1,5 @@
+-- anchor:custom-create-afterProjection:start
+      String shortView = addressData.getStreet()+" "+addressData.getHouseNumber()+", "+addressData.getPincode()+" "+
+          addressData.getCity();
+      addressData.setName(shortView);
+-- anchor:custom-create-afterProjection:end

@@ -53,9 +53,11 @@ public class ComponentMetaData extends AbstractComponentMetaData {
     dataElementDefs.add(getDataElementDef_CarType());
     dataElementDefs.add(getDataElementDef_Customer());
     dataElementDefs.add(getDataElementDef_Driver());
+    dataElementDefs.add(getDataElementDef_Invoice());
     dataElementDefs.add(getDataElementDef_Payment());
     dataElementDefs.add(getDataElementDef_Person());
     dataElementDefs.add(getDataElementDef_TripBooking());
+    dataElementDefs.add(getDataElementDef_TripBookingTaskStatus());
     // anchor:add-data-elements:end
 
     // anchor:custom-data-elements:start
@@ -68,6 +70,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
     List<TaskElementDef> taskElementDefs = new ArrayList<TaskElementDef>();
 
     // anchor:add-task-elements:start
+    taskElementDefs.add(new TaskElementDef(COMPONENT_NAME, "cabBookingCore", "MakeTripBookingInvoice", TransactionType.NO_TRANSACTION));
+    taskElementDefs.add(new TaskElementDef(COMPONENT_NAME, "cabBookingCore", "ValidateTripBooking", TransactionType.NO_TRANSACTION));
     // anchor:add-task-elements:end
 
     // anchor:custom-task-elements:start
@@ -80,6 +84,7 @@ public class ComponentMetaData extends AbstractComponentMetaData {
     List<FlowElementDef> flowElementDefs = new ArrayList<FlowElementDef>();
 
     // anchor:add-flow-elements:start
+    flowElementDefs.add(FlowElementDef.createFlowElementDef(COMPONENT_NAME, "cabBookingCore", "TripBookingFlowEngine"));
     // anchor:add-flow-elements:end
 
     // anchor:custom-flow-elements:start
@@ -106,7 +111,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
       new ValueFieldDef("city", "String"),
       new ValueFieldDef("pincode", "String"),
       new ValueFieldDef("street", "String"),
-      new ValueFieldDef("houseNumber", "Integer")
+      new ValueFieldDef("houseNumber", "Integer"),
+      new ValueFieldDef("name", "String")
     };
     dataElement.setFields(fields);
 
@@ -141,7 +147,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
           "city",
           "pincode",
           "street",
-          "houseNumber"
+          "houseNumber",
+          "name"
         }
       ),
       new ProjectionDef(
@@ -152,7 +159,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
           "id",
           "state",
           "street",
-          "houseNumber"
+          "houseNumber",
+          "name"
         }
       ),
       new ProjectionDef(
@@ -179,7 +187,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
       new ValueFieldDef("id", "Long"),
       new ValueFieldDef("ratePerKm", "Integer"),
       new LinkFieldDef("carType", "LN01", "DataRef", "onlineCabBookingComp", "CarType"),
-      new LinkFieldDef("driver", "LN01", "DataRef", "onlineCabBookingComp", "Driver")
+      new LinkFieldDef("driver", "LN01", "DataRef", "onlineCabBookingComp", "Driver"),
+      new ValueFieldDef("name", "String")
     };
     dataElement.setFields(fields);
 
@@ -207,7 +216,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
           "id",
           "ratePerKm",
           "carType",
-          "driver"
+          "driver",
+          "name"
         }
       ),
       new ProjectionDef(
@@ -218,7 +228,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
           "id",
           "ratePerKm",
           "carType",
-          "driver"
+          "driver",
+          "name"
         }
       ),
       new ProjectionDef(
@@ -359,7 +370,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
       new ValueFieldDef("rating", "Double"),
       new ValueFieldDef("isAvailable", "Boolean"),
       new LinkFieldDef("cab", "LN01", "DataRef", "onlineCabBookingComp", "Cab"),
-      new LinkFieldDef("tripBooking", "LN01", "DataRef", "onlineCabBookingComp", "TripBooking")
+      new LinkFieldDef("tripBooking", "LN01", "DataRef", "onlineCabBookingComp", "TripBooking"),
+      new ValueFieldDef("name", "String")
     };
     dataElement.setFields(fields);
 
@@ -397,7 +409,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
           "rating",
           "isAvailable",
           "cab",
-          "tripBooking"
+          "tripBooking",
+          "name"
         }
       ),
       new ProjectionDef(
@@ -410,7 +423,68 @@ public class ComponentMetaData extends AbstractComponentMetaData {
           "rating",
           "isAvailable",
           "cab",
-          "tripBooking"
+          "tripBooking",
+          "name"
+        }
+      ),
+      new ProjectionDef(
+        "dataRef",
+        new CalculatedFieldDef[] {
+        },
+        new String[] {
+          "id"
+        }
+      )
+    };
+    dataElement.setProjections(projections);
+
+    CommandDef[] commands = new CommandDef[] {
+    };
+    dataElement.setCommands(commands);
+
+    return dataElement;
+  }
+
+  private static DataElementDef getDataElementDef_Invoice() {
+    DataElementDef dataElement = new DataElementDef(COMPONENT_NAME, "cabBookingCore", "Invoice");
+    IFieldDef[] fields = new IFieldDef[] {
+      new ValueFieldDef("id", "Long"),
+      new LinkFieldDef("payment", "LN01", "DataRef", "onlineCabBookingComp", "Payment"),
+      new LinkFieldDef("customer", "LN01", "DataRef", "onlineCabBookingComp", "Customer")
+    };
+    dataElement.setFields(fields);
+
+    FinderDef[] finders = new FinderDef[] {
+      new FinderDef("findAllInvoices"),
+      new FinderDef("findByNameEq",
+        new FieldOperator("name", "LIKE")
+      ),
+      new FinderDef("findByCustomerNe_PaymentEq",
+        new FieldOperator("customer", "<>"),
+        new FieldOperator("payment", "=")
+      )
+    };
+    dataElement.setFinders(finders);
+
+    ProjectionDef[] projections = new ProjectionDef[] {
+      new ProjectionDef(
+        "details",
+        new CalculatedFieldDef[] {
+        },
+        new String[] {
+          "id",
+          "payment",
+          "customer"
+        }
+      ),
+      new ProjectionDef(
+        "info",
+        new CalculatedFieldDef[] {
+        },
+        new String[] {
+          "id",
+          "payment",
+          "customer"
         }
       ),
       new ProjectionDef(
@@ -435,7 +509,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
     DataElementDef dataElement = new DataElementDef(COMPONENT_NAME, "cabBookingCore", "Payment");
     IFieldDef[] fields = new IFieldDef[] {
       new ValueFieldDef("id", "Long"),
-      new ValueFieldDef("statusPayed", "Boolean")
+      new ValueFieldDef("statusPayed", "Boolean"),
+      new ValueFieldDef("totalAmount", "Double")
     };
     dataElement.setFields(fields);
 
@@ -454,7 +529,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
         },
         new String[] {
           "id",
-          "statusPayed"
+          "statusPayed",
+          "totalAmount"
         }
       ),
       new ProjectionDef(
@@ -463,7 +539,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
         },
         new String[] {
           "id",
-          "statusPayed"
+          "statusPayed",
+          "totalAmount"
         }
       ),
       new ProjectionDef(
@@ -572,8 +649,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
       new ValueFieldDef("fromDateTime", "Date"),
       new ValueFieldDef("toDateTime", "Date"),
       new ValueFieldDef("km", "Double"),
-      new ValueFieldDef("totalAmount", "Double"),
-      new LinkFieldDef("payment", "LN01", "DataRef", "onlineCabBookingComp", "Payment")
+      new LinkFieldDef("payment", "LN01", "DataRef", "onlineCabBookingComp", "Payment"),
+      new ValueFieldDef("status", "String")
     };
     dataElement.setFields(fields);
 
@@ -598,6 +675,9 @@ public class ComponentMetaData extends AbstractComponentMetaData {
       new FinderDef("findByCustomerEq_FromDateTimeEq",
         new FieldOperator("customer", "="),
         new FieldOperator("fromDateTime", "=")
+      ),
+      new FinderDef("findByStatusEq",
+        new FieldOperator("status", "LIKE")
       )
     };
     dataElement.setFinders(finders);
@@ -616,8 +696,8 @@ public class ComponentMetaData extends AbstractComponentMetaData {
           "fromDateTime",
           "toDateTime",
           "km",
-          "totalAmount",
-          "payment"
+          "payment",
+          "status"
         }
       ),
       new ProjectionDef(
@@ -633,8 +713,85 @@ public class ComponentMetaData extends AbstractComponentMetaData {
           "fromDateTime",
           "toDateTime",
           "km",
-          "totalAmount",
           "payment"
+        }
+      ),
+      new ProjectionDef(
+        "dataRef",
+        new CalculatedFieldDef[] {
+        },
+        new String[] {
+          "id"
+        }
+      )
+    };
+    dataElement.setProjections(projections);
+
+    CommandDef[] commands = new CommandDef[] {
+    };
+    dataElement.setCommands(commands);
+
+    return dataElement;
+  }
+
+  private static DataElementDef getDataElementDef_TripBookingTaskStatus() {
+    DataElementDef dataElement = new DataElementDef(COMPONENT_NAME, "cabBookingCore", "TripBookingTaskStatus");
+    IFieldDef[] fields = new IFieldDef[] {
+      new ValueFieldDef("id", "Long"),
+      new ValueFieldDef("name", "String"),
+      new ValueFieldDef("startedAt", "Date"),
+      new ValueFieldDef("finishedAt", "Date"),
+      new ValueFieldDef("status", "String"),
+      new LinkFieldDef("stateTask", "LN01", "DataRef", "workflow", "StateTask"),
+      new LinkFieldDef("tripBooking", "LN01", "DataRef", "onlineCabBookingComp", "TripBooking")
+    };
+    dataElement.setFields(fields);
+
+    FinderDef[] finders = new FinderDef[] {
+      new FinderDef("findAllTripBookingTaskStatuss"),
+      new FinderDef("findByNameEq",
+        new FieldOperator("name", "LIKE")
+      ),
+      new FinderDef("findByStatusEq",
+        new FieldOperator("status", "LIKE")
+      ),
+      new FinderDef("findByTripBookingEq",
+        new FieldOperator("tripBooking", "=")
+      ),
+      new FinderDef("findByStateTaskEq",
+        new FieldOperator("stateTask", "=")
+      ),
+      new FinderDef("findAllTripBookingTaskStatusses")
+    };
+    dataElement.setFinders(finders);
+
+    ProjectionDef[] projections = new ProjectionDef[] {
+      new ProjectionDef(
+        "details",
+        new CalculatedFieldDef[] {
+        },
+        new String[] {
+          "id",
+          "name",
+          "startedAt",
+          "finishedAt",
+          "status",
+          "stateTask",
+          "tripBooking"
+        }
+      ),
+      new ProjectionDef(
+        "info",
+        new CalculatedFieldDef[] {
+        },
+        new String[] {
+          "id",
+          "name",
+          "startedAt",
+          "finishedAt",
+          "status",
+          "stateTask",
+          "tripBooking"
         }
       ),
       new ProjectionDef(

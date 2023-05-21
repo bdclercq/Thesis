@@ -69,15 +69,15 @@ define(function (require) {
       isValueType: false
     },
     {
-      fieldName: "totalAmount",
-      type: FieldType.VALUE,
-      key: "onlineCabBookingComp.TripBooking.totalAmount",
-      isValueType: false
-    },
-    {
       fieldName: "payment",
       type: FieldType.DATAREF,
       key: "onlineCabBookingComp.TripBooking.payment",
+      isValueType: false
+    },
+    {
+      fieldName: "status",
+      type: FieldType.VALUE,
+      key: "onlineCabBookingComp.TripBooking.status",
       isValueType: false
     }
     // anchor:field-configs:end

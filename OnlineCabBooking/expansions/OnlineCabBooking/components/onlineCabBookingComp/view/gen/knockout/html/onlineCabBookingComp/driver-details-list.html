@@ -2,10 +2,6 @@
 <thead data-bind="with: heading">
   <tr>
     <!-- anchor:headers:start -->
-    <th data-bind="click: name.sort.trigger" class="onlineCabBookingComp-driver-name-header">
-      <span data-bind="translate: 'onlineCabBookingComp.driver.name'"></span>
-      <i class="sortable" data-bind="css: name.icon"></i>
-    </th>
     <th data-bind="click: licenseNo.sort.trigger" class="onlineCabBookingComp-driver-licenseNo-header">
       <span data-bind="translate: 'onlineCabBookingComp.driver.licenseNo'"></span>
       <i class="sortable" data-bind="css: licenseNo.icon"></i>
@@ -24,6 +20,10 @@
     <th class="onlineCabBookingComp-driver-tripBooking-header">
       <span data-bind="translate: 'onlineCabBookingComp.driver.tripBooking'"></span>
     </th>
+    <th data-bind="click: name.sort.trigger" class="onlineCabBookingComp-driver-name-header">
+      <span data-bind="translate: 'onlineCabBookingComp.driver.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
     <!-- anchor:headers:end -->
     <!-- @anchor:headers:start -->
     <!-- @anchor:headers:end -->
@@ -34,9 +34,6 @@
 <tbody data-bind="foreach: list.items">
   <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
     <!-- anchor:values:start -->
-    <td class="onlineCabBookingComp-driver-name-cell">
-      <span data-bind="text: name"></span>
-    </td>
     <td class="onlineCabBookingComp-driver-licenseNo-cell">
       <span data-bind="text: licenseNo"></span>
     </td>
@@ -59,6 +56,9 @@
           <span data-bind="text: name"></span>
         </a>
       </span>
+    </td>
+    <td class="onlineCabBookingComp-driver-name-cell">
+      <span data-bind="text: name"></span>
     </td>
     <!-- anchor:values:end -->
     <!-- @anchor:values:start -->

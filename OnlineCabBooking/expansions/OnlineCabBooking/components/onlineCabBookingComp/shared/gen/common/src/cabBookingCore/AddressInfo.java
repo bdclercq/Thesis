@@ -28,11 +28,11 @@ public class AddressInfo
   /*========== Bean member fields ==========*/
 
   private Long mId;
-  private String mName;
   // anchor:instance-variables:start
   private String mState;
   private String mStreet;
   private Integer mHouseNumber;
+  private String mName;
   // anchor:instance-variables:end
   // @anchor:instance-variables:start
   // @anchor:instance-variables:end
@@ -44,11 +44,11 @@ public class AddressInfo
 
   public AddressInfo() {
     this.mId = 0L;
-    this.mName = "";
     // anchor:default-constructor-initialization:start
     this.mState = "";
     this.mStreet = "";
     this.mHouseNumber = null;
+    this.mName = "";
     // anchor:default-constructor-initialization:end
     // @anchor:default-constructor-initialization:start
     // @anchor:default-constructor-initialization:end
@@ -60,21 +60,21 @@ public class AddressInfo
   /*========== Detailed constructor ==========*/
 
   public AddressInfo(Long id
-      , String name
       // anchor:detailed-constructor-parameters:start
       , String state
       , String street
       , Integer houseNumber
+      , String name
       // anchor:detailed-constructor-parameters:end
       // @anchor:detailed-constructor-parameters:start
       // @anchor:detailed-constructor-parameters:end
       ) {
     this.mId = id;
-    this.mName = name;
     // anchor:detailed-constructor-initialization:start
     this.mState = state;
     this.mStreet = street;
     this.mHouseNumber = houseNumber;
+    this.mName = name;
     // anchor:detailed-constructor-initialization:end
     // @anchor:detailed-constructor-initialization:start
     // @anchor:detailed-constructor-initialization:end
@@ -91,14 +91,6 @@ public class AddressInfo
 
   public void setId(Long id) {
     this.mId = id;
-  }
-
-  public String getName() {
-    return this.mName;
-  }
-
-  public void setName(String name) {
-    this.mName = name;
   }
 
   // anchor:getters-setters:start
@@ -125,6 +117,14 @@ public class AddressInfo
   public void setHouseNumber(Integer houseNumber) {
     this.mHouseNumber = houseNumber;
   }
+
+  public String getName() {
+    return this.mName;
+  }
+
+  public void setName(String name) {
+    this.mName = name;
+  }
   // anchor:getters-setters:end
 
   // @anchor:methods:start
@@ -138,6 +138,7 @@ public class AddressInfo
     fieldOrder.add("State");
     fieldOrder.add("Street");
     fieldOrder.add("HouseNumber");
+    fieldOrder.add("Name");
     // anchor:field-order:end
     return fieldOrder;
   }

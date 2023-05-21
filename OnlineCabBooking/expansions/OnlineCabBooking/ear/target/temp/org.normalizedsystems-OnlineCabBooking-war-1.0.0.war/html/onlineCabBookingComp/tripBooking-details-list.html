@@ -30,12 +30,12 @@
       <span data-bind="translate: 'onlineCabBookingComp.tripBooking.km'"></span>
       <i class="sortable" data-bind="css: km.icon"></i>
     </th>
-    <th data-bind="click: totalAmount.sort.trigger" class="onlineCabBookingComp-tripBooking-totalAmount-header">
-      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.totalAmount'"></span>
-      <i class="sortable" data-bind="css: totalAmount.icon"></i>
-    </th>
     <th class="onlineCabBookingComp-tripBooking-payment-header">
       <span data-bind="translate: 'onlineCabBookingComp.tripBooking.payment'"></span>
+    </th>
+    <th data-bind="click: status.sort.trigger" class="onlineCabBookingComp-tripBooking-status-header">
+      <span data-bind="translate: 'onlineCabBookingComp.tripBooking.status'"></span>
+      <i class="sortable" data-bind="css: status.icon"></i>
     </th>
     <!-- anchor:headers:end -->
     <!-- @anchor:headers:start -->
@@ -87,15 +87,15 @@
     <td class="onlineCabBookingComp-tripBooking-km-cell">
       <span data-bind="text: km"></span>
     </td>
-    <td class="onlineCabBookingComp-tripBooking-totalAmount-cell">
-      <span data-bind="text: totalAmount"></span>
-    </td>
     <td class="onlineCabBookingComp-tripBooking-payment-cell">
       <span data-bind="with: payment">
         <a href="#" data-bind="click: link.trigger, clickBubble: false">
           <span data-bind="text: name"></span>
         </a>
       </span>
+    </td>
+    <td class="onlineCabBookingComp-tripBooking-status-cell">
+      <span data-bind="text: status"></span>
     </td>
     <!-- anchor:values:end -->
     <!-- @anchor:values:start -->

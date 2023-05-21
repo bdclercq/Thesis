@@ -1,5 +1,0 @@
--- anchor:custom-methods:start
-    CrudsResult<Void> setNotResponding(ParameterContext<DataRef> parameter);
-    CrudsResult<Void> setReadyForShutdown(ParameterContext<DataRef> parameter);
-    CrudsResult<EngineNodeServiceDetails> getEngineNodeServiceForEngineService(ParameterContext<DataRef> parameter);
--- anchor:custom-methods:end

@@ -16,6 +16,8 @@ import net.democritus.sys.command.CommandResult;
 import java.util.Date;
 import java.util.List;
 
+import net.democritus.state.StateUpdate;
+
 // @anchor:imports:start
 // @anchor:imports:end
 
@@ -63,6 +65,10 @@ public interface TripBookingLocal {
 
   // anchor:business-methods:start
   // anchor:business-methods:end
+
+  // anchor:compare-set-methods:start
+  CrudsResult<Void> compareAndSetStatus(ParameterContext<StateUpdate> parameter);
+  // anchor:compare-set-methods:end
 
   // @anchor:methods:start
   // @anchor:methods:end

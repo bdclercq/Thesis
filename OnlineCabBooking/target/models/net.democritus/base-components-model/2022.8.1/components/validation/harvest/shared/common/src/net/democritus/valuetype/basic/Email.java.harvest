@@ -1,8 +1,0 @@
--- anchor:custom-default-constructor:start
-    this("");
--- anchor:custom-default-constructor:end
--- anchor:custom-value-constructor:start
-    if (email == null) {
-      this.email = "";
-    }
--- anchor:custom-value-constructor:end

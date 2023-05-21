@@ -16,6 +16,8 @@ import net.democritus.sys.command.CommandResult;
 import java.util.Date;
 import java.util.List;
 
+import net.democritus.state.StateUpdate;
+
 // @anchor:imports:start
 // @anchor:imports:end
 

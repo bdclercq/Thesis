@@ -2,10 +2,6 @@
 <thead data-bind="with: heading">
   <tr>
     <!-- anchor:headers:start -->
-    <th data-bind="click: name.sort.trigger" class="onlineCabBookingComp-address-name-header">
-      <span data-bind="translate: 'onlineCabBookingComp.address.name'"></span>
-      <i class="sortable" data-bind="css: name.icon"></i>
-    </th>
     <th data-bind="click: state.sort.trigger" class="onlineCabBookingComp-address-state-header">
       <span data-bind="translate: 'onlineCabBookingComp.address.state'"></span>
       <i class="sortable" data-bind="css: state.icon"></i>
@@ -26,6 +22,10 @@
       <span data-bind="translate: 'onlineCabBookingComp.address.houseNumber'"></span>
       <i class="sortable" data-bind="css: houseNumber.icon"></i>
     </th>
+    <th data-bind="click: name.sort.trigger" class="onlineCabBookingComp-address-name-header">
+      <span data-bind="translate: 'onlineCabBookingComp.address.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
     <!-- anchor:headers:end -->
     <!-- @anchor:headers:start -->
     <!-- @anchor:headers:end -->
@@ -36,9 +36,6 @@
 <tbody data-bind="foreach: list.items">
   <tr data-bind="click: select.trigger, css: {'info': isSelected}, with: value">
     <!-- anchor:values:start -->
-    <td class="onlineCabBookingComp-address-name-cell">
-      <span data-bind="text: name"></span>
-    </td>
     <td class="onlineCabBookingComp-address-state-cell">
       <span data-bind="text: state"></span>
     </td>
@@ -53,6 +50,9 @@
     </td>
     <td class="onlineCabBookingComp-address-houseNumber-cell">
       <span data-bind="text: houseNumber"></span>
+    </td>
+    <td class="onlineCabBookingComp-address-name-cell">
+      <span data-bind="text: name"></span>
     </td>
     <!-- anchor:values:end -->
     <!-- @anchor:values:start -->

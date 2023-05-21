@@ -48,12 +48,12 @@ public class AddressInfoProjector implements IDataElementProjector<AddressData, 
 
     if (data != null) {
       projection.setId(data.getId());
-      projection.setName(crudsInternal.getDisplayName(dataParameter));
 
       // anchor:project-setters:start
       projection.setState(data.getState());
       projection.setStreet(data.getStreet());
       projection.setHouseNumber(data.getHouseNumber());
+      projection.setName(data.getName());
       // anchor:project-setters:end
       // @anchor:project-setters:start
       // @anchor:project-setters:end
@@ -73,6 +73,7 @@ public class AddressInfoProjector implements IDataElementProjector<AddressData, 
     data.setState(projection.getState());
     data.setStreet(projection.getStreet());
     data.setHouseNumber(projection.getHouseNumber());
+    data.setName(projection.getName());
     // anchor:toData-setters:end
     // @anchor:toData-setters:start
     // @anchor:toData-setters:end

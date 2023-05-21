@@ -1,0 +1,45 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('invoice.customer', editMode), css: { error: detailModel.customer.hasErrors}">
+    <label class="control-label"
+           for="invoice.customer"
+           data-bind="translate: 'onlineCabBookingComp.invoice.customer'">
+    </label>
+    <div class="controls" id="invoice.customer" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.customer,
+          element: 'onlineCabBookingComp.customer',
+          hideDropdown: false
+      }, enable: isFieldEnabled('invoice.customer', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.customer.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.customer.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="control-group" data-bind="visible: isFieldVisible('invoice.payment', editMode), css: { error: detailModel.payment.hasErrors}">
+    <label class="control-label"
+           for="invoice.payment"
+           data-bind="translate: 'onlineCabBookingComp.invoice.payment'">
+    </label>
+    <div class="controls" id="invoice.payment" data-bind="focus: 2">
+      <span data-bind="selectDataRef: {
+          field: detailModel.payment,
+          element: 'onlineCabBookingComp.payment',
+          hideDropdown: false
+      }, enable: isFieldEnabled('invoice.payment', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.payment.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.payment.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

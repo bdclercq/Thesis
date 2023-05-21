@@ -63,7 +63,6 @@ public class DriverData implements java.io.Serializable {
 
   private Long mId;
   // @anchor:variables:start
-  private String mName;
   // @anchor:variables:end
   // anchor:member-fields:start
   private Integer mLicenseNo;
@@ -71,6 +70,7 @@ public class DriverData implements java.io.Serializable {
   private Boolean mIsAvailable;
   private Long mCab;
   private Long mTripBooking;
+  private String mName;
   // anchor:member-fields:end
 
   // anchor:custom-variables:start
@@ -80,7 +80,6 @@ public class DriverData implements java.io.Serializable {
 
   public DriverData() {
     // @anchor:default-constructor:start
-    this.mName = "";
     // @anchor:default-constructor:end
   }
 
@@ -88,7 +87,6 @@ public class DriverData implements java.io.Serializable {
 
   public DriverData(Long id
       // @anchor:constructor-parameters:start
-      , String name
       // @anchor:constructor-parameters:end
       // anchor:constructor-parameters:start
       , Integer licenseNo
@@ -96,11 +94,11 @@ public class DriverData implements java.io.Serializable {
       , Boolean isAvailable
       , Long cab
       , Long tripBooking
+      , String name
       // anchor:constructor-parameters:end
     ) {
     this.mId = id;
     // @anchor:constructor-assign:start
-    this.mName = name;
     // @anchor:constructor-assign:end
     // anchor:constructor-assign:start
     this.mLicenseNo = licenseNo;
@@ -108,6 +106,7 @@ public class DriverData implements java.io.Serializable {
     this.mIsAvailable = isAvailable;
     this.mCab = cab;
     this.mTripBooking = tripBooking;
+    this.mName = name;
     // anchor:constructor-assign:end
   }
 
@@ -130,13 +129,6 @@ public class DriverData implements java.io.Serializable {
   }
 
   // @anchor:methods:start
-  public String getName() {
-    return this.mName;
-  }
-
-  public void setName(String name) {
-    this.mName = name;
-  }
   // @anchor:methods:end
   // anchor:getters-and-setters:start
   // @anchor:annotations-getter-licenseNo:start
@@ -219,6 +211,22 @@ public class DriverData implements java.io.Serializable {
   // anchor:custom-annotations-setter-tripBooking:end
   public void setTripBooking(Long tripBooking) {
     this.mTripBooking = tripBooking;
+  }
+
+  // @anchor:annotations-getter-name:start
+  // @anchor:annotations-getter-name:end
+  // anchor:custom-annotations-getter-name:start
+  // anchor:custom-annotations-getter-name:end
+  public String getName() {
+    return this.mName;
+  }
+
+  // @anchor:annotations-setter-name:start
+  // @anchor:annotations-setter-name:end
+  // anchor:custom-annotations-setter-name:start
+  // anchor:custom-annotations-setter-name:end
+  public void setName(String name) {
+    this.mName = name;
   }
   // anchor:getters-and-setters:end
 

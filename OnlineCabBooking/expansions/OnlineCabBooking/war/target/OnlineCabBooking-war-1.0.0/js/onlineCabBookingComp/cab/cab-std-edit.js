@@ -104,11 +104,6 @@ define(function (require) {
             return utils.isDefined(constants().id)
           })
       },
-      name: {
-          disabled: ko.pureComputed(function () {
-            return utils.isDefined(constants().name)
-          })
-      },
       ratePerKm: {
           disabled: ko.pureComputed(function () {
             return utils.isDefined(constants().ratePerKm)
@@ -122,6 +117,11 @@ define(function (require) {
       driver: {
           disabled: ko.pureComputed(function () {
             return utils.isDefined(constants().driver)
+          })
+      },
+      name: {
+          disabled: ko.pureComputed(function () {
+            return utils.isDefined(constants().name)
           })
       }
       // anchor:field-layout-config:end

@@ -672,11 +672,26 @@ CREATE TABLE ONLINECABBOOKINGCOMP.Driver (
 );
 -- < Driver
 
+-- > Invoice
+CREATE TABLE ONLINECABBOOKINGCOMP.Invoice (
+    id BIGINT NOT NULL,
+    customer_id BIGINT,
+    name VARCHAR(255),
+    payment_id BIGINT,
+    -- @anchor:onlineCabBookingComp-invoice-table:start
+    -- @anchor:onlineCabBookingComp-invoice-table:end
+    -- anchor:custom-onlineCabBookingComp-invoice-table:start
+    -- anchor:custom-onlineCabBookingComp-invoice-table:end
+    PRIMARY KEY (id)
+);
+-- < Invoice
+
 -- > Payment
 CREATE TABLE ONLINECABBOOKINGCOMP.Payment (
     id BIGINT NOT NULL,
     name VARCHAR(255),
     statusPayed BOOL,
+    totalAmount DOUBLE PRECISION,
     -- @anchor:onlineCabBookingComp-payment-table:start
     -- @anchor:onlineCabBookingComp-payment-table:end
     -- anchor:custom-onlineCabBookingComp-payment-table:start
@@ -712,9 +727,9 @@ CREATE TABLE ONLINECABBOOKINGCOMP.TripBooking (
     km DOUBLE PRECISION,
     name VARCHAR(255),
     payment_id BIGINT,
+    status VARCHAR(255),
     toDateTime TIMESTAMP,
     toLocation_id BIGINT,
-    totalAmount DOUBLE PRECISION,
     -- @anchor:onlineCabBookingComp-tripBooking-table:start
     -- @anchor:onlineCabBookingComp-tripBooking-table:end
     -- anchor:custom-onlineCabBookingComp-tripBooking-table:start
@@ -722,6 +737,23 @@ CREATE TABLE ONLINECABBOOKINGCOMP.TripBooking (
     PRIMARY KEY (id)
 );
 -- < TripBooking
+
+-- > TripBookingTaskStatus
+CREATE TABLE ONLINECABBOOKINGCOMP.TripBookingTaskStatus (
+    id BIGINT NOT NULL,
+    finishedAt TIMESTAMP,
+    name VARCHAR(255),
+    startedAt TIMESTAMP,
+    stateTask_id BIGINT,
+    status VARCHAR(255),
+    tripBooking_id BIGINT,
+    -- @anchor:onlineCabBookingComp-tripBookingTaskStatus-table:start
+    -- @anchor:onlineCabBookingComp-tripBookingTaskStatus-table:end
+    -- anchor:custom-onlineCabBookingComp-tripBookingTaskStatus-table:start
+    -- anchor:custom-onlineCabBookingComp-tripBookingTaskStatus-table:end
+    PRIMARY KEY (id)
+);
+-- < TripBookingTaskStatus
 -- anchor:tables:end
 -- @anchor:tables:start
 -- @anchor:tables:end
@@ -925,6 +957,9 @@ REFERENCES WORKFLOW.TimeWindow (id) DEFERRABLE;
 -- > Driver
 -- < Driver
 
+-- > Invoice
+-- < Invoice
+
 -- > Payment
 -- < Payment
 
@@ -933,6 +968,9 @@ REFERENCES WORKFLOW.TimeWindow (id) DEFERRABLE;
 
 -- > TripBooking
 -- < TripBooking
+
+-- > TripBookingTaskStatus
+-- < TripBookingTaskStatus
 -- anchor:join-tables:end
 -- @anchor:join-tables:start
 -- @anchor:join-tables:end
@@ -1066,6 +1104,9 @@ REFERENCES WORKFLOW.EngineService (id) DEFERRABLE;
 -- > Driver
 -- < Driver
 
+-- > Invoice
+-- < Invoice
+
 -- > Payment
 -- < Payment
 
@@ -1074,6 +1115,9 @@ REFERENCES WORKFLOW.EngineService (id) DEFERRABLE;
 
 -- > TripBooking
 -- < TripBooking
+
+-- > TripBookingTaskStatus
+-- < TripBookingTaskStatus
 -- anchor:foreign-keys:end
 -- @anchor:foreign-keys:start
 -- @anchor:foreign-keys:end

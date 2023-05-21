@@ -38,7 +38,7 @@ paths:
 
               info:
                   value: info
-                  summary: this projections shows [ state street houseNumber  ]
+                  summary: this projections shows [ state street houseNumber name  ]
 
               dataRef:
                   value: dataRef
@@ -86,6 +86,8 @@ paths:
                   - sortFields[3].fieldName=street&sortFields[3].descending=oneOf{true, false}
                   - sortFields[4].fieldName=houseNumber&sortFields[4].ascending=oneOf{true, false}
                   - sortFields[4].fieldName=houseNumber&sortFields[4].descending=oneOf{true, false}
+                  - sortFields[5].fieldName=name&sortFields[5].ascending=oneOf{true, false}
+                  - sortFields[5].fieldName=name&sortFields[5].descending=oneOf{true, false}
       responses:
           '200':
               description: successful operation
@@ -123,7 +125,7 @@ paths:
 
               info:
                   value: info
-                  summary: this projections shows [ ratePerKm carType driver ]
+                  summary: this projections shows [ ratePerKm name carType driver ]
 
               dataRef:
                   value: dataRef
@@ -163,6 +165,8 @@ paths:
                   - sortFields[1].fieldName=carType&sortFields[1].descending=oneOf{true, false}
                   - sortFields[2].fieldName=driver&sortFields[2].ascending=oneOf{true, false}
                   - sortFields[2].fieldName=driver&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=name&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=name&sortFields[3].descending=oneOf{true, false}
       responses:
           '200':
               description: successful operation
@@ -339,7 +343,7 @@ paths:
 
               info:
                   value: info
-                  summary: this projections shows [ licenseNo rating isAvailable cab tripBooking ]
+                  summary: this projections shows [ licenseNo rating isAvailable name cab tripBooking ]
 
               dataRef:
                   value: dataRef
@@ -389,6 +393,8 @@ paths:
                   - sortFields[3].fieldName=cab&sortFields[3].descending=oneOf{true, false}
                   - sortFields[4].fieldName=tripBooking&sortFields[4].ascending=oneOf{true, false}
                   - sortFields[4].fieldName=tripBooking&sortFields[4].descending=oneOf{true, false}
+                  - sortFields[5].fieldName=name&sortFields[5].ascending=oneOf{true, false}
+                  - sortFields[5].fieldName=name&sortFields[5].descending=oneOf{true, false}
       responses:
           '200':
               description: successful operation
@@ -396,6 +402,79 @@ paths:
                 application/json:
                   schema:
                     $ref: '#/components/schemas/DriverGeneratedResponse'
+
+  /invoice-search-json:
+    get:
+      summary: 'get invoice instances by {searchMethod}'
+      description: invoice instances are searchable by different search methods, which require different details
+      operationId: 'get invoice instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllInvoices
+              - findByNameEq
+              - findByCustomerNe_PaymentEq
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [  payment customer ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.customer.id={yourcustomer}
+
+                  - details.payment.id={yourpayment}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=payment&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=payment&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=customer&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=customer&sortFields[1].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/InvoiceGeneratedResponse'
 
   /payment-search-json:
     get:
@@ -423,7 +502,7 @@ paths:
 
               info:
                   value: info
-                  summary: this projections shows [ statusPayed  ]
+                  summary: this projections shows [ statusPayed totalAmount  ]
 
               dataRef:
                   value: dataRef
@@ -455,6 +534,8 @@ paths:
               enum:
                   - sortFields[0].fieldName=statusPayed&sortFields[0].ascending=oneOf{true, false}
                   - sortFields[0].fieldName=statusPayed&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=totalAmount&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=totalAmount&sortFields[1].descending=oneOf{true, false}
       responses:
           '200':
               description: successful operation
@@ -570,6 +651,7 @@ paths:
               - findByFromDateTimeEq
               - findByToDateTimeEq
               - findByCustomerEq_FromDateTimeEq
+              - findByStatusEq
         - name: projection
           in: query
           schema:
@@ -582,7 +664,7 @@ paths:
 
               info:
                   value: info
-                  summary: this projections shows [ fromDateTime toDateTime km totalAmount customer driver fromLocation toLocation payment ]
+                  summary: this projections shows [ fromDateTime toDateTime km customer driver fromLocation toLocation payment ]
 
               dataRef:
                   value: dataRef
@@ -615,6 +697,8 @@ paths:
 
                   - details.toDateTime={yourtoDateTime}
 
+                  - details.status={yourstatus}
+
         - name: sortFields
           in: query
           schema:
@@ -634,10 +718,10 @@ paths:
                   - sortFields[5].fieldName=toDateTime&sortFields[5].descending=oneOf{true, false}
                   - sortFields[6].fieldName=km&sortFields[6].ascending=oneOf{true, false}
                   - sortFields[6].fieldName=km&sortFields[6].descending=oneOf{true, false}
-                  - sortFields[7].fieldName=totalAmount&sortFields[7].ascending=oneOf{true, false}
-                  - sortFields[7].fieldName=totalAmount&sortFields[7].descending=oneOf{true, false}
-                  - sortFields[8].fieldName=payment&sortFields[8].ascending=oneOf{true, false}
-                  - sortFields[8].fieldName=payment&sortFields[8].descending=oneOf{true, false}
+                  - sortFields[7].fieldName=payment&sortFields[7].ascending=oneOf{true, false}
+                  - sortFields[7].fieldName=payment&sortFields[7].descending=oneOf{true, false}
+                  - sortFields[8].fieldName=status&sortFields[8].ascending=oneOf{true, false}
+                  - sortFields[8].fieldName=status&sortFields[8].descending=oneOf{true, false}
       responses:
           '200':
               description: successful operation
@@ -645,6 +729,92 @@ paths:
                 application/json:
                   schema:
                     $ref: '#/components/schemas/TripBookingGeneratedResponse'
+
+  /tripBookingTaskStatus-search-json:
+    get:
+      summary: 'get tripBookingTaskStatus instances by {searchMethod}'
+      description: tripBookingTaskStatus instances are searchable by different search methods, which require different details
+      operationId: 'get tripBookingTaskStatus instances by {searchMethod}'
+      parameters:
+        - name: searchMethod
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - findAllTripBookingTaskStatuss
+              - findByNameEq
+              - findByStatusEq
+              - findByTripBookingEq
+              - findByStateTaskEq
+              - findAllTripBookingTaskStatusses
+        - name: projection
+          in: query
+          schema:
+              type: string
+              default: details
+          examples:
+              details:
+                  value: details
+                  summary: details projection shows all fields
+
+              info:
+                  value: info
+                  summary: this projections shows [ name startedAt finishedAt status stateTask tripBooking ]
+
+              dataRef:
+                  value: dataRef
+                  summary: this projections shows [   ]
+
+        - name: page
+          in: query
+          schema:
+             type: integer
+             default: 0
+             format: int32
+        - name: perpage
+          in: query
+          schema:
+              type: integer
+              default: 10
+              format: int32
+        - name: details
+          in: query
+          schema:
+              type: string
+              enum:
+                  - details.name={yourname}
+
+                  - details.status={yourstatus}
+
+                  - details.tripBooking.id={yourtripBooking}
+
+                  - details.stateTask.id={yourstateTask}
+
+        - name: sortFields
+          in: query
+          schema:
+              type: string
+              enum:
+                  - sortFields[0].fieldName=name&sortFields[0].ascending=oneOf{true, false}
+                  - sortFields[0].fieldName=name&sortFields[0].descending=oneOf{true, false}
+                  - sortFields[1].fieldName=startedAt&sortFields[1].ascending=oneOf{true, false}
+                  - sortFields[1].fieldName=startedAt&sortFields[1].descending=oneOf{true, false}
+                  - sortFields[2].fieldName=finishedAt&sortFields[2].ascending=oneOf{true, false}
+                  - sortFields[2].fieldName=finishedAt&sortFields[2].descending=oneOf{true, false}
+                  - sortFields[3].fieldName=status&sortFields[3].ascending=oneOf{true, false}
+                  - sortFields[3].fieldName=status&sortFields[3].descending=oneOf{true, false}
+                  - sortFields[4].fieldName=stateTask&sortFields[4].ascending=oneOf{true, false}
+                  - sortFields[4].fieldName=stateTask&sortFields[4].descending=oneOf{true, false}
+                  - sortFields[5].fieldName=tripBooking&sortFields[5].ascending=oneOf{true, false}
+                  - sortFields[5].fieldName=tripBooking&sortFields[5].descending=oneOf{true, false}
+      responses:
+          '200':
+              description: successful operation
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/TripBookingTaskStatusGeneratedResponse'
 
 components:
     schemas:
@@ -705,6 +875,8 @@ components:
                     type: string
                 houseNumber:
                     type: integer
+                name:
+                    type: string
 
         CabGeneratedResponse:
             type: object
@@ -736,6 +908,8 @@ components:
                     $ref: '#/components/schemas/DataRef'
                 driver:
                     $ref: '#/components/schemas/DataRef'
+                name:
+                    type: string
 
         CarTypeGeneratedResponse:
             type: object
@@ -827,6 +1001,37 @@ components:
                     $ref: '#/components/schemas/DataRef'
                 tripBooking:
                     $ref: '#/components/schemas/DataRef'
+                name:
+                    type: string
+
+        InvoiceGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/InvoiceDetails'
+        InvoiceDetails:
+            type: object
+            properties:
+                payment:
+                    $ref: '#/components/schemas/DataRef'
+                customer:
+                    $ref: '#/components/schemas/DataRef'
 
         PaymentGeneratedResponse:
             type: object
@@ -854,6 +1059,8 @@ components:
             properties:
                 statusPayed:
                     type: boolean
+                totalAmount:
+                    type: number
 
         PersonGeneratedResponse:
             type: object
@@ -928,8 +1135,45 @@ components:
                     type: string
                 km:
                     type: number
-                totalAmount:
-                    type: number
                 payment:
+                    $ref: '#/components/schemas/DataRef'
+                status:
+                    type: string
+
+        TripBookingTaskStatusGeneratedResponse:
+            type: object
+            properties:
+                currentPage:
+                    type: integer
+                    format: int32
+                rowsPerPage:
+                    type: integer
+                    format: int32
+                numberOfPages:
+                    type: integer
+                    format: int32
+                success:
+                    type: boolean
+                totalNumberOfItems:
+                    type: integer
+                    format: int32
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/TripBookingTaskStatusDetails'
+        TripBookingTaskStatusDetails:
+            type: object
+            properties:
+                name:
+                    type: string
+                startedAt:
+                    type: string
+                finishedAt:
+                    type: string
+                status:
+                    type: string
+                stateTask:
+                    $ref: '#/components/schemas/DataRef'
+                tripBooking:
                     $ref: '#/components/schemas/DataRef'
 

@@ -21,12 +21,6 @@ define(function (require) {
       isValueType: false
     },
     {
-      fieldName: "name",
-      type: FieldType.VALUE,
-      key: "onlineCabBookingComp.Cab.name",
-      isValueType: false
-    },
-    {
       fieldName: "ratePerKm",
       type: FieldType.VALUE,
       key: "onlineCabBookingComp.Cab.ratePerKm",
@@ -42,6 +36,12 @@ define(function (require) {
       fieldName: "driver",
       type: FieldType.DATAREF,
       key: "onlineCabBookingComp.Cab.driver",
+      isValueType: false
+    },
+    {
+      fieldName: "name",
+      type: FieldType.VALUE,
+      key: "onlineCabBookingComp.Cab.name",
       isValueType: false
     }
     // anchor:field-configs:end

@@ -267,7 +267,7 @@ public class AddressFinderBean implements AddressFinderLocal {
   }
 
   private JPAQueryBuilder createQueryBuilder() {
-    return new JPAQueryBuilder(AddressData.ENTITY_NAME, "id");
+    return new JPAQueryBuilder(AddressData.ENTITY_NAME, "name");
   }
 
   // @anchor:methods:start

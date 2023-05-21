@@ -43,7 +43,8 @@ define(function (require) {
         id: ko.observable(),
         // anchor:init-viewModel:start
         name: ko.observable(),
-        statusPayed: ko.observable()
+        statusPayed: ko.observable(),
+        totalAmount: ko.observable()
         // anchor:init-viewModel:end
         // @anchor:init-viewModel:start
         // @anchor:init-viewModel:end
@@ -58,6 +59,7 @@ define(function (require) {
         // anchor:update-viewModel:start
         viewmodel.name(paymentDetails.name);
         viewmodel.statusPayed(paymentDetails.statusPayed);
+        viewmodel.totalAmount(paymentDetails.totalAmount);
         // anchor:update-viewModel:end
         // @anchor:update-viewModel:start
         // @anchor:update-viewModel:end

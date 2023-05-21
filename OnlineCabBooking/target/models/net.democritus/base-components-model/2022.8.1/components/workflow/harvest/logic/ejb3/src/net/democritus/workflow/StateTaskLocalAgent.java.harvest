@@ -1,5 +1,0 @@
--- anchor:custom-methods:start
-  public SearchResult<StateTaskDetails> getStateTasksByWorkflowId(Long workflowId) {
-    return stateTaskLocal.getStateTasksByWorkflowId(createParameter(workflowId));
-  }
--- anchor:custom-methods:end

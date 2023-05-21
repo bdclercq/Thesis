@@ -1,9 +1,0 @@
--- anchor:custom-methods:start
-    public CrudsResult<Boolean> checkPassword(UserInput userLoginInput) {
-        return userProxy.checkPassword(createParameter(userLoginInput));
-    }
-
-    public CrudsResult<Boolean> checkEncryptedPassword(UserInput userLoginInput) {
-        return userProxy.checkEncryptedPassword(createParameter(userLoginInput));
-    }
--- anchor:custom-methods:end

@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<struts>
+
+  <package name='onlineCabBookingComp-invoice' namespace='/onlineCabBookingComp' extends='nsx-default'>
+
+    <global-results>
+      <result name='noaccess'>/jsp/noaccess.jsp</result>
+    </global-results>
+
+    <!-- @anchor:actions:start -->
+    <!-- @anchor:actions:end -->
+
+    <!-- Add actions here -->
+
+    <!-- anchor:custom-actions:start -->
+    <!-- anchor:custom-actions:end -->
+  </package>
+
+  <package name='onlineCabBookingComp-invoice-json' namespace='/onlineCabBookingComp' extends='nsx-json-default'>
+
+    <action name='invoice-detail-json' class='cabBookingCore.action.InvoiceDetailer' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='invoice-delete-json' class='cabBookingCore.action.InvoiceDeleter' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='invoice-confirm-json' class='cabBookingCore.action.InvoiceEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='invoice-saveDetails-json' class='cabBookingCore.action.InvoiceEnterer' method='execute'>
+      <interceptor-ref name="jsonEntererStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='invoice-search-json' class='cabBookingCore.action.InvoiceFindAction' method='execute'>
+      <interceptor-ref name="jsonFinderStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+      <result name='input' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='invoice-perform-json' class='cabBookingCore.action.InvoicePerformer' method='execute'>
+      <interceptor-ref name="jsonCommandStack" />
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <action name='invoice-getProjection-json' class='cabBookingCore.action.InvoiceProjector' method='execute'>
+      <result name='success' type='json'>
+        <param name='root'>jsonResult</param>
+      </result>
+    </action>
+
+    <!-- anchor:io-actions:start -->
+    <!-- anchor:io-actions:end -->
+
+    <!-- @anchor:json-actions:start -->
+    <!-- @anchor:json-actions:end -->
+
+    <!-- Add JSON actions here -->
+
+    <!-- anchor:custom-json-actions:start -->
+    <!-- anchor:custom-json-actions:end -->
+  </package>
+
+  <package name='onlineCabBookingComp-invoice-knockout-html' namespace='/onlineCabBookingComp/invoice' extends='nsx-default'>
+    <action name='data'>
+      <result>/jsp/ps2/page.jsp?pageModel=onlineCabBookingComp/invoice/invoice-io-page-model</result>
+    </action>
+    <action name='all'>
+      <result>/jsp/ps2/page.jsp?pageModel=onlineCabBookingComp/invoice/invoice-page-model</result>
+    </action>
+
+    <!-- @anchor:ko-html-pages:start -->
+    <!-- @anchor:ko-html-pages:end -->
+  </package>
+
+  <!-- @anchor:packages:start -->
+  <!-- @anchor:packages:end -->
+  <!-- anchor:custom-packages:start -->
+  <!-- anchor:custom-packages:end -->
+
+</struts>

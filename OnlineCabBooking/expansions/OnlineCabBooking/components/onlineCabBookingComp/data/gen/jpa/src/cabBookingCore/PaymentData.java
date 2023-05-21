@@ -67,6 +67,7 @@ public class PaymentData implements java.io.Serializable {
   // @anchor:variables:end
   // anchor:member-fields:start
   private Boolean mStatusPayed;
+  private Double mTotalAmount;
   // anchor:member-fields:end
 
   // anchor:custom-variables:start
@@ -88,6 +89,7 @@ public class PaymentData implements java.io.Serializable {
       // @anchor:constructor-parameters:end
       // anchor:constructor-parameters:start
       , Boolean statusPayed
+      , Double totalAmount
       // anchor:constructor-parameters:end
     ) {
     this.mId = id;
@@ -96,6 +98,7 @@ public class PaymentData implements java.io.Serializable {
     // @anchor:constructor-assign:end
     // anchor:constructor-assign:start
     this.mStatusPayed = statusPayed;
+    this.mTotalAmount = totalAmount;
     // anchor:constructor-assign:end
   }
 
@@ -141,6 +144,22 @@ public class PaymentData implements java.io.Serializable {
   // anchor:custom-annotations-setter-statusPayed:end
   public void setStatusPayed(Boolean statusPayed) {
     this.mStatusPayed = statusPayed;
+  }
+
+  // @anchor:annotations-getter-totalAmount:start
+  // @anchor:annotations-getter-totalAmount:end
+  // anchor:custom-annotations-getter-totalAmount:start
+  // anchor:custom-annotations-getter-totalAmount:end
+  public Double getTotalAmount() {
+    return this.mTotalAmount;
+  }
+
+  // @anchor:annotations-setter-totalAmount:start
+  // @anchor:annotations-setter-totalAmount:end
+  // anchor:custom-annotations-setter-totalAmount:start
+  // anchor:custom-annotations-setter-totalAmount:end
+  public void setTotalAmount(Double totalAmount) {
+    this.mTotalAmount = totalAmount;
   }
   // anchor:getters-and-setters:end
 

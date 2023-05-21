@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="net.democritus.basic.TimeTest" time="0.011" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="net.democritus.basic.TimeTest" time="0" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="19"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/test-classes:/Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/classes:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-common/2022.1.0/nsx-common-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-common/2022.1.0/nsx-shared-common-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-logging/2022.1.0/nsx-logging-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-contract-annotations/2022.1.0/nsx-contract-annotations-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-ref/2022.1.0/nsx-shared-ref-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-owasp/2022.1.0/nsx-shared-owasp-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/beaudeclercq/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/utils/shared/target/utils-shared-1.0.jar:"/>
+    <property name="java.class.path" value="/Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/test-classes:/Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/classes:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-common/2022.1.0/nsx-common-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-common/2022.1.0/nsx-shared-common-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-logging/2022.1.0/nsx-logging-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-contract-annotations/2022.1.0/nsx-contract-annotations-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-ref/2022.1.0/nsx-shared-ref-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-owasp/2022.1.0/nsx-shared-owasp-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/beaudeclercq/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/utils/shared/target/utils-shared-1.0.jar:"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
@@ -13,10 +13,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="BE"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-19.0.2.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/surefire/surefirebooter-20230411131233423_6.jar /Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/surefire 2023-04-11T13-12-17_916-jvmRun1 surefire-20230411131233423_4tmp surefire_1-20230411131233423_5tmp"/>
+    <property name="sun.java.command" value="/Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/surefire/surefirebooter-20230519131616284_6.jar /Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/surefire 2023-05-19T13-16-00_913-jvmRun1 surefire-20230519131616284_4tmp surefire_1-20230519131616284_5tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/test-classes:/Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/classes:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-common/2022.1.0/nsx-common-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-common/2022.1.0/nsx-shared-common-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-logging/2022.1.0/nsx-logging-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-contract-annotations/2022.1.0/nsx-contract-annotations-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-ref/2022.1.0/nsx-shared-ref-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-owasp/2022.1.0/nsx-shared-owasp-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/beaudeclercq/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/utils/shared/target/utils-shared-1.0.jar:"/>
+    <property name="surefire.test.class.path" value="/Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/test-classes:/Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/classes:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-common/2022.1.0/nsx-common-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-common/2022.1.0/nsx-shared-common-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-logging/2022.1.0/nsx-logging-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-contract-annotations/2022.1.0/nsx-contract-annotations-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-ref/2022.1.0/nsx-shared-ref-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/net/democritus/nsx-shared-owasp/2022.1.0/nsx-shared-owasp-2022.1.0.jar:/Users/beaudeclercq/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar:/Users/beaudeclercq/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/utils/shared/target/utils-shared-1.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/beaudeclercq"/>
     <property name="user.language" value="en"/>
@@ -24,13 +24,13 @@
     <property name="java.version.date" value="2023-01-17"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-19.0.2.jdk/Contents/Home"/>
     <property name="file.separator" value="/"/>
-    <property name="basedir" value="/Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared"/>
+    <property name="basedir" value="/Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/surefire/surefirebooter-20230411131233423_6.jar"/>
+    <property name="surefire.real.class.path" value="/Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared/target/surefire/surefirebooter-20230519131616284_6.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="19.0.2+7-44"/>
@@ -45,7 +45,7 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="/var/folders/j3/157sk4713hg8s48799s3gnpw0000gn/T/"/>
     <property name="java.version" value="19.0.2"/>
-    <property name="user.dir" value="/Users/beaudeclercq/Desktop/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared"/>
+    <property name="user.dir" value="/Users/beaudeclercq/Documents/GitHub/Thesis/OnlineCabBooking/expansions/OnlineCabBooking/components/validation/shared"/>
     <property name="os.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="native.encoding" value="UTF-8"/>
@@ -58,7 +58,7 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="63.0"/>
   </properties>
-  <testcase name="testGetValue" classname="net.democritus.basic.TimeTest" time="0.002"/>
-  <testcase name="testSetValue_broken_input" classname="net.democritus.basic.TimeTest" time="0.002"/>
+  <testcase name="testGetValue" classname="net.democritus.basic.TimeTest" time="0"/>
+  <testcase name="testSetValue_broken_input" classname="net.democritus.basic.TimeTest" time="0"/>
   <testcase name="testSetValue" classname="net.democritus.basic.TimeTest" time="0"/>
 </testsuite>

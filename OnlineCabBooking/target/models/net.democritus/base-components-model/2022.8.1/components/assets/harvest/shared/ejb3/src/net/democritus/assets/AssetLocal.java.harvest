@@ -1,4 +1,0 @@
--- anchor:custom-methods:start
-    CrudsResult<AssetChunk> getAssetChunk(ParameterContext<AssetChunkRef> refParam);
-    CrudsResult<Void> uploadChunk(ParameterContext<AssetChunk> parameter);
--- anchor:custom-methods:end

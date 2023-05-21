@@ -62,14 +62,6 @@
         <valueFieldType component="" name="Double"/>
       </valueField>
     </field>
-    <field name="totalAmount">
-      <fieldType>VALUE_FIELD</fieldType>
-      <isInfoField>true</isInfoField>
-      <isListField>false</isListField>
-      <valueField>
-        <valueFieldType component="" name="Double"/>
-      </valueField>
-    </field>
     <field name="payment">
       <fieldType>LINK_FIELD</fieldType>
       <isInfoField>true</isInfoField>
@@ -78,6 +70,17 @@
         <targetElement component="onlineCabBookingComp" name="Payment"/>
         <linkFieldType name="Ln01"/>
       </linkField>
+    </field>
+    <field name="status">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isStatusField/>
+      </options>
     </field>
   </fields>
   <finders>
@@ -126,5 +129,23 @@
         </fieldOperatorPair>
       </fieldOperatorPairs>
     </finder>
+    <finder name="findByStatusEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="status"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
   </finders>
+  <dataStates>
+    <dataState name="Created"/>
+    <dataState name="To be validated"/>
+    <dataState name="Validating"/>
+    <dataState name="Valid"/>
+    <dataState name="Invalid"/>
+    <dataState name="Creating invoice"/>
+    <dataState name="Invoice created"/>
+    <dataState name="Invoice failed"/>
+  </dataStates>
 </dataElement>

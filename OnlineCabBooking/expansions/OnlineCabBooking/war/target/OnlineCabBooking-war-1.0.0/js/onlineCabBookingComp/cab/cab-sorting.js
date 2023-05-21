@@ -32,17 +32,6 @@ define(function (require) {
       })
     });
 
-    viewModel.name = SortableColumn.defineSortableColumn({
-      fieldName: "name"
-    }, {
-      resetOn: Trigger.defineFilter({
-        trigger: selectSorting,
-        condition: function (sortField) {
-          return sortField === null || sortField.fieldName !== "name";
-        }
-      })
-    });
-
     viewModel.ratePerKm = SortableColumn.defineSortableColumn({
       fieldName: "ratePerKm"
     }, {
@@ -54,11 +43,22 @@ define(function (require) {
       })
     });
 
+    viewModel.name = SortableColumn.defineSortableColumn({
+      fieldName: "name"
+    }, {
+      resetOn: Trigger.defineFilter({
+        trigger: selectSorting,
+        condition: function (sortField) {
+          return sortField === null || sortField.fieldName !== "name";
+        }
+      })
+    });
+
     // anchor:sorting-columns:end
     // anchor:sorting-triggers:start
     selectSorting.addTrigger(viewModel.id.select);
-    selectSorting.addTrigger(viewModel.name.select);
     selectSorting.addTrigger(viewModel.ratePerKm.select);
+    selectSorting.addTrigger(viewModel.name.select);
     // anchor:sorting-triggers:end
     // anchor:custom-sorting-columns:start
     // anchor:custom-sorting-columns:end

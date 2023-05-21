@@ -1,5 +1,0 @@
--- anchor:custom-options:start
-    if (input.pageSize) {
-      options.pageSize = input.pageSize;
-    }
--- anchor:custom-options:end

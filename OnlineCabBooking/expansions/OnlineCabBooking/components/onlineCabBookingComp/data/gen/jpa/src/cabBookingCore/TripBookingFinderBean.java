@@ -66,6 +66,7 @@ public class TripBookingFinderBean implements TripBookingFinderLocal {
     finderMapping.put(TripBookingFindByFromDateTimeEqDetails.class, TripBookingFinderBean::findByFromDateTimeEq);
     finderMapping.put(TripBookingFindByToDateTimeEqDetails.class, TripBookingFinderBean::findByToDateTimeEq);
     finderMapping.put(TripBookingFindByCustomerEq_FromDateTimeEqDetails.class, TripBookingFinderBean::findByCustomerEq_FromDateTimeEq);
+    finderMapping.put(TripBookingFindByStatusEqDetails.class, TripBookingFinderBean::findByStatusEq);
     // anchor:register-finders:end
     // anchor:register-customFinders:start
     // anchor:register-customFinders:end
@@ -177,6 +178,20 @@ public class TripBookingFinderBean implements TripBookingFinderLocal {
         .addParameter(QueryParameter.createDataRefParameter("customer", "=", "Customer", details.getCustomer()))
         .addParameter(QueryParameter.createTimestampParameter("fromDateTime", ">=", "FromDateTime_1", DateNormalizer.stripTime(details.getFromDateTime())))
         .addParameter(QueryParameter.createTimestampParameter("fromDateTime", "<", "FromDateTime_2", DateNormalizer.nextDay(DateNormalizer.stripTime(details.getFromDateTime()))))
+        .addSortFields(searchDetails.getSortFields())
+        ;
+
+    return fetchData((ParameterContext) searchParameter, queryBuilder);
+  }
+
+  @SuppressWarnings({"unchecked", "rawtypes"})
+  public SearchResult<TripBookingData> findByStatusEq(ParameterContext<SearchDetails<TripBookingFindByStatusEqDetails>> searchParameter) {
+    SearchDetails<TripBookingFindByStatusEqDetails> searchDetails = searchParameter.getValue();
+
+    TripBookingFindByStatusEqDetails details = searchDetails.getDetails();
+
+    JPAQueryBuilder queryBuilder = createQueryBuilder()
+        .addParameter(QueryParameter.createStringParameter("status", "LIKE", "Status", details.getStatus()))
         .addSortFields(searchDetails.getSortFields())
         ;
 

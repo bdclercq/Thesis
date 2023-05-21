@@ -28,13 +28,13 @@ public class AddressDetails
   /*========== Bean member fields ==========*/
 
   private Long mId;
-  private String mName;
   // anchor:instance-variables:start
   private String mState;
   private String mCity;
   private String mPincode;
   private String mStreet;
   private Integer mHouseNumber;
+  private String mName;
   // anchor:instance-variables:end
   // @anchor:instance-variables:start
   // @anchor:instance-variables:end
@@ -46,13 +46,13 @@ public class AddressDetails
 
   public AddressDetails() {
     this.mId = 0L;
-    this.mName = "";
     // anchor:default-constructor-initialization:start
     this.mState = "";
     this.mCity = "";
     this.mPincode = "";
     this.mStreet = "";
     this.mHouseNumber = null;
+    this.mName = "";
     // anchor:default-constructor-initialization:end
     // @anchor:default-constructor-initialization:start
     // @anchor:default-constructor-initialization:end
@@ -64,25 +64,25 @@ public class AddressDetails
   /*========== Detailed constructor ==========*/
 
   public AddressDetails(Long id
-      , String name
       // anchor:detailed-constructor-parameters:start
       , String state
       , String city
       , String pincode
       , String street
       , Integer houseNumber
+      , String name
       // anchor:detailed-constructor-parameters:end
       // @anchor:detailed-constructor-parameters:start
       // @anchor:detailed-constructor-parameters:end
       ) {
     this.mId = id;
-    this.mName = name;
     // anchor:detailed-constructor-initialization:start
     this.mState = state;
     this.mCity = city;
     this.mPincode = pincode;
     this.mStreet = street;
     this.mHouseNumber = houseNumber;
+    this.mName = name;
     // anchor:detailed-constructor-initialization:end
     // @anchor:detailed-constructor-initialization:start
     // @anchor:detailed-constructor-initialization:end
@@ -108,14 +108,6 @@ public class AddressDetails
   public String getElementPackage() {
     return "cabBookingCore";
   }
-  public String getName() {
-    return this.mName;
-  }
-
-  public void setName(String name) {
-    this.mName = name;
-  }
-
   // anchor:getters-setters:start
   public String getState() {
     return this.mState;
@@ -155,6 +147,14 @@ public class AddressDetails
 
   public void setHouseNumber(Integer houseNumber) {
     this.mHouseNumber = houseNumber;
+  }
+
+  public String getName() {
+    return this.mName;
+  }
+
+  public void setName(String name) {
+    this.mName = name;
   }
   // anchor:getters-setters:end
 

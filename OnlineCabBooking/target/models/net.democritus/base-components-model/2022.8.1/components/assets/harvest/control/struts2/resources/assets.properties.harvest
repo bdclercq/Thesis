@@ -1,5 +1,0 @@
--- anchor:custom-translations:start
-assets.asset.uploadAsset.uploadUri=File
-assets.fileAsset.doesntExist=Het selecteerde bestand bestaat niet
-assets.fileAsset.fileError=Het selecteerde bestand kon niet gelezen worden
--- anchor:custom-translations:end

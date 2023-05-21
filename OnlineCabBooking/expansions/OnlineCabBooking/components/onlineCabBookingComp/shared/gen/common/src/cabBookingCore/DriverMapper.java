@@ -68,6 +68,10 @@ public class DriverMapper implements IDataElementMapper<DriverDetails> {
       if (driverDetails.getIsAvailable() != null) {
         map.put("isAvailable", String.valueOf(driverDetails.getIsAvailable()));
       }
+
+      if (driverDetails.getName() != null) {
+        map.put("name", driverDetails.getName());
+      }
       if (DataRefValidation.isDataRefDefined(driverDetails.getCab())) {
         Result<String> cab = cabDataRefConverter.asString(driverDetails.getCab());
         if (cab.isError()) {
@@ -132,6 +136,11 @@ public class DriverMapper implements IDataElementMapper<DriverDetails> {
       if (isAvailableValueFromMap != null && !isAvailableValueFromMap.isEmpty()) {
         Boolean isAvailable = Boolean.valueOf(isAvailableValueFromMap);
         driverDetails.setIsAvailable(isAvailable);
+      }
+
+      String nameValueFromMap = map.get("name");
+      if (nameValueFromMap != null && !nameValueFromMap.isEmpty()) {
+        driverDetails.setName(nameValueFromMap);
       }
       String cabValueFromMap = map.get("cab");
       Result<DataRef> cab = cabDataRefConverter.fromString(cabValueFromMap);

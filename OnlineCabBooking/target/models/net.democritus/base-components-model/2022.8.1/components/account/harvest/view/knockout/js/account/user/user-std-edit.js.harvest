@@ -1,5 +1,0 @@
--- anchor:custom-options:start
-      layoutConfig.lastModifiedAt = { hidden: true }
-      layoutConfig.enteredAt = { hidden: true }
-      layoutConfig.encryptedPassword = { hidden: true }
--- anchor:custom-options:end

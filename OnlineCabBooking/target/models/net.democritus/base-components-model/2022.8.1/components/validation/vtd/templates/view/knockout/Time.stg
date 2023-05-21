@@ -1,7 +1,0 @@
-editField(componentName, elementName, fieldName) ::= <<
-<span data-bind="timeInput: detailModel.$fieldName$.value, name: '$elementName$.$fieldName$', enable: isFieldEnabled('$elementName$.$fieldName$', editMode)"></span>
->>
-
-displayField(componentName, elementName, fieldName) ::= <<
-<span data-bind='timeString: $fieldName$.value'></span>
->>

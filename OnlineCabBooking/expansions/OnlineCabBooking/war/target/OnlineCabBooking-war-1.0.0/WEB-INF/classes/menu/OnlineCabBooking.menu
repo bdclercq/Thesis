@@ -79,9 +79,11 @@
         <menuitem ref="onlineCabBookingComp-carType-list-page"/>
         <menuitem ref="onlineCabBookingComp-customer-list-page"/>
         <menuitem ref="onlineCabBookingComp-driver-list-page"/>
+        <menuitem ref="onlineCabBookingComp-invoice-list-page"/>
         <menuitem ref="onlineCabBookingComp-payment-list-page"/>
         <menuitem ref="onlineCabBookingComp-person-list-page"/>
         <menuitem ref="onlineCabBookingComp-tripBooking-list-page"/>
+        <menuitem ref="onlineCabBookingComp-tripBookingTaskStatus-list-page"/>
       </submenu>
     </menu>
     <!-- anchor:default-complete:end -->

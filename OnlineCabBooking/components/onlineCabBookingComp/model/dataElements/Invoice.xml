@@ -1,0 +1,38 @@
+<dataElement name="Invoice">
+  <packageName>cabBookingCore</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="payment">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Payment"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+    <field name="customer">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Customer"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findByCustomerNe_PaymentEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="">
+          <operator>Ne</operator>
+          <field name="customer"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="">
+          <operator>Eq</operator>
+          <field name="payment"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+  </finders>
+</dataElement>

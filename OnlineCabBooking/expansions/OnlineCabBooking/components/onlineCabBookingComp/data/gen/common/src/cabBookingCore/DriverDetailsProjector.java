@@ -48,12 +48,12 @@ public class DriverDetailsProjector implements IDataElementProjector<DriverData,
 
     if (data != null) {
       projection.setId(data.getId());
-      projection.setName(crudsInternal.getDisplayName(dataParameter));
 
       // anchor:project-setters:start
       projection.setLicenseNo(data.getLicenseNo());
       projection.setRating(data.getRating());
       projection.setIsAvailable(data.getIsAvailable());
+      projection.setName(data.getName());
       projection.setCab(crudsInternal.getCab(dataParameter.construct(data.getCab())).getValueOrElse(EMPTY_DATA_REF));
       projection.setTripBooking(crudsInternal.getTripBooking(dataParameter.construct(data.getTripBooking())).getValueOrElse(EMPTY_DATA_REF));
       // anchor:project-setters:end
@@ -75,6 +75,7 @@ public class DriverDetailsProjector implements IDataElementProjector<DriverData,
     data.setLicenseNo(projection.getLicenseNo());
     data.setRating(projection.getRating());
     data.setIsAvailable(projection.getIsAvailable());
+    data.setName(projection.getName());
     crudsInternal.setCab(data, projectionParameter.construct(projection.getCab()));
     crudsInternal.setTripBooking(data, projectionParameter.construct(projection.getTripBooking()));
     // anchor:toData-setters:end

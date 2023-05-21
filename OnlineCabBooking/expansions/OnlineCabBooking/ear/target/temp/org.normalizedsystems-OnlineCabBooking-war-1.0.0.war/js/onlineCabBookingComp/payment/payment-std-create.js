@@ -96,6 +96,11 @@ define(function (require) {
           disabled: ko.pureComputed(function () {
             return utils.isDefined(constants().statusPayed)
           })
+      },
+      totalAmount: {
+          disabled: ko.pureComputed(function () {
+            return utils.isDefined(constants().totalAmount)
+          })
       }
       // anchor:field-layout-config:end
     }

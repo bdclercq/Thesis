@@ -151,6 +151,12 @@ public class AccountFindAction extends ActionSupport implements Preparable {
     HttpServletRequest httpServletRequest = ServletActionContext.getRequest();
 
     // @anchor:execute-validation:start
+    if (!httpServletRequest.getMethod().equals("GET")) {
+      HttpServletResponse httpServletResponse = ServletActionContext.getResponse();
+      httpServletResponse.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+      addActionError("This method should be called using GET");
+      return Action.SUCCESS;
+    }
     // @anchor:execute-validation:end
     // anchor:custom-execute-validation:start
     // anchor:custom-execute-validation:end

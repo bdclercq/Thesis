@@ -1,5 +1,0 @@
--- anchor:custom-value-constructor:start
-    if (creditcardNumber == null) {
-      this.creditcardNumber = "";
-    }
--- anchor:custom-value-constructor:end

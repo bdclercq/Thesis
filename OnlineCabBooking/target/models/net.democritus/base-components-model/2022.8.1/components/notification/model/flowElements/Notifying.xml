@@ -1,6 +1,0 @@
-<flowElement name="Notifying">
-  <packageName>net.democritus.comm</packageName>
-  <targetClass>net.democritus.comm.Notifier</targetClass>
-  <statusField>Status</statusField>
-  <workflowName>NotifierFlow</workflowName>
-</flowElement>

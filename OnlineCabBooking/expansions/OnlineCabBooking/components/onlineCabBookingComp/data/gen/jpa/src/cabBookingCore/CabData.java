@@ -63,12 +63,12 @@ public class CabData implements java.io.Serializable {
 
   private Long mId;
   // @anchor:variables:start
-  private String mName;
   // @anchor:variables:end
   // anchor:member-fields:start
   private Integer mRatePerKm;
   private Long mCarType;
   private Long mDriver;
+  private String mName;
   // anchor:member-fields:end
 
   // anchor:custom-variables:start
@@ -78,7 +78,6 @@ public class CabData implements java.io.Serializable {
 
   public CabData() {
     // @anchor:default-constructor:start
-    this.mName = "";
     // @anchor:default-constructor:end
   }
 
@@ -86,22 +85,22 @@ public class CabData implements java.io.Serializable {
 
   public CabData(Long id
       // @anchor:constructor-parameters:start
-      , String name
       // @anchor:constructor-parameters:end
       // anchor:constructor-parameters:start
       , Integer ratePerKm
       , Long carType
       , Long driver
+      , String name
       // anchor:constructor-parameters:end
     ) {
     this.mId = id;
     // @anchor:constructor-assign:start
-    this.mName = name;
     // @anchor:constructor-assign:end
     // anchor:constructor-assign:start
     this.mRatePerKm = ratePerKm;
     this.mCarType = carType;
     this.mDriver = driver;
+    this.mName = name;
     // anchor:constructor-assign:end
   }
 
@@ -124,13 +123,6 @@ public class CabData implements java.io.Serializable {
   }
 
   // @anchor:methods:start
-  public String getName() {
-    return this.mName;
-  }
-
-  public void setName(String name) {
-    this.mName = name;
-  }
   // @anchor:methods:end
   // anchor:getters-and-setters:start
   // @anchor:annotations-getter-ratePerKm:start
@@ -181,6 +173,22 @@ public class CabData implements java.io.Serializable {
   // anchor:custom-annotations-setter-driver:end
   public void setDriver(Long driver) {
     this.mDriver = driver;
+  }
+
+  // @anchor:annotations-getter-name:start
+  // @anchor:annotations-getter-name:end
+  // anchor:custom-annotations-getter-name:start
+  // anchor:custom-annotations-getter-name:end
+  public String getName() {
+    return this.mName;
+  }
+
+  // @anchor:annotations-setter-name:start
+  // @anchor:annotations-setter-name:end
+  // anchor:custom-annotations-setter-name:start
+  // anchor:custom-annotations-setter-name:end
+  public void setName(String name) {
+    this.mName = name;
   }
   // anchor:getters-and-setters:end
 

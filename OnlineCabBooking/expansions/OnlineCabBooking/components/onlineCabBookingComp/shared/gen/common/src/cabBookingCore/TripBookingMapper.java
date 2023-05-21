@@ -28,6 +28,7 @@ import net.palver.logging.Logger;
 import java.util.Date;
 
 
+
 // anchor:valueType-imports:end
 
 // anchor:dataRef-imports:start
@@ -84,8 +85,8 @@ public class TripBookingMapper implements IDataElementMapper<TripBookingDetails>
         map.put("km", String.valueOf(tripBookingDetails.getKm()));
       }
 
-      if (tripBookingDetails.getTotalAmount() != null) {
-        map.put("totalAmount", String.valueOf(tripBookingDetails.getTotalAmount()));
+      if (tripBookingDetails.getStatus() != null) {
+        map.put("status", tripBookingDetails.getStatus());
       }
       if (DataRefValidation.isDataRefDefined(tripBookingDetails.getCustomer())) {
         Result<String> customer = customerDataRefConverter.asString(tripBookingDetails.getCustomer());
@@ -179,14 +180,9 @@ public class TripBookingMapper implements IDataElementMapper<TripBookingDetails>
         }
       }
 
-      String totalAmountValueFromMap = map.get("totalAmount");
-      if (totalAmountValueFromMap != null && !totalAmountValueFromMap.isEmpty()) {
-        try {
-          Double totalAmount = Double.valueOf(totalAmountValueFromMap);
-          tripBookingDetails.setTotalAmount(totalAmount);
-        } catch (NumberFormatException e) {
-          return Result.error("totalAmount: Expected number, but got '" + totalAmountValueFromMap + "'");
-        }
+      String statusValueFromMap = map.get("status");
+      if (statusValueFromMap != null && !statusValueFromMap.isEmpty()) {
+        tripBookingDetails.setStatus(statusValueFromMap);
       }
       String customerValueFromMap = map.get("customer");
       Result<DataRef> customer = customerDataRefConverter.fromString(customerValueFromMap);

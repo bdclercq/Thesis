@@ -8,9 +8,11 @@
     <target id="onlineCabBookingComp-carType-list-page" url="/OnlineCabBooking/onlineCabBookingComp/carType/all" name="onlineCabBookingComp.CarType"/>
     <target id="onlineCabBookingComp-customer-list-page" url="/OnlineCabBooking/onlineCabBookingComp/customer/all" name="onlineCabBookingComp.Customer"/>
     <target id="onlineCabBookingComp-driver-list-page" url="/OnlineCabBooking/onlineCabBookingComp/driver/all" name="onlineCabBookingComp.Driver"/>
+    <target id="onlineCabBookingComp-invoice-list-page" url="/OnlineCabBooking/onlineCabBookingComp/invoice/all" name="onlineCabBookingComp.Invoice"/>
     <target id="onlineCabBookingComp-payment-list-page" url="/OnlineCabBooking/onlineCabBookingComp/payment/all" name="onlineCabBookingComp.Payment"/>
     <target id="onlineCabBookingComp-person-list-page" url="/OnlineCabBooking/onlineCabBookingComp/person/all" name="onlineCabBookingComp.Person"/>
     <target id="onlineCabBookingComp-tripBooking-list-page" url="/OnlineCabBooking/onlineCabBookingComp/tripBooking/all" name="onlineCabBookingComp.TripBooking"/>
+    <target id="onlineCabBookingComp-tripBookingTaskStatus-list-page" url="/OnlineCabBooking/onlineCabBookingComp/tripBookingTaskStatus/all" name="onlineCabBookingComp.TripBookingTaskStatus"/>
     <!-- anchor:targets:end -->
     <!-- @anchor:targets:start -->
     <!-- @anchor:targets:end -->

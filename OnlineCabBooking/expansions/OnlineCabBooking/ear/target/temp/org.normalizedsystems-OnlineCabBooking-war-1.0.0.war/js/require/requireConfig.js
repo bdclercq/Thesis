@@ -9,7 +9,7 @@
   }
 
   var config = {
-    urlArgs: 'v=20230411111249',
+    urlArgs: 'v=20230519111634',
     baseUrl: '/OnlineCabBooking/js/',
     paths: {
       // anchor:paths:start

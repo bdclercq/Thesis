@@ -101,6 +101,14 @@ public class InternalAssetChunkPerformer extends ActionSupport implements Prepar
   public String execute() throws Exception {
 
     // @anchor:execute-validation:start
+    HttpServletRequest httpServletRequest = ServletActionContext.getRequest();
+
+    if (!httpServletRequest.getMethod().equals("POST")) {
+      HttpServletResponse httpServletResponse = ServletActionContext.getResponse();
+      httpServletResponse.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+      addActionError("This method should be called using POST");
+      return Action.SUCCESS;
+    }
     // @anchor:execute-validation:end
 
     if (!internalAssetChunkOid.equals("")) {

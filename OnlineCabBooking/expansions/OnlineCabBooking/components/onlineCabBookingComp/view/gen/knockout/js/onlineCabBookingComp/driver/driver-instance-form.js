@@ -21,12 +21,6 @@ define(function (require) {
       isValueType: false
     },
     {
-      fieldName: "name",
-      type: FieldType.VALUE,
-      key: "onlineCabBookingComp.Driver.name",
-      isValueType: false
-    },
-    {
       fieldName: "licenseNo",
       type: FieldType.VALUE,
       key: "onlineCabBookingComp.Driver.licenseNo",
@@ -54,6 +48,12 @@ define(function (require) {
       fieldName: "tripBooking",
       type: FieldType.DATAREF,
       key: "onlineCabBookingComp.Driver.tripBooking",
+      isValueType: false
+    },
+    {
+      fieldName: "name",
+      type: FieldType.VALUE,
+      key: "onlineCabBookingComp.Driver.name",
       isValueType: false
     }
     // anchor:field-configs:end

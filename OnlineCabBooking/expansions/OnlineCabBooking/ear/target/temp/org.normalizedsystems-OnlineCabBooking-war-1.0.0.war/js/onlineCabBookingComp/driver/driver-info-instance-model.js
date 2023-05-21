@@ -48,7 +48,8 @@ define(function (require) {
         rating: ko.observable(),
         isAvailable: ko.observable(),
         cab: defineLink(CabEvents),
-        tripBooking: defineLink(TripBookingEvents)
+        tripBooking: defineLink(TripBookingEvents),
+        name: ko.observable()
         // anchor:init-viewModel:end
         // @anchor:init-viewModel:start
         // @anchor:init-viewModel:end
@@ -66,6 +67,7 @@ define(function (require) {
         viewmodel.isAvailable(driverDetails.isAvailable);
         viewmodel.cab.value(driverDetails.cab);
         viewmodel.tripBooking.value(driverDetails.tripBooking);
+        viewmodel.name(driverDetails.name);
         // anchor:update-viewModel:end
         // @anchor:update-viewModel:start
         // @anchor:update-viewModel:end

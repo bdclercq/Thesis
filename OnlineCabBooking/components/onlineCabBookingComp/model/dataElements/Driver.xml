@@ -44,6 +44,14 @@
         <linkFieldType name="Ln01"/>
       </linkField>
     </field>
+    <field name="name">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+    </field>
   </fields>
   <finders>
     <finder name="findByLicenseNoEq">
@@ -87,4 +95,8 @@
       </fieldOperatorPairs>
     </finder>
   </finders>
+  <dataStates>
+    <dataState name="available"/>
+    <dataState name="taken"/>
+  </dataStates>
 </dataElement>

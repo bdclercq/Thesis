@@ -1,0 +1,20 @@
+package cabBookingCore;
+
+// expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1
+
+import net.democritus.sys.TaskPerformer;
+import net.democritus.sys.TaskPerformerByDataRef;
+import cabBookingCore.TripBookingDetails;
+// anchor:custom-imports:start
+// anchor:custom-imports:end
+
+/**
+ * Local interface for the session bean ValidateTripBooking.
+ */
+
+public interface ValidateTripBookingLocal extends TaskPerformer<Void,TripBookingDetails>, TaskPerformerByDataRef<Void> {
+
+  // anchor:custom-methods:start
+  // anchor:custom-methods:end
+}
+

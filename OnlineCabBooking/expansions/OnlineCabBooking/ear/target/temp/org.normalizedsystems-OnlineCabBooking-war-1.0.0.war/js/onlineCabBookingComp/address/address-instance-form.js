@@ -21,12 +21,6 @@ define(function (require) {
       isValueType: false
     },
     {
-      fieldName: "name",
-      type: FieldType.VALUE,
-      key: "onlineCabBookingComp.Address.name",
-      isValueType: false
-    },
-    {
       fieldName: "state",
       type: FieldType.VALUE,
       key: "onlineCabBookingComp.Address.state",
@@ -54,6 +48,12 @@ define(function (require) {
       fieldName: "houseNumber",
       type: FieldType.VALUE,
       key: "onlineCabBookingComp.Address.houseNumber",
+      isValueType: false
+    },
+    {
+      fieldName: "name",
+      type: FieldType.VALUE,
+      key: "onlineCabBookingComp.Address.name",
       isValueType: false
     }
     // anchor:field-configs:end

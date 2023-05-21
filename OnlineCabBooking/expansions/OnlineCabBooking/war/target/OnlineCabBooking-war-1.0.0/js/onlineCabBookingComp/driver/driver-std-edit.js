@@ -104,11 +104,6 @@ define(function (require) {
             return utils.isDefined(constants().id)
           })
       },
-      name: {
-          disabled: ko.pureComputed(function () {
-            return utils.isDefined(constants().name)
-          })
-      },
       licenseNo: {
           disabled: ko.pureComputed(function () {
             return utils.isDefined(constants().licenseNo)
@@ -132,6 +127,11 @@ define(function (require) {
       tripBooking: {
           disabled: ko.pureComputed(function () {
             return utils.isDefined(constants().tripBooking)
+          })
+      },
+      name: {
+          disabled: ko.pureComputed(function () {
+            return utils.isDefined(constants().name)
           })
       }
       // anchor:field-layout-config:end

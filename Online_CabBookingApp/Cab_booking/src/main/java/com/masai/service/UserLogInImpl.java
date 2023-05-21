@@ -43,27 +43,28 @@ public class UserLogInImpl implements UserLogIn {
 //		Optional<Driver> opt_driver = driverDao.findById(userDto.getUserId());
 //		Optional<Admin> opt_admin = adminDao.findById(userDto.getUserId());
 
-		Integer userId = opt_customer.get().getUserId();
+		if (opt_customer.isPresent()) {
+			Integer userId = opt_customer.get().getUserId();
 
-		Optional<CurrentUserSession> currentUserOptional = sessionDao.findById(userId);
+			Optional<CurrentUserSession> currentUserOptional = sessionDao.findById(userId);
 
-		if (!opt_customer.isPresent()) {
+			if (currentUserOptional.isPresent()) {
+				throw new UserAlreadyExistWithuserId("User already logged in with this number");
+			}
+			if (opt_customer.get().getPassword().equals(userDto.getPassword())) {
+				String key = RandomString.make(6);
+				CurrentUserSession currentUserSession = new CurrentUserSession(opt_customer.get().getUserId(), key,
+						LocalDateTime.now());
+				sessionDao.save(currentUserSession);
+
+				return currentUserSession.toString();
+			} else {
+				throw new InvalidPasswordException("Please Enter Valid Password");
+			}
+		}
+		else {
 			throw new AdminExceptions("user not found");
 		}
-		if (currentUserOptional.isPresent()) {
-			throw new UserAlreadyExistWithuserId("User already logged in with this number");
-		}
-		if (opt_customer.get().getPassword().equals(userDto.getPassword())) {
-			String key = RandomString.make(6);
-			CurrentUserSession currentUserSession = new CurrentUserSession(opt_customer.get().getUserId(), key,
-					LocalDateTime.now());
-			sessionDao.save(currentUserSession);
-
-			return currentUserSession.toString();
-		} else {
-			throw new InvalidPasswordException("Please Enter Valid Password");
-		}
-
 	}
 
 	@Override

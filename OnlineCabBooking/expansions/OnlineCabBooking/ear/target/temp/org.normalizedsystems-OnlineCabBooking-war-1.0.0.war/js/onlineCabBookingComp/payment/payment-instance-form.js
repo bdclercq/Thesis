@@ -31,6 +31,12 @@ define(function (require) {
       type: FieldType.VALUE,
       key: "onlineCabBookingComp.Payment.statusPayed",
       isValueType: false
+    },
+    {
+      fieldName: "totalAmount",
+      type: FieldType.VALUE,
+      key: "onlineCabBookingComp.Payment.totalAmount",
+      isValueType: false
     }
     // anchor:field-configs:end
     // @anchor:field-configs:start

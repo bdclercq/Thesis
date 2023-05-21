@@ -1,7 +1,0 @@
-<valueFieldType name="Image">
-  <fullType>image</fullType>
-  <valueClass>net.democritus.valuetype.basic.Image</valueClass>
-  <displayType>hyperlink</displayType>
-  <storageType>string</storageType>
-  <customTransportClass>false</customTransportClass>
-</valueFieldType>

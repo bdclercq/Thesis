@@ -31,16 +31,14 @@
 ]>
 <!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
 <validators>
-<!-- generated name -->
-  <field name='cab.name'>
+<!-- anchor:fieldValidators:start -->
+  <field name='cab.ratePerKm'>
     <field-validator type='conversion'>
       <param name='repopulateField'>true</param>
       <message>Conversion error</message>
     </field-validator>
   </field>
-<!-- generated name -->
-<!-- anchor:fieldValidators:start -->
-  <field name='cab.ratePerKm'>
+  <field name='cab.name'>
     <field-validator type='conversion'>
       <param name='repopulateField'>true</param>
       <message>Conversion error</message>

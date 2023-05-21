@@ -56,6 +56,10 @@ public class PaymentMapper implements IDataElementMapper<PaymentDetails> {
       if (paymentDetails.getStatusPayed() != null) {
         map.put("statusPayed", String.valueOf(paymentDetails.getStatusPayed()));
       }
+
+      if (paymentDetails.getTotalAmount() != null) {
+        map.put("totalAmount", String.valueOf(paymentDetails.getTotalAmount()));
+      }
       // anchor:convert-fields-to-map:end
 
       // @anchor:fields-to-map:start
@@ -85,6 +89,16 @@ public class PaymentMapper implements IDataElementMapper<PaymentDetails> {
       if (statusPayedValueFromMap != null && !statusPayedValueFromMap.isEmpty()) {
         Boolean statusPayed = Boolean.valueOf(statusPayedValueFromMap);
         paymentDetails.setStatusPayed(statusPayed);
+      }
+
+      String totalAmountValueFromMap = map.get("totalAmount");
+      if (totalAmountValueFromMap != null && !totalAmountValueFromMap.isEmpty()) {
+        try {
+          Double totalAmount = Double.valueOf(totalAmountValueFromMap);
+          paymentDetails.setTotalAmount(totalAmount);
+        } catch (NumberFormatException e) {
+          return Result.error("totalAmount: Expected number, but got '" + totalAmountValueFromMap + "'");
+        }
       }
       // anchor:convert-map-to-fields:end
 

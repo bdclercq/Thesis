@@ -119,19 +119,6 @@
       </div>
     </div>
     <!-- /ko -->
-    <!-- ko if: totalAmount.visible -->
-    <div class="control-group"
-       data-bind="css: { error: totalAmount.hasErrors}">
-      <label class="control-label"
-             for="tripBooking.totalAmount"
-             data-bind="translate: 'onlineCabBookingComp.tripBooking.totalAmount'">
-      </label>
-      <div class="controls" id="tripBooking.totalAmount" data-bind="focus: 8">
-        <span data-bind='doubleInput: detailModel.totalAmount, enable: isFieldEnabled("tripBooking.totalAmount", editMode)'></span>
-        <div data-bind="formError: totalAmount"></div>
-      </div>
-    </div>
-    <!-- /ko -->
     <!-- ko if: payment.visible -->
     <div class="control-group"
        data-bind="css: { error: payment.hasErrors}">
@@ -139,7 +126,7 @@
              for="tripBooking.payment"
              data-bind="translate: 'onlineCabBookingComp.tripBooking.payment'">
       </label>
-      <div class="controls" id="tripBooking.payment" data-bind="focus: 9">
+      <div class="controls" id="tripBooking.payment" data-bind="focus: 8">
         <span data-bind="selectDataRef: {
             field: detailModel.payment,
             element: 'onlineCabBookingComp.payment',
@@ -147,6 +134,19 @@
         }, enable: isFieldEnabled('tripBooking.payment', editMode)">
         </span>
         <div data-bind="formError: payment"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: status.visible -->
+    <div class="control-group"
+       data-bind="css: { error: status.hasErrors}">
+      <label class="control-label"
+             for="tripBooking.status"
+             data-bind="translate: 'onlineCabBookingComp.tripBooking.status'">
+      </label>
+      <div class="controls" id="tripBooking.status" data-bind="focus: 9">
+        <input type='text' name='tripBooking.status' data-bind="textInput: detailModel.status, enable: isFieldEnabled('tripBooking.status', editMode)" />
+        <div data-bind="formError: status"></div>
       </div>
     </div>
     <!-- /ko -->

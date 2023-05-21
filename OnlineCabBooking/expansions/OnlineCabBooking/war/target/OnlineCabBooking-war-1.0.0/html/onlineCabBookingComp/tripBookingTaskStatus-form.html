@@ -1,0 +1,106 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="tripBookingTaskStatus.id" data-bind="value: detailModel.id"/>
+    <!-- @anchor:form-fields-before:start -->
+    <!-- @anchor:form-fields-before:end -->
+    <!-- anchor:custom-form-fields-before:start -->
+    <!-- anchor:custom-form-fields-before:end -->
+
+    <!-- anchor:form-fields:start -->
+    <!-- ko if: name.visible -->
+    <div class="control-group"
+       data-bind="css: { error: name.hasErrors}">
+      <label class="control-label"
+             for="tripBookingTaskStatus.name"
+             data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.name'">
+      </label>
+      <div class="controls" id="tripBookingTaskStatus.name" data-bind="focus: 1">
+        <input type='text' name='tripBookingTaskStatus.name' data-bind="textInput: detailModel.name, enable: isFieldEnabled('tripBookingTaskStatus.name', editMode)" />
+        <div data-bind="formError: name"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: startedAt.visible -->
+    <div class="control-group"
+       data-bind="css: { error: startedAt.hasErrors}">
+      <label class="control-label"
+             for="tripBookingTaskStatus.startedAt"
+             data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.startedAt'">
+      </label>
+      <div class="controls" id="tripBookingTaskStatus.startedAt" data-bind="focus: 2">
+        <span data-bind='dateInput: detailModel.startedAt, enable: isFieldEnabled("tripBookingTaskStatus.startedAt", editMode)'></span>
+        <div data-bind="formError: startedAt"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: finishedAt.visible -->
+    <div class="control-group"
+       data-bind="css: { error: finishedAt.hasErrors}">
+      <label class="control-label"
+             for="tripBookingTaskStatus.finishedAt"
+             data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.finishedAt'">
+      </label>
+      <div class="controls" id="tripBookingTaskStatus.finishedAt" data-bind="focus: 3">
+        <span data-bind='dateInput: detailModel.finishedAt, enable: isFieldEnabled("tripBookingTaskStatus.finishedAt", editMode)'></span>
+        <div data-bind="formError: finishedAt"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: status.visible -->
+    <div class="control-group"
+       data-bind="css: { error: status.hasErrors}">
+      <label class="control-label"
+             for="tripBookingTaskStatus.status"
+             data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.status'">
+      </label>
+      <div class="controls" id="tripBookingTaskStatus.status" data-bind="focus: 4">
+        <input type='text' name='tripBookingTaskStatus.status' data-bind="textInput: detailModel.status, enable: isFieldEnabled('tripBookingTaskStatus.status', editMode)" />
+        <div data-bind="formError: status"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: stateTask.visible -->
+    <div class="control-group"
+       data-bind="css: { error: stateTask.hasErrors}">
+      <label class="control-label"
+             for="tripBookingTaskStatus.stateTask"
+             data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.stateTask'">
+      </label>
+      <div class="controls" id="tripBookingTaskStatus.stateTask" data-bind="focus: 5">
+        <span data-bind="selectDataRef: {
+            field: detailModel.stateTask,
+            element: 'workflow.stateTask',
+            hideDropdown: false
+        }, enable: isFieldEnabled('tripBookingTaskStatus.stateTask', editMode)">
+        </span>
+        <div data-bind="formError: stateTask"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- ko if: tripBooking.visible -->
+    <div class="control-group"
+       data-bind="css: { error: tripBooking.hasErrors}">
+      <label class="control-label"
+             for="tripBookingTaskStatus.tripBooking"
+             data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.tripBooking'">
+      </label>
+      <div class="controls" id="tripBookingTaskStatus.tripBooking" data-bind="focus: 6">
+        <span data-bind="selectDataRef: {
+            field: detailModel.tripBooking,
+            element: 'onlineCabBookingComp.tripBooking',
+            hideDropdown: false
+        }, enable: isFieldEnabled('tripBookingTaskStatus.tripBooking', editMode)">
+        </span>
+        <div data-bind="formError: tripBooking"></div>
+      </div>
+    </div>
+    <!-- /ko -->
+    <!-- anchor:form-fields:end -->
+
+    <!-- @anchor:form-fields-after:start -->
+    <!-- @anchor:form-fields-after:end -->
+    <!-- anchor:custom-form-fields-after:start -->
+    <!-- anchor:custom-form-fields-after:end -->
+  </fieldset>
+</form>

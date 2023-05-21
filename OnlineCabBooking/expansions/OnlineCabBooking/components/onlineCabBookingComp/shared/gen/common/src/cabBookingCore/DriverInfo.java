@@ -28,13 +28,13 @@ public class DriverInfo
   /*========== Bean member fields ==========*/
 
   private Long mId;
-  private String mName;
   // anchor:instance-variables:start
   private Integer mLicenseNo;
   private Double mRating;
   private Boolean mIsAvailable;
   private DataRef mCab;
   private DataRef mTripBooking;
+  private String mName;
   // anchor:instance-variables:end
   // @anchor:instance-variables:start
   // @anchor:instance-variables:end
@@ -46,13 +46,13 @@ public class DriverInfo
 
   public DriverInfo() {
     this.mId = 0L;
-    this.mName = "";
     // anchor:default-constructor-initialization:start
     this.mLicenseNo = null;
     this.mRating = null;
     this.mIsAvailable = Boolean.FALSE;
     this.mCab = DataRef.withId(0L);
     this.mTripBooking = DataRef.withId(0L);
+    this.mName = "";
     // anchor:default-constructor-initialization:end
     // @anchor:default-constructor-initialization:start
     // @anchor:default-constructor-initialization:end
@@ -64,25 +64,25 @@ public class DriverInfo
   /*========== Detailed constructor ==========*/
 
   public DriverInfo(Long id
-      , String name
       // anchor:detailed-constructor-parameters:start
       , Integer licenseNo
       , Double rating
       , Boolean isAvailable
       , DataRef cab
       , DataRef tripBooking
+      , String name
       // anchor:detailed-constructor-parameters:end
       // @anchor:detailed-constructor-parameters:start
       // @anchor:detailed-constructor-parameters:end
       ) {
     this.mId = id;
-    this.mName = name;
     // anchor:detailed-constructor-initialization:start
     this.mLicenseNo = licenseNo;
     this.mRating = rating;
     this.mIsAvailable = isAvailable;
     this.mCab = cab;
     this.mTripBooking = tripBooking;
+    this.mName = name;
     // anchor:detailed-constructor-initialization:end
     // @anchor:detailed-constructor-initialization:start
     // @anchor:detailed-constructor-initialization:end
@@ -99,14 +99,6 @@ public class DriverInfo
 
   public void setId(Long id) {
     this.mId = id;
-  }
-
-  public String getName() {
-    return this.mName;
-  }
-
-  public void setName(String name) {
-    this.mName = name;
   }
 
   // anchor:getters-setters:start
@@ -149,6 +141,14 @@ public class DriverInfo
   public void setTripBooking(DataRef tripBooking) {
     this.mTripBooking = tripBooking;
   }
+
+  public String getName() {
+    return this.mName;
+  }
+
+  public void setName(String name) {
+    this.mName = name;
+  }
   // anchor:getters-setters:end
 
   // @anchor:methods:start
@@ -164,6 +164,7 @@ public class DriverInfo
     fieldOrder.add("IsAvailable");
     fieldOrder.add("Cab");
     fieldOrder.add("TripBooking");
+    fieldOrder.add("Name");
     // anchor:field-order:end
     return fieldOrder;
   }

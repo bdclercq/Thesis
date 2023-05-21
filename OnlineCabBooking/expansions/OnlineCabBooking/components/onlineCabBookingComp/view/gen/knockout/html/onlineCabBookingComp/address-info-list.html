@@ -14,6 +14,10 @@
       <span data-bind="translate: 'onlineCabBookingComp.address.houseNumber'"></span>
       <i class="sortable" data-bind="css: houseNumber.icon"></i>
     </th>
+    <th data-bind="click: name.sort.trigger" class="onlineCabBookingComp-address-name-header">
+      <span data-bind="translate: 'onlineCabBookingComp.address.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
     <!-- anchor:headers:end -->
     <!-- @anchor:headers:start -->
     <!-- @anchor:headers:end -->
@@ -32,6 +36,9 @@
     </td>
     <td class="onlineCabBookingComp-address-houseNumber-cell">
       <span data-bind="text: houseNumber"></span>
+    </td>
+    <td class="onlineCabBookingComp-address-name-cell">
+      <span data-bind="text: name"></span>
     </td>
     <!-- anchor:values:end -->
     <!-- @anchor:values:start -->

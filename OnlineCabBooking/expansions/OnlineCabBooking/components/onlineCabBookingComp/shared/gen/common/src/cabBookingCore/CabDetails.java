@@ -28,11 +28,11 @@ public class CabDetails
   /*========== Bean member fields ==========*/
 
   private Long mId;
-  private String mName;
   // anchor:instance-variables:start
   private Integer mRatePerKm;
   private DataRef mCarType;
   private DataRef mDriver;
+  private String mName;
   // anchor:instance-variables:end
   // @anchor:instance-variables:start
   // @anchor:instance-variables:end
@@ -44,11 +44,11 @@ public class CabDetails
 
   public CabDetails() {
     this.mId = 0L;
-    this.mName = "";
     // anchor:default-constructor-initialization:start
     this.mRatePerKm = null;
     this.mCarType = DataRef.withId(0L);
     this.mDriver = DataRef.withId(0L);
+    this.mName = "";
     // anchor:default-constructor-initialization:end
     // @anchor:default-constructor-initialization:start
     // @anchor:default-constructor-initialization:end
@@ -60,21 +60,21 @@ public class CabDetails
   /*========== Detailed constructor ==========*/
 
   public CabDetails(Long id
-      , String name
       // anchor:detailed-constructor-parameters:start
       , Integer ratePerKm
       , DataRef carType
       , DataRef driver
+      , String name
       // anchor:detailed-constructor-parameters:end
       // @anchor:detailed-constructor-parameters:start
       // @anchor:detailed-constructor-parameters:end
       ) {
     this.mId = id;
-    this.mName = name;
     // anchor:detailed-constructor-initialization:start
     this.mRatePerKm = ratePerKm;
     this.mCarType = carType;
     this.mDriver = driver;
+    this.mName = name;
     // anchor:detailed-constructor-initialization:end
     // @anchor:detailed-constructor-initialization:start
     // @anchor:detailed-constructor-initialization:end
@@ -100,14 +100,6 @@ public class CabDetails
   public String getElementPackage() {
     return "cabBookingCore";
   }
-  public String getName() {
-    return this.mName;
-  }
-
-  public void setName(String name) {
-    this.mName = name;
-  }
-
   // anchor:getters-setters:start
   public Integer getRatePerKm() {
     return this.mRatePerKm;
@@ -131,6 +123,14 @@ public class CabDetails
 
   public void setDriver(DataRef driver) {
     this.mDriver = driver;
+  }
+
+  public String getName() {
+    return this.mName;
+  }
+
+  public void setName(String name) {
+    this.mName = name;
   }
   // anchor:getters-setters:end
 

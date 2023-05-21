@@ -104,11 +104,6 @@ define(function (require) {
             return utils.isDefined(constants().id)
           })
       },
-      name: {
-          disabled: ko.pureComputed(function () {
-            return utils.isDefined(constants().name)
-          })
-      },
       state: {
           disabled: ko.pureComputed(function () {
             return utils.isDefined(constants().state)
@@ -132,6 +127,11 @@ define(function (require) {
       houseNumber: {
           disabled: ko.pureComputed(function () {
             return utils.isDefined(constants().houseNumber)
+          })
+      },
+      name: {
+          disabled: ko.pureComputed(function () {
+            return utils.isDefined(constants().name)
           })
       }
       // anchor:field-layout-config:end

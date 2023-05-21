@@ -1,7 +1,0 @@
--- anchor:custom-constants:start
-  public static final String QUERY_FINDBY_USERGROUP_PROFILE = ENTITY_NAME + "_findByUserGroupEq_ProfileEq";
--- anchor:custom-constants:end
--- anchor:custom-queries:start
-  // custom query used by UserGroupScreenInfoRetrieverAction
-  , @NamedQuery(name = ProfileData.QUERY_FINDBY_USERGROUP_PROFILE, query="SELECT o FROM " + ProfileData.ENTITY_NAME + " o WHERE o.userGroup IN ( :UserGroup ) OR o.id = :Profile ORDER BY o.weight DESC")
--- anchor:custom-queries:end

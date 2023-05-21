@@ -1,3 +1,0 @@
--- anchor:custom-methods:start
-    public Long getNextCount(String aName);
--- anchor:custom-methods:end

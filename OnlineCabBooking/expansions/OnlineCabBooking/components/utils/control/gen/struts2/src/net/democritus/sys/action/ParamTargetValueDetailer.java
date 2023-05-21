@@ -91,6 +91,12 @@ public class ParamTargetValueDetailer extends ActionSupport implements Preparabl
     HttpServletRequest httpServletRequest = ServletActionContext.getRequest();
 
     // @anchor:execute-validation:start
+    if (!httpServletRequest.getMethod().equals("GET")) {
+      HttpServletResponse httpServletResponse = ServletActionContext.getResponse();
+      httpServletResponse.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+      addActionError("This method should be called using GET");
+      return Action.SUCCESS;
+    }
     // @anchor:execute-validation:end
 
     String actionResult;

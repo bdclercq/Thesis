@@ -1,7 +1,0 @@
--- anchor:custom-imports:start
-import net.democritus.sys.UserContext;
--- anchor:custom-imports:end
--- anchor:custom-methods:start
-  CrudsResult<WorkflowDetails> getWorkflowById(ParameterContext<Long> workflowIdParameter);
-  UserContext getResponsibleUserContext(ParameterContext<WorkflowDetails> workflowDetailsParameter);
--- anchor:custom-methods:end

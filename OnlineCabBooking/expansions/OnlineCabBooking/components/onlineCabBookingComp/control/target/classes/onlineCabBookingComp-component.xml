@@ -13,9 +13,11 @@
   <include file='onlineCabBookingComp/carType.xml'/>
   <include file='onlineCabBookingComp/customer.xml'/>
   <include file='onlineCabBookingComp/driver.xml'/>
+  <include file='onlineCabBookingComp/invoice.xml'/>
   <include file='onlineCabBookingComp/payment.xml'/>
   <include file='onlineCabBookingComp/person.xml'/>
   <include file='onlineCabBookingComp/tripBooking.xml'/>
+  <include file='onlineCabBookingComp/tripBookingTaskStatus.xml'/>
   <!-- anchor:struts-data-element:end -->
 
   <!-- @anchor:includes:start -->

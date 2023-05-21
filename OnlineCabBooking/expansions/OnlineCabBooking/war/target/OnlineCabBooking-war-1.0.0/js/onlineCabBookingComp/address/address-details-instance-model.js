@@ -42,12 +42,12 @@ define(function (require) {
       return {
         id: ko.observable(),
         // anchor:init-viewModel:start
-        name: ko.observable(),
         state: ko.observable(),
         city: ko.observable(),
         pincode: ko.observable(),
         street: ko.observable(),
-        houseNumber: ko.observable()
+        houseNumber: ko.observable(),
+        name: ko.observable()
         // anchor:init-viewModel:end
         // @anchor:init-viewModel:start
         // @anchor:init-viewModel:end
@@ -60,12 +60,12 @@ define(function (require) {
       if (!!addressDetails) {
         viewmodel.id(addressDetails.id);
         // anchor:update-viewModel:start
-        viewmodel.name(addressDetails.name);
         viewmodel.state(addressDetails.state);
         viewmodel.city(addressDetails.city);
         viewmodel.pincode(addressDetails.pincode);
         viewmodel.street(addressDetails.street);
         viewmodel.houseNumber(addressDetails.houseNumber);
+        viewmodel.name(addressDetails.name);
         // anchor:update-viewModel:end
         // @anchor:update-viewModel:start
         // @anchor:update-viewModel:end

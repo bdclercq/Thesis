@@ -1,7 +1,0 @@
-<valueFieldType name="Time">
-  <fullType>time</fullType>
-  <valueClass>net.democritus.valuetype.basic.Time</valueClass>
-  <displayType>string</displayType>
-  <storageType>string</storageType>
-  <customTransportClass>false</customTransportClass>
-</valueFieldType>

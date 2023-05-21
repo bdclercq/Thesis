@@ -53,7 +53,6 @@ define(function (require) {
         fromDateTime: ko.observable(),
         toDateTime: ko.observable(),
         km: ko.observable(),
-        totalAmount: ko.observable(),
         payment: defineLink(PaymentEvents)
         // anchor:init-viewModel:end
         // @anchor:init-viewModel:start
@@ -74,7 +73,6 @@ define(function (require) {
         viewmodel.fromDateTime(tripBookingDetails.fromDateTime);
         viewmodel.toDateTime(tripBookingDetails.toDateTime);
         viewmodel.km(tripBookingDetails.km);
-        viewmodel.totalAmount(tripBookingDetails.totalAmount);
         viewmodel.payment.value(tripBookingDetails.payment);
         // anchor:update-viewModel:end
         // @anchor:update-viewModel:start

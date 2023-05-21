@@ -8,9 +8,11 @@ import cabBookingCore.CabAgentIf;
 import cabBookingCore.CarTypeAgentIf;
 import cabBookingCore.CustomerAgentIf;
 import cabBookingCore.DriverAgentIf;
+import cabBookingCore.InvoiceAgentIf;
 import cabBookingCore.PaymentAgentIf;
 import cabBookingCore.PersonAgentIf;
 import cabBookingCore.TripBookingAgentIf;
+import cabBookingCore.TripBookingTaskStatusAgentIf;
 // anchor:data-element-agents-import:end
 
 // anchor:custom-imports:start
@@ -27,9 +29,11 @@ public interface OnlineCabBookingCompAgents {
   CarTypeAgentIf getCarTypeAgent();
   CustomerAgentIf getCustomerAgent();
   DriverAgentIf getDriverAgent();
+  InvoiceAgentIf getInvoiceAgent();
   PaymentAgentIf getPaymentAgent();
   PersonAgentIf getPersonAgent();
   TripBookingAgentIf getTripBookingAgent();
+  TripBookingTaskStatusAgentIf getTripBookingTaskStatusAgent();
   // anchor:data-element-agent-getters:end
 
   // anchor:custom-methods:start

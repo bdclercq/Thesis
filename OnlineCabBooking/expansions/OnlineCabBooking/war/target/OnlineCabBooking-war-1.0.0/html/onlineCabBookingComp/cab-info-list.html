@@ -12,6 +12,10 @@
     <th class="onlineCabBookingComp-cab-driver-header">
       <span data-bind="translate: 'onlineCabBookingComp.cab.driver'"></span>
     </th>
+    <th data-bind="click: name.sort.trigger" class="onlineCabBookingComp-cab-name-header">
+      <span data-bind="translate: 'onlineCabBookingComp.cab.name'"></span>
+      <i class="sortable" data-bind="css: name.icon"></i>
+    </th>
     <!-- anchor:headers:end -->
     <!-- @anchor:headers:start -->
     <!-- @anchor:headers:end -->
@@ -38,6 +42,9 @@
           <span data-bind="text: name"></span>
         </a>
       </span>
+    </td>
+    <td class="onlineCabBookingComp-cab-name-cell">
+      <span data-bind="text: name"></span>
     </td>
     <!-- anchor:values:end -->
     <!-- @anchor:values:start -->

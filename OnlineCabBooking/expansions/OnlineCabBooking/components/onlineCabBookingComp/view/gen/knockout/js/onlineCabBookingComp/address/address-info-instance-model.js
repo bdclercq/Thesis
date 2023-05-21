@@ -44,7 +44,8 @@ define(function (require) {
         // anchor:init-viewModel:start
         state: ko.observable(),
         street: ko.observable(),
-        houseNumber: ko.observable()
+        houseNumber: ko.observable(),
+        name: ko.observable()
         // anchor:init-viewModel:end
         // @anchor:init-viewModel:start
         // @anchor:init-viewModel:end
@@ -60,6 +61,7 @@ define(function (require) {
         viewmodel.state(addressDetails.state);
         viewmodel.street(addressDetails.street);
         viewmodel.houseNumber(addressDetails.houseNumber);
+        viewmodel.name(addressDetails.name);
         // anchor:update-viewModel:end
         // @anchor:update-viewModel:start
         // @anchor:update-viewModel:end

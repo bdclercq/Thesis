@@ -14,12 +14,16 @@ import cabBookingCore.CustomerAgent;
 import cabBookingCore.CustomerAgentIf;
 import cabBookingCore.DriverAgent;
 import cabBookingCore.DriverAgentIf;
+import cabBookingCore.InvoiceAgent;
+import cabBookingCore.InvoiceAgentIf;
 import cabBookingCore.PaymentAgent;
 import cabBookingCore.PaymentAgentIf;
 import cabBookingCore.PersonAgent;
 import cabBookingCore.PersonAgentIf;
 import cabBookingCore.TripBookingAgent;
 import cabBookingCore.TripBookingAgentIf;
+import cabBookingCore.TripBookingTaskStatusAgent;
+import cabBookingCore.TripBookingTaskStatusAgentIf;
 // anchor:data-element-agents-import:end
 
 // anchor:custom-imports:start
@@ -35,9 +39,11 @@ public class OnlineCabBookingCompProxyAgents implements OnlineCabBookingCompAgen
   private CarTypeAgentIf carTypeAgent;
   private CustomerAgentIf customerAgent;
   private DriverAgentIf driverAgent;
+  private InvoiceAgentIf invoiceAgent;
   private PaymentAgentIf paymentAgent;
   private PersonAgentIf personAgent;
   private TripBookingAgentIf tripBookingAgent;
+  private TripBookingTaskStatusAgentIf tripBookingTaskStatusAgent;
   // anchor:data-element-agent-variables:end
 
   // anchor:custom-variables:start
@@ -97,6 +103,13 @@ public class OnlineCabBookingCompProxyAgents implements OnlineCabBookingCompAgen
     return driverAgent;
   }
 
+  public InvoiceAgentIf getInvoiceAgent() {
+    if (invoiceAgent == null) {
+      invoiceAgent = InvoiceAgent.getInvoiceAgent(context);
+    }
+    return invoiceAgent;
+  }
+
   public PaymentAgentIf getPaymentAgent() {
     if (paymentAgent == null) {
       paymentAgent = PaymentAgent.getPaymentAgent(context);
@@ -116,6 +129,13 @@ public class OnlineCabBookingCompProxyAgents implements OnlineCabBookingCompAgen
       tripBookingAgent = TripBookingAgent.getTripBookingAgent(context);
     }
     return tripBookingAgent;
+  }
+
+  public TripBookingTaskStatusAgentIf getTripBookingTaskStatusAgent() {
+    if (tripBookingTaskStatusAgent == null) {
+      tripBookingTaskStatusAgent = TripBookingTaskStatusAgent.getTripBookingTaskStatusAgent(context);
+    }
+    return tripBookingTaskStatusAgent;
   }
   // anchor:data-element-agent-getters:end
 

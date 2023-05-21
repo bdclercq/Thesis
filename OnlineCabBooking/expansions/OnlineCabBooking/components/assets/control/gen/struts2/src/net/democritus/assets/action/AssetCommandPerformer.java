@@ -124,6 +124,14 @@ public class AssetCommandPerformer extends ActionSupport implements Preparable {
   public String execute() {
 
     // @anchor:execute-validation:start
+    HttpServletRequest httpServletRequest = ServletActionContext.getRequest();
+
+    if (!httpServletRequest.getMethod().equals("POST")) {
+      HttpServletResponse httpServletResponse = ServletActionContext.getResponse();
+      httpServletResponse.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+      addActionError("This method should be called using POST");
+      return Action.SUCCESS;
+    }
     // @anchor:execute-validation:end
 
     commandResult = assetAgent.perform(command);

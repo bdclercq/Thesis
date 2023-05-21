@@ -1,4 +1,0 @@
--- anchor:custom-translations:start
-account.user.userName.notValid=Username must not be empty
-account.user.password.notValid=Password must not be empty
--- anchor:custom-translations:end

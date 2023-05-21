@@ -54,11 +54,23 @@ define(function (require) {
       })
     });
 
+    viewModel.totalAmount = SortableColumn.defineSortableColumn({
+      fieldName: "totalAmount"
+    }, {
+      resetOn: Trigger.defineFilter({
+        trigger: selectSorting,
+        condition: function (sortField) {
+          return sortField === null || sortField.fieldName !== "totalAmount";
+        }
+      })
+    });
+
     // anchor:sorting-columns:end
     // anchor:sorting-triggers:start
     selectSorting.addTrigger(viewModel.id.select);
     selectSorting.addTrigger(viewModel.name.select);
     selectSorting.addTrigger(viewModel.statusPayed.select);
+    selectSorting.addTrigger(viewModel.totalAmount.select);
     // anchor:sorting-triggers:end
     // anchor:custom-sorting-columns:start
     // anchor:custom-sorting-columns:end

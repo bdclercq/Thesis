@@ -1,7 +1,0 @@
-<valueFieldType name="RijksRegisterNummer">
-  <fullType>rijksRegisterNummer</fullType>
-  <valueClass>net.democritus.valuetype.basic.RijksRegisterNummer</valueClass>
-  <displayType>string</displayType>
-  <storageType>string</storageType>
-  <customTransportClass>false</customTransportClass>
-</valueFieldType>

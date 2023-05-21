@@ -21,6 +21,19 @@
       </div>
     </div>
     <!-- /ko -->
+    <!-- ko if: totalAmount.visible -->
+    <div class="control-group"
+       data-bind="css: { error: totalAmount.hasErrors}">
+      <label class="control-label"
+             for="payment.totalAmount"
+             data-bind="translate: 'onlineCabBookingComp.payment.totalAmount'">
+      </label>
+      <div class="controls" id="payment.totalAmount" data-bind="focus: 2">
+        <span data-bind='doubleInput: detailModel.totalAmount, enable: isFieldEnabled("payment.totalAmount", editMode)'></span>
+        <div data-bind="formError: totalAmount"></div>
+      </div>
+    </div>
+    <!-- /ko -->
     <!-- anchor:form-fields:end -->
 
     <!-- @anchor:form-fields-after:start -->

@@ -1,6 +1,0 @@
--- anchor:custom-variables:start
-  require("assets/asset/downloadLink-ko-binding");
--- anchor:custom-variables:end
--- anchor:custom-list:start
-    infoListView = "assets/asset-info-with-link-list";
--- anchor:custom-list:end

@@ -1,5 +1,0 @@
--- anchor:custom-methods:start
-  public CrudsResult<EngineNodeServiceDetails> getEngineNodeServiceForEngineService(ParameterContext<DataRef> parameter) {
-    return engineNodeServiceLocal.getEngineNodeServiceForEngineService(parameter);
-  }
--- anchor:custom-methods:end

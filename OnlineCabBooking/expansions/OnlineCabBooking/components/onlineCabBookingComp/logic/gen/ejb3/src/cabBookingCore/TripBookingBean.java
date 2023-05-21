@@ -55,6 +55,7 @@ import net.democritus.projection.IDataElementProjector;
 import static net.democritus.sys.DiagnosticConstants.*;
 import static net.palver.util.Options.Option;
 
+import net.democritus.state.StateUpdate;
 
 
 // @anchor:imports:start
@@ -465,6 +466,10 @@ public class TripBookingBean /*@anchor:interfaces:start@*/implements TripBooking
   }
 
   // anchor:compare-set-methods:start
+  @Override
+  public CrudsResult<Void> compareAndSetStatus(ParameterContext<StateUpdate> parameter) {
+    return tripBookingCrudsLocal.compareAndSetStatus(parameter);
+  }
   // anchor:compare-set-methods:end
 
   // @anchor:methods:start

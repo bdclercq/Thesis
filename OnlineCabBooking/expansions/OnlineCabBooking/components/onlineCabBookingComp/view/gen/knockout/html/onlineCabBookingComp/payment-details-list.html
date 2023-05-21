@@ -10,6 +10,10 @@
       <span data-bind="translate: 'onlineCabBookingComp.payment.statusPayed'"></span>
       <i class="sortable" data-bind="css: statusPayed.icon"></i>
     </th>
+    <th data-bind="click: totalAmount.sort.trigger" class="onlineCabBookingComp-payment-totalAmount-header">
+      <span data-bind="translate: 'onlineCabBookingComp.payment.totalAmount'"></span>
+      <i class="sortable" data-bind="css: totalAmount.icon"></i>
+    </th>
     <!-- anchor:headers:end -->
     <!-- @anchor:headers:start -->
     <!-- @anchor:headers:end -->
@@ -25,6 +29,9 @@
     </td>
     <td class="onlineCabBookingComp-payment-statusPayed-cell">
       <input type="checkbox" data-bind="checked: statusPayed" disabled/>
+    </td>
+    <td class="onlineCabBookingComp-payment-totalAmount-cell">
+      <span data-bind="text: totalAmount"></span>
     </td>
     <!-- anchor:values:end -->
     <!-- @anchor:values:start -->

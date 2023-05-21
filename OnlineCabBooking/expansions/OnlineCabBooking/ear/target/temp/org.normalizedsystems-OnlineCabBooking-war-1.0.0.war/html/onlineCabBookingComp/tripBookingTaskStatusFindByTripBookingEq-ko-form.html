@@ -1,0 +1,26 @@
+<!-- expanded with nsx-expanders:5.12.1, expansionResource net.democritus:Expanders:5.12.1 -->
+<fieldset>
+<!-- anchor:form-fields:start -->
+  <div class="control-group" data-bind="visible: isFieldVisible('tripBookingTaskStatus.tripBooking', editMode), css: { error: detailModel.tripBooking.hasErrors}">
+    <label class="control-label"
+           for="tripBookingTaskStatus.tripBooking"
+           data-bind="translate: 'onlineCabBookingComp.tripBookingTaskStatus.tripBooking'">
+    </label>
+    <div class="controls" id="tripBookingTaskStatus.tripBooking" data-bind="focus: 1">
+      <span data-bind="selectDataRef: {
+          field: detailModel.tripBooking,
+          element: 'onlineCabBookingComp.tripBooking',
+          hideDropdown: false
+      }, enable: isFieldEnabled('tripBookingTaskStatus.tripBooking', editMode)">
+      </span>
+      <div data-bind="visible: detailModel.tripBooking.hasErrors" class="alert alert-error">
+        <ul data-bind="with: detailModel.tripBooking.errorMessages">
+          <li data-bind="text: $data"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!-- anchor:form-fields:end -->
+<!-- @anchor:finder-form:start -->
+<!-- @anchor:finder-form:end -->
+</fieldset>

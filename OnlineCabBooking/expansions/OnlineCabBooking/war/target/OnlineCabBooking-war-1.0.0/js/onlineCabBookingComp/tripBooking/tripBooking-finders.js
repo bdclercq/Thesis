@@ -242,6 +242,35 @@ define(function (require) {
   }
   findByCustomerEq_FromDateTimeEq.fields = ["customer", "fromDateTime"];
   findByCustomerEq_FromDateTimeEq.fieldOperatorPairs = ["customer:eq", "fromDateTime:eq"];
+
+  function findByStatusEq(options) {
+    var name = "findByStatusEq";
+    var component = "onlineCabBookingComp";
+    var element = "tripBooking";
+    var translation = translate("onlineCabBookingComp.tripBooking.findByStatusEq");
+
+    function find(options){
+      var findOptions = {
+        searchMethod: "findByStatusEq",
+        details: options.details,
+        rowsPerPage: options.rowsPerPage,
+        page: options.page,
+        projection: options.projection,
+        sortFields: options.sortFields
+      };
+      return tripBookingAgent.find(findOptions);
+    }
+
+    return {
+      name : name,
+      component : component,
+      element : element,
+      find : find,
+      translation : translation
+    };
+  }
+  findByStatusEq.fields = ["status"];
+  findByStatusEq.fieldOperatorPairs = ["status:eq"];
   // anchor:finders:end
 
   // @anchor:finders:start
@@ -257,7 +286,8 @@ define(function (require) {
       findByDriverEq,
       findByFromDateTimeEq,
       findByToDateTimeEq,
-      findByCustomerEq_FromDateTimeEq
+      findByCustomerEq_FromDateTimeEq,
+      findByStatusEq
       // anchor:getAllFinders:end
     ]
     // @anchor:getAllFinders:start
@@ -293,6 +323,7 @@ define(function (require) {
     findByFromDateTimeEq: findByFromDateTimeEq,
     findByToDateTimeEq: findByToDateTimeEq,
     findByCustomerEq_FromDateTimeEq: findByCustomerEq_FromDateTimeEq,
+    findByStatusEq: findByStatusEq,
     // anchor:finder-returns:end
     // @anchor:finder-returns:start
     // @anchor:finder-returns:end

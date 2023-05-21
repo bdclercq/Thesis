@@ -11,6 +11,7 @@ import net.democritus.sys.SearchResult;
 import net.democritus.sys.UserContext;
 import net.democritus.sys.Context;
 import net.democritus.sys.search.SearchDetails;
+import net.democritus.state.StateUpdate;
 import net.democritus.support.Paging;
 
 // @anchor:imports:start
@@ -188,6 +189,10 @@ public class TripBookingLocalAgent implements TripBookingAgentIf {
   }
 
   // anchor:compare-set-methods:start
+  public CrudsResult<Void> compareAndSetStatus(StateUpdate stateUpdate) {
+    return tripBookingLocal.compareAndSetStatus(createParameter(stateUpdate));
+  }
+
   // anchor:compare-set-methods:end
 
   // @anchor:methods:start

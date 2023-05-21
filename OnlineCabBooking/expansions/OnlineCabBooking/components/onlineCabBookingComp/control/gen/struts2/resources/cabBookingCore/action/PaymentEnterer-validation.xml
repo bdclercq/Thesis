@@ -46,5 +46,11 @@
       <message>Conversion error</message>
     </field-validator>
   </field>
+  <field name='payment.totalAmount'>
+    <field-validator type='conversion'>
+      <param name='repopulateField'>true</param>
+      <message>Conversion error</message>
+    </field-validator>
+  </field>
 <!-- anchor:fieldValidators:end -->
 </validators>

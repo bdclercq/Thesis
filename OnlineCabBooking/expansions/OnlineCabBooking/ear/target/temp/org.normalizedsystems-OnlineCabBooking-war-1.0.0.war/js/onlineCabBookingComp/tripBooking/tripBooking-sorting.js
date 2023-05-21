@@ -76,13 +76,13 @@ define(function (require) {
       })
     });
 
-    viewModel.totalAmount = SortableColumn.defineSortableColumn({
-      fieldName: "totalAmount"
+    viewModel.status = SortableColumn.defineSortableColumn({
+      fieldName: "status"
     }, {
       resetOn: Trigger.defineFilter({
         trigger: selectSorting,
         condition: function (sortField) {
-          return sortField === null || sortField.fieldName !== "totalAmount";
+          return sortField === null || sortField.fieldName !== "status";
         }
       })
     });
@@ -94,7 +94,7 @@ define(function (require) {
     selectSorting.addTrigger(viewModel.fromDateTime.select);
     selectSorting.addTrigger(viewModel.toDateTime.select);
     selectSorting.addTrigger(viewModel.km.select);
-    selectSorting.addTrigger(viewModel.totalAmount.select);
+    selectSorting.addTrigger(viewModel.status.select);
     // anchor:sorting-triggers:end
     // anchor:custom-sorting-columns:start
     // anchor:custom-sorting-columns:end

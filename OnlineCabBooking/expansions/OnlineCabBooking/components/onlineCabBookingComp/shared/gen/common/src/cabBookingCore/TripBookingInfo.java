@@ -38,7 +38,6 @@ public class TripBookingInfo
   private Date mFromDateTime;
   private Date mToDateTime;
   private Double mKm;
-  private Double mTotalAmount;
   private DataRef mPayment;
   // anchor:instance-variables:end
   // @anchor:instance-variables:start
@@ -60,7 +59,6 @@ public class TripBookingInfo
     this.mFromDateTime = new Date();
     this.mToDateTime = new Date();
     this.mKm = null;
-    this.mTotalAmount = null;
     this.mPayment = DataRef.withId(0L);
     // anchor:default-constructor-initialization:end
     // @anchor:default-constructor-initialization:start
@@ -82,7 +80,6 @@ public class TripBookingInfo
       , Date fromDateTime
       , Date toDateTime
       , Double km
-      , Double totalAmount
       , DataRef payment
       // anchor:detailed-constructor-parameters:end
       // @anchor:detailed-constructor-parameters:start
@@ -98,7 +95,6 @@ public class TripBookingInfo
     this.mFromDateTime = fromDateTime;
     this.mToDateTime = toDateTime;
     this.mKm = km;
-    this.mTotalAmount = totalAmount;
     this.mPayment = payment;
     // anchor:detailed-constructor-initialization:end
     // @anchor:detailed-constructor-initialization:start
@@ -183,14 +179,6 @@ public class TripBookingInfo
     this.mKm = km;
   }
 
-  public Double getTotalAmount() {
-    return this.mTotalAmount;
-  }
-
-  public void setTotalAmount(Double totalAmount) {
-    this.mTotalAmount = totalAmount;
-  }
-
   public DataRef getPayment() {
     return this.mPayment;
   }
@@ -215,7 +203,6 @@ public class TripBookingInfo
     fieldOrder.add("FromDateTime");
     fieldOrder.add("ToDateTime");
     fieldOrder.add("Km");
-    fieldOrder.add("TotalAmount");
     fieldOrder.add("Payment");
     // anchor:field-order:end
     return fieldOrder;

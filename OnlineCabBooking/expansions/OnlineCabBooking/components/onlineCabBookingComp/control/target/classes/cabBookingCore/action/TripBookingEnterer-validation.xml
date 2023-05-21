@@ -58,7 +58,7 @@
       <message>Conversion error</message>
     </field-validator>
   </field>
-  <field name='tripBooking.totalAmount'>
+  <field name='tripBooking.status'>
     <field-validator type='conversion'>
       <param name='repopulateField'>true</param>
       <message>Conversion error</message>

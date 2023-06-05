@@ -1,0 +1,75 @@
+-- anchor:custom-imports:start
+import net.democritus.encrypt.EncryptPassword;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  private boolean isValidPassword(String plainPassword) {
+    return plainPassword != null && !plainPassword.trim().isEmpty();
+  }
+
+  public CrudsResult<Boolean> checkPassword(ParameterContext<UserInput> parameter) {
+    UserInput input = parameter.getValue();
+    CrudsResult<UserData> result = getData(parameter.construct(new DataRef(input.getName())));
+    if (result.isError()) {
+      return result.convertError();
+    }
+
+    UserData userData = result.getValue();
+    if (userData.getPassword() == null || "".equals(userData.getPassword())) {
+      return CrudsResult.success(false);
+    }
+    boolean isValidPassword = userData.getPassword().equals(input.getPassword());
+    return CrudsResult.success(isValidPassword);
+  }
+
+  public CrudsResult<Boolean> checkEncryptedPassword(ParameterContext<UserInput> parameter) {
+    UserInput input = parameter.getValue();
+
+    CrudsResult<UserData> result = getData(parameter.construct(new DataRef(input.getName())));
+    if (result.isError()) {
+      return result.convertError();
+    }
+
+    UserData userData = result.getValue();
+    String inputPwEnc = EncryptPassword.encrypt(userData.getName(), input.getPassword());
+    if (userData.getEncryptedPassword() == null || "".equals(userData.getEncryptedPassword())) {
+      return CrudsResult.success(false);
+    }
+    boolean isValidPassword = userData.getEncryptedPassword().equals(inputPwEnc);
+    return CrudsResult.success(isValidPassword);
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-preCreate:start
+    String password = details.getPassword();
+    String encryptedPassword = details.getEncryptedPassword();
+
+    if (!isValidPassword(password) && !isValidPassword(encryptedPassword)) {
+      return getDiagnosticHelper().createCrudsError("account.user.userName.notValid");
+    }
+
+    if (isValidPassword(encryptedPassword)) {
+      // encrypt password
+      details.setEncryptedPassword(EncryptPassword.encrypt(details.getName(), encryptedPassword));
+    }
+-- anchor:custom-preCreate:end
+-- anchor:custom-preModify:start
+    UserData existingUserData = getData(detailsParameter.construct(userDetails.getDataRef())).getValue();
+    String password = userDetails.getPassword();
+    String encryptedPassword = userDetails.getEncryptedPassword();
+
+    if (!isValidPassword(password)) {
+      // preserve password
+      userDetails.setPassword(existingUserData.getPassword());
+    }
+
+    if (isValidPassword(encryptedPassword)) {
+      // encrypt password
+      userDetails.setEncryptedPassword(EncryptPassword.encrypt(userDetails.getName(), encryptedPassword));
+    } else {
+      // preserve password
+      userDetails.setEncryptedPassword(existingUserData.getEncryptedPassword());
+    }
+-- anchor:custom-preModify:end
+-- anchor:custom-projection-mapping:start
+    detailsProjector = new UserDetailsWithoutPasswordsProjector(userCrudsInternal);
+    elementProjectorManager.addProjector(detailsProjector);
+-- anchor:custom-projection-mapping:end

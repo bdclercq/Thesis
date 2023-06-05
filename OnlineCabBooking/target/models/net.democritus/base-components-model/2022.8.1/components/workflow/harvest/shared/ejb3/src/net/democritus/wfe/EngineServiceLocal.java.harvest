@@ -1,0 +1,3 @@
+-- anchor:custom-methods:start
+  CrudsResult<Void> updateLastRunAt(ParameterContext<DataRef> dataRefParameter);
+-- anchor:custom-methods:end

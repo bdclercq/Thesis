@@ -1,0 +1,22 @@
+-- anchor:custom-imports:start
+import javax.persistence.Query;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  @Override
+  public CrudsResult<Void> promoteToMaster(ParameterContext<DataRef> parameter) {
+    DataRef nodeRef = parameter.getValue();
+
+    Query query = entityManager.createNamedQuery(EngineNodeData.QUERY_PROMOTE_MASTER);
+    query.setParameter("id", nodeRef.getId());
+
+    int nbUpdatedEntities = query.executeUpdate();
+    entityManager.flush();
+
+    if (nbUpdatedEntities == 1) {
+      return CrudsResult.success();
+    } else {
+      logger.warn("Could not promote EngineNode with name=" + nodeRef.getName() + "' to master");
+      return CrudsResult.error();
+    }
+  }
+-- anchor:custom-methods:end

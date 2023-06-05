@@ -16,6 +16,8 @@
 	<description>Cab booking API</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<!-- Define your desired jQAssistant version here -->
+		<jqassistant.version>1.10.1</jqassistant.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -73,6 +75,23 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.buschmais.jqassistant</groupId>
+				<artifactId>jqassistant-maven-plugin</artifactId>
+				<version>${jqassistant.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>scan</goal>
+							<goal>analyze</goal>
+						</goals>
+						<configuration>
+							<warnOnSeverity>MINOR</warnOnSeverity>
+							<failOnSeverity>MAJOR</failOnSeverity>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

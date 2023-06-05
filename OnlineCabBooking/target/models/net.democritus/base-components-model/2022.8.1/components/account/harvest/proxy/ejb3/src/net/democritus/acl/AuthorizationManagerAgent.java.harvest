@@ -1,0 +1,26 @@
+-- anchor:custom-imports:start
+import net.democritus.sys.TaskResult;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+    public boolean isDataAuthorized(DataAccessQuery accessQuery) {
+        TaskResult<DataAccessRights> dataAccessRights = authorizationManagerProxy.getDataAccessRights(createParameter(accessQuery, ""));
+        return dataAccessRights.isSuccess() && dataAccessRights.getValue().isAllowed(accessQuery.getFunctionality());
+    }
+
+
+    public boolean isTaskAuthorized(DataAccessQuery accessQuery) {
+        accessQuery.setFunctionality("execute");
+
+        TaskResult<TaskAccessRights> taskAccessRights = authorizationManagerProxy.getTaskAccessRights(createParameter(accessQuery, ""));
+        return taskAccessRights.isSuccess() && taskAccessRights.getValue().isCanExecute();
+    }
+
+    public TaskResult<DataAccessRights> getDataAccessRights(DataAccessQuery accessQuery) {
+        return authorizationManagerProxy.getDataAccessRights(createParameter(accessQuery, ""));
+    }
+
+    public TaskResult<TaskAccessRights> getTaskAccessRights(DataAccessQuery accessQuery) {
+        return authorizationManagerProxy.getTaskAccessRights(createParameter(accessQuery, ""));
+    }
+
+-- anchor:custom-methods:end

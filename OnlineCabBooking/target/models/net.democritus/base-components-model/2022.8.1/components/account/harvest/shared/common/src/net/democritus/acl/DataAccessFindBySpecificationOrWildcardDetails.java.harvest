@@ -1,0 +1,12 @@
+-- anchor:custom-variables:start
+  private String mComponent;
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  public String getComponent() {
+    return mComponent;
+  }
+
+  public void setComponent(String component) {
+    this.mComponent = component;
+  }
+-- anchor:custom-methods:end

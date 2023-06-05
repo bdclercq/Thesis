@@ -1,0 +1,30 @@
+-- anchor:custom-imports:start
+import java.io.File;
+-- anchor:custom-imports:end
+-- anchor:custom-variables:start
+    private DiagnosticFactory diagnosticFactory = new DiagnosticFactory("utils", "execution");
+-- anchor:custom-variables:end
+-- anchor:custom-perform:start
+        ExecutionDetails details = targetParameter.getValue();
+
+        if (details.getName() == null || !details.getName().matches("^\\w+(\\\\\\w+)*(\\.\\w+)?$")) {
+          return TaskResult.error(diagnosticFactory.error("execution name should be a file name"));
+        }
+
+        if (details.getComponent() == null || !details.getComponent().matches("^\\w+$")) {
+          return TaskResult.error(diagnosticFactory.error("execution component should be not contain any strange characters"));
+        }
+
+        if (details.getElement() == null || !details.getElement().matches("^\\w+$")) {
+          return TaskResult.error(diagnosticFactory.error("execution element should be not contain any strange characters"));
+        }
+
+        if (details.getPackageName() == null || !details.getPackageName().matches("^\\w+(\\.\\w+)*$")) {
+          return TaskResult.error(diagnosticFactory.error("execution packageName should be not contain any strange characters"));
+        }
+
+        String scriptDir = System.getenv("JONAS_BASE") + "\\scripts";
+        Process aProcess = 
+          Runtime.getRuntime().exec("cmd /c start /wait "+details.getName()+" "+details.getComponent()+" "+details.getElement()+" "+details.getPackageName(), null, new File(scriptDir));
+        aProcess.waitFor();
+-- anchor:custom-perform:end

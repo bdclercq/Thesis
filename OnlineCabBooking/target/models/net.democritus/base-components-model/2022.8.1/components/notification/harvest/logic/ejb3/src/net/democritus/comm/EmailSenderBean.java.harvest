@@ -1,0 +1,176 @@
+-- anchor:custom-imports:start
+import java.util.Arrays;
+import java.util.Date;
+import javax.annotation.Resource;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Message;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+// import javax.mail.internet.MimePartDataSource;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMultipart;
+import javax.mail.Multipart;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+-- anchor:custom-imports:end
+-- anchor:custom-variables:start
+    // session to transport email
+    @Resource(mappedName = "mailSession_1")
+    private Session mailSession;
+    // template for message content
+    // @Resource(mappedName="mailMimePartDS_1")
+    // private MimePartDataSource mimePartDatasource;
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+    @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+    public TaskResult<Void> sendEmail(final ParameterContext<NotifierDetails> targetParameter) {
+
+        TaskResult<Void> taskResult = TaskResult.success(null);
+        try {
+            NotifierDetails notifierDetails = targetParameter.getValue();
+            Message message = createMailMessage(notifierDetails);
+            transportEmail(message);
+        } catch (final Exception e) {
+            taskResult = TaskResult.error();
+            if (logger.isErrorEnabled()) {
+                logger.error("Failed to perform sendMail on notifier", e);
+            }
+        }
+
+        return taskResult;
+    }
+
+    private Message createMailMessage(final NotifierDetails notifierDetails) throws MessagingException {
+        Message message = new MimeMessage(mailSession);
+        message.setSentDate(new Date());
+        setToAddresses(notifierDetails, message);
+        setSubject(notifierDetails, message);
+        setPriority(notifierDetails, message);
+        setCcAddresses(notifierDetails, message);
+        setBccAddresses(notifierDetails, message);
+        setFromAddress(notifierDetails, message);
+        setContent(notifierDetails, message);
+        return message;
+    }
+
+    private void transportEmail(final Message message) throws MessagingException {
+        Transport transport = mailSession.getTransport();
+        transport.connect();
+        transport.send(message);
+        transport.close();
+        logger.info("email sent");
+    }
+
+    private void setContent(final NotifierDetails notifierDetails, final Message message) throws MessagingException {
+        Multipart multiPart = new MimeMultipart("mixed");
+        addHtmlPartToMultiPart(notifierDetails, multiPart);
+        addAttachmentToMultiPart(notifierDetails, multiPart);
+        logContent(notifierDetails);
+
+        message.setContent(multiPart);
+    }
+
+    private void addHtmlPartToMultiPart(final NotifierDetails notifierDetails, final Multipart multiPart) throws MessagingException {
+        MimeBodyPart htmlPart = new MimeBodyPart();
+        htmlPart.setContent(notifierDetails.getContent(), "text/html");
+        multiPart.addBodyPart(htmlPart);
+    }
+
+    private void addAttachmentToMultiPart(final NotifierDetails notifierDetails, final Multipart multiPart) throws MessagingException {
+        if (isNotEmpty(notifierDetails.getAttachment())) {
+            MimeBodyPart attachment = new MimeBodyPart();
+            logger.info("attachment path = " + notifierDetails.getAttachment());
+            makeAttachment(notifierDetails, attachment);
+            multiPart.addBodyPart(attachment);
+        }
+    }
+
+    private void logContent(final NotifierDetails notifierDetails) {
+        String content = notifierDetails.getContent();
+        if (isContentStringEmpty(content)) {
+            content = "<p>email containing report attachment</p>";
+        }
+        logger.info("content = " + content);
+    }
+
+    private boolean isContentStringEmpty(final String content) {
+        return content == null || content.length() == 0;
+    }
+
+    private void makeAttachment(final NotifierDetails notifierDetails, final MimeBodyPart attachment) throws MessagingException {
+        DataSource dataSource = new FileDataSource(notifierDetails.getAttachment());
+        attachment.setDataHandler(new DataHandler(dataSource));
+        logger.info("attachment file = " + dataSource.getName());
+        attachment.setFileName(dataSource.getName());
+        attachment.setHeader("Content-Type", "application/octet-stream");
+    }
+
+    private void setToAddresses(final NotifierDetails notifierDetails, final Message message) throws MessagingException {
+        if (isNotEmpty(notifierDetails.getToAddresses())) {
+            message.addRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(notifierDetails.getToAddresses()));
+            logger.info("to address = " + Arrays.toString(message.getAllRecipients()));
+        }
+    }
+
+  private void setFromAddress(final NotifierDetails notifierDetails, final Message message) throws MessagingException {
+    if (isNotEmpty(notifierDetails.getFromAddress())) {
+      InternetAddress[] fromAddresses = InternetAddress.parse(notifierDetails.getFromAddress());
+      if (fromAddresses.length != 1) {
+        throw new IllegalArgumentException("Expected 'fromAddress' to contain 1 address");
+      }
+      message.setFrom(fromAddresses[0]);
+      logger.info("from address = " + Arrays.toString(message.getFrom()));
+    }
+  }
+
+    private void setSubject(final NotifierDetails notifierDetails, final Message message) throws MessagingException {
+        message.setSubject(notifierDetails.getSubject());
+        logger.info("subject = " + notifierDetails.getSubject());
+    }
+
+    private void setBccAddresses(final NotifierDetails notifierDetails, final Message message) throws MessagingException {
+        if (isNotEmpty(notifierDetails.getBccAddresses())) {
+            message.addRecipients(Message.RecipientType.BCC,
+                    InternetAddress.parse(notifierDetails.getBccAddresses()));
+            logger.info("bcc address = " + notifierDetails.getBccAddresses());
+        }
+    }
+
+    private boolean isNotEmpty(final String addresses) {
+        return addresses != null && addresses.length() > 0;
+    }
+
+    private void setCcAddresses(final NotifierDetails notifierDetails, final Message message) throws MessagingException {
+        if (isNotEmpty(notifierDetails.getCcAddresses())) {
+            message.addRecipients(Message.RecipientType.CC,
+                    InternetAddress.parse(notifierDetails.getCcAddresses()));
+            logger.info("cc address = " + notifierDetails.getCcAddresses());
+        }
+    }
+
+    private void setPriority(final NotifierDetails notifierDetails, final Message message) throws MessagingException {
+        if (notifierDetails.getPriority().equals("High")) { // 1 = high, 3 = normal, 5 = low
+            message.setHeader("X-Priority", "1");
+        } else if (notifierDetails.getPriority().equals("Low")) {
+            message.setHeader("X-Priority", "5");
+        } else {
+            message.setHeader("X-Priority", "3");
+        }
+        logger.info("priority = " + notifierDetails.getPriority());
+    }
+-- anchor:custom-methods:end
+-- anchor:custom-postPerform:start
+        try {
+            Thread.sleep(1000);
+        } catch (final Exception e) {
+            if (logger.isErrorEnabled()) {
+                logger.error(
+                        "Failed to 'sleep' in postPerform", e
+                );
+            }
+        }
+-- anchor:custom-postPerform:end

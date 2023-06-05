@@ -1,0 +1,74 @@
+-- anchor:custom-methods:start
+  private CrudsResult<Void> createFileAsset(ParameterContext<AssetDetails> parameter) {
+    AssetDetails details = parameter.getValue();
+
+    FileAssetDetails fileAssetDetails = new FileAssetDetails();
+    fileAssetDetails.setName(details.getName());
+
+    CrudsResult<DataRef> crudsResult = fileAssetLocal.create(parameter.construct(fileAssetDetails));
+    if (crudsResult.isSuccess()) {
+      details.setFileAsset(crudsResult.getValue());
+      return CrudsResult.success();
+    } else {
+      return crudsResult.convertError();
+    }
+  }
+
+  private CrudsResult<Void> createInternalAsset(ParameterContext<AssetDetails> parameter) {
+    AssetDetails details = parameter.getValue();
+
+    InternalAssetDetails internalAssetDetails = new InternalAssetDetails();
+    internalAssetDetails.setName(details.getName());
+
+    CrudsResult<DataRef> crudsResult = internalAssetLocal.create(parameter.construct(internalAssetDetails));
+    if (crudsResult.isSuccess()) {
+      details.setInternalAsset(crudsResult.getValue());
+      return CrudsResult.success();
+    } else {
+      return crudsResult.convertError();
+    }
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-before-find:start
+    String projection = searchParameter.getValue().getProjection();
+-- anchor:custom-before-find:end
+-- anchor:custom-command-registerExternalAsset:start
+    ExternalAssetDetails externalAssetDetails = new ExternalAssetDetails();
+    externalAssetDetails.setUri(registerExternalAssetCommand.getUri());
+
+    CrudsResult<DataRef> crudsResult = externalAssetLocal.create(commandParameter.construct(externalAssetDetails));
+    if (crudsResult.isError()) {
+      return CommandResult.error(registerExternalAssetCommand, "Could not create external asset");
+    }
+
+    CrudsResult<ExternalAssetDetails> detailsResult = externalAssetLocal.getDetails(parameterFactory.construct(crudsResult.getValue().getId()));
+    if (detailsResult.isError()) {
+      return CommandResult.error(registerExternalAssetCommand, "Could not retrieve created external asset");
+    }
+
+    externalAssetDetails = detailsResult.getValue();
+
+    AssetDetails assetDetails = new AssetDetails();
+    assetDetails.setName(externalAssetDetails.getName());
+    assetDetails.setByteSize(externalAssetDetails.getByteSize());
+    assetDetails.setContentType(externalAssetDetails.getContentType());
+    assetDetails.setType(AssetType.REMOTE.name());
+    assetDetails.setExternalAsset(crudsResult.getValue());
+    assetDetails.setComplete(true);
+
+    CrudsResult<DataRef> createResult = create(parameterFactory.construct(assetDetails));
+    if (createResult.isError()) {
+      return CommandResult.error(registerExternalAssetCommand, "Could not create asset");
+    }
+-- anchor:custom-command-registerExternalAsset:end
+-- anchor:custom-preCreate:start
+        CrudsResult<Void> initResult = initAsset(detailsParameter);
+        if (initResult.isError()) {
+          return initResult.convertError();
+        }
+-- anchor:custom-preCreate:end
+-- anchor:custom-preModify:start
+        if (true) {
+          return diagnosticHelper.createCrudsError("Cannot be modified");
+        }
+-- anchor:custom-preModify:end

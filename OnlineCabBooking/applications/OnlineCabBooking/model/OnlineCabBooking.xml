@@ -4,7 +4,6 @@
   <components>
     <component name="utils"/>
     <component name="account"/>
-    <component name="assets"/>
     <component name="validation"/>
     <component name="workflow"/>
     <component name="onlineCabBookingComp"/>

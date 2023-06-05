@@ -18,9 +18,5 @@
       <dependsOn name="workflow"/>
       <isManyToMany>false</isManyToMany>
     </componentDependency>
-    <componentDependency name="">
-      <dependsOn name="assets"/>
-      <isManyToMany>false</isManyToMany>
-    </componentDependency>
   </componentDependencies>
 </component>

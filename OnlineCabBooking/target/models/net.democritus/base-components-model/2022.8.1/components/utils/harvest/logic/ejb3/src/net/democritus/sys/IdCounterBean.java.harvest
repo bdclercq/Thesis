@@ -1,0 +1,5 @@
+-- anchor:custom-methods:start
+    public synchronized Long getNextCount(String aName) {
+      return idCounterCrudsLocal.getNextCount(aName);
+    }
+-- anchor:custom-methods:end

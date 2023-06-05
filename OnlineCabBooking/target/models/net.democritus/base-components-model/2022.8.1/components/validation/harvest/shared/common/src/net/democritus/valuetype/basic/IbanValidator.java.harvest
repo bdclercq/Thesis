@@ -1,0 +1,26 @@
+-- anchor:custom-imports:start
+import static net.democritus.valuetype.basic.IBANValidation.validateIBAN;
+-- anchor:custom-imports:end
+-- anchor:custom-validation:start
+    if (value == null) {
+      return ValidationResult.error("Iban Object is null.");
+    }
+
+    String strIban = iban.getValue();
+
+    if (strIban.isEmpty()) {
+      return ValidationResult.success();
+    }
+
+    System.out.println("validating IBAN " + strIban);
+
+    IBANValidation.IBANResponse ibanResponse = validateIBAN(strIban);
+    if (ibanResponse.isValid()) {
+      System.out.println("IBAN validation OK");
+      result = ValidationResult.success();
+    }
+    else {
+      System.out.println("problem with IBAN: " + ibanResponse.getErrorMessage());
+      result = ValidationResult.error("should be a valid IBAN");
+    }
+-- anchor:custom-validation:end

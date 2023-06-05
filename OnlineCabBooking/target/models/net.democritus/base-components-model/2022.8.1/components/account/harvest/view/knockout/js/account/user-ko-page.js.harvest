@@ -1,0 +1,4 @@
+-- anchor:custom-before-applyBindings:start
+        userModel.hideOnCreate("user.encryptedPassword");
+        userModel.hideOnModify("user.encryptedPassword");
+-- anchor:custom-before-applyBindings:end

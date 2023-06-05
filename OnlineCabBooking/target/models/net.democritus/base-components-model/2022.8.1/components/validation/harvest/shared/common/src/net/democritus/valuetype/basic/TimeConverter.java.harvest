@@ -1,0 +1,55 @@
+-- anchor:custom-asString:start
+    if (time == null) {
+      result = success("");
+    } else {
+      result = success(String.format("%02d:%02d", time.getHours(), time.getMinutes()));
+    }
+-- anchor:custom-asString:end
+-- anchor:custom-fromString:start
+    if (value == null) {
+      return success(new Time(0,0));
+    }
+
+    value = value.trim();
+
+    if (value.isEmpty()) {
+      return success(new Time(0, 0));
+    }
+
+    int pos = value.indexOf(":");
+    if (pos < 0) {
+      return error("time format is HH:mm");
+    }
+
+    int hours;
+    int minutes;
+
+    String[] parts = value.split(":");
+
+    try {
+      hours = Integer.parseInt(parts[0]);
+    } catch (NumberFormatException e) {
+      return error("hours must be a valid integer");
+    }
+
+    try {
+
+      if (parts.length > 0) {
+        minutes = Integer.parseInt(parts[1]);
+      } else {
+        minutes = 0;
+      }
+    } catch (NumberFormatException e) {
+      return error("hours must be a valid integer");
+    }
+
+    if (minutes <0 || minutes > 59) {
+      return error("minutes must be 0-59");
+    }
+
+    if (hours < 0) {
+      return error("hours must be positive");
+    }
+
+    result = success(new Time(hours, minutes));
+-- anchor:custom-fromString:end

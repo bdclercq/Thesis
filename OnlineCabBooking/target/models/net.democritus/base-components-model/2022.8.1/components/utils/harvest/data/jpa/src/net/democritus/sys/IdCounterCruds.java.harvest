@@ -1,0 +1,28 @@
+-- anchor:custom-imports:start
+import javax.persistence.Query;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  @Override
+  public synchronized Long getNextCount(String aName) {
+    Long newcount = new Long(0);
+    IdCounterData idCounterData = null;
+    try {
+      Query query = entityManager.createNamedQuery("utils.IdCounter.findByNameEq");
+      query.setParameter("Name", aName);
+      idCounterData = (IdCounterData) query.getSingleResult();
+      long counter = idCounterData.getCounter().longValue();
+      counter++;
+      newcount = new Long(counter);
+      idCounterData.setCounter(newcount);
+    }
+    catch (Exception e) {
+      if (logger.isErrorEnabled()) {
+        logger.error(
+            "Cannot getNextCount for " + aName, e
+        );
+      }
+    }
+    return newcount;
+  }
+
+-- anchor:custom-methods:end

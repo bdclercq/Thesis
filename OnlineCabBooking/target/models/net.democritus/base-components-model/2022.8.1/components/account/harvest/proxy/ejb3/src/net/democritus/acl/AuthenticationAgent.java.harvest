@@ -1,0 +1,21 @@
+-- anchor:custom-imports:start
+import account.settings.AccountApplicationSettings;
+
+import net.palver.util.Options;
+-- anchor:custom-imports:end
+-- anchor:custom-methods:start
+  private Options.Option<String> getAuthenticationImplementation() {
+    return AccountApplicationSettings.getProperty("authentication.implementation");
+  }
+
+  private Options.Option<String> getAuthenticationParams() {
+    return AccountApplicationSettings.getProperty("authentication.params");
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-prePerform:start
+    String implName = getAuthenticationImplementation().orElse("net.democritus.acl.AuthenticationImpl");
+    String authenticationParams = getAuthenticationParams().orElse(paramString);
+    parameterContext = ParameterContext.create(getUserContext(),
+        new BasicProcessingContext(implName, authenticationParams),
+        userInput);
+-- anchor:custom-prePerform:end

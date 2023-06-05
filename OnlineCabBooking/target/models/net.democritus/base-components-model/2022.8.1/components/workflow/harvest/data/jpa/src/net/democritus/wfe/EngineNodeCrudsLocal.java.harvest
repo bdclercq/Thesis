@@ -1,0 +1,3 @@
+-- anchor:custom-methods:start
+  CrudsResult<Void> promoteToMaster(ParameterContext<DataRef> parameter);
+-- anchor:custom-methods:end

@@ -1,0 +1,23 @@
+<component name="workflow">
+  <version>1.0</version>
+  <fullName>BASE:workflow</fullName>
+  <mainScreen>workflow-view</mainScreen>
+  <componentDependencies>
+    <componentDependency name="workflow:account">
+      <dependsOn name="account"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+    <componentDependency name="workflow:utils">
+      <dependsOn name="utils"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+    <componentDependency name="workflow:validation">
+      <dependsOn name="validation"/>
+      <isManyToMany>false</isManyToMany>
+    </componentDependency>
+  </componentDependencies>
+  <options>
+    <hasDataBaseSchema>WORKFLOW</hasDataBaseSchema>
+    <isBaseComponent/>
+  </options>
+</component>

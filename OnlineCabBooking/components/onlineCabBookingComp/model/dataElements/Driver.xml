@@ -32,7 +32,7 @@
       <isListField>false</isListField>
       <linkField>
         <targetElement component="onlineCabBookingComp" name="Cab"/>
-        <linkFieldType name="Ln01"/>
+        <linkFieldType name="Ln05"/>
       </linkField>
     </field>
     <field name="tripBooking">
@@ -51,6 +51,15 @@
       <valueField>
         <valueFieldType component="" name="String"/>
       </valueField>
+    </field>
+    <field name="person">
+      <fieldType>LINK_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <linkField>
+        <targetElement component="onlineCabBookingComp" name="Person"/>
+        <linkFieldType name="Ln01"/>
+      </linkField>
     </field>
   </fields>
   <finders>

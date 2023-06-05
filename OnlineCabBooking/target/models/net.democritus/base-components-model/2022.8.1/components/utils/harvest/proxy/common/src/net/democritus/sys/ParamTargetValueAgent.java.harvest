@@ -1,0 +1,23 @@
+-- anchor:custom-methods:start
+  public String getParamTargetValue(String paramName, String targetName) {
+    ParamTargetValueFindByParamEq_TargetEqDetails finder = new ParamTargetValueFindByParamEq_TargetEqDetails();
+    finder.setParam(paramName);
+    finder.setTarget(targetName);
+    return paramTargetValueProxy.getParamTargetValue(createParameter(finder));
+  }
+
+  public boolean isParamTargetValueActive(String paramName, String targetName, boolean defaultValue) {
+    ParamTargetValueFindByParamEq_TargetEqDetails finder = new ParamTargetValueFindByParamEq_TargetEqDetails();
+    finder.setParam(paramName);
+    finder.setTarget(targetName);
+    return paramTargetValueProxy.isParamTargetValueActive(createParameter(finder), defaultValue);
+  }
+
+  public CrudsResult<DataRef> setParamTargetValue(String paramName, String targetName, Object value) {
+    final ParamTargetValueDetails details = new ParamTargetValueDetails();
+    details.setParam(paramName);
+    details.setTarget(targetName);
+    details.setValue(String.valueOf(value));
+    return paramTargetValueProxy.setParamTargetValue(createParameter(details));
+  }
+-- anchor:custom-methods:end

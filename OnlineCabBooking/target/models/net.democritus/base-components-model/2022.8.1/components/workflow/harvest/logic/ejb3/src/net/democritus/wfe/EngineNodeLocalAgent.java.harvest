@@ -1,0 +1,24 @@
+-- anchor:custom-methods:start
+  public CrudsResult<Void> promoteToMaster(DataRef target) {
+    return engineNodeLocal.promoteToMaster(createParameter(target));
+  }
+
+  public CrudsResult<Void> postHealthCheck(DataRef target) {
+    return engineNodeLocal.postHealthCheck(createParameter(target));
+  }
+
+  public CrudsResult<Void> setNotResponding(DataRef target) {
+    return engineNodeLocal.setNotResponding(createParameter(target));
+  }
+
+  public CrudsResult<Void> activateEngineNodes() {
+    return engineNodeLocal.activateEngineNodes(createEmptyParameter());
+  }
+
+  public CrudsResult<EngineNodeDetails> getEngineNodeByName(String name) {
+    return engineNodeLocal.getEngineNodeByName(createParameter(name));
+  }
+  public CrudsResult<EngineNodeDetails> getEngineNodeById(Long id) {
+    return engineNodeLocal.getEngineNodeById(createParameter(id));
+  }
+-- anchor:custom-methods:end

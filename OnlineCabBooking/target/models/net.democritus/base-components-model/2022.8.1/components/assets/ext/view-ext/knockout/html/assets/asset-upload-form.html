@@ -1,0 +1,40 @@
+<!-- custom file -->
+<form class="form-horizontal" data-bind="submit: submit.trigger">
+  <fieldset data-bind="with: instance">
+    <input type="hidden" name="asset.id" data-bind="value: detailModel.id"/>
+    <div class="control-group"
+         data-bind="visible: type.visible, css: { error: type.hasErrors}">
+      <label class="control-label nsx-required"
+             for="asset.type"
+             data-bind="translate: 'assets.asset.type'">
+      </label>
+      <div class="controls" id="asset.type" data-bind="focus: 2">
+        <span data-bind="tagValue: {
+            field: detailModel.type,
+            tag: 'asset_type'
+        }, enable: isFieldEnabled('asset.type', editMode)">
+        </span>
+        <div data-bind="visible: type.hasErrors" class="alert alert-error">
+          <ul data-bind="with: type.errorMessages">
+            <li data-bind="text: $data"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="control-group"
+         data-bind="visible: uploadUri.visible, css: { error: uploadUri.hasErrors}">
+      <label class="control-label"
+             for="asset.uploadUri"
+             data-bind="translate: 'assets.asset.uploadAsset.uploadUri'">
+      </label>
+      <div class="controls" id="asset.uploadUri" data-bind="focus: 1">
+        <span data-bind="fileUpload: detailModel.uploadUri"></span>
+        <div data-bind="visible: uploadUri.hasErrors" class="alert alert-error">
+          <ul data-bind="with: uploadUri.errorMessages">
+            <li data-bind="text: $data"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</form>

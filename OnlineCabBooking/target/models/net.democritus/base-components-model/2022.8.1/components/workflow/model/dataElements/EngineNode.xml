@@ -1,0 +1,131 @@
+<dataElement name="EngineNode">
+  <packageName>net.democritus.wfe</packageName>
+  <dataElementType name="Primary"/>
+  <fields>
+    <field name="name">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isNameField/>
+      </options>
+    </field>
+    <field name="status">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>true</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="hostname">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="String"/>
+      </valueField>
+      <options>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="master">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>true</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="Boolean"/>
+      </valueField>
+      <options>
+        <isExposedField/>
+        <isShowInfo/>
+      </options>
+    </field>
+    <field name="lastActive">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="DateLong"/>
+      </valueField>
+      <options>
+        <isExposedField/>
+      </options>
+    </field>
+    <field name="activeSince">
+      <fieldType>VALUE_FIELD</fieldType>
+      <isInfoField>false</isInfoField>
+      <isListField>false</isListField>
+      <valueField>
+        <valueFieldType component="" name="DateLong"/>
+      </valueField>
+    </field>
+  </fields>
+  <finders>
+    <finder name="findAllEngineNodes"/>
+    <finder name="findByNameEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:name">
+          <operator>Eq</operator>
+          <field name="name"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByMasterEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:master">
+          <operator>Eq</operator>
+          <field name="master"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByMasterEq_LastActiveLt">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:master">
+          <operator>Eq</operator>
+          <field name="master"/>
+        </fieldOperatorPair>
+        <fieldOperatorPair name="Lt:lastActive">
+          <operator>Lt</operator>
+          <field name="lastActive"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByLastActiveLt">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Lt:lastActive">
+          <operator>Lt</operator>
+          <field name="lastActive"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+    <finder name="findByStatusEq">
+      <fieldOperatorPairs>
+        <fieldOperatorPair name="Eq:status">
+          <operator>Eq</operator>
+          <field name="status"/>
+        </fieldOperatorPair>
+      </fieldOperatorPairs>
+    </finder>
+  </finders>
+  <dataChildren>
+    <dataChild>
+      <childComponent>workflow</childComponent>
+      <childElement>EngineNodeService</childElement>
+      <childField>engineNode</childField>
+    </dataChild>
+  </dataChildren>
+  <dataStates>
+    <dataState name="Active"/>
+    <dataState name="Not responding"/>
+    <dataState name="Recovering"/>
+    <dataState name="Ready"/>
+    <dataState name="Unexpected shutdown"/>
+  </dataStates>
+</dataElement>

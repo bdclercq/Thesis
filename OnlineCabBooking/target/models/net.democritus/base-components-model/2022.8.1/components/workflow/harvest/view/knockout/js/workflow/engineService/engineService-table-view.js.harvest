@@ -1,0 +1,117 @@
+-- anchor:custom-variables:start
+  var WorkflowElement = require('nsx/nsx-application').getElement('workflow', 'workflow');
+  var EngineServiceProjector = require('workflow/engineService/engineService-projector');
+  var PerformCommandAction = require('nsx/action/perform-command-action');
+  var nsxActions = require('nsx/nsx-actions');
+  var nsxRequest = require('nsx/nsx-request');
+  var nsxNotification = require('nsx/notification/nsx-notification')
+-- anchor:custom-variables:end
+-- anchor:custom-methods:start
+  function defineRunNowButton(toolbar, selection) {
+    var button = toolbar.defineButton({
+      label: "Run now",
+      icon: "icon-forward",
+      visible: isDataRefDefined(selection)
+    });
+
+    Trigger.when(button.trigger)
+        .thenDo(_ => {
+          var engineService = ko.unwrap(selection)
+
+          let url = nsxActions.getElementAction(WorkflowElement, 'run-json');
+          url += `?engineService.id=${engineService.id}`
+          nsxRequest.postPerformTask({
+            url: url
+          }).then((result) => {
+            var messageBody = `
+tasks processed: ${result.tasksProcessedInTotal}
+tasks succeeded: ${result.tasksSucceeded}
+tasks failed: ${result.tasksFailed}
+tasks not executed: ${result.tasksNotExecuted}
+`
+            if (result.success) {
+              nsxNotification.popupSuccess(engineService.name + ' ran successfully' + messageBody)
+            } else {
+              nsxNotification.popupWarn(engineService.name + ' encountered some problems' + messageBody)
+            }
+          })
+        })
+
+  }
+
+
+  function defineEnableDisableRefreshButtons(toolbar, selection) {
+    var engineServiceUpdate = EngineServiceEvents.defineEditUpdateTrigger();
+    var esDetails = EngineServiceProjector.defineProjector(selection, {
+      projection: "details"
+    }).projection;
+
+    var disableButton = toolbar.defineButton({
+      label: "Disable Engine",
+      icon: "icon-pause",
+      layout: "disable-engine-btn",
+      visible: ko.pureComputed(function () {
+        return utils.isDefined(selection()) && esDetails().status === "start";
+      })
+    });
+
+    var enableButton = toolbar.defineButton({
+      label: "Enable Engine",
+      icon: "icon-play",
+      layout: "enable-engine-btn",
+      visible: ko.pureComputed(function () {
+        return utils.isDefined(selection()) && esDetails().status === "stop";
+      })
+    });
+
+    var refreshButton = toolbar.defineButton({
+      label: "Refresh Engine",
+      icon: "icon-refresh",
+      layout: "refresh-engine-btn",
+      visible: ko.pureComputed(function () {
+        return utils.isDefined(selection()) && esDetails().status === "start";
+      })
+    });
+
+    var stopEngine = PerformCommandAction.definePerformCommandAction({
+      commandName: "stopEngine",
+      instance: {},
+      trigger: disableButton.trigger,
+      element: EngineServiceElement
+    }, {
+      target: selection
+    });
+
+    var startEngine = PerformCommandAction.definePerformCommandAction({
+      commandName: "startEngine",
+      instance: {},
+      trigger: enableButton.trigger,
+      element: EngineServiceElement
+    }, {
+      target: selection
+    });
+
+    var refreshEngine = PerformCommandAction.definePerformCommandAction({
+      commandName: "refreshEngine",
+      instance: {},
+      trigger: refreshButton.trigger,
+      element: EngineServiceElement
+    }, {
+      target: selection
+    });
+
+    Trigger
+      .when(stopEngine.success)
+      .or(startEngine.success)
+      .or(refreshEngine.success)
+      .thenTrigger(engineServiceUpdate);
+  }
+-- anchor:custom-methods:end
+-- anchor:custom-page-after:start
+    defineEnableDisableRefreshButtons(toolbar, engineServiceList.selection);
+    defineRunNowButton(toolbar, engineServiceList.selection)
+-- anchor:custom-page-after:end
+-- anchor:custom-page-model:start
+    var refreshUpdate = EngineServiceEvents.defineRefreshUpdateTrigger();
+    setInterval(refreshUpdate.trigger, 10000);
+-- anchor:custom-page-model:end

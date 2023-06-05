@@ -1,0 +1,3 @@
+-- anchor:custom-methods:start
+  CrudsResult<ProfileAccessRights> getProfileAccessRights(ParameterContext<ProfileAccessQuery> queryParameter);
+-- anchor:custom-methods:end

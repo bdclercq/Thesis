@@ -1,0 +1,9 @@
+<component name="utils">
+  <version>1.0</version>
+  <fullName>BASE:utils</fullName>
+  <mainScreen>idCounter-view</mainScreen>
+  <options>
+    <hasDataBaseSchema>UTILS</hasDataBaseSchema>
+    <isBaseComponent/>
+  </options>
+</component>

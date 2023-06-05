@@ -1,0 +1,5 @@
+-- anchor:custom-methods:start
+  public CrudsResult<AssetChunk> getAssetChunk(AssetChunkRef reference) {
+    return assetLocal.getAssetChunk(createParameter(reference));
+  }
+-- anchor:custom-methods:end

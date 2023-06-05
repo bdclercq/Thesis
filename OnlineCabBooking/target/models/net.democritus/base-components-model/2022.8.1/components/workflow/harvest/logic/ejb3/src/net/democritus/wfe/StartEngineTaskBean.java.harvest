@@ -1,0 +1,11 @@
+-- anchor:custom-variables:start
+  @EJB
+  private TimerHandlerLocal timerHandlerLocal;
+-- anchor:custom-variables:end
+-- anchor:custom-prePerform:start
+    taskResult = TaskResult.success();
+    Integer result = timerHandlerLocal.startTimer(targetParameter.getValue().getName());
+    if (result == -1) {
+      taskResult = TaskResult.error();
+    }
+-- anchor:custom-prePerform:end
